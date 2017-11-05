@@ -33,3 +33,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'coderay'
 end
+
+group :test do
+  gem 'capybara'
+  gem 'factory_girl_rails'
+end
