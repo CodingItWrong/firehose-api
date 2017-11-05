@@ -1,24 +1,30 @@
-# README
+# Firehose
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a short description of your app.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+### Requirements
 
-* System dependencies
+1. Ruby
+1. PostgreSQL (e.g. [Postgres.app][postgres-app])
 
-* Configuration
+### Setup
 
-* Database creation
+```sh
+$ bin/bootstrap
+```
 
-* Database initialization
+### Testing
 
-* How to run the test suite
+```sh
+$ bin/rspec
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Running
 
-* Deployment instructions
+```sh
+$ bin/rails server
+```
 
-* ...
+[postgres-app]: http://postgresapp.com
