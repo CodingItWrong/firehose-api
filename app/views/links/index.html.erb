@@ -1,0 +1,7 @@
+<%= link_to 'Add', new_link_path %>
+
+<ul>
+  <% @links.each do |link| %>
+    <li><%= link_to link.url, link.url %></li>
+  <% end %>
+</ul>
