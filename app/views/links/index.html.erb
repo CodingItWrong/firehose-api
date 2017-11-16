@@ -2,6 +2,9 @@
 
 <ul>
   <% @links.each do |link| %>
-    <li><%= link_to link.title, link.url %></li>
+    <li>
+      <%= link_to link.title, link.url %>
+      <%= link_to 'Edit', edit_link_path(link) %>
+    </li>
   <% end %>
 </ul>

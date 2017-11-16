@@ -12,12 +12,26 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.new(link_params)
+    @link = Link.new(new_link_params)
 
     if @link.save
       redirect_to links_path
     else
       render :new
+    end
+  end
+
+  def edit
+    @link = Link.find(params[:id])
+  end
+
+  def update
+    @link = Link.find(params[:id])
+
+    if @link.update(edit_link_params)
+      redirect_to links_path
+    else
+      render :edit
     end
   end
 
@@ -27,11 +41,16 @@ class LinksController < ApplicationController
     LinkParser.instance
   end
 
-  def link_params
+  def new_link_params
     params.require(:link)
           .permit(:url)
           .tap { |params|
             params.merge!(title: link_parser.title(url: params[:url]))
           }
+  end
+
+  def edit_link_params
+    params.require(:link)
+          .permit(:url, :title)
   end
 end

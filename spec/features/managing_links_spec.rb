@@ -10,6 +10,7 @@ RSpec.feature 'Managing Links', type: :feature do
 
   it 'allows managing links' do
     create_link
+    edit_link
   end
 
   def create_link
@@ -20,5 +21,13 @@ RSpec.feature 'Managing Links', type: :feature do
     click_on 'Save'
 
     expect(page).to have_content('Sample Blog Post Title')
+  end
+
+  def edit_link
+    click_on 'Edit'
+    fill_in 'Title', with: 'Custom Title'
+    click_on 'Save'
+
+    expect(page).to have_content('Custom Title')
   end
 end
