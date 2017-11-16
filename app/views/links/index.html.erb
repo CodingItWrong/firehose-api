@@ -1,22 +1,26 @@
 <% if user_signed_in? %>
-  <%= link_to 'Add', new_link_path %>
+  <%= link_to 'Add', new_link_path, class: 'btn btn-default' %>
 <% end %>
 
-<ul>
-  <% @links.each do |link| %>
-    <li>
-      <%= link_to link.title, link.url %>
+<% @links.each do |link| %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h2><%= link_to link.title, link.url %></h2>
       <% if user_signed_in? %>
         <% if link.public? %>
           <span>Public</span>
         <% end %>
-        <span>
-          <%= link_to 'Edit', edit_link_path(link) %>
-          <%= link_to 'Delete', link, method: :delete, confirm: 'Are you sure?' %>
-        </span>
+        <div>
+          <%= link_to 'Edit', edit_link_path(link), class: 'btn btn-default' %>
+          <%= link_to 'Delete', link, method: :delete, confirm: 'Are you sure?', class: 'btn btn-default' %>
+        </div>
       <% end %>
-      <p><%= link.tags.join(', ') %></p>
+      <div>
+        <% link.tags.each do |tag| %>
+          <span class="label label-primary"><%= tag %></span>
+        <% end %>
+      </div>
       <p><%= link.comment %></p>
-    </li>
-  <% end %>
-</ul>
+    </div>
+  </div>
+<% end %>
