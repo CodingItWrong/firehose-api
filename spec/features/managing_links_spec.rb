@@ -33,10 +33,12 @@ RSpec.feature 'Managing Links', type: :feature do
     click_on 'Edit'
     fill_in 'Title', with: title
     fill_in 'Comment', with: comment
+    check 'Public'
     click_on 'Save'
 
     expect(page).to have_content(title)
     expect(page).to have_content(comment)
+    expect(page).to have_content('Public')
   end
 
   def delete_link

@@ -58,6 +58,6 @@ class LinksController < ApplicationController
 
   def edit_link_params
     params.require(:link)
-          .permit(:url, :title, :comment)
+          .permit(:url, :title, :comment, :public)
   end
 end
