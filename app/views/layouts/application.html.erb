@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Firehose</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -9,9 +11,21 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render partial: 'nav' %>
 
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <% if notice %>
+            <div class="alert alert-success"><%= notice %></div>
+          <% end %>
+          <% if alert %>
+            <div class="alert alert-danger"><%= alert %></div>
+          <% end %>
+
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
