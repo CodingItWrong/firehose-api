@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'acts-as-taggable-on'
+gem 'dotenv-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -21,7 +22,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'rspec-rails'
