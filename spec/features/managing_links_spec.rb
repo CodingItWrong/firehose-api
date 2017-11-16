@@ -6,6 +6,8 @@ require 'link_parser'
 RSpec.feature 'Managing Links', type: :feature do
   before(:each) do
     LinkParser.fake!
+    user = FactoryBot.create(:user)
+    sign_in user
   end
 
   it 'allows managing links' do
