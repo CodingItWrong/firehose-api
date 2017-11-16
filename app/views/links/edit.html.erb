@@ -1,0 +1,15 @@
+<%= form_for @link do |f| %>
+  <div>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </div>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </div>
+  <%= f.submit 'Save' %>
+<% end %>

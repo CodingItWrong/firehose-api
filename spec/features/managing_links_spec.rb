@@ -24,10 +24,15 @@ RSpec.feature 'Managing Links', type: :feature do
   end
 
   def edit_link
+    title = 'Custom Title'
+    comment = 'Best post'
+
     click_on 'Edit'
-    fill_in 'Title', with: 'Custom Title'
+    fill_in 'Title', with: title
+    fill_in 'Comment', with: comment
     click_on 'Save'
 
-    expect(page).to have_content('Custom Title')
+    expect(page).to have_content(title)
+    expect(page).to have_content(comment)
   end
 end
