@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  host: db
   database: firehose_production
-  username: firehose
-  password: <%= ENV['FIREHOSE_DATABASE_PASSWORD'] %>
+  username: postgres
+  password:

@@ -12,3 +12,6 @@
 /tmp/*
 
 .byebug_history
+.env
+postgres-data
+public/assets
