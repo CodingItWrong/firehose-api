@@ -15,6 +15,7 @@
           <%= link_to 'Delete', link, method: :delete, confirm: 'Are you sure?' %>
         </span>
       <% end %>
+      <p><%= link.tags.join(', ') %></p>
       <p><%= link.comment %></p>
     </li>
   <% end %>

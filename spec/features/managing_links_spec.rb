@@ -29,9 +29,11 @@ RSpec.feature 'Managing Links', type: :feature do
   def edit_link
     title = 'Custom Title'
     comment = 'Best post'
+    tags = %w[foo bar baz]
 
     click_on 'Edit'
     fill_in 'Title', with: title
+    fill_in 'Tags', with: tags.join(' ')
     fill_in 'Comment', with: comment
     check 'Public'
     click_on 'Save'
@@ -39,6 +41,9 @@ RSpec.feature 'Managing Links', type: :feature do
     expect(page).to have_content(title)
     expect(page).to have_content(comment)
     expect(page).to have_content('Public')
+    tags.each do |tag|
+      expect(page).to have_content(tag)
+    end
   end
 
   def delete_link
