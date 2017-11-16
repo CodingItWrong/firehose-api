@@ -12,7 +12,7 @@
         <% end %>
         <div>
           <%= link_to 'Edit', edit_link_path(link), class: 'btn btn-default' %>
-          <%= link_to 'Delete', link, method: :delete, confirm: 'Are you sure?', class: 'btn btn-default' %>
+          <%= link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </div>
       <% end %>
       <div>

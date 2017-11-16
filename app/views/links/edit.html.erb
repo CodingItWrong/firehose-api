@@ -1,23 +1,24 @@
 <%= form_for @link do |f| %>
-  <div>
+  <div class='form-group'>
     <%= f.label :url %>
-    <%= f.text_field :url %>
+    <p class="form-control-static"><%= link_to @link.url %></p>
   </div>
-  <div>
+  <div class='form-group'>
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div>
+  <div class='form-group'>
     <%= f.label :tag_list, 'Tags' %>
-    <%= f.text_field :tag_list %>
+    <%= f.text_field :tag_list, class: 'form-control' %>
   </div>
-  <div>
+  <div class='form-group'>
     <%= f.label :public %>
     <%= f.check_box :public %>
   </div>
-  <div>
+  <div class='form-group'>
     <%= f.label :comment %>
-    <%= f.text_area :comment %>
+    <%= f.text_area :comment, class: 'form-control' %>
   </div>
-  <%= f.submit 'Save' %>
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', root_path, class: 'btn btn-default' %>
 <% end %>

@@ -1,5 +1,10 @@
+<h1>Add Link</h1>
+
 <%= form_for @link do |f| %>
-  <%= f.label :url, 'URL' %>
-  <%= f.text_field :url %>
-  <%= f.submit 'Save' %>
+  <div class="form-group">
+    <%= f.label :url, 'URL' %>
+    <%= f.text_field :url, class: 'form-control' %>
+  </div>
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', root_path, class: 'btn btn-default' %>
 <% end %>
