@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'link_parser'
+
 class LinksController < ApplicationController
   def index
     @links = Link.all
@@ -21,8 +23,15 @@ class LinksController < ApplicationController
 
   private
 
+  def link_parser
+    LinkParser.instance
+  end
+
   def link_params
     params.require(:link)
           .permit(:url)
+          .tap { |params|
+            params.merge!(title: link_parser.title(url: params[:url]))
+          }
   end
 end
