@@ -6,7 +6,7 @@ class LinksController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    @links = Link.all
+    @links = links_for_current_user
   end
 
   def new
@@ -43,6 +43,14 @@ class LinksController < ApplicationController
   end
 
   private
+
+  def links_for_current_user
+    if user_signed_in?
+      Link.all
+    else
+      Link.where(public: true)
+    end
+  end
 
   def link_parser
     LinkParser.instance
