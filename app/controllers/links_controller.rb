@@ -35,6 +35,11 @@ class LinksController < ApplicationController
     end
   end
 
+  def destroy
+    Link.delete(params[:id])
+    redirect_to links_path
+  end
+
   private
 
   def link_parser

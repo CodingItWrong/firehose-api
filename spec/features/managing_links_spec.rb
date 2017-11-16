@@ -11,6 +11,7 @@ RSpec.feature 'Managing Links', type: :feature do
   it 'allows managing links' do
     create_link
     edit_link
+    delete_link
   end
 
   def create_link
@@ -34,5 +35,11 @@ RSpec.feature 'Managing Links', type: :feature do
 
     expect(page).to have_content(title)
     expect(page).to have_content(comment)
+  end
+
+  def delete_link
+    click_on 'Delete'
+
+    expect(page).not_to have_content('Custom Title')
   end
 end
