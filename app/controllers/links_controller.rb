@@ -46,9 +46,9 @@ class LinksController < ApplicationController
 
   def links_for_current_user
     if user_signed_in?
-      Link.unread.order(created_at: :desc)
+      Link.newest.unread
     else
-      Link.unread.where(public: true).order(created_at: :desc)
+      Link.newest.publicly_visible
     end
   end
 
