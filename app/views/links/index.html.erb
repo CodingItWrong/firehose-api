@@ -8,7 +8,7 @@
   <div class="panel panel-default">
     <div class="panel-body h-entry">
       <div>
-        <span class="lead"><%= link_to link.title, link.url, class: 'p-name' %></span>
+        <span class="lead p-name"><%= link_to link.title, link.url %></span>
         <% if user_signed_in? %>
           <% if link.public? %>
             <span>Public</span>
