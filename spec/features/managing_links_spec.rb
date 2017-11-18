@@ -50,9 +50,17 @@ RSpec.feature 'Managing Links', type: :feature do
   def mark_link_read
     title = 'Custom Title'
     click_on 'Mark Read'
+    expect(page).to have_current_path(root_path)
     expect(page).to_not have_content(title)
 
     click_on 'Read'
+    expect(page).to have_content(title)
+
+    click_on 'Mark Unread'
+    expect(page).to have_current_path(read_links_path)
+    expect(page).to_not have_content(title)
+
+    click_on 'Links'
     expect(page).to have_content(title)
   end
 

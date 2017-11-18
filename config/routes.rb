@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
 
     scope module: :links do
-      resource :reading, only: :create
+      resource :reading, only: %i[create destroy]
     end
   end
 
