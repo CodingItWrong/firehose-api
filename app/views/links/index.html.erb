@@ -6,9 +6,9 @@
 
 <% @links.each do |link| %>
   <div class="panel panel-default">
-    <div class="panel-body">
+    <div class="panel-body h-entry">
       <div>
-        <span class="lead"><%= link_to link.title, link.url %></span>
+        <span class="lead"><%= link_to link.title, link.url, class: 'p-name' %></span>
         <% if user_signed_in? %>
           <% if link.public? %>
             <span>Public</span>
@@ -22,7 +22,7 @@
           <% end %>
         </div>
         <div>
-          <%= link.created_at.strftime('%Y-%m-%d') %>
+          <time class="dt-published" datetime="<%= link.created_at.strftime('%F %T') %>"><%= link.created_at.strftime('%F') %></time>
         </div>
       </div>
       <% if user_signed_in? %>
@@ -31,7 +31,9 @@
           <%= link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </div>
       <% end %>
-      <p><%= link.comment %></p>
+      <% if link.comment.present? %>
+        <p class="e-content"><%= link.comment %></p>
+      <% end %>
     </div>
   </div>
 <% end %>
