@@ -13,6 +13,7 @@ RSpec.feature 'Managing Links', type: :feature do
   it 'allows managing links' do
     create_link
     edit_link
+    mark_link_read
     delete_link
   end
 
@@ -44,6 +45,12 @@ RSpec.feature 'Managing Links', type: :feature do
     tags.each do |tag|
       expect(page).to have_content(tag)
     end
+  end
+
+  def mark_link_read
+    title = 'Custom Title'
+    click_on 'Mark Read'
+    expect(page).to_not have_content(title)
   end
 
   def delete_link

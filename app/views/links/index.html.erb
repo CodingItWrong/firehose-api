@@ -27,6 +27,7 @@
       </div>
       <% if user_signed_in? %>
         <div class="pull-right">
+          <%= link_to 'Mark Read', link_reading_path(link), method: :post, class: 'btn btn-default' %>
           <%= link_to 'Edit', edit_link_path(link), class: 'btn btn-default' %>
           <%= link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </div>
