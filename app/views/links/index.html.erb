@@ -15,9 +15,16 @@
           <% end %>
         <% end %>
       </div>
-      <% link.tags.each do |tag| %>
-        <span class="label label-primary"><%= tag %></span>
-      <% end %>
+      <div class="pull-left">
+        <div>
+          <% link.tags.each do |tag| %>
+            <span class="label label-primary"><%= tag %></span>
+          <% end %>
+        </div>
+        <div>
+          <%= link.created_at.strftime('%Y-%m-%d') %>
+        </div>
+      </div>
       <% if user_signed_in? %>
         <div class="pull-right">
           <%= link_to 'Edit', edit_link_path(link), class: 'btn btn-default' %>
