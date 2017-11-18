@@ -51,6 +51,9 @@ RSpec.feature 'Managing Links', type: :feature do
     title = 'Custom Title'
     click_on 'Mark Read'
     expect(page).to_not have_content(title)
+
+    click_on 'Read'
+    expect(page).to have_content(title)
   end
 
   def delete_link
