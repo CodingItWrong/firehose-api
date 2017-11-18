@@ -46,9 +46,9 @@ class LinksController < ApplicationController
 
   def links_for_current_user
     if user_signed_in?
-      Link.all
+      Link.all.order(created_at: :desc)
     else
-      Link.where(public: true)
+      Link.where(public: true).order(created_at: :desc)
     end
   end
 
