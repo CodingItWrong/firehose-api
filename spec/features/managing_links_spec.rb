@@ -32,7 +32,7 @@ RSpec.feature 'Managing Links', type: :feature do
     comment = 'Best post'
     tags = %w[foo bar baz]
 
-    click_on 'Edit'
+    click_on_first_link 'Edit'
     fill_in 'Title', with: title
     fill_in 'Tags', with: tags.join(' ')
     fill_in 'Comment', with: comment
@@ -49,14 +49,14 @@ RSpec.feature 'Managing Links', type: :feature do
 
   def mark_link_read
     title = 'Custom Title'
-    click_on 'Mark Read'
+    click_on_first_link 'Mark Read'
     expect(page).to have_current_path(root_path)
     expect(page).to_not have_content(title)
 
     click_on 'Read'
     expect(page).to have_content(title)
 
-    click_on 'Mark Unread'
+    click_on_first_link 'Mark Unread'
     expect(page).to have_current_path(read_links_path)
     expect(page).to_not have_content(title)
 
@@ -65,8 +65,14 @@ RSpec.feature 'Managing Links', type: :feature do
   end
 
   def delete_link
-    click_on 'Delete'
+    click_on_first_link 'Delete'
 
     expect(page).not_to have_content('Custom Title')
+  end
+
+  private
+
+  def click_on_first_link(text)
+    page.first(:link, text: /^#{Regexp.quote(text)}$/).click
   end
 end
