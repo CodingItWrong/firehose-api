@@ -21,7 +21,7 @@
       <div class="pull-left">
         <div>
           <% link.tags.each do |tag| %>
-            <span class="label label-primary p-category"><%= tag %></span>
+            <%= link_to tag, tag_links_path(tag), class: 'label label-primary p-category' %>
           <% end %>
         </div>
         <div>

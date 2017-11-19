@@ -15,6 +15,7 @@ RSpec.feature 'Managing Links', type: :feature do
     edit_link
     mark_link_read
     delete_link
+    view_tag_pages
   end
 
   def create_link
@@ -68,6 +69,33 @@ RSpec.feature 'Managing Links', type: :feature do
     click_on_first_link 'Delete'
 
     expect(page).not_to have_content('Custom Title')
+  end
+
+  def view_tag_pages
+    click_on 'Add'
+    fill_in 'URL', with: 'https://example.com/blog/post-with-no-tag'
+    click_on 'Save'
+
+    click_on 'Add'
+    fill_in 'URL', with: 'https://example.com/blog/post-with-foo-tag'
+    click_on 'Save'
+
+    click_on_first_link 'Edit'
+    fill_in 'Tags', with: 'foo'
+    click_on 'Save'
+
+    click_on 'Add'
+    fill_in 'URL', with: 'https://example.com/blog/post-with-bar-tag'
+    click_on 'Save'
+
+    click_on_first_link 'Edit'
+    fill_in 'Tags', with: 'bar'
+    click_on 'Save'
+
+    click_on_first_link 'foo'
+    expect(page).to have_content('Post With Foo Tag')
+    expect(page).not_to have_content('Post With Bar Tag')
+    expect(page).not_to have_content('Post With No Tag')
   end
 
   private

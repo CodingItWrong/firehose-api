@@ -15,5 +15,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tags, only: [] do
+    scope module: :tags do
+      resources :links, only: :index
+    end
+  end
+
   root to: 'links#index'
 end
