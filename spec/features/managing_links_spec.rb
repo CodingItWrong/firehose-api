@@ -73,6 +73,8 @@ RSpec.feature 'Managing Links', type: :feature do
   private
 
   def click_on_first_link(text)
-    page.first(:link, text: /^#{Regexp.quote(text)}$/).click
+    link = page.first(:link, text: /^#{Regexp.quote(text)}$/)
+    raise("Link not found with text '#{text}'") if link.nil?
+    link.click
   end
 end
