@@ -1,0 +1,15 @@
+<%
+  unless defined?(link_container)
+    link_container = ->(contents) { contents }
+  end
+  link_classes = nil unless defined?(link_classes)
+  delete_link_classes = nil unless defined?(delete_link_classes)
+%>
+
+<% if link.read? %>
+  <%= link_container.(link_to 'Mark Unread', link_reading_path(link), method: :delete, class: link_classes) %>
+<% else %>
+  <%= link_container.(link_to 'Mark Read', link_reading_path(link), method: :post, class: link_classes) %>
+<% end %>
+<%= link_container.(link_to 'Edit', edit_link_path(link), class: link_classes) %>
+<%= link_container.(link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' }, class: delete_link_classes) %>

@@ -15,7 +15,10 @@
           <% end %>
         <% end %>
       </div>
-      <div>
+      <% if link.comment.present? %>
+        <p class="e-content"><%= link.comment %></p>
+      <% end %>
+      <div class="pull-left">
         <div>
           <% link.tags.each do |tag| %>
             <span class="label label-primary p-category"><%= tag %></span>
@@ -25,18 +28,17 @@
           <time class="dt-published" datetime="<%= link.created_at.strftime('%F %T') %>"><%= link.created_at.strftime('%F') %></time>
         </div>
       </div>
-      <% if link.comment.present? %>
-        <p class="e-content"><%= link.comment %></p>
-      <% end %>
       <% if user_signed_in? %>
         <div class="pull-right">
-          <% if link.read? %>
-            <%= link_to 'Mark Unread', link_reading_path(link), method: :delete, class: 'btn btn-default' %>
-          <% else %>
-            <%= link_to 'Mark Read', link_reading_path(link), method: :post, class: 'btn btn-default' %>
-          <% end %>
-          <%= link_to 'Edit', edit_link_path(link), class: 'btn btn-default' %>
-          <%= link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <div class="dropdown visible-xs-block visible-sm-block">
+            <button class="btn btn-default" type="button" id="prayerActionMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="caret"></span></button>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="prayerActionMenu">
+              <%= render partial: 'actions', locals: { link: link, link_container: ->(content) { "<li>#{content}</li>".html_safe } } %>
+            </ul>
+          </div>
+          <div class="hidden-xs hidden-sm">
+            <%= render partial: 'actions', locals: { link: link, link_classes: 'btn btn-default', delete_link_classes: 'btn btn-danger' } %>
+          </div>
         </div>
       <% end %>
     </div>
