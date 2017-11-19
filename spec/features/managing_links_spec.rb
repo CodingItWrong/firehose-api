@@ -57,6 +57,10 @@ RSpec.feature 'Managing Links', type: :feature do
     click_on 'Read'
     expect(page).to have_content(title)
 
+    click_on_first_link 'Edit'
+    click_on 'Save'
+    expect(page).to have_current_path(read_links_path)
+
     click_on_first_link 'Mark Unread'
     expect(page).to have_current_path(read_links_path)
     expect(page).to_not have_content(title)

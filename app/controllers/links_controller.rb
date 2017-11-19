@@ -31,7 +31,7 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
 
     if @link.update(edit_link_params)
-      redirect_to links_path
+      redirect_to(@link.read? ? read_links_path : links_path)
     else
       render :edit
     end
