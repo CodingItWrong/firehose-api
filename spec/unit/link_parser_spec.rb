@@ -16,7 +16,7 @@ RSpec.describe LinkParser do
 
     it 'follows redirects' do
       url = 'https://google.com'
-      title = VCR.use_cassette('link_parser_title_redirect', record: :all) {
+      title = VCR.use_cassette('link_parser_title_redirect') {
         link_parser.title(url: url)
       }
       expect(title).to eq('Google')
