@@ -7,6 +7,7 @@ module Tags
       @links = Link.joins(:tags)
                    .where('tags.id' => @tag.id)
                    .newest
+                   .unread
     end
   end
 end

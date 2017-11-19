@@ -1,9 +1,3 @@
-<% if user_signed_in? %>
-  <div class="form-group">
-    <%= link_to 'Add', new_link_path, class: 'btn btn-default' %>
-  </div>
-<% end %>
-
 <ul class="list-group">
   <% @links.each do |link| %>
     <li class="list-group-item clearfix h-entry">
@@ -21,7 +15,11 @@
       <div class="pull-left">
         <div>
           <% link.tags.each do |tag| %>
-            <%= link_to tag, tag_links_path(tag), class: 'label label-primary p-category' %>
+            <% if link.read? %>
+              <%= link_to tag, tag_read_links_path(tag), class: 'label label-primary p-category' %>
+            <% else %>
+              <%= link_to tag, tag_links_path(tag), class: 'label label-primary p-category' %>
+            <% end %>
           <% end %>
         </div>
         <div>

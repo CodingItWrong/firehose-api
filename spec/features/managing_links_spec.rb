@@ -73,10 +73,6 @@ RSpec.feature 'Managing Links', type: :feature do
 
   def view_tag_pages
     click_on 'Add'
-    fill_in 'URL', with: 'https://example.com/blog/post-with-no-tag'
-    click_on 'Save'
-
-    click_on 'Add'
     fill_in 'URL', with: 'https://example.com/blog/post-with-foo-tag'
     click_on 'Save'
 
@@ -92,6 +88,21 @@ RSpec.feature 'Managing Links', type: :feature do
     fill_in 'Tags', with: 'bar'
     click_on 'Save'
 
+    click_on 'Add'
+    fill_in 'URL', with: 'https://example.com/blog/post-with-no-tag'
+    click_on 'Save'
+
+    click_on_first_link 'foo'
+    expect(page).to have_content('Post With Foo Tag')
+    expect(page).not_to have_content('Post With Bar Tag')
+    expect(page).not_to have_content('Post With No Tag')
+
+    visit '/'
+    click_on_first_link 'Mark Read'
+    click_on_first_link 'Mark Read'
+    click_on_first_link 'Mark Read'
+
+    click_on 'Read'
     click_on_first_link 'foo'
     expect(page).to have_content('Post With Foo Tag')
     expect(page).not_to have_content('Post With Bar Tag')

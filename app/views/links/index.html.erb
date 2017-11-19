@@ -1,5 +1,9 @@
 <% if user_signed_in? %>
   <h1>Unread Links</h1>
+
+  <div class="form-group">
+    <%= link_to 'Add', new_link_path, class: 'btn btn-default' %>
+  </div>
 <% end %>
 
 <%= render partial: 'list' %>
