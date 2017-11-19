@@ -33,11 +33,11 @@
           <div class="dropdown visible-xs-block visible-sm-block">
             <button class="btn btn-default" type="button" id="prayerActionMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="caret"></span></button>
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="prayerActionMenu">
-              <%= render partial: 'actions', locals: { link: link, link_container: ->(content) { "<li>#{content}</li>".html_safe } } %>
+              <%= render partial: 'links/actions', locals: { link: link, link_container: ->(content) { "<li>#{content}</li>".html_safe } } %>
             </ul>
           </div>
           <div class="hidden-xs hidden-sm">
-            <%= render partial: 'actions', locals: { link: link, link_classes: 'btn btn-default', delete_link_classes: 'btn btn-danger' } %>
+            <%= render partial: 'links/actions', locals: { link: link, link_classes: 'btn btn-default', delete_link_classes: 'btn btn-danger' } %>
           </div>
         </div>
       <% end %>
