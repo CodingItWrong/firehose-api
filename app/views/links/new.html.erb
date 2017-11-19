@@ -3,7 +3,7 @@
 <%= form_for @link do |f| %>
   <div class="form-group">
     <%= f.label :url, 'URL' %>
-    <%= f.text_field :url, class: 'form-control' %>
+    <%= f.text_field :url, type: 'url', class: 'form-control' %>
   </div>
   <%= f.submit 'Save', class: 'btn btn-primary' %>
   <%= link_to 'Cancel', root_path, class: 'btn btn-default' %>
@@ -11,6 +11,8 @@
 
 <script type="text/javascript">
   window.addEventListener('load', function() {
-    document.getElementById('link_url').focus();
+    const linkElement = document.getElementById('link_url')
+    linkElement.focus();
+    console.log(window.clipboardData.getData('Text'));
   });
 </script>
