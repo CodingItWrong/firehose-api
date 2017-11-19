@@ -12,19 +12,18 @@
       <% if link.comment.present? %>
         <p class="e-content"><%= link.comment %></p>
       <% end %>
-      <div class="pull-left">
-        <div>
+      <div class="pull-left text-muted">
+        <time class="dt-published" datetime="<%= link.created_at.strftime('%F %T') %>"><%= link.created_at.strftime('%F') %></time>
+        <% if link.tags.any? %>
+          |
           <% link.tags.each do |tag| %>
             <% if link.read? %>
-              <%= link_to tag, tag_read_links_path(tag), class: 'label label-primary p-category' %>
+              <%= link_to tag, tag_read_links_path(tag), class: 'p-category' %>
             <% else %>
-              <%= link_to tag, tag_links_path(tag), class: 'label label-primary p-category' %>
+              <%= link_to tag, tag_links_path(tag), class: 'p-category' %>
             <% end %>
           <% end %>
-        </div>
-        <div>
-          <time class="dt-published" datetime="<%= link.created_at.strftime('%F %T') %>"><%= link.created_at.strftime('%F') %></time>
-        </div>
+        <% end %>
       </div>
       <% if user_signed_in? %>
         <div class="pull-right">
