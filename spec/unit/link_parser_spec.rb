@@ -13,5 +13,13 @@ RSpec.describe LinkParser do
       }
       expect(title).to eq('Letting People Learn - CodingItWrong')
     end
+
+    it 'follows redirects' do
+      url = 'https://google.com'
+      title = VCR.use_cassette('link_parser_title_redirect', record: :all) {
+        link_parser.title(url: url)
+      }
+      expect(title).to eq('Google')
+    end
   end
 end

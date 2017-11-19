@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'net/http'
+require 'httparty'
 require 'nokogiri'
 require 'pry'
 require 'fake_link_parser'
@@ -21,7 +21,7 @@ class LinkParser
   private
 
   def get(url)
-    Net::HTTP.get(URI(url))
+    HTTParty.get(url).body
   end
 
   def parse(html)

@@ -13,6 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'acts-as-taggable-on'
 gem 'dotenv-rails'
+gem 'httparty'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
