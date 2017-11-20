@@ -17,11 +17,7 @@
         <% if link.tags.any? %>
           |
           <% link.tags.each do |tag| %>
-            <% if link.read? %>
-              <%= link_to tag, tag_read_index_path(tag.name), class: 'p-category' %>
-            <% else %>
-              <%= link_to tag, tag_path(tag.name), class: 'p-category' %>
-            <% end %>
+            <%= link_to tag, tag_path(tag.name), class: 'p-category' %>
           <% end %>
         <% end %>
       </div>

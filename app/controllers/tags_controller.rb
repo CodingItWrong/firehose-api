@@ -19,6 +19,5 @@ class TagsController < ApplicationController
     @links = Link.joins(:tags)
                  .where('tags.id' => @tag.id)
                  .newest
-                 .unread
   end
 end

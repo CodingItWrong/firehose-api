@@ -85,6 +85,20 @@ RSpec.feature 'Managing Links', type: :feature do
     click_on 'Save'
 
     click_on 'Add'
+    fill_in 'URL', with: 'https://example.com/blog/read-post-with-qux-tag'
+    click_on 'Save'
+
+    click_on_first_link 'Edit'
+    fill_in 'Tags', with: 'qux'
+    click_on 'Save'
+
+    click_on_first_link 'Mark Read'
+
+    click_on_first_link 'Edit'
+    fill_in 'Tags', with: 'qux'
+    click_on 'Save'
+
+    click_on 'Add'
     fill_in 'URL', with: 'https://example.com/blog/post-with-bar-tag'
     click_on 'Save'
 
@@ -100,18 +114,7 @@ RSpec.feature 'Managing Links', type: :feature do
     click_on 'qux'
     expect(page).to have_current_path('/tags/qux')
     expect(page).to have_content('Post With Qux Tag')
-    expect(page).not_to have_content('Post With Bar Tag')
-    expect(page).not_to have_content('Post With No Tag')
-
-    visit '/'
-    click_on_first_link 'Mark Read'
-    click_on_first_link 'Mark Read'
-    click_on_first_link 'Mark Read'
-
-    click_on 'Read'
-    click_on_first_link 'qux'
-    expect(page).to have_current_path('/tags/qux/read')
-    expect(page).to have_content('Post With Qux Tag')
+    expect(page).to have_content('Read Post With Qux Tag')
     expect(page).not_to have_content('Post With Bar Tag')
     expect(page).not_to have_content('Post With No Tag')
   end
