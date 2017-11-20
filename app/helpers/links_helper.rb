@@ -3,7 +3,7 @@
 module LinksHelper
   def format_source(source)
     if http_url?(source)
-      link_to 'source', source
+      link_to 'source', source, target: '_blank'
     else
       "from #{source}"
     end
