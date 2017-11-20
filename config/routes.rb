@@ -15,15 +15,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tags, only: [] do
+  resources :tags, only: :show do
     scope module: :tags do
-      resources :links, only: :index do
-        collection do
-          scope module: :links do
-            resources :read, only: :index, as: :read_links
-          end
-        end
-      end
+      resources :read, only: :index
     end
   end
 

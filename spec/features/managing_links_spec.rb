@@ -97,6 +97,7 @@ RSpec.feature 'Managing Links', type: :feature do
     click_on 'Save'
 
     click_on_first_link 'foo'
+    expect(page).to have_current_path('/tags/foo')
     expect(page).to have_content('Post With Foo Tag')
     expect(page).not_to have_content('Post With Bar Tag')
     expect(page).not_to have_content('Post With No Tag')
@@ -108,6 +109,7 @@ RSpec.feature 'Managing Links', type: :feature do
 
     click_on 'Read'
     click_on_first_link 'foo'
+    expect(page).to have_current_path('/tags/foo/read')
     expect(page).to have_content('Post With Foo Tag')
     expect(page).not_to have_content('Post With Bar Tag')
     expect(page).not_to have_content('Post With No Tag')

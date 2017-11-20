@@ -18,9 +18,9 @@
           |
           <% link.tags.each do |tag| %>
             <% if link.read? %>
-              <%= link_to tag, tag_read_links_path(tag), class: 'p-category' %>
+              <%= link_to tag, tag_read_index_path(tag.name), class: 'p-category' %>
             <% else %>
-              <%= link_to tag, tag_links_path(tag), class: 'p-category' %>
+              <%= link_to tag, tag_path(tag.name), class: 'p-category' %>
             <% end %>
           <% end %>
         <% end %>
