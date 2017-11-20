@@ -6,7 +6,11 @@ RSpec.feature 'Viewing Links', type: :feature do
   let!(:public_links) { FactoryBot.create_list(:link, 3, :public) }
   let!(:private_links) { FactoryBot.create_list(:link, 3, :private) }
 
-  it 'displays links view-only' do
+  it 'displays public links' do
+    view_links_page
+  end
+
+  def view_links_page
     visit '/'
 
     public_links.each do |link|
