@@ -6,7 +6,7 @@ class LinksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @links = Link.newest.unread
+    @links = Link.unread.in_added_order
   end
 
   def new

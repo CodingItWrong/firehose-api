@@ -18,6 +18,6 @@ class TagsController < ApplicationController
     @tag = ActsAsTaggableOn::Tag.where(name: params[:id]).first
     @links = Link.joins(:tags)
                  .where('tags.id' => @tag.id)
-                 .newest
+                 .in_added_order
   end
 end

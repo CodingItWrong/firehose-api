@@ -18,8 +18,8 @@ module Public
       @tag = ActsAsTaggableOn::Tag.where(name: params[:id]).first
       @links = Link.joins(:tags)
                    .where('tags.id' => @tag.id)
-                   .newest
                    .publicly_visible
+                   .in_added_order
     end
   end
 end
