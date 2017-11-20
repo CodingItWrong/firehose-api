@@ -21,6 +21,10 @@ Rails.application.routes.draw do
     root to: 'links#index'
   end
 
+  scope '/webhooks', module: :webhooks do
+    post :hydrant, to: 'hydrant#post'
+  end
+
   scope module: :public do
     resources :links, only: :index
     resources :tags, only: %i[index show]
