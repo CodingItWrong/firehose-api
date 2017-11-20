@@ -3,6 +3,12 @@
 require 'rails_helper'
 
 RSpec.feature 'Viewing Links', type: :feature do
+  let!(:new_public_link) {
+    FactoryBot.create(:link, created_at: 3.days.ago, published_at: Time.now)
+  }
+  let!(:old_public_link) {
+    FactoryBot.create(:link, created_at: 2.days.ago, published_at: 1.day.ago)
+  }
   let!(:public_links) { FactoryBot.create_list(:link, 3, :public) }
   let!(:private_links) { FactoryBot.create_list(:link, 3, :private) }
   let!(:public_tagged_links) {
@@ -23,9 +29,8 @@ RSpec.feature 'Viewing Links', type: :feature do
   def view_links_page
     visit '/'
 
-    public_links.each do |link|
-      expect(page).to have_content(link.title)
-    end
+    public_links_in_order = /#{new_public_link.title} .* #{old_public_link.title}/
+    expect(page.text).to match(public_links_in_order)
     private_links.each do |link|
       expect(page).not_to have_content(link.title)
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120134247) do
+ActiveRecord::Schema.define(version: 20171120140417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 20171120134247) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.text "comment"
-    t.boolean "public"
     t.datetime "read_at"
     t.string "source"
+    t.datetime "published_at"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|

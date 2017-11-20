@@ -6,11 +6,11 @@ FactoryBot.define do
     url 'https://example.com'
 
     trait :public do
-      public true
+      published_at Time.now
     end
 
     trait :private do
-      public false
+      published_at nil
     end
   end
 end

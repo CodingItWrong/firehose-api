@@ -8,7 +8,7 @@ module Public
         FROM tags t
           JOIN taggings tl ON t.id = tl.tag_id
           JOIN links l ON tl.taggable_type = 'Link' AND tl.taggable_id = l.id
-          WHERE l.public = TRUE
+          WHERE l.published_at IS NOT NULL
         ORDER BY t.name ASC
       QUERY
       @tags = ActsAsTaggableOn::Tag.find_by_sql(query)
