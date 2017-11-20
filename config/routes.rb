@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :tags, only: :show do
+    resources :tags, only: %i[index show] do
       scope module: :tags do
         resources :read, only: :index
       end
