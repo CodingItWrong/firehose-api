@@ -52,13 +52,25 @@ RSpec.feature 'Managing Links', type: :feature do
   end
 
   def mark_link_read
-    title = 'Custom Title'
+    sleep 1
+    click_on 'Add'
+    fill_in 'URL', with: 'https://example.com/blog/second-blog-post-title'
+    click_on 'Save'
+
+    title1 = 'Custom Title'
+    title2 = 'Second Blog Post Title'
+
     click_on_first_link 'Mark Read'
+    sleep 1
+    click_on_first_link 'Mark Read'
+
     expect(page).to have_current_path(root_path)
-    expect(page).to_not have_content(title)
+    expect(page).to_not have_content(title1)
+    expect(page).to_not have_content(title2)
 
     click_on 'Read'
-    expect(page).to have_content(title)
+    posts_in_order = /#{title1} .* #{title2}/
+    expect(page.text).to match(posts_in_order)
 
     click_on_first_link 'Edit'
     click_on 'Save'
@@ -66,10 +78,10 @@ RSpec.feature 'Managing Links', type: :feature do
 
     click_on_first_link 'Mark Unread'
     expect(page).to have_current_path(read_links_path)
-    expect(page).to_not have_content(title)
+    expect(page).to_not have_content(title1)
 
     click_on 'Links'
-    expect(page).to have_content(title)
+    expect(page).to have_content(title1)
   end
 
   def delete_link
@@ -127,6 +139,15 @@ RSpec.feature 'Managing Links', type: :feature do
   def click_on_first_link(text)
     link = page.first(:link, text: /^#{Regexp.quote(text)}$/)
     raise("Link not found with text '#{text}'") if link.nil?
+    link.click
+  end
+
+  def click_on_numbered_link(text, position)
+    all = page.all(:link, text: /^#{Regexp.quote(text)}$/)
+    link = all[position]
+    if link.nil?
+      raise("Link not found with text '#{text}' at position #{position}")
+    end
     link.click
   end
 end
