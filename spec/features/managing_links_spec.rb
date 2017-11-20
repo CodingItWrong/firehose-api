@@ -96,7 +96,8 @@ RSpec.feature 'Managing Links', type: :feature do
     fill_in 'URL', with: 'https://example.com/blog/post-with-no-tag'
     click_on 'Save'
 
-    click_on_first_link 'foo'
+    click_on 'Tags'
+    click_on 'foo'
     expect(page).to have_current_path('/tags/foo')
     expect(page).to have_content('Post With Foo Tag')
     expect(page).not_to have_content('Post With Bar Tag')
