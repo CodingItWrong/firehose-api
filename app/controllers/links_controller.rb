@@ -3,10 +3,10 @@
 require 'link_parser'
 
 class LinksController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!
 
   def index
-    @links = links_for_current_user
+    @links = Link.newest.unread
   end
 
   def new
@@ -43,14 +43,6 @@ class LinksController < ApplicationController
   end
 
   private
-
-  def links_for_current_user
-    if user_signed_in?
-      Link.newest.unread
-    else
-      Link.newest.publicly_visible
-    end
-  end
 
   def link_parser
     LinkParser.instance
