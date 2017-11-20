@@ -20,6 +20,9 @@
             <%= link_to tag, tag_path(tag.name), class: 'p-category' %>
           <% end %>
         <% end %>
+        <% if link.source.present? %>
+          | <%= format_source(link.source) %>
+        <% end %>
       </div>
       <% if user_signed_in? %>
         <div class="pull-right">

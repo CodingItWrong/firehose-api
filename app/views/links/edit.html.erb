@@ -8,6 +8,10 @@
     <%= f.text_field :title, class: 'form-control' %>
   </div>
   <div class='form-group'>
+    <%= f.label :source %>
+    <%= f.text_field :source, autocapitalize: 'off', autocorrect: 'off', class: 'form-control' %>
+  </div>
+  <div class='form-group'>
     <%= f.label :tag_list, 'Tags' %>
     <%= f.text_field :tag_list, autocapitalize: 'off', class: 'form-control' %>
   </div>
