@@ -2,7 +2,7 @@
 
 class FirehoseConfig
   class << self
-    attr_accessor :site_name, :author_url, :api_token
+    attr_accessor :site_name, :author_url, :api_key
   end
 
   def self.configure

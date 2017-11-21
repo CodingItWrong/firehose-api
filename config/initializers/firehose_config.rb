@@ -5,5 +5,5 @@ require 'firehose_config'
 FirehoseConfig.configure do |c|
   c.site_name = ENV['SITE_NAME']
   c.author_url = ENV['AUTHOR_URL']
-  c.api_token = ENV['API_TOKEN']
+  c.api_key = ENV['API_KEY']
 end
