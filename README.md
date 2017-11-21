@@ -43,6 +43,10 @@ One easy way to deploy Firehose is Heroku. Hobby apps are free; they just have a
 
 To deploy to Heroku, follow [Heroku’s instructions on deploying a Rails app](https://devcenter.heroku.com/articles/getting-started-with-rails5).
 
+## Attribution
+
+“[Fire Hose](https://thenounproject.com/term/fire-hose/14726/)” by [Alv Jørgen Bovolden](https://thenounproject.com/Alvbovo/) is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+
 ## License
 
 MIT
