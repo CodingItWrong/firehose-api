@@ -7,9 +7,9 @@
 %>
 
 <% if link.read? %>
-  <%= link_container.(link_to 'Mark Unread', link_reading_path(link), method: :delete, class: link_classes) %>
+  <%= link_container.(link_to 'Mark Unread', link_reading_path(link), method: :delete, remote: true, data: { type: :json, action: :mark_unread }, class: link_classes) %>
 <% else %>
-  <%= link_container.(link_to 'Mark Read', link_reading_path(link), method: :post, class: link_classes) %>
+  <%= link_container.(link_to 'Mark Read', link_reading_path(link), method: :post, remote: true, data: { type: :json, action: :mark_read }, class: link_classes) %>
 <% end %>
 <%= link_container.(link_to 'Edit', edit_link_path(link), class: link_classes) %>
-<%= link_container.(link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' }, class: delete_link_classes) %>
+<%= link_container.(link_to 'Delete', link, method: :delete, remote: true, data: { confirm: 'Are you sure?', type: :json, action: :delete }, class: delete_link_classes) %>

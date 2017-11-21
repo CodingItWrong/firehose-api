@@ -39,7 +39,10 @@ class LinksController < ApplicationController
 
   def destroy
     Link.delete(params[:id])
-    redirect_to links_path
+    respond_to do |format|
+      format.html { redirect_to links_path }
+      format.json { render json: { success: true } }
+    end
   end
 
   private

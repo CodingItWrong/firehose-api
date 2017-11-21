@@ -1,6 +1,6 @@
 <ul class="list-group">
   <% @links.each do |link| %>
-    <li class="list-group-item clearfix h-entry">
+    <li class="list-group-item clearfix h-entry" data-role="link_container">
       <div>
         <span class="link-title p-name"><%= link_to link.title, link.url, target: '_blank' %></span>
         <% if user_signed_in? %>
