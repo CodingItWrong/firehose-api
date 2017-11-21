@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'link_parser'
 
 RSpec.describe 'receive webhook', type: :request do
-  let(:url) { 'https://example.com' }
-  let(:title) { 'custom title' }
+  let(:url) { 'https://example.com/blog/sample-post-title' }
 
   let(:headers) {
     {
@@ -27,6 +27,7 @@ RSpec.describe 'receive webhook', type: :request do
 
   context 'with incorrect API token' do
     let(:token) { '23456' }
+    let(:title) { 'custom title' }
 
     it 'creates a link' do
       expect { send! }.not_to change { Link.count }
@@ -41,20 +42,36 @@ RSpec.describe 'receive webhook', type: :request do
   context 'with correct API token' do
     let(:token) { '12345' }
 
-    it 'creates a link' do
-      expect { send! }.to change { Link.count }.by(1)
+    context 'with a title' do
+      let(:title) { 'custom title' }
+
+      it 'creates a link' do
+        expect { send! }.to change { Link.count }.by(1)
+      end
+
+      it 'returns created' do
+        response = send!
+        expect(response).to eq(201)
+      end
+
+      it 'sets fields to passed-in values' do
+        send!
+        link = Link.last
+        expect(link.url).to eq(url)
+        expect(link.title).to eq(title)
+      end
     end
 
-    it 'sets appropriate fields' do
-      send!
-      link = Link.last
-      expect(link.url).to eq(url)
-      expect(link.title).to eq(title)
-    end
+    context 'without a title' do
+      let(:title) { '' }
 
-    it 'returns created' do
-      response = send!
-      expect(response).to eq(201)
+      it 'sets the title from the retrieved URL' do
+        LinkParser.fake!
+        send!
+        link = Link.last
+        expect(link.url).to eq(url)
+        expect(link.title).to eq('Sample Post Title')
+      end
     end
   end
 end

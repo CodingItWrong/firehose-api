@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'link_parser'
+
 module Webhooks
   class HydrantController < ApplicationController
     skip_before_action :verify_authenticity_token
@@ -12,6 +14,10 @@ module Webhooks
 
     private
 
+    def link_parser
+      LinkParser.instance
+    end
+
     def verify_api_token
       provided_header = request.headers['HTTP_AUTHORIZATION']
       required_header = "Bearer #{FirehoseConfig.api_token}"
@@ -20,6 +26,11 @@ module Webhooks
 
     def link_params
       params.permit(:url, :title)
+            .tap { |params|
+              if params[:title].blank?
+                params.merge!(title: link_parser.title(url: params[:url]))
+              end
+            }
     end
   end
 end
