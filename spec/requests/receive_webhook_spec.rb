@@ -22,7 +22,7 @@ RSpec.describe 'receive webhook', type: :request do
   let(:send!) { post hydrant_path, params: body, headers: headers }
 
   before(:each) do
-    FirehoseConfig.api_token = '12345'
+    FirehoseConfig.api_key = '12345'
   end
 
   context 'with incorrect API token' do
