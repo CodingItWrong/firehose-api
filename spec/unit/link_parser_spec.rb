@@ -22,12 +22,12 @@ RSpec.describe LinkParser do
       expect(title).to eq('Google')
     end
 
-    it 'ignores weird separate title elements elsewhere on the page' do
-      url = 'http://jpattonassociates.com/the-new-backlog'
-      title = VCR.use_cassette('link_parser_title_redirect') {
+    it 'ignores duplicate title tags' do
+      url = 'https://www.driftingruby.com/episodes/speeding-up-tests'
+      title = VCR.use_cassette('link_parser_multiple_title_tags') {
         link_parser.title(url: url)
       }
-      expect(title).to eq('The New User Story Backlog is a Map - Jeff Patton & Associates')
+      expect(title).to eq('Drifting Ruby | Speeding Up Tests')
     end
   end
 end
