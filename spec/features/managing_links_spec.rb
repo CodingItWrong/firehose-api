@@ -80,7 +80,7 @@ RSpec.feature 'Managing Links', type: :feature do
     expect(page).to have_current_path(read_links_path)
     expect(page).to_not have_content(title1)
 
-    click_on 'Links'
+    click_on 'Unread'
     expect(page).to have_content(title1)
   end
 
