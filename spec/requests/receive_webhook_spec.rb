@@ -73,5 +73,17 @@ RSpec.describe 'receive webhook', type: :request do
         expect(link.title).to eq('Sample Post Title')
       end
     end
+
+    context 'with title equal to url' do
+      let(:title) { url }
+
+      it 'assumes that was a default title and sets the title from the URL' do
+        LinkParser.fake!
+        send!
+        link = Link.last
+        expect(link.url).to eq(url)
+        expect(link.title).to eq('Sample Post Title')
+      end
+    end
   end
 end

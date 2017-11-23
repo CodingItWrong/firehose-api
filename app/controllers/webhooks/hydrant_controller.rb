@@ -27,10 +27,14 @@ module Webhooks
     def link_params
       params.permit(:url, :title)
             .tap { |params|
-              if params[:title].blank?
+              if default_title?
                 params.merge!(title: link_parser.title(url: params[:url]))
               end
             }
+    end
+
+    def default_title?
+      params[:title].blank? || params[:title] == params[:url]
     end
   end
 end
