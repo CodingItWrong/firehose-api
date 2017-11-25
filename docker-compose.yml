@@ -1,17 +1,9 @@
 version: "3"
 services:
-  db:
-    image: postgres:9.6.6-alpine
-    volumes:
-      - ./postgres-data:/var/lib/postgresql/data
   web:
     build: .
-    command: /myapp/wait-for-it.sh db:5432 -- bin/docker-start
+    command: bin/docker-start
     volumes:
       - .:/myapp
     ports:
       - "3003:3000"
-    links:
-      - db
-    depends_on:
-      - db
