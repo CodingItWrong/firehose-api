@@ -1,13 +1,13 @@
 FROM ruby:2.4.2
 
-RUN apt-get update
-RUN apt-get install -y nodejs
+RUN apt-get update && \
+    apt-get install -y nodejs
 RUN gem install nokogiri -v 1.8.1
 
 RUN mkdir /myapp
 WORKDIR /myapp
-ADD Gemfile /myapp/Gemfile
-ADD Gemfile.lock /myapp/Gemfile.lock
+COPY Gemfile /myapp/Gemfile
+COPY Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
 
 ENV RAILS_ENV=production
