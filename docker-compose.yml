@@ -4,6 +4,6 @@ services:
     build: .
     command: bin/docker-start
     volumes:
-      - .:/myapp
+      - ./certbot/.well-known:/myapp/public/.well-known
     ports:
       - "3003:3000"
