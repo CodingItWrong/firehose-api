@@ -57,19 +57,24 @@ RSpec.feature 'Managing Links', type: :feature do
     fill_in 'URL', with: 'https://example.com/blog/second-blog-post-title'
     click_on 'Save'
 
-    title1 = 'Custom Title'
-    title2 = 'Second Blog Post Title'
+    first_blog_post_title = 'Custom Title'
+    second_blog_post_title = 'Second Blog Post Title'
 
     click_on_first_link 'Mark Read'
-    sleep 1
-    click_on_first_link 'Mark Read'
-
-    expect(page).to have_current_path(root_path)
-    expect(page).to_not have_content(title1)
-    expect(page).to_not have_content(title2)
+    expect(page).to_not have_content(second_blog_post_title)
 
     click_on 'Read'
-    posts_in_order = /#{title1} .* #{title2}/
+    expect(page).to have_content(second_blog_post_title)
+
+    click_on 'Unread'
+    sleep 1
+
+    expect(page).to have_content(first_blog_post_title)
+    click_on_first_link 'Mark Read'
+    expect(page).to_not have_content(first_blog_post_title)
+
+    click_on 'Read'
+    posts_in_order = /#{first_blog_post_title} .* #{second_blog_post_title}/
     expect(page.text).to match(posts_in_order)
 
     click_on_first_link 'Edit'
@@ -78,10 +83,10 @@ RSpec.feature 'Managing Links', type: :feature do
 
     click_on_first_link 'Mark Unread'
     expect(page).to have_current_path(read_links_path)
-    expect(page).to_not have_content(title1)
+    expect(page).to_not have_content(first_blog_post_title)
 
     click_on 'Unread'
-    expect(page).to have_content(title1)
+    expect(page).to have_content(first_blog_post_title)
   end
 
   def delete_link
