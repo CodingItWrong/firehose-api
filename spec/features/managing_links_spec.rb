@@ -77,16 +77,26 @@ RSpec.feature 'Managing Links', type: :feature do
     posts_in_order = /#{first_blog_post_title} .* #{second_blog_post_title}/
     expect(page.text).to match(posts_in_order)
 
+    # confirm user stays on read page after editing
     click_on_first_link 'Edit'
     click_on 'Save'
     expect(page).to have_current_path(read_links_path)
 
+    click_on 'Add'
+    fill_in 'URL', with: 'https://example.com/blog/third-blog-post-title'
+    click_on 'Save'
+
+    third_blog_post_title = 'Third Blog Post Title'
+
+    click_on 'Read'
+    expect(page).to have_content(first_blog_post_title)
     click_on_first_link 'Mark Unread'
     expect(page).to have_current_path(read_links_path)
     expect(page).to_not have_content(first_blog_post_title)
 
     click_on 'Unread'
-    expect(page).to have_content(first_blog_post_title)
+    posts_in_order = /#{first_blog_post_title} .* #{third_blog_post_title}/
+    expect(page.text).to match(posts_in_order)
   end
 
   def delete_link

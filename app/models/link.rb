@@ -8,7 +8,10 @@ class Link < ApplicationRecord
   scope :read, -> { where('read_at IS NOT NULL') }
   scope :in_added_order, -> { order(created_at: :desc) }
   scope :in_read_order, -> { order(read_at: :desc) }
+  scope :in_moved_order, -> { order(moved_to_list_at: :desc) }
   scope :in_publish_order, -> { order(published_at: :desc) }
+
+  after_initialize :init
 
   def public?
     published_at.present?
@@ -40,9 +43,17 @@ class Link < ApplicationRecord
 
   def mark_read
     self.read_at = DateTime.now
+    self.moved_to_list_at = DateTime.now
   end
 
   def mark_unread
     self.read_at = nil
+    self.moved_to_list_at = DateTime.now
+  end
+
+  private
+
+  def init
+    self.moved_to_list_at = DateTime.now
   end
 end
