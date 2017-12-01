@@ -37,5 +37,13 @@ RSpec.describe LinkParser do
       }
       expect(title).to eq('Ideology')
     end
+
+    it 'decodes entities' do
+      url = 'http://confreaks.tv/videos/rubyconf2017-keynote-you-re-insufficiently-persuasive'
+      title = VCR.use_cassette('link_parser_decode_entities') {
+        link_parser.title(url: url)
+      }
+      expect(title).to eq("Confreaks TV | Keynote: You're Insufficiently Persuasive - Ruby Conference 2017")
+    end
   end
 end
