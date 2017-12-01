@@ -6,7 +6,7 @@ class Link < ApplicationRecord
   scope :publicly_visible, -> { where('published_at IS NOT NULL') }
   scope :unread, -> { where(read: false) }
   scope :read, -> { where(read: true) }
-  scope :in_moved_order, -> { order(moved_to_list_at: :desc) }
+  scope :in_move_order, -> { order(moved_to_list_at: :desc) }
   scope :in_publish_order, -> { order(published_at: :desc) }
 
   after_initialize :init

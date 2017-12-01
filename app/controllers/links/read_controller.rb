@@ -5,7 +5,7 @@ module Links
     before_action :authenticate_user!
 
     def index
-      @links = Link.read.in_moved_order
+      @links = Link.read.in_move_order
     end
   end
 end
