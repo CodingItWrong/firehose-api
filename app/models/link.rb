@@ -28,7 +28,7 @@ class Link < ApplicationRecord
   end
 
   def publish
-    self.published_at = Time.now
+    self.published_at = DateTime.now
   end
 
   def unpublish
