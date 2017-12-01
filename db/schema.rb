@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201124426) do
+ActiveRecord::Schema.define(version: 20171201125403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20171201124426) do
     t.string "source"
     t.datetime "published_at"
     t.datetime "moved_to_list_at"
-    t.datetime "read_at"
     t.boolean "read", default: false, null: false
   end
 

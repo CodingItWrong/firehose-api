@@ -37,13 +37,11 @@ class Link < ApplicationRecord
 
   def mark_read
     self.read = true
-    self.read_at = DateTime.now
     self.moved_to_list_at = DateTime.now
   end
 
   def mark_unread
     self.read = false
-    self.read_at = nil
     self.moved_to_list_at = DateTime.now
   end
 
