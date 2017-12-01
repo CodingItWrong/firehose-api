@@ -4,8 +4,8 @@ class Link < ApplicationRecord
   acts_as_taggable
 
   scope :publicly_visible, -> { where('published_at IS NOT NULL') }
-  scope :unread, -> { where('read_at IS NULL') }
-  scope :read, -> { where('read_at IS NOT NULL') }
+  scope :unread, -> { where(read: false) }
+  scope :read, -> { where(read: true) }
   scope :in_moved_order, -> { order(moved_to_list_at: :desc) }
   scope :in_publish_order, -> { order(published_at: :desc) }
 
@@ -35,16 +35,14 @@ class Link < ApplicationRecord
     self.published_at = nil
   end
 
-  def read?
-    read_at.present?
-  end
-
   def mark_read
+    self.read = true
     self.read_at = DateTime.now
     self.moved_to_list_at = DateTime.now
   end
 
   def mark_unread
+    self.read = false
     self.read_at = nil
     self.moved_to_list_at = DateTime.now
   end
