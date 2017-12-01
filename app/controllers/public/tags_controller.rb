@@ -19,7 +19,7 @@ module Public
       @links = Link.joins(:tags)
                    .where('tags.id' => @tag.id)
                    .publicly_visible
-                   .in_added_order
+                   .in_moved_order
     end
   end
 end
