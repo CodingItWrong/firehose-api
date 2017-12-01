@@ -13,7 +13,7 @@
         <p class="e-content"><%= link.comment %></p>
       <% end %>
       <div class="pull-left text-muted">
-        <time class="dt-published" datetime="<%= link.created_at.strftime('%F %T') %>"><%= link.created_at.strftime('%F') %></time>
+        <%= domain(link.url) %>
         <% if link.tags.any? %>
           |
           <% link.tags.each do |tag| %>

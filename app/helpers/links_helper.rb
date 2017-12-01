@@ -9,6 +9,10 @@ module LinksHelper
     end
   end
 
+  def domain(url)
+    URI.parse(url).host
+  end
+
   private
 
   def http_url?(string)
