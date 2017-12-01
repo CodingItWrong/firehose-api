@@ -15,7 +15,7 @@ class LinkParser
   end
 
   def title(url:)
-    parse(get(url)).xpath('//head/title[1]').text
+    parse(get(url)).xpath('//head/title[1]').text.strip
   end
 
   private

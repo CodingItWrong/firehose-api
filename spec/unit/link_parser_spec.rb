@@ -29,5 +29,13 @@ RSpec.describe LinkParser do
       }
       expect(title).to eq('Drifting Ruby | Speeding Up Tests')
     end
+
+    it 'trims spaces' do
+      url = 'https://www.destroyallsoftware.com/talks/ideology'
+      title = VCR.use_cassette('link_parser_trim_spaces') {
+        link_parser.title(url: url)
+      }
+      expect(title).to eq('Ideology')
+    end
   end
 end
