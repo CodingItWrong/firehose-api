@@ -9,7 +9,7 @@ class Link < ApplicationRecord
   scope :in_move_order, -> { order(moved_to_list_at: :desc) }
   scope :in_publish_order, -> { order(published_at: :desc) }
 
-  after_initialize :init
+  before_create :set_default_values
 
   def public?
     published_at.present?
@@ -47,7 +47,7 @@ class Link < ApplicationRecord
 
   private
 
-  def init
+  def set_default_values
     self.moved_to_list_at = DateTime.now
   end
 end
