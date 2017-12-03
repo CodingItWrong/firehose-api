@@ -14,6 +14,10 @@ class LinkParser
     @instance = FakeLinkParser.new
   end
 
+  def canonical(url:)
+    get(url).request.last_uri.to_s
+  end
+
   def title(url:)
     unescape(parse(get(url).body).xpath('//head/title[1]').text.strip)
   end

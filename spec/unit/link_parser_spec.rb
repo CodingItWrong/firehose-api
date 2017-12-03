@@ -5,6 +5,24 @@ require 'link_parser'
 RSpec.describe LinkParser do
   subject(:link_parser) { LinkParser.new }
 
+  describe '#canonical', vcr: true do
+    it 'returns the passed-in url when there are no redirects' do
+      url = 'http://codingitwrong.com'
+      canonical = VCR.use_cassette('link_parser_canonical_no_redirects') {
+        link_parser.canonical(url: url)
+      }
+      expect(canonical).to eq(url)
+    end
+
+    it 'follows redirects' do
+      url = 'http://bit.ly/jay-is-great'
+      canonical = VCR.use_cassette('link_parser_canonical_redirects') {
+        link_parser.canonical(url: url)
+      }
+      expect(canonical).to eq('https://www.bignerdranch.com/blog/testing-external-dependencies-with-fakes/')
+    end
+  end
+
   describe '#title', vcr: true do
     it 'loads the URL and returns the title tag text' do
       url = 'http://codingitwrong.com/2017/07/24/letting-people-learn.html'
