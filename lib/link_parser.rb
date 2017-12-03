@@ -15,13 +15,13 @@ class LinkParser
   end
 
   def title(url:)
-    unescape(parse(get(url)).xpath('//head/title[1]').text.strip)
+    unescape(parse(get(url).body).xpath('//head/title[1]').text.strip)
   end
 
   private
 
   def get(url)
-    HTTParty.get(url).body
+    HTTParty.get(url)
   end
 
   def parse(html)
