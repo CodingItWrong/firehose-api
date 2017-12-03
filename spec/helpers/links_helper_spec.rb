@@ -8,5 +8,10 @@ RSpec.describe LinksHelper do
       result = helper.domain('http://codingitwrong.com/wiki')
       expect(result).to eq('codingitwrong.com')
     end
+
+    it 'strips www.' do
+      result = helper.domain('http://www.codingitwrong.com/wiki')
+      expect(result).to eq('codingitwrong.com')
+    end
   end
 end

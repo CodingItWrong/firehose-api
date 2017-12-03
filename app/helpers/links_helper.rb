@@ -10,7 +10,8 @@ module LinksHelper
   end
 
   def domain(url)
-    URI.parse(url).host
+    host = URI.parse(url).host
+    host.start_with?('www.') ? host[4..-1] : host
   end
 
   private
