@@ -6,4 +6,8 @@ class FakeLinkParser
   def title(url:)
     url.split('/').last.titleize
   end
+
+  def canonical(url:)
+    url
+  end
 end

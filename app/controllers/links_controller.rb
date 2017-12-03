@@ -55,7 +55,10 @@ class LinksController < ApplicationController
     params.require(:link)
           .permit(:url)
           .tap { |params|
-            params.merge!(title: link_parser.title(url: params[:url]))
+            params.merge!(
+              title: link_parser.title(url: params[:url]),
+              url: link_parser.canonical(url: params[:url])
+            )
           }
   end
 
