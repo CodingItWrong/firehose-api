@@ -14,6 +14,10 @@ class LinkParser
     @instance = FakeLinkParser.new
   end
 
+  def self.reset!
+    @instance = nil
+  end
+
   def canonical(url:)
     get(url).request.last_uri.to_s
   end
