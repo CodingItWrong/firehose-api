@@ -6,27 +6,37 @@ require 'pry'
 require 'fake_link_parser'
 
 class LinkParser
-  def self.instance
-    @instance ||= LinkParser.new
+  def self.class_to_instantiate
+    @class_to_instantiate ||= LinkParser
   end
 
   def self.fake!
-    @instance = FakeLinkParser.new
+    @class_to_instantiate = FakeLinkParser
   end
 
   def self.reset!
-    @instance = nil
+    @class_to_instantiate = nil
   end
 
-  def canonical(url:)
+  def self.process(url:)
+    class_to_instantiate.new(url: url)
+  end
+
+  def initialize(url:)
+    @url = url
+  end
+
+  def canonical
     get(url).request.last_uri.to_s
   end
 
-  def title(url:)
+  def title
     unescape(parse(get(url).body).xpath('//head/title[1]').text.strip)
   end
 
   private
+
+  attr_reader :url
 
   def get(url)
     HTTParty.get(url)

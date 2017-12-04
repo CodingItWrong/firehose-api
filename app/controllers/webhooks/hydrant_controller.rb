@@ -15,7 +15,7 @@ module Webhooks
     private
 
     def link_parser
-      LinkParser.instance
+      LinkParser
     end
 
     def verify_api_key
@@ -28,7 +28,7 @@ module Webhooks
       params.permit(:url, :title)
             .tap { |params|
               if default_title?
-                params.merge!(title: link_parser.title(url: params[:url]))
+                params.merge!(title: link_parser.process(url: params[:url]).title)
               end
             }
     end

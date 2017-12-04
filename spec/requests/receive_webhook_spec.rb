@@ -23,6 +23,7 @@ RSpec.describe 'receive webhook', type: :request do
 
   before(:each) do
     FirehoseConfig.api_key = '12345'
+    LinkParser.fake!
   end
 
   context 'with incorrect API token' do
