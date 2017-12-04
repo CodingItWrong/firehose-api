@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Sun, 03 Dec 2017 11:25:42 GMT
+      - Mon, 04 Dec 2017 12:45:34 GMT
       Content-Type:
       - text/html; charset=utf-8
       Transfer-Encoding:
@@ -33,11 +33,11 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Expires:
-      - Sun, 03 Dec 2017 11:35:42 GMT
+      - Mon, 04 Dec 2017 12:55:34 GMT
       Cache-Control:
       - max-age=600
       X-Github-Request-Id:
-      - 9922:62F3:13C6BB4:1C039E4:5A23DF36
+      - BE92:62F3:1880403:22C2A61:5A25436E
     body:
       encoding: ASCII-8BIT
       string: "<!DOCTYPE html>\n<html>\n\n  <head>\n  <meta charset=\"utf-8\">\n  <meta
@@ -225,5 +225,5 @@ http_interactions:
         \ ga('create', 'UA-70453424-1', 'auto');\n  ga('send', 'pageview');\n\n</script>\n\n\n
         \ </body>\n\n</html>\n"
     http_version: 
-  recorded_at: Sun, 03 Dec 2017 11:25:42 GMT
+  recorded_at: Mon, 04 Dec 2017 12:45:34 GMT
 recorded_with: VCR 3.0.3

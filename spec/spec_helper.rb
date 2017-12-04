@@ -100,6 +100,7 @@ RSpec.configure do |config|
   VCR.configure do |vcr|
     vcr.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
     vcr.hook_into :webmock
+    vcr.configure_rspec_metadata!
   end
 
   config.after(:each) do
