@@ -27,8 +27,10 @@ module Webhooks
     def link_params
       params.permit(:url, :title)
             .tap { |params|
+              link = link_parser.process(url: params[:url])
+              params.merge!(url: link.canonical)
               if default_title?
-                params.merge!(title: link_parser.process(url: params[:url]).title)
+                params.merge!(title: link.title)
               end
             }
     end
