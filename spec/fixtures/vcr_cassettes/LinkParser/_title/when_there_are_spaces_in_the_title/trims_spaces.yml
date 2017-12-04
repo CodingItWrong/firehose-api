@@ -23,7 +23,7 @@ http_interactions:
       Connection:
       - close
       Date:
-      - Mon, 04 Dec 2017 12:46:07 GMT
+      - Mon, 04 Dec 2017 13:20:33 GMT
       Strict-Transport-Security:
       - max-age=31536000
       X-Frame-Options:
@@ -35,16 +35,16 @@ http_interactions:
       Content-Type:
       - text/html; charset=utf-8
       Etag:
-      - W/"7456da0f6c809b0aeee0aed9eb07b3e9"
+      - W/"0b05b179fecf3bd1392f2f623d6d6dd7"
       Cache-Control:
       - max-age=0, private, must-revalidate
       Set-Cookie:
-      - _destroyallsoftware_session=N2xxcGJFQkdoQllkNjZrMERvcDQrVGR3R3NzS09TY2pBYm5tMk8zeFBzK2Y2TXhIRVc3TGdhNHJ4cmZoalpLT3BQNFB3ZVJHQ2hUSnFITTVDajdKOFc2NXFTK2t2a1BWMTI0VzlBMk52Sy9CSXo2L2tneWthSFU1QVBVZmJKVk5jczhVM1E5VkNRMml1NVdhcEVLSGtGZlRRR3lsTzIwTTJYYU02bmNWMTA4NEVmWWpsWHVkK2paOGs2bUJCVXpULS0rTWxzTnV1YmFFdCtYbVdVR3hFa1B3PT0%3D--bf6186104a003e96c541728b6e50cb1f4613619f;
+      - _destroyallsoftware_session=cldIZWZrQUphcGJkMzMwMk05UGhUaTJtaFlETjMyUnFuVmM0MHIzQ1B4UFRodERGZ0RUK2VrbHdvV1F3UnRpUVFyVFZOMGxFb3dZRk1vRTN6N1drSzU5OGRWajlUb3hpbC9Tb1ZZdTBnTVphYmR3emRoTzNzM3VMeXVlVUFmcVRXa2lvNVZCY0c3TzQ4dGx4L2dLTmZ5U3gwUTJzaXFBNUNqVXpubXV0WHVGVlhqUHoxM0FWY29PV3phb1lqMjdYLS1tQ0kwSlg1UzY5ejNyeldXU0laUU13PT0%3D--4bb680d52f6bafe3b0ae73c00a613e41975c8851;
         path=/; secure; HttpOnly
       X-Request-Id:
-      - 69a94c56-3165-411e-8d51-7d7f20619ebc
+      - 3bd3d1d8-b641-4771-bf19-8b5094d8a058
       X-Runtime:
-      - '0.035749'
+      - '0.116211'
       Vary:
       - Accept-Encoding
       Via:
@@ -58,7 +58,7 @@ http_interactions:
         />\n  <link rel=\"stylesheet\" media=\"screen\" href=\"/assets/application-3b3c13d6427c5ed38682086f002e10e69520399f91684a99b47579e1630d8bd2.css\"
         />\n  <script src=\"/assets/application-8f430a87434ea9cedea111e8dd8776dff43e2658b3f88240e0091793b5858374.js\"></script>\n
         \ \n  <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\"
-        content=\"SdFf1H7ZTd1z5ZkReb/4a7wo4fM1xaMbsXzF/KUa4mejYkbW/Qt+A5ZD9JIGvfBriTGGeUKwijvBBLbIjrhF3Q==\"
+        content=\"M7jysbmqnVQosw47xpg2vCdjWb+FnCqrwLwHVtrEGspBr9OOQrGWVd9Ij3c1BtkUWbtoKQlwYZ7HGmkIb+0HyA==\"
         />\n</head>\n<body>\n  <div class=\"top_navigation\">\n    <div class=\"primary_navigation\">\n
         \     <div class=\"container\">\n        <div class=\"hamburger_button\">\n
         \         <span class=\"fa fa-bars\" aria-hidden=\"true\"></span>\n        </div>\n
@@ -86,7 +86,7 @@ http_interactions:
         columns byline\">\n      A  talk by Gary Bernhardt from Strange Loop 2015\n
         \   </p>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"twelve columns\">\n
         \     <video class=\"u-full-width\" poster=\"/assets/posters/talks/ideology.poster-675eb3c930f49c7f01b34b1bf61db5f1132e587b2ad01ab3fcefe67c49e90d71.png\"
-        preload=\"none\" controls>\n        <source src=\"https://destroyallsoftware-talks.s3.amazonaws.com/ideology.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIKRVCECXBC4ZGHIQ%2F20171204%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20171204T124607Z&amp;X-Amz-Expires=14400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=a264cb4f8217a351d2208e29642147c7a3a48103a6df147f7e4bcf613ee9de3f\"
+        preload=\"none\" controls>\n        <source src=\"https://destroyallsoftware-talks.s3.amazonaws.com/ideology.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIKRVCECXBC4ZGHIQ%2F20171204%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20171204T132033Z&amp;X-Amz-Expires=14400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=61a29788fd11a5482bd14f2a6e570c9ca9aa3be3e0da0d7ad99035975b6deaf8\"
         />\n      </video>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div
         class=\"twelve columns\">\n      <p class=\"description\">\n        Some people
         claim that unit tests make type systems unnecessary: \"types are just simple
@@ -121,5 +121,5 @@ http_interactions:
         s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga,
         s);\n    })();\n\n  </script>\n\n\n\n  \n</body>\n</html>\n\n\n\n"
     http_version: 
-  recorded_at: Mon, 04 Dec 2017 12:46:07 GMT
+  recorded_at: Mon, 04 Dec 2017 13:20:33 GMT
 recorded_with: VCR 3.0.3
