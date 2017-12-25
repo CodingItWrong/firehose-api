@@ -20,4 +20,5 @@ ENV RAILS_SERVE_STATIC_FILES=true
 
 EXPOSE 3000
 
-CMD bin/docker-start
+CMD bin/rails db:create db:migrate && \
+    bin/rails server
