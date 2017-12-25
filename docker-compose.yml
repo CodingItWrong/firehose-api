@@ -2,7 +2,7 @@ version: "3"
 services:
   web:
     build: .
-    volumes:
-      - ./certbot/.well-known:/myapp/public/.well-known
     ports:
       - "3003:3000"
+    volumes:
+      - ./certbot/.well-known:/myapp/public/.well-known
