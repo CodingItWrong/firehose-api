@@ -12,7 +12,7 @@ COPY Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
 
 COPY . /myapp
-RUN bundle exec rails assets:precompile
+RUN bin/rails assets:precompile
 
 ENV RAILS_ENV=production
 ENV RAILS_LOG_TO_STDOUT=true
