@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require 'link_parser'
+require 'web_mentioner'
 
 RSpec.feature 'Managing Links', type: :feature do
   before(:each) do
@@ -33,6 +34,12 @@ RSpec.feature 'Managing Links', type: :feature do
     source = 'The grapevine'
     comment = 'Best post'
     tags = %w[foo bar baz]
+
+    expect(WebMentioner).to receive(:send_mention)
+      .with(
+        /^http:\/\/www.example.com\/links\//,
+        'https://brid.gy/publish/twitter',
+      )
 
     click_on_first_link 'Edit'
     fill_in 'Title', with: title

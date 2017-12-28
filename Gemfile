@@ -13,6 +13,7 @@ gem 'devise'
 gem 'acts-as-taggable-on'
 gem 'dotenv-rails'
 gem 'httparty'
+gem 'webmention'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
