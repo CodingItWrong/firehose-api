@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :links, only: :index
+    resources :links, only: %i[index show]
     resources :tags, only: %i[index show]
   end
 
