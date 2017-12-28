@@ -4,7 +4,7 @@ require 'webmention'
 
 module WebMentioner
   class << self
-    def self.send_mention(source)
+    def send_mention(source)
       configured? or return
 
       client.send_mention(endpoint, source, target)
