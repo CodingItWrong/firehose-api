@@ -6,6 +6,7 @@ RSpec.describe 'IndieWeb integration' do
   it 'allows posting public shares' do
     disallows_sharing_private_links
     includes_microformats_for_public_links
+    works_while_logged_in
   end
 
   def disallows_sharing_private_links
@@ -22,5 +23,15 @@ RSpec.describe 'IndieWeb integration' do
 
     title = find('.p-name').text
     expect(title).to eq(link.title)
+  end
+
+  def works_while_logged_in
+    user = FactoryBot.create(:user)
+    sign_in(user)
+
+    link = FactoryBot.create(:link, :public)
+    visit("/links/#{link.id}")
+
+    expect(page.status_code).to eq(200)
   end
 end
