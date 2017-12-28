@@ -1,42 +1,5 @@
 <ul class="list-group">
   <% @links.each do |link| %>
-    <li class="list-group-item clearfix h-entry" data-role="link_container">
-      <div>
-        <span class="link-title p-name"><%= link_to link.title, link.url, target: '_blank' %></span>
-        <% if user_signed_in? %>
-          <% if link.public? %>
-            <span>Public</span>
-          <% end %>
-        <% end %>
-      </div>
-      <% if link.comment.present? %>
-        <p class="e-content"><%= link.comment %></p>
-      <% end %>
-      <div class="pull-left text-muted">
-        <%= domain(link.url) %>
-        <% if link.tags.any? %>
-          |
-          <% link.tags.each do |tag| %>
-            <%= link_to tag, tag_path(tag.name), class: 'p-category' %>
-          <% end %>
-        <% end %>
-        <% if link.source.present? %>
-          | <%= format_source(link.source) %>
-        <% end %>
-      </div>
-      <% if user_signed_in? %>
-        <div class="pull-right">
-          <div class="dropdown visible-xs-block visible-sm-block">
-            <button class="btn btn-default" type="button" id="prayerActionMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="caret"></span></button>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="prayerActionMenu">
-              <%= render partial: 'links/actions', locals: { link: link, link_container: ->(content) { "<li>#{content}</li>".html_safe } } %>
-            </ul>
-          </div>
-          <div class="hidden-xs hidden-sm">
-            <%= render partial: 'links/actions', locals: { link: link, link_classes: 'btn btn-default', delete_link_classes: 'btn btn-danger' } %>
-          </div>
-        </div>
-      <% end %>
-    </li>
+    <%= render partial: 'links/item', locals: { link: link } %>
   <% end %>
 </ul>
