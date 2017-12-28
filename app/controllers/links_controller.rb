@@ -78,9 +78,6 @@ class LinksController < ApplicationController
   end
 
   def send_web_mention(link)
-    web_mentioner.send_mention(
-      link_url(link),
-      'https://brid.gy/publish/twitter',
-    )
+    web_mentioner.send_mention(link_url(link))
   end
 end

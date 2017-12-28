@@ -3,15 +3,29 @@
 require 'webmention'
 
 module WebMentioner
-  def self.send_mention(source, target)
-    if endpoint = client.supports_webmention?(target)
+  class << self
+    def self.send_mention(source)
+      configured? or return
+
       client.send_mention(endpoint, source, target)
     end
-  end
 
-  private
+    private
 
-  def self.client
-    Webmention::Client
+    def target
+      ENV['WEBMENTION_TARGET']
+    end
+
+    def endpoint
+      @endpoint ||= client.supports_webmention?(target)
+    end
+
+    def configured?
+      [target, endpoint].all?(&:present?)
+    end
+
+    def client
+      Webmention::Client
+    end
   end
 end

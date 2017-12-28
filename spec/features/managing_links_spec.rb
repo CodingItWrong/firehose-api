@@ -36,10 +36,7 @@ RSpec.feature 'Managing Links', type: :feature do
     tags = %w[foo bar baz]
 
     expect(WebMentioner).to receive(:send_mention)
-      .with(
-        /^http:\/\/www.example.com\/links\//,
-        'https://brid.gy/publish/twitter',
-      )
+      .with(/^http:\/\/www.example.com\/links\//)
 
     click_on_first_link 'Edit'
     fill_in 'Title', with: title
