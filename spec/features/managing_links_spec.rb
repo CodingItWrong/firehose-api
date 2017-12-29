@@ -35,7 +35,7 @@ RSpec.feature 'Managing Links', type: :feature do
     comment = 'Best post'
     tags = %w[foo bar baz]
 
-    expect(WebMentioner).to receive(:send_mention)
+    expect(SendWebMentionJob).to receive(:perform_later)
       .with(/^http:\/\/www.example.com\/links\//)
 
     click_on_first_link 'Edit'
