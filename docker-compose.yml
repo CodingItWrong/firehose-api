@@ -6,3 +6,7 @@ services:
       - "3003:3000"
     volumes:
       - ./certbot/.well-known:/myapp/public/.well-known
+    links:
+      - redis
+  redis:
+    image: redis

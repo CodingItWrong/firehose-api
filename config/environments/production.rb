@@ -84,4 +84,13 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  redis_url = 'redis://redis:6379'
+  Sidekiq.configure_server do |config|
+    config.redis = { url: redis_url }
+  end
+
+  Sidekiq.configure_client do |config|
+    config.redis = { url: redis_url }
+  end
 end

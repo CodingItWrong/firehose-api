@@ -3,6 +3,7 @@ FROM ruby:2.4.3
 RUN apt-get update && \
     apt-get install -y nodejs
 RUN gem install nokogiri -v 1.8.1
+RUN gem install foreman
 
 RUN mkdir /myapp
 WORKDIR /myapp
@@ -21,4 +22,4 @@ ENV RAILS_SERVE_STATIC_FILES=true
 EXPOSE 3000
 
 CMD bin/rails db:create db:migrate && \
-    bin/rails server
+    bin/wait-for-it.sh redis:6379 -- foreman start

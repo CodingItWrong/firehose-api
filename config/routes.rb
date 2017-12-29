@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :users
 
   authenticated do
+    mount Sidekiq::Web => '/sidekiq'
+
     resources :links do
       collection do
         scope module: :links do

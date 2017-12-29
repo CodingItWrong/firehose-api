@@ -14,6 +14,7 @@ gem 'acts-as-taggable-on'
 gem 'dotenv-rails'
 gem 'httparty'
 gem 'webmention'
+gem 'sidekiq'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
