@@ -59,10 +59,6 @@ class LinksController < ApplicationController
     LinkParser
   end
 
-  def web_mentioner
-    WebMentioner
-  end
-
   def new_link_params
     params.require(:link)
           .permit(:url)
@@ -78,6 +74,6 @@ class LinksController < ApplicationController
   end
 
   def send_web_mention(link)
-    web_mentioner.send_mention(link_url(link))
+    SendWebMentionJob.perform_later(link_url(link))
   end
 end
