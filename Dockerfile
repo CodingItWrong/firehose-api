@@ -2,7 +2,6 @@ FROM ruby:2.4.3
 
 RUN apt-get update && \
     apt-get install -y nodejs
-RUN gem install nokogiri -v 1.8.1
 RUN gem install foreman
 
 RUN mkdir /myapp
