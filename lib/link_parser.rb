@@ -31,7 +31,7 @@ class LinkParser
   end
 
   def title
-    unescape(parse(get(url).body).xpath('//head/title[1]').text.strip)
+    unescape(parse(get(url).body).xpath('//title[1]').text.strip)
   end
 
   private

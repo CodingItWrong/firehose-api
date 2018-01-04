@@ -49,5 +49,12 @@ RSpec.describe LinkParser, :vcr do
         expect(link.title).to eq("Confreaks TV | Keynote: You're Insufficiently Persuasive - Ruby Conference 2017")
       end
     end
+
+    context 'when the title is somehow not detected in the head' do
+      let(:url) { 'https://leanpub.com/mobprogramming' }
+      it 'detects the title' do
+        expect(link.title).to eq('Mob Programming  by Woody Zuill et al. [Leanpub PDF/iPad/Kindle]')
+      end
+    end
   end
 end
