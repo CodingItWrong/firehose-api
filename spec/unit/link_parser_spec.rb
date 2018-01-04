@@ -63,5 +63,12 @@ RSpec.describe LinkParser, :vcr do
         expect(link.title).to eq('JavaScript Scoping and Hoisting')
       end
     end
+
+    context "when there just isn't a title tag at all" do
+      let(:url) { 'https://google.github.io/styleguide/javascriptguide.xml' }
+      it 'uses the last path segment as the title' do
+        expect(link.title).to eq('javascriptguide.xml')
+      end
+    end
   end
 end
