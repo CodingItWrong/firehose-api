@@ -1,7 +1,7 @@
 <%= form_for @link do |f| %>
   <div class='form-group'>
     <%= f.label :url %>
-    <p class="form-control-static"><%= link_to @link.url %></p>
+    <p class="form-control-static"><%= link_to @link.url, @link.url %></p>
   </div>
   <div class='form-group'>
     <%= f.label :title %>
