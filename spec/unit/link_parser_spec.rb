@@ -56,5 +56,12 @@ RSpec.describe LinkParser, :vcr do
         expect(link.title).to eq('Mob Programming  by Woody Zuill et al. [Leanpub PDF/iPad/Kindle]')
       end
     end
+
+    context 'when there is a meta refresh' do
+      let(:url) { 'http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/' }
+      it 'follows the refresh' do
+        expect(link.title).to eq('JavaScript Scoping and Hoisting')
+      end
+    end
   end
 end

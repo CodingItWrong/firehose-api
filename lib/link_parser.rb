@@ -31,7 +31,8 @@ class LinkParser
   end
 
   def title
-    unescape(parse(get(url).body).xpath('//title[1]').text.strip)
+    nokogiri = parse(get(url).body)
+    unescape(nokogiri.xpath('//title[1]').text.strip)
   end
 
   private
@@ -39,7 +40,50 @@ class LinkParser
   attr_reader :url
 
   def get(url)
-    HTTParty.get(url)
+    response = HTTParty.get(url)
+    follow_refreshes(url, response)
+  end
+
+  def follow_refreshes(original_url, original_response)
+    refresh_url = refresh_url(original_response)
+    return original_response unless refresh_url
+    absolute_url = absolute_url(original_url, refresh_url)
+    follow_refreshes(absolute_url, get(absolute_url))
+  end
+
+  def refresh_url(response)
+    refresh_tag = parse(response.body).xpath('//meta').find do |meta_tag|
+      attribute = attribute_case_insensitive(meta_tag, 'http-equiv')
+      return false if attribute.nil?
+      attribute.value.downcase == 'refresh'
+    end
+    return if refresh_tag.nil?
+
+    refresh_content = attribute_case_insensitive(refresh_tag, 'content')
+    refresh_content.value.split('url=')[1]
+  end
+
+  def absolute_url(original_url, url)
+    current_page = URI.parse(original_url)
+    uri = URI.parse(url)
+
+    # if uri is only a non-relative path, you need to prepend
+    # the path from the location of the document
+    if uri.path && ! uri.path.start_with?('/')
+      uri.path = File.join current_page.path, uri.path
+    end
+
+    uri.scheme = current_page.scheme if uri.scheme.nil?
+    uri.host = current_page.host if uri.host.nil?
+    uri.to_s #=> "http://www.example.org/example/foo"
+  end
+
+  def attribute_case_insensitive(tag, attribute_name)
+    attributes = tag.attributes
+    http_equiv_key = attributes.keys.find do |key|
+      key.downcase == attribute_name.downcase
+    end
+    attributes[http_equiv_key]
   end
 
   def parse(html)
