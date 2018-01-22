@@ -70,5 +70,12 @@ RSpec.describe LinkParser, :vcr do
         expect(link.title).to eq('javascriptguide.xml')
       end
     end
+
+    context "when there are multiple title tags foolishly" do
+      let(:url) { 'https://babeljs.io/docs/usage/polyfill/' }
+      it 'uses only the first as the title' do
+        expect(link.title).to eq('Polyfill · Babel')
+      end
+    end
   end
 end

@@ -32,7 +32,7 @@ class LinkParser
 
   def title
     nokogiri = parse(get(url).body)
-    title = unescape(nokogiri.xpath('//title[1]').text.strip)
+    title = unescape(nokogiri.xpath('(//title)[1]').text.strip)
     return title if title != ''
     last_path_segment(url)
   end
