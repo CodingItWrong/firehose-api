@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#prayerapp-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to 'index' classNames='navbar-brand' }}Firehose{{/link-to}}
+    </div>
+    <div class="collapse navbar-collapse" id="prayerapp-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+{{outlet}}
+
+<footer class="text-center text-muted">
+  <img src="/favicon-16x16.png" alt="Firehose icon" />
+  Implemented with <a href="https://github.com/CodingItWrong/firehose">Firehose</a>
+</footer>
