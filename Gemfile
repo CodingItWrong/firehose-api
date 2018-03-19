@@ -16,6 +16,7 @@ gem 'httparty'
 gem 'webmention'
 gem 'sidekiq'
 gem 'jsonapi-resources'
+gem 'doorkeeper'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

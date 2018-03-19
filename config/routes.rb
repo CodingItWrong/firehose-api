@@ -34,8 +34,12 @@ Rails.application.routes.draw do
     resources :tags, only: %i[index show]
   end
 
-  scope '/api', module: :api do
-    resources :my_links, only: :index, path: '/links'
+  scope '/api' do
+    use_doorkeeper
+
+    scope module: :api do
+      resources :my_links, only: :index, path: '/links'
+    end
   end
 
   root to: 'public/links#index'
