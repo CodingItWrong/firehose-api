@@ -10,6 +10,8 @@ An [iOS share extension app](https://github.com/CodingItWrong/Hydrant) is also a
 
 1. Ruby
 1. PostgreSQL (e.g. [Postgres.app][postgres-app])
+1. Ember-CLI
+1. Foreman
 
 ### Setup
 
@@ -28,7 +30,7 @@ $ bin/rspec
 ### Running
 
 ```sh
-$ bin/rails server
+$ bin/serve
 ```
 
 ### Docker
