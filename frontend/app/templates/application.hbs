@@ -11,6 +11,9 @@
     </div>
     <div class="collapse navbar-collapse" id="prayerapp-navbar">
       <ul class="nav navbar-nav navbar-right">
+        {{#if session.isAuthenticated}}
+          <li><a href="#" {{action "signOut"}} class="test-logout-button">Sign out</a></li>
+        {{/if}}
       </ul>
     </div>
 

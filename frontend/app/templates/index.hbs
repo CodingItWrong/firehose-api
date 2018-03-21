@@ -1,9 +1,9 @@
 <form {{action 'authenticate' on='submit'}}>
   <label for="email">Email</label>
-  {{input id='email' placeholder='Enter Email' value=email}}
+  {{input id='email' placeholder='Enter Email' value=email class='test-email'}}
   <label for="password">Password</label>
-  {{input id='password' placeholder='Enter Password' type='password' value=password}}
-  <button type="submit">Login</button>
+  {{input id='password' placeholder='Enter Password' type='password' value=password class='test-password'}}
+  <button type="submit" class="test-login-button">Login</button>
   {{#if errorMessage}}
     <p>{{errorMessage}}</p>
   {{/if}}

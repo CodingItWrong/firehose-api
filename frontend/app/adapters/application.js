@@ -1,5 +1,12 @@
 import DS from 'ember-data';
+import ENV from '../config/environment';
 
-export default DS.JSONAPIAdapter.extend({
+let options = {
   namespace: 'api',
-});
+};
+
+if (ENV.apiHost) {
+  options.host = ENV.apiHost;
+}
+
+export default DS.JSONAPIAdapter.extend(options);
