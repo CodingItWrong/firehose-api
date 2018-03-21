@@ -5,5 +5,9 @@ module Api
     model_name 'Link'
 
     attributes *%i[title url]
+
+    def self.records(options = {})
+      Link.publicly_visible
+    end
   end
 end

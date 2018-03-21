@@ -3,17 +3,20 @@
 require 'rails_helper'
 
 RSpec.describe 'list links', type: :request do
-  let!(:link_model) { FactoryBot.create(:link) }
+  let!(:public_link) { FactoryBot.create(:link, :public) }
+  let!(:private_link) { FactoryBot.create(:link, :private) }
 
-  it 'returns a JSON representation of all links' do
-    get '/api/links'
+  context 'when not authenticated' do
+    it 'returns all public links' do
+      get '/api/links'
 
-    expect(response).to be_success
+      expect(response).to be_success
 
-    jsonapi_response = JSON.parse(response.body)
-    links = jsonapi_response['data']
+      jsonapi_response = JSON.parse(response.body)
+      links = jsonapi_response['data']
 
-    expect(links.length).to eq(1)
-    expect(links.first['attributes']['title']).to eq(link_model.title)
+      expect(links.length).to eq(1)
+      expect(links.first['attributes']['title']).to eq(public_link.title)
+    end
   end
 end
