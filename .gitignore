@@ -14,4 +14,4 @@
 .byebug_history
 .env
 certbot
-public
+/public
