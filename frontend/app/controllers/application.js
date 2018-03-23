@@ -5,8 +5,11 @@ export default Controller.extend({
   session: service(),
 
   actions: {
-    signOut() {
+    async signOut() {
       this.get('session').invalidate();
+
+      await this.get('store').unloadAll('link');
+      await this.store.findAll('link');
     },
   },
 });
