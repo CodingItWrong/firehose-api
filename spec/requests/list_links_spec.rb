@@ -19,4 +19,26 @@ RSpec.describe 'list links', type: :request do
       expect(links.first['attributes']['title']).to eq(public_link.title)
     end
   end
+
+  context 'when authenticated' do
+    it 'returns all links' do
+      headers = {
+        'Authorization' => 'Bearer '
+      }
+      get '/api/links', headers: headers
+
+      expect(response).to be_success
+
+      jsonapi_response = JSON.parse(response.body)
+      links = jsonapi_response['data']
+
+      expect(links.length).to eq(2)
+
+      link_titles = links.map { |link| link['attributes']['title'] }
+      expect(link_titles).to match_array([
+        public_link.title,
+        private_link.title,
+      ])
+    end
+  end
 end
