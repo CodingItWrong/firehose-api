@@ -4,6 +4,13 @@ import { inject as service } from '@ember/service';
 export default Controller.extend({
   session: service(),
 
+  resetLoginForm() {
+    this.setProperties({
+      email: '',
+      password: '',
+    });
+  },
+
   actions: {
     async authenticate() {
       let { email, password } = this.getProperties('email', 'password');

@@ -24,5 +24,13 @@ module('Acceptance | auth', function(hooks) {
       find('.test-logout-button') === null,
       'Sign Out button was not expected, but was found'
     );
+
+    await click('.test-login-link');
+
+    assert.equal(
+      find('.test-email').value,
+      '',
+      'Expected email field to start out cleared'
+    );
   });
 });
