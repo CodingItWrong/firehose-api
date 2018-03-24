@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit, fillIn, click } from '@ember/test-helpers';
+import { visit, fillIn, click, find } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
@@ -16,16 +16,21 @@ module('Acceptance | auth', function(hooks) {
     await fillIn('.test-password', 'password');
     await click('.test-login-button');
 
-    assert.ok(
-      this.element.querySelector('.test-logout-button'),
-      'Sign Out button not found'
-    );
+    assert.ok(find('.test-logout-button'), 'Sign Out button not found');
 
     await click('.test-logout-button');
 
     assert.ok(
-      this.element.querySelector('.test-logout-button') === null,
+      find('.test-logout-button') === null,
       'Sign Out button was not expected, but was found'
+    );
+
+    await click('.test-login-link');
+
+    assert.equal(
+      find('.test-email').value,
+      '',
+      'Expected email field to start out cleared'
     );
   });
 });
