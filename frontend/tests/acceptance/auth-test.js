@@ -10,6 +10,8 @@ module('Acceptance | auth', function(hooks) {
   test('sign in and sign out', async function(assert) {
     await visit('/');
 
+    await click('.test-login-link');
+
     await fillIn('.test-email', 'example@example.com');
     await fillIn('.test-password', 'password');
     await click('.test-login-button');

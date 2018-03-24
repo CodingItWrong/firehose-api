@@ -4,7 +4,7 @@ module Api
   class MyLinkResource < ApplicationResource
     model_name 'Link'
 
-    attributes *%i[title url]
+    attributes *%i[title url comment source read]
 
     def self.records(options = {})
       user = current_user(options)

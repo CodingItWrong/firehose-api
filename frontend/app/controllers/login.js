@@ -13,7 +13,7 @@ export default Controller.extend({
       } catch(e) {
         this.set('errorMessage', e.error || e);
       }
-      await this.store.findAll('link');
+      await this.transitionToRoute('index');
     },
   },
 });
