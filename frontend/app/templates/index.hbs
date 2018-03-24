@@ -9,10 +9,8 @@
   {{/if}}
 </form>
 
-<ul data-test="links">
+<ul class="list-group" data-test="links">
   {{#each model as |link|}}
-    <li>
-      <a href="{{ link.url }}">{{ link.title }}</a>
-    </li>
+    {{link-row link=link}}
   {{/each}}
 </ul>
