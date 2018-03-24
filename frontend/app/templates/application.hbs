@@ -13,6 +13,8 @@
       <ul class="nav navbar-nav navbar-right">
         {{#if session.isAuthenticated}}
           <li><a href="#" {{action "signOut"}} class="test-logout-button">Sign out</a></li>
+        {{else}}
+          <li>{{#link-to 'login' classNames='test-login-link'}}Sign in{{/link-to}}</li>
         {{/if}}
       </ul>
     </div>
