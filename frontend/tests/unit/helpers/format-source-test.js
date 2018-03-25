@@ -1,15 +1,16 @@
 import { formatSource } from 'firehose/helpers/format-source';
-import { module, test } from 'qunit';
+import { describe, it } from 'mocha';
+import { expect } from 'chai';
 
-module('Unit | Helper | format-source', () => {
-  test('it formats URLs as a link', async function(assert) {
+describe('formatSource()', () => {
+  it('formats URLs as a link', () => {
     let sourceURL = 'https://example.com/page';
-    let result = formatSource([sourceURL]);
-    assert.equal(result, `<a href="${sourceURL}">example.com</a>`);
+    let result = formatSource(sourceURL);
+    expect(result).to.eq(`<a href="${sourceURL}">example.com</a>`);
   });
 
-  test('it returns non-URLs as-is', async function(assert) {
+  it('returns non-URLs as-is', () => {
     const nonURLSource = 'a friend';
-    assert.equal(formatSource([nonURLSource]), nonURLSource);
+    expect(formatSource(nonURLSource)).to.eq(nonURLSource);
   });
 });

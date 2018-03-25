@@ -1,6 +1,6 @@
 import { helper } from '@ember/component/helper';
 
-export function domain([url]/*, hash*/) {
+export function domain(url) {
   let host = new URL(url).hostname;
 
   if (host.startsWith('www.')) {
@@ -10,4 +10,8 @@ export function domain([url]/*, hash*/) {
   return host;
 }
 
-export default helper(domain);
+function domainForEmber([url]/*, hash*/) {
+  return domain(url);
+}
+
+export default helper(domainForEmber);

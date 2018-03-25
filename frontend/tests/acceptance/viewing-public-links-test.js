@@ -1,13 +1,14 @@
-import { module, test } from 'qunit';
+import { describe, it } from 'mocha';
+import { expect } from 'chai';
 import { visit } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-qunit';
+import { setupApplicationTest } from 'ember-mocha';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
-module('Acceptance | viewing public links', function(hooks) {
-  setupApplicationTest(hooks);
+describe('viewing public links', function() {
+  let hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  test('it displays public links', async function(assert) {
+  it('displays public links', async function() {
     let linkModels = server.createList('link', 3);
 
     await visit('/');
@@ -15,10 +16,7 @@ module('Acceptance | viewing public links', function(hooks) {
     let linkText = this.element.querySelector('[data-test-links]').textContent;
 
     for (let link of linkModels) {
-      assert.ok(
-        linkText.includes(link.title),
-        `Link title ${link.title} not found on page`,
-      );
+      expect(linkText).to.include(link.title);
     }
   });
 });

@@ -1,13 +1,14 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
+import { describe, it } from 'mocha';
+import { expect } from 'chai';
+import { setupRenderingTest } from 'ember-mocha';
 import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import Service from '@ember/service';
 
-module('Integration | Component | link-row', function(hooks) {
-  setupRenderingTest(hooks);
+describe('{{link-row}}', () => {
+  setupRenderingTest();
 
-  test('it does not display action buttons when signed out', async function(assert) {
+  it('does not display action buttons when signed out', async function() {
     let session = Service.extend({ isAuthenticated: () => false });
     this.owner.register('service:session', session);
 
@@ -19,12 +20,12 @@ module('Integration | Component | link-row', function(hooks) {
 
     await render(hbs`{{link-row link=link session=session}}`);
 
-    assert.notOk(find('[data-test-button-mark-read]'), 'Did not expect Mark Read button');
-    assert.notOk(find('[data-test-button-edit]'), 'Did not expect Edit button');
-    assert.notOk(find('[data-test-button-delete]'), 'Did not expect Delete button');
+    expect(find('[data-test-button-mark-read]')).not.to.exist;
+    expect(find('[data-test-button-edit]')).not.to.exist;
+    expect(find('[data-test-button-delete]')).not.to.exist;
   });
 
-  test('it displays action buttons when signed in', async function(assert) {
+  it('it displays action buttons when signed in', async function() {
     let session = Service.extend({ isAuthenticated: () => true });
     this.owner.register('service:session', session);
 
@@ -36,12 +37,12 @@ module('Integration | Component | link-row', function(hooks) {
 
     await render(hbs`{{link-row link=link}}`);
 
-    assert.ok(find('[data-test-button-mark-read]'), 'Expected Mark Read button');
-    assert.ok(find('[data-test-button-edit]'), 'Expected Edit button');
-    assert.ok(find('[data-test-button-delete]'), 'Expected Delete button');
+    expect(find('[data-test-button-mark-read]')).to.exist;
+    expect(find('[data-test-button-edit]')).to.exist;
+    expect(find('[data-test-button-delete]')).to.exist;
   });
 
-  test('it displays Mark Unread when read', async function(assert) {
+  it('it displays Mark Unread when read', async function() {
     let session = Service.extend({ isAuthenticated: () => true });
     this.owner.register('service:session', session);
 
@@ -54,7 +55,7 @@ module('Integration | Component | link-row', function(hooks) {
 
     await render(hbs`{{link-row link=link}}`);
 
-    assert.ok(find('[data-test-button-mark-unread]'), 'Expected Mark Unread button');
-    assert.notOk(find('[data-test-button-mark-read]'), 'Did not expect Mark Read buttohn');
+    expect(find('[data-test-button-mark-unread]')).to.exist;
+    expect(find('[data-test-button-mark-read]')).not.to.exist;
   });
 });

@@ -1,19 +1,20 @@
 import { domain } from 'firehose/helpers/domain';
-import { module, test } from 'qunit';
+import { describe, it } from 'mocha';
+import { expect } from 'chai';
 
-module('Unit | Helper | domain', () => {
-  test('it retrieves just the domain', async function(assert) {
-    let result = domain(['https://example.com/my-blog-post']);
-    assert.equal(result, 'example.com');
+describe('domain()', () => {
+  it('retrieves just the domain', () => {
+    let result = domain('https://example.com/my-blog-post');
+    expect(result).to.eq('example.com');
   });
 
-  test('it removes www', async function(assert) {
-    let result = domain(['https://www.example.com/my-blog-post']);
-    assert.equal(result, 'example.com');
+  it('removes www', () => {
+    let result = domain('https://www.example.com/my-blog-post');
+    expect(result).to.eq('example.com');
   });
 
-  test('it does not remove subdomains other than www', async function(assert) {
-    let result = domain(['https://subdomain.example.com/my-blog-post']);
-    assert.equal(result, 'subdomain.example.com');
+  it('does not remove subdomains other than www', () => {
+    let result = domain('https://subdomain.example.com/my-blog-post');
+    expect(result).to.eq('subdomain.example.com');
   });
 });
