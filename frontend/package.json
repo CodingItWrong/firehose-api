@@ -40,6 +40,7 @@
     "ember-resolver": "^4.0.0",
     "ember-simple-auth": "^1.5.1",
     "ember-source": "~3.0.0",
+    "ember-test-selectors": "^0.3.8",
     "eslint-plugin-ember": "^5.0.0",
     "loader.js": "^4.2.3"
   },
