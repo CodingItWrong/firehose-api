@@ -18,7 +18,7 @@ module('Acceptance | viewing public links', function(hooks) {
       assert.ok(
         linkText.includes(link.title),
         `Link title ${link.title} not found on page`,
-      )
+      );
     }
   });
 });

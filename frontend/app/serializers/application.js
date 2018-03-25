@@ -7,5 +7,5 @@ export default DS.JSONAPISerializer.extend({
     }
 
     return this._super(payloadKey);
-  }
+  },
 });

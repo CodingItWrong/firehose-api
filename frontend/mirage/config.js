@@ -1,11 +1,7 @@
 export default function() {
-
   this.urlPrefix = '/api';
 
-  this.post('/oauth/token', () => {
-    return { access_token: 'abc123' };
-  });
-
+  this.post('/oauth/token', () => ({ access_token: 'abc123' }));
   this.get('/links');
 
   // These comments are here to help you get started. Feel free to delete them.

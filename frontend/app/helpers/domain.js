@@ -1,7 +1,7 @@
 import { helper } from '@ember/component/helper';
 
-export function domain([domain]/*, hash*/) {
-  let host = new URL(domain).hostname;
+export function domain([url]/*, hash*/) {
+  let host = new URL(url).hostname;
 
   if (host.startsWith('www.')) {
     host = host.substr(4);

@@ -22,7 +22,7 @@ module('Acceptance | auth', function(hooks) {
 
     assert.ok(
       find('[data-test-logout-button]') === null,
-      'Sign Out button was not expected, but was found'
+      'Sign Out button was not expected, but was found',
     );
 
     await click('[data-test-login-link]');
@@ -30,7 +30,7 @@ module('Acceptance | auth', function(hooks) {
     assert.equal(
       find('[data-test-email-field]').value,
       '',
-      'Expected email field to start out cleared'
+      'Expected email field to start out cleared',
     );
   });
 });

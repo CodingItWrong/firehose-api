@@ -3,7 +3,7 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | format-source', () => {
   test('it formats URLs as a link', async function(assert) {
-    let sourceURL = 'https://example.com/page'
+    let sourceURL = 'https://example.com/page';
     let result = formatSource([sourceURL]);
     assert.equal(result, `<a href="${sourceURL}">example.com</a>`);
   });

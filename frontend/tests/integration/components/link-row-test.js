@@ -13,7 +13,7 @@ module('Integration | Component | link-row', function(hooks) {
 
     let link = {
       title: 'My Title',
-      url: 'https://www.example.com/page'
+      url: 'https://www.example.com/page',
     };
     this.set('link', link);
 
@@ -30,7 +30,7 @@ module('Integration | Component | link-row', function(hooks) {
 
     let link = {
       title: 'My Title',
-      url: 'https://www.example.com/page'
+      url: 'https://www.example.com/page',
     };
     this.set('link', link);
 

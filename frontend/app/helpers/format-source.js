@@ -6,7 +6,7 @@ export function formatSource([source]/*, hash*/) {
   let sourceURL;
   try {
     sourceURL = new URL(source);
-  } catch(e) {
+  } catch (e) {
     return source;
   }
 

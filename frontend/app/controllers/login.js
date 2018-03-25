@@ -17,7 +17,7 @@ export default Controller.extend({
 
       try {
         await this.get('session').authenticate('authenticator:oauth', email, password);
-      } catch(e) {
+      } catch (e) {
         this.set('errorMessage', e.error || e);
       }
       await this.transitionToRoute('index');

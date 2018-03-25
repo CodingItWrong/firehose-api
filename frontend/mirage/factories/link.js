@@ -7,5 +7,5 @@ export default Factory.extend({
 
   url(i) {
     return `https://example.com/my-awesome-post-${i}`;
-  }
+  },
 });
