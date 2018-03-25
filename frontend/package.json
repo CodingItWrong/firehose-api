@@ -41,7 +41,9 @@
     "ember-simple-auth": "^1.5.1",
     "ember-source": "~3.0.0",
     "ember-test-selectors": "^0.3.8",
+    "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-ember": "^5.0.0",
+    "eslint-plugin-import": "^2.9.0",
     "loader.js": "^4.2.3"
   },
   "engines": {
