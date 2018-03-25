@@ -25,6 +25,7 @@ module.exports = {
     "import/no-unresolved": "off",
     "no-restricted-syntax": "off",
     "no-underscore-dangle": "off",
+    "no-unused-expressions": "off",
     "prefer-arrow-callback": "off",
     "prefer-const": "off",
     "space-before-function-paren": "off",
