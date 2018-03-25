@@ -12,7 +12,7 @@ module('Acceptance | viewing public links', function(hooks) {
 
     await visit('/');
 
-    let linkText = this.element.querySelector('[data-test="links"]').textContent;
+    let linkText = this.element.querySelector('[data-test-links]').textContent;
 
     for (let link of linkModels) {
       assert.ok(
