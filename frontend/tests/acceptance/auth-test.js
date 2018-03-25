@@ -1,13 +1,14 @@
-import { module, test } from 'qunit';
+import { describe, it } from 'mocha';
+import { expect } from 'chai';
 import { visit, fillIn, click, find } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-qunit';
+import { setupApplicationTest } from 'ember-mocha';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
-module('Acceptance | auth', function(hooks) {
-  setupApplicationTest(hooks);
+describe('auth', function() {
+  let hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  test('sign in and sign out', async function(assert) {
+  it('can sign in and sign out', async function() {
     await visit('/');
 
     await click('[data-test-login-link]');
@@ -16,21 +17,14 @@ module('Acceptance | auth', function(hooks) {
     await fillIn('[data-test-password-field]', 'password');
     await click('[data-test-login-button]');
 
-    assert.ok(find('[data-test-logout-button]'), 'Sign Out button not found');
+    expect(find('[data-test-logout-button]')).to.exist;
 
     await click('[data-test-logout-button]');
 
-    assert.ok(
-      find('[data-test-logout-button]') === null,
-      'Sign Out button was not expected, but was found',
-    );
+    expect(find('[data-test-logout-button]')).not.to.exist;
 
     await click('[data-test-login-link]');
 
-    assert.equal(
-      find('[data-test-email-field]').value,
-      '',
-      'Expected email field to start out cleared',
-    );
+    expect(find('[data-test-email-field]').value).to.eq('');
   });
 });

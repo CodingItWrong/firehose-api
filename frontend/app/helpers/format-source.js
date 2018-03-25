@@ -2,7 +2,7 @@ import { helper } from '@ember/component/helper';
 import { htmlSafe } from '@ember/string';
 import { domain } from 'firehose/helpers/domain';
 
-export function formatSource([source]/*, hash*/) {
+export function formatSource(source) {
   let sourceURL;
   try {
     sourceURL = new URL(source);
@@ -11,8 +11,11 @@ export function formatSource([source]/*, hash*/) {
   }
 
   let sourceDomain = domain([sourceURL]);
-  let rawHtml = `<a href="${sourceURL}">${sourceDomain}</a>`;
-  return htmlSafe(rawHtml);
+  return `<a href="${sourceURL}">${sourceDomain}</a>`;
 }
 
-export default helper(formatSource);
+function formatSourceForEmber([source]/*, hash*/) {
+  return htmlSafe(formatSource(source));
+}
+
+export default helper(formatSourceForEmber);
