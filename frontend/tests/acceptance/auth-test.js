@@ -10,25 +10,25 @@ module('Acceptance | auth', function(hooks) {
   test('sign in and sign out', async function(assert) {
     await visit('/');
 
-    await click('.test-login-link');
+    await click('[data-test-login-link]');
 
-    await fillIn('.test-email', 'example@example.com');
-    await fillIn('.test-password', 'password');
-    await click('.test-login-button');
+    await fillIn('[data-test-email-field]', 'example@example.com');
+    await fillIn('[data-test-password-field]', 'password');
+    await click('[data-test-login-button]');
 
-    assert.ok(find('.test-logout-button'), 'Sign Out button not found');
+    assert.ok(find('[data-test-logout-button]'), 'Sign Out button not found');
 
-    await click('.test-logout-button');
+    await click('[data-test-logout-button]');
 
     assert.ok(
-      find('.test-logout-button') === null,
+      find('[data-test-logout-button]') === null,
       'Sign Out button was not expected, but was found'
     );
 
-    await click('.test-login-link');
+    await click('[data-test-login-link]');
 
     assert.equal(
-      find('.test-email').value,
+      find('[data-test-email-field]').value,
       '',
       'Expected email field to start out cleared'
     );

@@ -7,13 +7,13 @@
 <form {{action 'authenticate' on='submit'}}>
   <div class="form-group">
     <label for="email">Email</label><br />
-    {{input id='email' placeholder='Enter Email' value=email class='test-email form-control'}}
+    {{input data-test-email-field id='email' placeholder='Enter Email' value=email class='form-control'}}
   </div>
   <div class="form-group">
     <label for="password">Password</label><br />
-    {{input id='password' placeholder='Enter Password' type='password' value=password class='test-password form-control'}}
+    {{input data-test-password-field id='password' placeholder='Enter Password' type='password' value=password class='form-control'}}
   </div>
   <div class="actions">
-    <button type="submit" class="test-login-button btn btn-primary">Login</button>
+    <button data-test-login-button type="submit" class="btn btn-primary">Login</button>
   </div>
 </form>
