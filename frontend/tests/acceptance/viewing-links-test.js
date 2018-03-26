@@ -1,6 +1,6 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
-import { visit, find } from '@ember/test-helpers';
+import { visit, find, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-mocha';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { authenticateSession } from 'ember-simple-auth/test-support';
@@ -20,5 +20,12 @@ describe('viewing public links', function() {
 
     expect(linkText).to.include(unreadLink.title);
     expect(linkText).not.to.include(readLink.title);
+
+    await click('[data-test-read-link]');
+
+    linkText = find('[data-test-links]').textContent;
+
+    expect(linkText).to.include(readLink.title);
+    expect(linkText).not.to.include(unreadLink.title);
   });
 });

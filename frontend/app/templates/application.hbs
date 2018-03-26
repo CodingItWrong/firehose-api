@@ -12,6 +12,7 @@
     <div class="collapse navbar-collapse" id="prayerapp-navbar">
       <ul class="nav navbar-nav navbar-right">
         {{#if session.isAuthenticated}}
+          <li>{{#link-to 'links.read' data-test-read-link}}Read{{/link-to}}</li>
           <li><a href="#" {{action "signOut"}} data-test-logout-button>Sign out</a></li>
         {{else}}
           <li>{{#link-to 'login' data-test-login-link}}Sign in{{/link-to}}</li>
