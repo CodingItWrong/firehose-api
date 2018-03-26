@@ -6,6 +6,8 @@ module Api
 
     attributes *%i[title url comment source read]
 
+    filter :read
+
     def self.records(options = {})
       user = current_user(options)
       if user.present?
