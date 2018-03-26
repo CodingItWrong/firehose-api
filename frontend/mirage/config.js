@@ -2,7 +2,14 @@ export default function() {
   this.urlPrefix = '/api';
 
   this.post('/oauth/token', () => ({ access_token: 'abc123' }));
-  this.get('/links');
+  this.get('/links', ({ links }, request) => {
+    let read = request.queryParams['filter[read]'];
+    if (typeof read !== 'undefined') {
+      return links.where({ read });
+    }
+
+    return links.all();
+  });
 
   // These comments are here to help you get started. Feel free to delete them.
 
