@@ -8,8 +8,10 @@ describe('viewing public links', function() {
   let hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  it('displays public links', async function() {
-    let linkModels = server.createList('link', 3);
+  it('displays all public links', async function() {
+    let unreadLink = server.create('link', { title: 'My Unread Link', read: false });
+    let readLink = server.create('link', { title: 'My Read Link', read: true });
+    let linkModels = [unreadLink, readLink];
 
     await visit('/');
 
