@@ -27,5 +27,12 @@ describe('viewing public links', function() {
 
     expect(linkText).to.include(readLink.title);
     expect(linkText).not.to.include(unreadLink.title);
+
+    await click('[data-test-unread-link]');
+
+    linkText = find('[data-test-links]').textContent;
+
+    expect(linkText).to.include(unreadLink.title);
+    expect(linkText).not.to.include(readLink.title);
   });
 });
