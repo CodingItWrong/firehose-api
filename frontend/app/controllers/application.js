@@ -10,6 +10,8 @@ export default Controller.extend({
 
       await this.get('store').unloadAll('link');
       await this.store.findAll('link');
+
+      this.transitionToRoute('index');
     },
   },
 });
