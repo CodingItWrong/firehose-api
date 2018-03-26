@@ -23,6 +23,7 @@ module.exports = {
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": "off",
+    "no-else-return": "off",
     "no-restricted-syntax": "off",
     "no-underscore-dangle": "off",
     "no-unused-expressions": "off",
