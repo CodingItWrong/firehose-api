@@ -1,5 +1,7 @@
 {{#if session.isAuthenticated}}
   <h1>Unread Links</h1>
+
+  {{#link-to 'links.new' data-test-add-link}}Add{{/link-to}}
 {{/if}}
 
 <ul class="list-group" data-test-links>

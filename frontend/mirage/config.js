@@ -2,6 +2,7 @@ export default function() {
   this.urlPrefix = '/api';
 
   this.post('/oauth/token', () => ({ access_token: 'abc123' }));
+
   this.get('/links', ({ links }, request) => {
     let read = request.queryParams['filter[read]'];
     if (typeof read !== 'undefined') {
@@ -9,6 +10,16 @@ export default function() {
     }
 
     return links.all();
+  });
+  this.post('/links', ({ links }, request) => {
+    let params = JSON.parse(request.requestBody);
+    let link = links.new({
+      url: params.data.attributes.url,
+      title: 'My Link Title',
+      read: false,
+    });
+    link.save();
+    return link;
   });
 
   // These comments are here to help you get started. Feel free to delete them.
