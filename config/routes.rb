@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     use_doorkeeper
 
     scope module: :api do
-      resources :my_links, only: :index, path: '/links'
+      resources :my_links, only: %i[index create], path: '/links'
     end
   end
 

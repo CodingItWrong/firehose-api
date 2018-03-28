@@ -11,6 +11,7 @@ Router.map(function() {
 
   this.route('links', function() {
     this.route('read');
+    this.route('new');
   });
 });
 

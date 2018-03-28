@@ -8,4 +8,12 @@ export default DS.JSONAPISerializer.extend({
 
     return this._super(payloadKey);
   },
+
+  payloadKeyFromModelName(modelName) {
+    if (modelName === 'link') {
+      return 'my-links';
+    }
+
+    return this._super(modelName);
+  },
 });
