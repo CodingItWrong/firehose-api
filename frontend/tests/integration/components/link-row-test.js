@@ -4,6 +4,7 @@ import { setupRenderingTest } from 'ember-mocha';
 import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import Service from '@ember/service';
+import EmberObject from '@ember/object';
 
 describe('{{link-row}}', () => {
   setupRenderingTest();
@@ -12,10 +13,10 @@ describe('{{link-row}}', () => {
     let session = Service.extend({ isAuthenticated: () => false });
     this.owner.register('service:session', session);
 
-    let link = {
+    let link = EmberObject.create({
       title: 'My Title',
       url: 'https://www.example.com/page',
-    };
+    });
     this.set('link', link);
 
     await render(hbs`{{link-row link=link session=session}}`);
@@ -29,10 +30,10 @@ describe('{{link-row}}', () => {
     let session = Service.extend({ isAuthenticated: () => true });
     this.owner.register('service:session', session);
 
-    let link = {
+    let link = EmberObject.create({
       title: 'My Title',
       url: 'https://www.example.com/page',
-    };
+    });
     this.set('link', link);
 
     await render(hbs`{{link-row link=link}}`);
@@ -46,11 +47,11 @@ describe('{{link-row}}', () => {
     let session = Service.extend({ isAuthenticated: () => true });
     this.owner.register('service:session', session);
 
-    let link = {
+    let link = EmberObject.create({
       title: 'My Title',
       url: 'https://www.example.com/page',
       read: true,
-    };
+    });
     this.set('link', link);
 
     await render(hbs`{{link-row link=link}}`);
