@@ -5,8 +5,7 @@ import { computed } from '@ember/object';
 export default Component.extend({
   session: service(),
 
-  tagName: 'li',
-  classNames: ['list-group-item', 'clearfix', 'h-entry'],
+  tagName: '',
 
   showLink: computed('link.read', function() {
     if (typeof this.showIfRead === 'undefined') {
