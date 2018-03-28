@@ -14,4 +14,18 @@ export default Component.extend({
     }
     return this.showIfRead === this.get('link').get('read');
   }),
+
+  actions: {
+    async markRead() {
+      let link = this.get('link');
+      link.set('read', true);
+      await link.save();
+    },
+
+    async markUnread() {
+      let link = this.get('link');
+      link.set('read', false);
+      await link.save();
+    },
+  },
 });

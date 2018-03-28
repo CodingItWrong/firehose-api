@@ -21,6 +21,13 @@ export default function() {
     link.save();
     return link;
   });
+  this.patch('/links/:id', ({ links }, request) => {
+    let params = JSON.parse(request.requestBody);
+    let link = links.find(request.params.id);
+    link.update(params.data.attributes);
+    link.save();
+    return link;
+  });
 
   // These comments are here to help you get started. Feel free to delete them.
 
