@@ -13,6 +13,7 @@ describe('editing links', function() {
     await authenticateSession({ access_token: 'ABC123' });
     await visit('/');
 
+    // add
     await click('[data-test-add-link]');
 
     await fillIn('[data-test-url]', 'https://www.example.com');
@@ -20,6 +21,22 @@ describe('editing links', function() {
 
     let linkText = find('[data-test-links]').textContent;
 
+    expect(linkText).to.include('My Link Title');
+
+    // mark read
+    await click('[data-test-button-mark-read]');
+    linkText = find('[data-test-links]').textContent;
+    expect(linkText).not.to.include('My Link Title');
+
+    await click('[data-test-read-link]');
+    linkText = find('[data-test-links]').textContent;
+    expect(linkText).to.include('My Link Title');
+
+    // mark unread
+    await click('[data-test-button-mark-unread]');
+
+    await click('[data-test-unread-link]');
+    linkText = find('[data-test-links]').textContent;
     expect(linkText).to.include('My Link Title');
   });
 });

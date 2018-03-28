@@ -7,7 +7,13 @@
 {{/if}}
 
 <ul class="list-group" data-test-links>
-  {{#each model as |link|}}
-    {{link-row link=link}}
-  {{/each}}
+  {{#if session.isAuthenticated}}
+    {{#each model as |link|}}
+      {{link-row link=link showIfRead=false}}
+    {{/each}}
+  {{else}}
+    {{#each model as |link|}}
+      {{link-row link=link}}
+    {{/each}}
+  {{/if}}
 </ul>
