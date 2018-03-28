@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'list links', type: :request do
+RSpec.describe 'managing links', type: :request do
   let!(:public_link) { FactoryBot.create(:link, :public) }
   let!(:private_link) { FactoryBot.create(:link, :private) }
 
