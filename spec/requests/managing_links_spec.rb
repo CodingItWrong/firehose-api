@@ -6,10 +6,11 @@ RSpec.describe 'managing links', type: :request do
   let!(:public_link) { FactoryBot.create(:link, :public) }
   let!(:private_link) { FactoryBot.create(:link, :private) }
 
+  let(:token) { FactoryBot.create(:access_token).token }
+
   it 'creates a new link record' do
-    # TODO why does this succeed?
     headers = {
-      'Authorization' => 'Bearer ',
+      'Authorization' => "Bearer #{token}",
       'Content-Type' => 'application/vnd.api+json',
     }
     params = {

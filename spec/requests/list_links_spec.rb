@@ -6,6 +6,8 @@ RSpec.describe 'list links', type: :request do
   let!(:public_link) { FactoryBot.create(:link, :public) }
   let!(:private_link) { FactoryBot.create(:link, :private) }
 
+  let(:token) { FactoryBot.create(:access_token).token }
+
   context 'when not authenticated' do
     it 'returns all public links' do
       get '/api/links'
@@ -23,8 +25,9 @@ RSpec.describe 'list links', type: :request do
   context 'when authenticated' do
     it 'returns all links' do
       headers = {
-        'Authorization' => 'Bearer '
+        'Authorization' => "Bearer #{token}",
       }
+
       get '/api/links', headers: headers
 
       expect(response).to be_success
