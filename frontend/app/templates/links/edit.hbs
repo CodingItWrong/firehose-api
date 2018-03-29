@@ -4,22 +4,19 @@
 </div>
 <div class='form-group'>
   <label for="title">Title</label>
-  {{input data-test-title id="title" classNames="form-control" value=model.title}}
+  {{input data-test-title id="title" classNames="form-control" value=buffer.title}}
 </div>
 <div class='form-group'>
   <label for="source">Source</label>
-  {{input data-test-source id="source" autocapitalize="off" autocorrect="off" classNames="form-control"}}
+  {{input data-test-source id="source" autocapitalize="off" autocorrect="off" classNames="form-control" value=buffer.source}}
 </div>
 <div class='form-group'>
   <label for="public">Public</label>
-  {{input data-test-public type="checkbox" id="public"}}
+  {{input data-test-public type="checkbox" id="public" checked=buffer.public}}
 </div>
 <div class='form-group'>
   <label for="comment">Comment</label>
-  {{textarea data-test-comment id="comment" class="form-control"}}
+  {{textarea data-test-comment id="comment" class="form-control" value=buffer.comment}}
 </div>
-A
 <button data-test-save-button class="btn btn-primary" onclick={{action 'handleSave'}}>Save</button>
-B
-{{#link-to 'index' data-test-link-cancel classNames="btn btn-default"}}Cancel{{/link-to}}
-C
+{{#link-to 'index' data-test-cancel-link classNames="btn btn-default"}}Cancel{{/link-to}}
