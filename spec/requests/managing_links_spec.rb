@@ -53,4 +53,14 @@ RSpec.describe 'managing links', type: :request do
     link = jsonapi_response['data']
     expect(link['attributes']['title']).to eq(title)
   end
+
+  it 'can delete a link' do
+    link = FactoryBot.create(:link)
+
+    expect {
+      delete "/api/links/#{link.id}", headers: headers
+    }.to change { Link.count }.by(-1)
+
+    expect(response.status).to eq(204)
+  end
 end
