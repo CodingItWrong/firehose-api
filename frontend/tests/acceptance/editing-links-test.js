@@ -56,5 +56,10 @@ describe('editing links', function() {
 
     linkText = find('[data-test-links]').textContent;
     expect(linkText).to.include(title);
+
+    // delete
+    await click('[data-test-button-delete]');
+    linkText = find('[data-test-links]').textContent;
+    expect(linkText).not.to.include(title);
   });
 });

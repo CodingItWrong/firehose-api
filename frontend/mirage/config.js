@@ -29,6 +29,7 @@ export default function() {
     link.save();
     return link;
   });
+  this.delete('/links/:id');
 
   // These comments are here to help you get started. Feel free to delete them.
 
