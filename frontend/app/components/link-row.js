@@ -26,5 +26,10 @@ export default Component.extend({
       link.set('read', false);
       await link.save();
     },
+
+    async delete() {
+      let link = this.get('link');
+      await link.destroyRecord();
+    },
   },
 });
