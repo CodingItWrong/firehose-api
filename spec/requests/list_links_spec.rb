@@ -43,5 +43,20 @@ RSpec.describe 'list links', type: :request do
         private_link.title,
       ])
     end
+
+    it 'allows accessing an individual link' do
+      headers = {
+        'Authorization' => "Bearer #{token}",
+      }
+
+      get "/api/links/#{private_link.id}", headers: headers
+
+      expect(response).to be_success
+
+      jsonapi_response = JSON.parse(response.body)
+      link = jsonapi_response['data']
+
+      expect(link['attributes']['title']).to eq(private_link.title)
+    end
   end
 end
