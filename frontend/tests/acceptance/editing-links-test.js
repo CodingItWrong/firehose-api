@@ -38,5 +38,15 @@ describe('editing links', function() {
     await click('[data-test-unread-link]');
     linkText = find('[data-test-links]').textContent;
     expect(linkText).to.include('My Link Title');
+
+    // edit
+    const title = 'Updated Title';
+
+    await click('[data-test-button-edit]');
+    await fillIn('[data-test-title]', title);
+    await click('[data-test-save-button]');
+
+    linkText = find('[data-test-links]').textContent;
+    expect(linkText).to.include(title);
   });
 });
