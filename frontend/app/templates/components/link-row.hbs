@@ -37,7 +37,7 @@
           {{else}}
             <button class="btn btn-default" data-test-button-mark-read onclick={{action 'markRead'}}>Mark Read</button>
           {{/if}}
-          {{#link-to 'links.edit' link.id data-test-button-edit class="btn btn-default"}}Edit{{/link-to}}
+          {{#link-to 'links.edit' link data-test-button-edit class="btn btn-default"}}Edit{{/link-to}}
           <button class="btn btn-danger" data-test-button-delete>Delete</button>
         </div>
       </div>
