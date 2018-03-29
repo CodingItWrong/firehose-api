@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('links', function() {
     this.route('read');
     this.route('new');
+    this.route('edit', { path: '/:link_id/edit' });
   });
 });
 

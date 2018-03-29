@@ -11,6 +11,7 @@ export default function() {
 
     return links.all();
   });
+  this.get('/links/:id');
   this.post('/links', ({ links }, request) => {
     let params = JSON.parse(request.requestBody);
     let link = links.new({

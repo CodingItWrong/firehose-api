@@ -19,6 +19,7 @@ module.exports = {
   },
   rules: {
     "array-callback-return": "off",
+    "camelcase": "off",
     "func-names": "off",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
