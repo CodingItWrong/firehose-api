@@ -1,5 +1,4 @@
-FROM ruby:2.5.0
-# Update 2018-02-25 to get gem 2.7.6 security update
+FROM ruby:2.5.1
 
 RUN apt-get update && \
     apt-get install -y nodejs
