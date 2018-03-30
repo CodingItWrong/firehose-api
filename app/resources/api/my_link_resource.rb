@@ -4,7 +4,7 @@ module Api
   class MyLinkResource < ApplicationResource
     model_name 'Link'
 
-    attributes *%i[title url comment source read]
+    attributes *%i[title url comment source read moved_to_list_at]
 
     filter :read
 
