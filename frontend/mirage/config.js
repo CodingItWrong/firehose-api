@@ -18,6 +18,7 @@ export default function() {
       url: params.data.attributes.url,
       title: 'My Link Title',
       read: false,
+      moved_to_list_at: new Date(),
     });
     link.save();
     return link;
