@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'link_parser'
 
 RSpec.describe 'managing links', type: :request do
   let!(:public_link) { FactoryBot.create(:link, :public) }
@@ -14,12 +15,16 @@ RSpec.describe 'managing links', type: :request do
     }
   }
 
+  before(:each) do
+    LinkParser.fake!
+  end
+
   it 'creates a new link record' do
     params = {
       data: {
         type: 'my_links',
         attributes: {
-          url: 'https://www.example.com',
+          url: 'https://example.com',
         },
       },
     }
@@ -30,6 +35,7 @@ RSpec.describe 'managing links', type: :request do
     jsonapi_response = JSON.parse(response.body)
     link = jsonapi_response['data']
     expect(link['id']).not_to be_nil
+    expect(link['attributes']['title']).to eq('Example.Com')
   end
 
   it 'can update a link' do

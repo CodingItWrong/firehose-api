@@ -8,6 +8,8 @@ module Api
 
     filter :read
 
+    before_save :populate_title
+
     def self.creatable_fields(context)
       super - %i[moved_to_list_at published_at]
     end
@@ -23,6 +25,18 @@ module Api
       else
         Link.publicly_visible
       end
+    end
+
+    private
+
+    def link_parser
+      LinkParser
+    end
+
+    def populate_title
+      return if @model.id.present?
+      link = link_parser.process(url: url)
+      @model.title = link.title
     end
   end
 end
