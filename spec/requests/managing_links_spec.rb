@@ -50,7 +50,6 @@ RSpec.describe 'managing links', type: :request do
     }
     patch "/api/links/#{link.id}", headers: headers, params: params.to_json
 
-    puts response.body
     expect(response.status).to eq(200)
 
     jsonapi_response = JSON.parse(response.body)
