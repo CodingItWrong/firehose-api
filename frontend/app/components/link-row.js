@@ -15,19 +15,22 @@ export default Component.extend({
   }),
 
   actions: {
-    async markRead() {
+    async markRead(event) {
+      event.preventDefault();
       let link = this.get('link');
       link.set('read', true);
       await link.save();
     },
 
-    async markUnread() {
+    async markUnread(event) {
+      event.preventDefault();
       let link = this.get('link');
       link.set('read', false);
       await link.save();
     },
 
-    async delete() {
+    async delete(event) {
+      event.preventDefault();
       let link = this.get('link');
       await link.destroyRecord();
     },

@@ -26,9 +26,15 @@
     {{#if session.isAuthenticated}}
       <div class="pull-right">
         <div class="dropdown visible-xs-block visible-sm-block">
-          <button class="btn btn-default" type="button" id="prayerActionMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="caret"></span></button>
-          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="prayerActionMenu">
-            PUT LINKS HERE TOO
+          <button class="btn btn-default" type="button" id="linkActionMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="caret"></span></button>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="linkActionMenu">
+            {{#if link.read}}
+              <li><a href="#" onclick={{action 'markUnread'}}>Mark Unread</a></li>
+            {{else}}
+              <li><a href="#" onclick={{action 'markRead'}}>Mark Read</a></li>
+            {{/if}}
+            <li>{{#link-to 'links.edit' link}}Edit{{/link-to}}</li>
+            <li><a href="#" onclick={{action 'delete'}}>Delete</a></li>
           </ul>
         </div>
         <div class="hidden-xs hidden-sm">
