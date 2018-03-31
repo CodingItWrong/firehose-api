@@ -30,6 +30,10 @@ export default function() {
     let updatedValues = params.data.attributes;
     let link = links.find(request.params.id);
 
+    if (updatedValues['moved-to-list-at'] || updatedValues['published-at']) {
+      return new Response(400);
+    }
+
     if (link.read !== updatedValues.read) {
       updatedValues['moved-to-list-at'] = new Date();
     }
