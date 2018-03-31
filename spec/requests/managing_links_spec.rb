@@ -44,17 +44,21 @@ RSpec.describe 'managing links', type: :request do
         attributes: {
           title: title,
           read: true,
+          public: true,
         },
       },
     }
     patch "/api/links/#{link.id}", headers: headers, params: params.to_json
 
+    puts response.body
     expect(response.status).to eq(200)
 
     jsonapi_response = JSON.parse(response.body)
     link = jsonapi_response['data']['attributes']
     expect(link['title']).to eq(title)
     expect(link['moved-to-list-at']).to be > old_moved_to_list_at
+    expect(link['public']).to eq(true)
+    expect(link['published-at']).not_to be_nil
   end
 
   it 'can delete a link' do
