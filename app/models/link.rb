@@ -10,6 +10,7 @@ class Link < ApplicationRecord
   scope :in_publish_order, -> { order(published_at: :desc) }
 
   before_create :set_default_values
+  before_update :auto_update_values
 
   def public?
     published_at.present?
@@ -49,5 +50,9 @@ class Link < ApplicationRecord
 
   def set_default_values
     self.moved_to_list_at = DateTime.now
+  end
+
+  def auto_update_values
+    self.moved_to_list_at = DateTime.now if read_changed?
   end
 end

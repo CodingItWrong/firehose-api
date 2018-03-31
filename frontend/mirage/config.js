@@ -18,14 +18,33 @@ export default function() {
       url: params.data.attributes.url,
       title: 'My Link Title',
       read: false,
+      'moved-to-list-at': new Date(),
+      public: false,
+      'published-at': null,
     });
     link.save();
     return link;
   });
   this.patch('/links/:id', ({ links }, request) => {
     let params = JSON.parse(request.requestBody);
+    let updatedValues = params.data.attributes;
     let link = links.find(request.params.id);
-    link.update(params.data.attributes);
+
+    if (updatedValues['moved-to-list-at'] || updatedValues['published-at']) {
+      return new Response(400);
+    }
+
+    if (link.read !== updatedValues.read) {
+      updatedValues['moved-to-list-at'] = new Date();
+    }
+
+    if (!link.public && updatedValues.public) {
+      updatedValues['published-at'] = new Date();
+    } else if (link.public && !updatedValues.public) {
+      updatedValues['published-at'] = null;
+    }
+
+    link.update(updatedValues);
     link.save();
     return link;
   });

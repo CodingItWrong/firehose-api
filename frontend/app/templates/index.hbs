@@ -8,11 +8,11 @@
 
 <ul class="list-group" data-test-links>
   {{#if session.isAuthenticated}}
-    {{#each model as |link|}}
+    {{#each loggedInSortedLinks as |link|}}
       {{link-row link=link showIfRead=false}}
     {{/each}}
   {{else}}
-    {{#each model as |link|}}
+    {{#each loggedOutSortedLinks as |link|}}
       {{link-row link=link}}
     {{/each}}
   {{/if}}
