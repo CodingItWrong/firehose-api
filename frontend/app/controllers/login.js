@@ -17,10 +17,10 @@ export default Controller.extend({
 
       try {
         await this.get('session').authenticate('authenticator:oauth', email, password);
+        await this.transitionToRoute('index');
       } catch (e) {
         this.set('errorMessage', e.error || e);
       }
-      await this.transitionToRoute('index');
     },
   },
 });

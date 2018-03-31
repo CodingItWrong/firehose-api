@@ -1,7 +1,20 @@
 export default function() {
   this.urlPrefix = '/api';
 
-  this.post('/oauth/token', () => ({ access_token: 'abc123' }));
+  this.post('/oauth/token', (_, request) => {
+    let params = {};
+    request.requestBody.split('&').forEach((pair) => {
+      let [key, value] = pair.split('=');
+      params[decodeURIComponent(key)] = decodeURIComponent(value);
+    });
+
+    if (params.username === 'example@example.com'
+        && params.password === 'password') {
+      return { access_token: 'abc123' };
+    }
+
+    return new Response(401);
+  });
 
   this.get('/links', ({ links }, request) => {
     let read = request.queryParams['filter[read]'];

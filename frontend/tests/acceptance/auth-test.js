@@ -10,8 +10,16 @@ describe('auth', function() {
 
   it('can sign in and sign out', async function() {
     await visit('/');
-
     await click('[data-test-login-link]');
+
+    // invalid signin keeps you on login page
+    await fillIn('[data-test-email-field]', 'wrong@example.com');
+    await fillIn('[data-test-password-field]', 'wrong');
+    await click('[data-test-login-button]');
+
+    expect(currentURL()).to.eq('/login');
+
+    // valid signin works
 
     await fillIn('[data-test-email-field]', 'example@example.com');
     await fillIn('[data-test-password-field]', 'password');
