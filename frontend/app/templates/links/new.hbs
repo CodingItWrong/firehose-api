@@ -1,2 +1,9 @@
-{{input data-test-url value=url}}
-<button data-test-save-button onclick={{action 'handleSave'}}>Save</button>
+<h1>Add Link</h1>
+
+<div class="form-group">
+  <label for="url">URL</label>
+  {{input data-test-url value=url id="url" type="url" classNames="form-control"}}
+</div>
+
+<button data-test-save-button onclick={{action 'handleSave'}} class="btn btn-primary">Save</button>
+{{#link-to 'index' classNames="btn btn-default"}}Cancel{{/link-to}}
