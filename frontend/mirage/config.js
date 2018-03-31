@@ -19,6 +19,8 @@ export default function() {
       title: 'My Link Title',
       read: false,
       'moved-to-list-at': new Date(),
+      public: false,
+      'published-at': null,
     });
     link.save();
     return link;
@@ -29,7 +31,13 @@ export default function() {
     let link = links.find(request.params.id);
 
     if (link.read !== updatedValues.read) {
-      updatedValues['moved-to-list-at'] = new Date().getTime();
+      updatedValues['moved-to-list-at'] = new Date();
+    }
+
+    if (!link.public && updatedValues.public) {
+      updatedValues['published-at'] = new Date();
+    } else if (link.public && !updatedValues.public) {
+      updatedValues['published-at'] = null;
     }
 
     link.update(updatedValues);

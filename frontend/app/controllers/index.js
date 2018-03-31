@@ -5,6 +5,9 @@ import { sort } from '@ember/object/computed';
 export default Controller.extend({
   session: service(),
 
-  linkSorting: Object.freeze(['moved_to_list_at:desc']),
-  sortedLinks: sort('model', 'linkSorting'),
+  loggedInLinkSorting: Object.freeze(['moved_to_list_at:desc']),
+  loggedOutLinkSorting: Object.freeze(['published_at:desc']),
+
+  loggedInSortedLinks: sort('model', 'loggedInLinkSorting'),
+  loggedOutSortedLinks: sort('model', 'loggedOutLinkSorting'),
 });

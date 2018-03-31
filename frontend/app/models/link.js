@@ -7,4 +7,6 @@ export default DS.Model.extend({
   source: DS.attr('string'),
   read: DS.attr('boolean'),
   moved_to_list_at: DS.attr('date'),
+  public: DS.attr('boolean'),
+  published_at: DS.attr('date'),
 });
