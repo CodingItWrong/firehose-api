@@ -7,7 +7,7 @@
 <form {{action 'authenticate' on='submit'}}>
   <div class="form-group">
     <label for="email">Email</label><br />
-    {{input data-test-email-field id='email' placeholder='Enter Email' value=email class='form-control'}}
+    {{input data-test-email-field id='email' type='email' placeholder='Enter Email' value=email class='form-control' autocapitalize='off'}}
   </div>
   <div class="form-group">
     <label for="password">Password</label><br />
