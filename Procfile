@@ -1,2 +1,2 @@
-web:    bin/rails s -p 3000
+web:    bin/production
 worker: bin/sidekiq
