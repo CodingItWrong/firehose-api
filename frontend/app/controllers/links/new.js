@@ -7,7 +7,7 @@ export default Controller.extend({
 
   actions: {
     async handleSave() {
-      let link = this.store.createRecord('link', { url: this.url });
+      let link = this.store.createRecord('link', { url: this.get('url') });
       await link.save();
       this.transitionToRoute('index');
     },
