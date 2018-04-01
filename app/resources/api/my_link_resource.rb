@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'link_parser'
+
 module Api
   class MyLinkResource < ApplicationResource
     model_name 'Link'
