@@ -10,7 +10,8 @@ describe('viewing public links', function() {
   setupMirage(hooks);
 
   it('displays read and unread links', async function() {
-    let unreadLink = server.create('link', { title: 'My Unread Link', read: false });
+    let tag = server.create('tag', { name: 'foo' });
+    let unreadLink = server.create('link', { title: 'My Unread Link', read: false, tags: [tag] });
     let readLink = server.create('link', { title: 'My Read Link', read: true });
 
     await authenticateSession({ access_token: 'ABC123' });
@@ -33,6 +34,7 @@ describe('viewing public links', function() {
     linkText = find('[data-test-links]').textContent;
 
     expect(linkText).to.include(unreadLink.title);
+    expect(linkText).to.include('foo');
     expect(linkText).not.to.include(readLink.title);
   });
 });

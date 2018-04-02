@@ -9,4 +9,6 @@ export default DS.Model.extend({
   moved_to_list_at: DS.attr('date'),
   public: DS.attr('boolean'),
   published_at: DS.attr('date'),
+
+  tags: DS.hasMany('tag'),
 });

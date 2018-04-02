@@ -8,6 +8,8 @@ module Api
 
     attributes *%i[title url comment source read moved_to_list_at public published_at]
 
+    relationship :tags, to: :many, class_name: 'Api::Tag'
+
     filter :read
 
     before_save :populate_title
