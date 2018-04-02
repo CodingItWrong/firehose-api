@@ -24,17 +24,15 @@ describe('viewing tags', function() {
     });
   });
 
-  describe('authenticated', async function() {
-    it('displays all tags', async function() {
-      await authenticateSession({ access_token: 'ABC123' });
-      await visit('/');
+  it('displays all tags returned by the backend', async function() {
+    await authenticateSession({ access_token: 'ABC123' });
+    await visit('/');
 
-      await click('[data-test-tags-link]');
+    await click('[data-test-tags-link]');
 
-      let tagText = find('[data-test-tags]').textContent;
+    let tagText = find('[data-test-tags]').textContent;
 
-      expect(tagText).to.include('foo');
-      expect(tagText).to.include('bar');
-    });
+    expect(tagText).to.include('foo');
+    expect(tagText).to.include('bar');
   });
 });
