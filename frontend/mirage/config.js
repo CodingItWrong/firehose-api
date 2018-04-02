@@ -63,6 +63,8 @@ export default function() {
   });
   this.delete('/links/:id');
 
+  this.get('/tags');
+
   // These comments are here to help you get started. Feel free to delete them.
 
   /*

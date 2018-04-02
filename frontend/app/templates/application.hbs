@@ -14,6 +14,7 @@
         {{#if session.isAuthenticated}}
           <li>{{#link-to 'index' data-test-unread-link}}Unread{{/link-to}}</li>
           <li>{{#link-to 'links.read' data-test-read-link}}Read{{/link-to}}</li>
+          <li>{{#link-to 'tags' data-test-tags-link}}Tags{{/link-to}}</li>
           <li><a href="#" {{action "signOut"}} data-test-logout-button>Sign out</a></li>
         {{else}}
           <li>{{#link-to 'login' data-test-login-link}}Sign in{{/link-to}}</li>
