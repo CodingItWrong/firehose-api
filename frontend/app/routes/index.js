@@ -5,12 +5,12 @@ export default Route.extend({
   session: service(),
 
   model() {
+    let options = { include: 'tags' };
+
     if (this.get('session').get('isAuthenticated')) {
-      return this.store.query('link', {
-        filter: { read: false },
-      });
-    } else {
-      return this.store.findAll('link');
+      options.filter = { read: false };
     }
+
+    return this.store.findAll('link', options);
   },
 });
