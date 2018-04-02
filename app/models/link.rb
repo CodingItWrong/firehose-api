@@ -23,7 +23,7 @@ class Link < ApplicationRecord
   def public=(set_public)
     if !public? && set_public != '0'
       publish
-    elsif public? && set_public == '0'
+    elsif public? && (set_public == false || set_public == '0')
       unpublish
     end
   end

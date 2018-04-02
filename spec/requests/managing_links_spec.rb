@@ -66,6 +66,28 @@ RSpec.describe 'managing links', type: :request do
     expect(link['published-at']).not_to be_nil
   end
 
+  it 'can set public to false' do
+    link = FactoryBot.create(:link, :public)
+
+    params = {
+      data: {
+        type: 'my-links',
+        id: link.id,
+        attributes: {
+          public: false,
+        },
+      },
+    }
+    patch "/api/links/#{link.id}", headers: headers, params: params.to_json
+
+    expect(response.status).to eq(200)
+
+    jsonapi_response = JSON.parse(response.body)
+    link = jsonapi_response['data']['attributes']
+    expect(link['public']).to eq(false)
+    expect(link['published-at']).to be_nil
+  end
+
   it 'can delete a link' do
     link = FactoryBot.create(:link)
 
