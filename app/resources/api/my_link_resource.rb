@@ -6,7 +6,7 @@ module Api
   class MyLinkResource < ApplicationResource
     model_name 'Link'
 
-    attributes *%i[title url comment source read moved_to_list_at public published_at]
+    attributes *%i[title url comment source read moved_to_list_at public published_at tag_list]
 
     relationship :tags, to: :many, class_name: 'Api::Tag'
 
@@ -14,8 +14,12 @@ module Api
 
     before_save :populate_title
 
+    def fetchable_fields
+      super - %i[tag_list]
+    end
+
     def self.creatable_fields(context)
-      super - %i[moved_to_list_at published_at]
+      super - %i[moved_to_list_at published_at tag_list]
     end
 
     def self.updatable_fields(context)
