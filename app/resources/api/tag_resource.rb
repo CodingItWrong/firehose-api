@@ -2,10 +2,20 @@
 
 module Api
   class TagResource < ApplicationResource
-    model_name 'ActsAsTaggableOn::Tag'
-
     attribute :name
 
-    relationship :my_links, to: :many
+    relationship :my_links, {
+      to: :many,
+      relation_name: :taggables,
+    }
+
+    def self.records(options = {})
+      user = current_user(options)
+      if user.present?
+        Tag.all
+      else
+        Tag.publicly_visible
+      end
+    end
   end
 end

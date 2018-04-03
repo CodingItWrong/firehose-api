@@ -14,6 +14,9 @@ Router.map(function() {
     this.route('new');
     this.route('edit', { path: '/:link_id/edit' });
   });
+  this.route('tags', function() {
+    this.route('show', { path: '/:tag_id' });
+  });
 });
 
 export default Router;

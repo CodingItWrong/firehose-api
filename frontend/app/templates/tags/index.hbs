@@ -1,0 +1,7 @@
+<h1>Tags</h1>
+
+<div data-test-tags>
+  {{#each model as |tag|}}
+    {{#link-to 'tags.show' tag data-test-tag=tag.name}}{{ tag.name }}{{/link-to}}
+  {{/each}}
+</div>
