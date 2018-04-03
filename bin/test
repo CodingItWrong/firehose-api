@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo 'running rails tests'
+bin/rspec
+
+cd frontend
+
+echo 'running ember tests'
+ember test
