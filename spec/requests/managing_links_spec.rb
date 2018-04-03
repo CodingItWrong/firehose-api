@@ -39,24 +39,23 @@ RSpec.describe 'managing links', type: :request do
   end
 
   it 'can update a link' do
-    link = FactoryBot.create(:link, read: false)
-    old_moved_to_list_at = link.moved_to_list_at
+    link_model = FactoryBot.create(:link, read: false)
+    old_moved_to_list_at = link_model.moved_to_list_at
 
     title = 'Updated Title'
     params = {
       data: {
         type: 'my-links',
-        id: link.id,
+        id: link_model.id,
         attributes: {
           title: title,
           read: true,
           public: true,
+          'tag-list' => 'foo bar',
         },
       },
     }
-    patch "/api/links/#{link.id}", headers: headers, params: params.to_json
-
-    expect(response.status).to eq(200)
+    patch "/api/links/#{link_model.id}", headers: headers, params: params.to_json
 
     jsonapi_response = JSON.parse(response.body)
     link = jsonapi_response['data']['attributes']
@@ -64,6 +63,10 @@ RSpec.describe 'managing links', type: :request do
     expect(link['moved-to-list-at']).to be > old_moved_to_list_at
     expect(link['public']).to eq(true)
     expect(link['published-at']).not_to be_nil
+
+    link_model.reload
+
+    expect(link_model.tags.map(&:name)).to match_array(%w[foo bar])
   end
 
   it 'can set public to false' do
