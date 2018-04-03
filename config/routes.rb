@@ -43,5 +43,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'public/links#index'
+  get '*frontend_path', to: 'frontend#index'
 end
