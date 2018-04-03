@@ -15,7 +15,7 @@ module Api
     before_save :populate_title
 
     def self.creatable_fields(context)
-      super - %i[moved_to_list_at published_at tag_list]
+      super - %i[moved_to_list_at published_at]
     end
 
     def self.updatable_fields(context)
