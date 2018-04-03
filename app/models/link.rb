@@ -21,9 +21,9 @@ class Link < ApplicationRecord
   end
 
   def public=(set_public)
-    if !public? && set_public != '0'
+    if !public? && js_truthy(set_public)
       publish
-    elsif public? && (set_public == false || set_public == '0')
+    elsif public? && !js_truthy(set_public)
       unpublish
     end
   end
@@ -47,6 +47,10 @@ class Link < ApplicationRecord
   end
 
   private
+
+  def js_truthy(set_public)
+    set_public != false && set_public != '0'
+  end
 
   def set_default_values
     self.moved_to_list_at = DateTime.now
