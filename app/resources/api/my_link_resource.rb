@@ -14,10 +14,6 @@ module Api
 
     before_save :populate_title
 
-    def fetchable_fields
-      super - %i[tag_list]
-    end
-
     def self.creatable_fields(context)
       super - %i[moved_to_list_at published_at tag_list]
     end
