@@ -28,6 +28,8 @@ module Firehose
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    config.assets.enabled = false
+
     config.active_job.queue_adapter = :sidekiq
 
     config.middleware.insert_before 0, Rack::Cors do
