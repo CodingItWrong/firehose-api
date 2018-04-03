@@ -10,7 +10,8 @@ export default Controller.extend({
   }),
 
   actions: {
-    async handleSave() {
+    async handleSave(event) {
+      event.preventDefault();
       this.get('buffer').applyBufferedChanges();
       let link = this.get('model');
       await link.save();
