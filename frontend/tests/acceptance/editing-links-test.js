@@ -44,6 +44,7 @@ describe('editing links', function() {
 
     await click('[data-test-button-edit]');
     await fillIn('[data-test-title]', title);
+    await fillIn('[data-test-tags]', 'foo bar');
     await click('[data-test-save-button]');
 
     linkText = find('[data-test-links]').textContent;
