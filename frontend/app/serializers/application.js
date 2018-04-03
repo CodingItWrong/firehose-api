@@ -16,4 +16,12 @@ export default DS.JSONAPISerializer.extend({
 
     return this._super(modelName);
   },
+
+  keyForRelationship(key, relationship) {
+    if (key === 'links') {
+      return 'my-links';
+    }
+
+    return this._super(key, relationship);
+  },
 });

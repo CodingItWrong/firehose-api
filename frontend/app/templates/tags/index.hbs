@@ -2,6 +2,6 @@
 
 <div data-test-tags>
   {{#each model as |tag|}}
-    <span>{{ tag.name }}</span>
+    {{#link-to 'tags.show' tag data-test-tag=tag.name}}{{ tag.name }}{{/link-to}}
   {{/each}}
 </div>

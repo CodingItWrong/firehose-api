@@ -64,6 +64,7 @@ export default function() {
   this.delete('/links/:id');
 
   this.get('/tags');
+  this.get('/tags/:id');
 
   // These comments are here to help you get started. Feel free to delete them.
 

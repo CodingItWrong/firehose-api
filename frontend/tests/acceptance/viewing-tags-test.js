@@ -13,13 +13,11 @@ describe('viewing tags', function() {
     let fooTag = server.create('tag', { name: 'foo' });
     let barTag = server.create('tag', { name: 'bar' });
     server.create('link', {
-      title: 'My Public Link',
-      public: true,
+      title: 'My Foo Link',
       tags: [fooTag],
     });
     server.create('link', {
-      title: 'My Private Link',
-      read: false,
+      title: 'My Bar Link',
       tags: [barTag],
     });
   });
@@ -34,5 +32,12 @@ describe('viewing tags', function() {
 
     expect(tagText).to.include('foo');
     expect(tagText).to.include('bar');
+
+    await click('[data-test-tag="foo"]');
+
+    let linkText = find('[data-test-links]').textContent;
+
+    expect(linkText).to.include('foo');
+    expect(linkText).not.to.include('bar');
   });
 });
