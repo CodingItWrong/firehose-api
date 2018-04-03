@@ -3,11 +3,4 @@
 require 'firehose_config'
 
 module ApplicationHelper
-  def site_name
-    FirehoseConfig.site_name
-  end
-
-  def author_url
-    FirehoseConfig.author_url
-  end
 end
