@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
     scope module: :api do
       resources :my_links, only: %i[index show create update destroy], path: '/links'
-      resources :tags, only: :index
+      resources :tags, only: %i[index show]
     end
   end
 

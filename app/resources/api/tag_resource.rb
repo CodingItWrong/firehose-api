@@ -2,28 +2,20 @@
 
 module Api
   class TagResource < ApplicationResource
-    model_name 'ActsAsTaggableOn::Tag'
-
     attribute :name
 
-    relationship :my_links, to: :many
+    relationship :my_links, {
+      to: :many,
+      relation_name: :taggables,
+    }
 
     def self.records(options = {})
       user = current_user(options)
       if user.present?
-        ActsAsTaggableOn::Tag.all
+        Tag.all
       else
-        publicly_visible_tags
+        Tag.publicly_visible
       end
-    end
-
-    private
-
-    def self.publicly_visible_tags
-      ActsAsTaggableOn::Tag
-        .joins('INNER JOIN taggings tl ON tags.id = tl.tag_id')
-        .joins('INNER JOIN links l ON tl.taggable_type = \'Link\' AND tl.taggable_id = l.id')
-        .where('l.published_at IS NOT NULL')
     end
   end
 end
