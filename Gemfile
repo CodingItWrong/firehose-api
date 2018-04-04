@@ -34,6 +34,7 @@ group :test do
   gem 'factory_bot_rails'
   gem 'vcr'
   gem 'webmock'
+  gem 'rspec_junit_formatter'
 end
 
 group :production do
