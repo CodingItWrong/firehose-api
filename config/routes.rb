@@ -11,9 +11,15 @@ Rails.application.routes.draw do
     use_doorkeeper
 
     scope module: :api do
+      # TODO: investigate `jsonapi_resources`
       resources :my_links, only: %i[index show create update destroy], path: '/links'
-      resources :tags, only: %i[index show]
+      resources :tags, only: %i[index show] do
+        # TODO: why isn't ember requesting /links?
+        resources :my_links, only: :index, path: '/my-links'
+      end
     end
+
+    # TODO: 404 for routes not found under /api
   end
 
   get '*frontend_path', to: 'frontend#index'
