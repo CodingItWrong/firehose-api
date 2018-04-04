@@ -35,6 +35,18 @@ RSpec.describe 'list tags', type: :request do
       expect(links.length).to eq(1)
       expect(links.first['attributes']['title']).to eq(public_link.title)
     end
+
+    it "allows accessing a tag's links" do
+      get "/api/tags/#{foo_tag.id}/my-links"
+
+      expect(response).to be_success
+
+      jsonapi_response = JSON.parse(response.body)
+      links = jsonapi_response['data']
+
+      expect(links.length).to eq(1)
+      expect(links.first['attributes']['title']).to eq(public_link.title)
+    end
   end
 
   context 'when authenticated' do
