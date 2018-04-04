@@ -18,7 +18,6 @@ jobs:
       - image: circleci/postgres:9.4
         environment:
           POSTGRES_USER: firehose
-          POSTGRES_DB: firehose_test
 
     working_directory: ~/repo
 
