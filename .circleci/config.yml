@@ -35,6 +35,10 @@ jobs:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
+            npm install -g yarn
+            npm install -g ember
+            cd frontend
+            yarn install
 
       - save_cache:
           paths:
@@ -57,6 +61,8 @@ jobs:
                             --out /tmp/test-results/rspec.xml \
                             --format progress \
                             $TEST_FILES
+            cd frontend
+            ember test
 
       # collect reports
       - store_test_results:
