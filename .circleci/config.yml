@@ -9,8 +9,8 @@ jobs:
       # specify the version you desire here
       - image: circleci/ruby:2.5.1-node-browsers
         environment:
-          PG_HOST: 127.0.0.1
-          PG_USER: firehose
+          PGHOST: 127.0.0.1
+          PGUSER: firehose
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
