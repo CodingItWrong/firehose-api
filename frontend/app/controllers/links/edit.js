@@ -12,9 +12,13 @@ export default Controller.extend({
   actions: {
     async handleSave(event) {
       event.preventDefault();
+
       this.get('buffer').applyBufferedChanges();
       let link = this.get('model');
       await link.save();
+
+      await link.get('tags');
+
       this.transitionToRoute('index');
     },
   },
