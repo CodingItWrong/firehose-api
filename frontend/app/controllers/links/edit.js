@@ -17,7 +17,8 @@ export default Controller.extend({
       let link = this.get('model');
       await link.save();
 
-      await link.get('tags');
+      let tags = await link.get('tags');
+      console.log('tags', tags);
 
       this.transitionToRoute('index');
     },
