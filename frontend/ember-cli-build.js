@@ -24,8 +24,10 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  app.import('node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js');
-  app.import('node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js');
+  let pathToBootstrapJS = 'node_modules/bootstrap-sass/assets/javascripts/bootstrap';
+  app.import(`${pathToBootstrapJS}/transition.js`);
+  app.import(`${pathToBootstrapJS}/collapse.js`);
+  app.import(`${pathToBootstrapJS}/dropdown.js`);
 
   return app.toTree();
 };
