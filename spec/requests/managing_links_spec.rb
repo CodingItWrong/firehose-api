@@ -51,7 +51,7 @@ RSpec.describe 'managing links', type: :request do
           title: title,
           read: true,
           public: true,
-          'tag-list' => 'foo bar',
+          'tag-string' => 'foo bar',
         },
       },
     }
