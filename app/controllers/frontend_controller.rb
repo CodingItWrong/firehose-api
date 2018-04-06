@@ -6,4 +6,8 @@ class FrontendController < ApplicationController
     html = File.read(path)
     render html: html.html_safe
   end
+
+  def missing
+    render json: {error: 'Not found'}, status: :not_found
+  end
 end

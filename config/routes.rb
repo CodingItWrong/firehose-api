@@ -19,8 +19,8 @@ Rails.application.routes.draw do
       end
     end
 
-    # TODO: 404 for routes not found under /api
+    get '*_', to: 'frontend#missing'
   end
 
-  get '*frontend_path', to: 'frontend#index'
+  get '*_', to: 'frontend#index'
 end
