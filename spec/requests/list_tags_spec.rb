@@ -22,7 +22,7 @@ RSpec.describe 'list tags', type: :request do
     end
 
     it 'allows accessing an individual tag' do
-      get "/api/tags/#{foo_tag.id}?include=my-links"
+      get "/api/tags/#{foo_tag.id}?include=bookmarks"
 
       expect(response).to be_success
 
@@ -37,7 +37,7 @@ RSpec.describe 'list tags', type: :request do
     end
 
     it "allows accessing a tag's links" do
-      get "/api/tags/#{foo_tag.id}/my-links"
+      get "/api/tags/#{foo_tag.id}/bookmarks"
 
       expect(response).to be_success
 

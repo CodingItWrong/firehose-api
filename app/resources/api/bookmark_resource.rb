@@ -3,12 +3,12 @@
 require 'link_parser'
 
 module Api
-  class MyLinkResource < ApplicationResource
+  class BookmarkResource < ApplicationResource
     model_name 'Link'
 
     attributes *%i[title url comment source read moved_to_list_at public published_at tag_list]
 
-    relationship :tags, to: :many, class_name: 'Api::Tag'
+    relationship :tags, to: :many, class_name: 'Tag'
 
     filter :read
 

@@ -8,8 +8,8 @@ export default Controller.extend({
     async signOut() {
       this.get('session').invalidate();
 
-      await this.get('store').unloadAll('link');
-      await this.store.findAll('link');
+      await this.store.unloadAll('bookmark');
+      await this.store.findAll('bookmark');
 
       this.transitionToRoute('index');
     },

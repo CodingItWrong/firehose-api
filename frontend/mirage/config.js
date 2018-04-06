@@ -16,18 +16,18 @@ export default function() {
     return new Response(401);
   });
 
-  this.get('/links', ({ links }, request) => {
+  this.get('/bookmarks', ({ bookmarks }, request) => {
     let read = request.queryParams['filter[read]'];
     if (typeof read !== 'undefined') {
-      return links.where({ read });
+      return bookmarks.where({ read });
     }
 
-    return links.all();
+    return bookmarks.all();
   });
-  this.get('/links/:id');
-  this.post('/links', ({ links }, request) => {
+  this.get('/bookmarks/:id');
+  this.post('/bookmarks', ({ bookmarks }, request) => {
     let params = JSON.parse(request.requestBody);
-    let link = links.new({
+    let link = bookmarks.new({
       url: params.data.attributes.url,
       title: 'My Link Title',
       read: false,
@@ -38,10 +38,10 @@ export default function() {
     link.save();
     return link;
   });
-  this.patch('/links/:id', ({ links }, request) => {
+  this.patch('/bookmarks/:id', ({ bookmarks }, request) => {
     let params = JSON.parse(request.requestBody);
     let updatedValues = params.data.attributes;
-    let link = links.find(request.params.id);
+    let link = bookmarks.find(request.params.id);
 
     if (updatedValues['moved-to-list-at'] || updatedValues['published-at']) {
       return new Response(400);
@@ -61,7 +61,7 @@ export default function() {
     link.save();
     return link;
   });
-  this.delete('/links/:id');
+  this.delete('/bookmarks/:id');
 
   this.get('/tags');
   this.get('/tags/:id');

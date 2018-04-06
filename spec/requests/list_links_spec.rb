@@ -10,7 +10,7 @@ RSpec.describe 'list links', type: :request do
 
   context 'when not authenticated' do
     it 'returns all public links' do
-      get '/api/links?include=tags'
+      get '/api/bookmarks?include=tags'
 
       expect(response).to be_success
 
@@ -33,7 +33,7 @@ RSpec.describe 'list links', type: :request do
         'Authorization' => "Bearer #{token}",
       }
 
-      get '/api/links', headers: headers
+      get '/api/bookmarks', headers: headers
 
       expect(response).to be_success
 
@@ -54,7 +54,7 @@ RSpec.describe 'list links', type: :request do
         'Authorization' => "Bearer #{token}",
       }
 
-      get "/api/links/#{private_link.id}", headers: headers
+      get "/api/bookmarks/#{private_link.id}", headers: headers
 
       expect(response).to be_success
 
