@@ -19,7 +19,7 @@ module Api
     end
 
     def tag_string=(value)
-      @model.tag_list = value.split(' ')
+      @model.tag_list = value&.split(' ')
     end
 
     def self.creatable_fields(context)
