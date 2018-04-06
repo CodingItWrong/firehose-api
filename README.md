@@ -11,39 +11,77 @@ An [iOS share extension app](https://github.com/CodingItWrong/Hydrant) is also a
 1. Ruby
 1. PostgreSQL (e.g. [Postgres.app][postgres-app])
 1. Ember-CLI
-1. Foreman
+1. [Foreman][foreman] (optional, for running both Rails and Ember with one command)
 
 ### Setup
 
-```sh
-$ bin/bootstrap
-```
-
-Edit `.env` and fill in your configuration values.
+Duplicate `.env` and fill in your configuration values.
 
 ### Testing
 
+To test both Rails and Ember
+
+```sh
+$ bin/test
+```
+
+To test them individually:
+
 ```sh
 $ bin/rspec
+$ cd frontend
+$ ember test
 ```
 
 ### Running
+
+For local development, the app is configured to run Rails and Ember on their default ports. You can run them both with a single command (requires Foreman):
 
 ```sh
 $ bin/serve
 ```
 
-### Docker
+Or run them individually as usual. In one terminal:
 
-A `Dockerfile` and `docker-compose.yml` file are included for running within Docker either locally or in deployment.
+```sh
+$ bin/rails s
+```
+
+And in another:
+
+```sh
+$ cd frontend
+$ ember s
+```
 
 ## Deployment
 
-Firehose is a basic Rails app and so can be deployed on any Rails-compatible web server.
+To prevent you from having to run separate servers for the Ember frontend and Rails API, we have configured the two in the following way:
+
+- Ember builds its assets into the Rails public directory
+- Rails serves the Ember app from all URLs except `/api/…`
+- Ember makes API requests to the same host it's running on
+
+This means you can deploy Firehose anywhere you can deploy a Rails app, with the exception that you need to run `ember build` first.
+
+### Heroku
 
 One easy way to deploy Firehose is Heroku. Hobby apps are free; they just have a limit on how many hours they can be running per day.
 
 To deploy to Heroku, follow [Heroku’s instructions on deploying a Rails app](https://devcenter.heroku.com/articles/getting-started-with-rails5).
+
+### Docker
+
+A `Dockerfile` and `docker-compose.yml` file are included for running within Docker either locally or in deployment.
+
+### Elsewhere
+
+On any server, you can run `bin/production` upon each deployment to:
+
+- Download Rails and Ember dependencies
+- Build Ember
+- Run Rails DB migrations
+- Start the Rails server
 
 ## Attribution
 
@@ -54,3 +92,4 @@ To deploy to Heroku, follow [Heroku’s instructions on deploying a Rails app](h
 MIT
 
 [postgres-app]: http://postgresapp.com
+[foreman]: https://github.com/ddollar/foreman

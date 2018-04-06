@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+bundle install
 cd frontend
 yarn install
 ember build --prod
