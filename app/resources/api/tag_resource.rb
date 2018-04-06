@@ -4,7 +4,7 @@ module Api
   class TagResource < ApplicationResource
     attribute :name
 
-    relationship :my_links, {
+    relationship :bookmarks, {
       to: :many,
       relation_name: :taggables,
     }

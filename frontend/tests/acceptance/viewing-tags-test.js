@@ -12,11 +12,11 @@ describe('viewing tags', function() {
   beforeEach(function() {
     let fooTag = server.create('tag', { name: 'foo' });
     let barTag = server.create('tag', { name: 'bar' });
-    server.create('link', {
+    server.create('bookmark', {
       title: 'My Foo Link',
       tags: [fooTag],
     });
-    server.create('link', {
+    server.create('bookmark', {
       title: 'My Bar Link',
       tags: [barTag],
     });

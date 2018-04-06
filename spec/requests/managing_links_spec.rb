@@ -22,13 +22,13 @@ RSpec.describe 'managing links', type: :request do
   it 'creates a new link record' do
     params = {
       data: {
-        type: 'my_links',
+        type: 'bookmarks',
         attributes: {
           url: 'https://example.com',
         },
       },
     }
-    post '/api/links', headers: headers, params: params.to_json
+    post '/api/bookmarks', headers: headers, params: params.to_json
 
     expect(response.status).to eq(201)
 
@@ -45,7 +45,7 @@ RSpec.describe 'managing links', type: :request do
     title = 'Updated Title'
     params = {
       data: {
-        type: 'my-links',
+        type: 'bookmarks',
         id: link_model.id,
         attributes: {
           title: title,
@@ -55,7 +55,7 @@ RSpec.describe 'managing links', type: :request do
         },
       },
     }
-    patch "/api/links/#{link_model.id}", headers: headers, params: params.to_json
+    patch "/api/bookmarks/#{link_model.id}", headers: headers, params: params.to_json
 
     jsonapi_response = JSON.parse(response.body)
     link = jsonapi_response['data']['attributes']
@@ -74,14 +74,14 @@ RSpec.describe 'managing links', type: :request do
 
     params = {
       data: {
-        type: 'my-links',
+        type: 'bookmarks',
         id: link.id,
         attributes: {
           public: false,
         },
       },
     }
-    patch "/api/links/#{link.id}", headers: headers, params: params.to_json
+    patch "/api/bookmarks/#{link.id}", headers: headers, params: params.to_json
 
     expect(response.status).to eq(200)
 
@@ -95,7 +95,7 @@ RSpec.describe 'managing links', type: :request do
     link = FactoryBot.create(:link)
 
     expect {
-      delete "/api/links/#{link.id}", headers: headers
+      delete "/api/bookmarks/#{link.id}", headers: headers
     }.to change { Link.count }.by(-1)
 
     expect(response.status).to eq(204)

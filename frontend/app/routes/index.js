@@ -11,6 +11,6 @@ export default Route.extend({
       options.filter = { read: false };
     }
 
-    return this.store.findAll('link', options);
+    return this.store.findAll('bookmark', options);
   },
 });

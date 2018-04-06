@@ -5,14 +5,14 @@ import { setupApplicationTest } from 'ember-mocha';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { authenticateSession } from 'ember-simple-auth/test-support';
 
-describe('viewing public links', function() {
+describe('viewing links', function() {
   let hooks = setupApplicationTest();
   setupMirage(hooks);
 
   it('displays read and unread links', async function() {
     let tag = server.create('tag', { name: 'foo' });
-    let unreadLink = server.create('link', { title: 'My Unread Link', read: false, tags: [tag] });
-    let readLink = server.create('link', { title: 'My Read Link', read: true });
+    let unreadLink = server.create('bookmark', { title: 'My Unread Link', read: false, tags: [tag] });
+    let readLink = server.create('bookmark', { title: 'My Read Link', read: true });
 
     await authenticateSession({ access_token: 'ABC123' });
     await visit('/');
