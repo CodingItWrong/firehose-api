@@ -2,6 +2,6 @@
 
 module Api
   class BookmarksController < ResourceController
-    before_action :doorkeeper_authorize!, except: :index
+    before_action :doorkeeper_authorize!, except: %i[index get_related_resources]
   end
 end
