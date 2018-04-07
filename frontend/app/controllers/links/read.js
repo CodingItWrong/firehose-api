@@ -11,9 +11,20 @@ export default class ReadLinksController extends Controller {
   page = 1;
   perPage = 10;
 
-  @computed('page', 'perPage', 'sortedLinks')
+  @computed('sortedLinks', 'searchText')
+  get filteredLinks() {
+    let searchText = this.get('searchText').toLowerCase();
+    return this
+      .get('sortedLinks')
+      .filter(link => link
+        .get('title')
+        .toLowerCase()
+        .includes(searchText));
+  }
+
+  @computed('page', 'perPage', 'filteredLinks')
   get totalPages() {
-    return Math.ceil(this.get('sortedLinks').get('length') / this.get('perPage'));
+    return Math.ceil(this.get('filteredLinks').get('length') / this.get('perPage'));
   }
 
   @computed('page')
@@ -24,17 +35,6 @@ export default class ReadLinksController extends Controller {
   @computed('page', 'totalPages')
   get isLastPage() {
     return this.get('page') === this.get('totalPages');
-  }
-
-  @computed('sortedLinks', 'searchText')
-  get filteredLinks() {
-    let searchText = this.get('searchText').toLowerCase();
-    return this
-      .get('sortedLinks')
-      .filter(link => link
-        .get('title')
-        .toLowerCase()
-        .includes(searchText));
   }
 
   @computed('filteredLinks', 'page', 'perPage')
