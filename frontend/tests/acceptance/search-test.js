@@ -19,7 +19,7 @@ describe('search', function() {
     });
 
     await visit('/links/read');
-    await fillIn('[data-test-search-input]', 'Awesome');
+    await fillIn('[data-test-search-input]', 'awesome');
 
     let linkText = find('[data-test-links]').textContent;
     expect(linkText).to.include(linkToShow.title);
