@@ -14,17 +14,14 @@ describe('link sorting', function() {
     await visit('/');
 
     // added links go to top
-    await click('[data-test-add-link]');
     await fillIn('[data-test-url]', 'https://www.first.com');
-    await click('[data-test-save-button]');
+    await click('[data-test-add-button]');
 
-    await click('[data-test-add-link]');
     await fillIn('[data-test-url]', 'https://www.second.com');
-    await click('[data-test-save-button]');
+    await click('[data-test-add-button]');
 
-    await click('[data-test-add-link]');
     await fillIn('[data-test-url]', 'https://www.third.com');
-    await click('[data-test-save-button]');
+    await click('[data-test-add-button]');
 
     let linkText = find('[data-test-links]').textContent;
     expect(linkText).to.match(/third[\s\S]+second[\s\S]+first/);
