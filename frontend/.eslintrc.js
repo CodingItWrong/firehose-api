@@ -21,6 +21,7 @@ module.exports = {
   rules: {
     "array-callback-return": "off",
     "camelcase": "off",
+    "class-methods-use-this": "off",
     "func-names": "off",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
