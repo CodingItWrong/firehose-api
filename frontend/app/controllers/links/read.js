@@ -28,8 +28,13 @@ export default class ReadLinksController extends Controller {
 
   @computed('sortedLinks', 'searchText')
   get filteredLinks() {
-    let searchText = this.get('searchText');
-    return this.get('sortedLinks').filter(link => link.get('title').includes(searchText));
+    let searchText = this.get('searchText').toLowerCase();
+    return this
+      .get('sortedLinks')
+      .filter(link => link
+        .get('title')
+        .toLowerCase()
+        .includes(searchText));
   }
 
   @computed('filteredLinks', 'page', 'perPage')
