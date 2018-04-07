@@ -14,10 +14,8 @@ describe('editing links', function() {
     await visit('/');
 
     // add
-    await click('[data-test-add-link]');
-
     await fillIn('[data-test-url]', 'https://www.example.com');
-    await click('[data-test-save-button]');
+    await click('[data-test-add-button]');
 
     let linkText = find('[data-test-links]').textContent;
 
