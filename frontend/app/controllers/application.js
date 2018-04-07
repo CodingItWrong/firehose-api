@@ -1,17 +1,17 @@
 import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
+import { action } from 'ember-decorators/object';
+import { service } from 'ember-decorators/service';
 
-export default Controller.extend({
-  session: service(),
+export default class ApplicationController extends Controller {
+  @service session;
 
-  actions: {
-    async signOut() {
-      this.get('session').invalidate();
+  @action
+  async signOut() {
+    this.get('session').invalidate();
 
-      await this.store.unloadAll('bookmark');
-      await this.store.findAll('bookmark');
+    await this.store.unloadAll('bookmark');
+    await this.store.findAll('bookmark');
 
-      this.transitionToRoute('index');
-    },
-  },
-});
+    this.transitionToRoute('index');
+  }
+}

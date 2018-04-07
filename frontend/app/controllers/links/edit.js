@@ -1,23 +1,23 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+import { action, computed } from 'ember-decorators/object';
 import BufferedProxy from 'ember-buffered-proxy/proxy';
 
-export default Controller.extend({
-  buffer: computed('model', function() {
+export default class EditLinksController extends Controller {
+  @computed('model')
+  get buffer() {
     return BufferedProxy.create({
       content: this.get('model'),
     });
-  }),
+  }
 
-  actions: {
-    async handleSave(event) {
-      event.preventDefault();
+  @action
+  async handleSave(event) {
+    event.preventDefault();
 
-      this.get('buffer').applyBufferedChanges();
-      let link = this.get('model');
-      await link.save();
+    this.get('buffer').applyBufferedChanges();
+    let link = this.get('model');
+    await link.save();
 
-      this.transitionToRoute('index');
-    },
-  },
-});
+    this.transitionToRoute('index');
+  }
+}
