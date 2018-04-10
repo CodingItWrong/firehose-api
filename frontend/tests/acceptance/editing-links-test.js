@@ -51,7 +51,7 @@ describe('editing links', function() {
     // cancelling edit
     await click('[data-test-button-edit]');
     await fillIn('[data-test-title]', 'Title Update to Cancel');
-    await click('[data-test-cancel-link]');
+    await click('[data-test-cancel-button]');
 
     linkText = find('[data-test-links]').textContent;
     expect(linkText).to.include(title);
