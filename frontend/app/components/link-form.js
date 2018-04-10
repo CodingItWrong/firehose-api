@@ -13,15 +13,10 @@ export default class LinkFormComponent extends Component {
   @action
   handleSave(event) {
     event.preventDefault();
-
-    this.get('buffer').applyBufferedChanges();
-    // this.get('link').get('save')();
-
-    // this.get('onSave')();
   }
 
   @action
   handleCancel() {
-    // this.get('onCancel')();
+    this.get('onCancel')();
   }
 }
