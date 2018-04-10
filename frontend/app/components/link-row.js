@@ -7,10 +7,22 @@ export default Component.extend({
 
   tagName: '',
 
+  editing: false,
+
   showLink: computed('link.read', function() {
     if (typeof this.showIfRead === 'undefined') {
       return true;
     }
     return this.showIfRead === this.get('link').get('read');
   }),
+
+  actions: {
+    edit() {
+      this.set('editing', true);
+    },
+
+    finishEditing() {
+      this.set('editing', false);
+    },
+  },
 });

@@ -21,6 +21,10 @@ export default Component.extend({
       await link.save();
     },
 
+    edit() {
+      this.get('onEdit')();
+    },
+
     async delete(event) {
       event.preventDefault();
       let link = this.get('link');

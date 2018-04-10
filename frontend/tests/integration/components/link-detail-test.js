@@ -1,10 +1,11 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import { setupRenderingTest } from 'ember-mocha';
-import { render, find } from '@ember/test-helpers';
+import { render, find, click } from '@ember/test-helpers';
 import Service from '@ember/service';
 import EmberObject from '@ember/object';
 import hbs from 'htmlbars-inline-precompile';
+import sinon from 'sinon';
 
 describe('{{link-detail}}', function() {
   setupRenderingTest();
@@ -58,5 +59,24 @@ describe('{{link-detail}}', function() {
 
     expect(find('[data-test-button-mark-unread]')).to.exist;
     expect(find('[data-test-button-mark-read]')).not.to.exist;
+  });
+
+  it('calls the onEdit handler when edit is clicked', async function() {
+    let session = Service.extend({ isAuthenticated: () => true });
+    this.owner.register('service:session', session);
+
+    let link = EmberObject.create({
+      title: 'My Title',
+      url: 'https://www.example.com/page',
+    });
+    let editHandler = sinon.spy();
+    this.set('link', link);
+    this.set('editHandler', editHandler);
+
+    await render(hbs`{{link-detail link=link onEdit=editHandler}}`);
+
+    await click('[data-test-button-edit-inline]');
+
+    expect(editHandler.called).to.be.true;
   });
 });
