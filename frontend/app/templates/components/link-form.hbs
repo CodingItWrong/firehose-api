@@ -23,6 +23,8 @@
     <label for="comment">Comment</label>
     {{textarea data-test-comment id="comment" class="form-control" value=buffer.comment}}
   </div>
-  <button data-test-save-button type="submit" classNames="btn btn-default">Save</button>
-  <button data-test-cancel-button type="button" classNames="btn btn-default" onclick={{action 'handleCancel'}}>Cancel</button>
+  <div class='pull-right'>
+    <button data-test-save-button type="submit" class="btn btn-primary">Save</button>
+    <button data-test-cancel-button type="button" class="btn btn-default" onclick={{action 'handleCancel'}}>Cancel</button>
+  </div>
 </form>
