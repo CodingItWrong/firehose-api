@@ -23,7 +23,7 @@ describe('{{link-detail}}', function() {
     await render(hbs`{{link-detail link=link session=session}}`);
 
     expect(find('[data-test-button-mark-read]')).not.to.exist;
-    expect(find('[data-test-button-edit]')).not.to.exist;
+    expect(find('[data-test-button-edit-inline]')).not.to.exist;
     expect(find('[data-test-button-delete]')).not.to.exist;
   });
 
@@ -40,7 +40,7 @@ describe('{{link-detail}}', function() {
     await render(hbs`{{link-detail link=link}}`);
 
     expect(find('[data-test-button-mark-read]')).to.exist;
-    expect(find('[data-test-button-edit]')).to.exist;
+    expect(find('[data-test-button-edit-inline]')).to.exist;
     expect(find('[data-test-button-delete]')).to.exist;
   });
 
