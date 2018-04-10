@@ -1,0 +1,28 @@
+<form onsubmit={{action 'handleSave'}}>
+  <div class='form-group'>
+    <label>Url</label>
+    <p class="form-control-static"><a href="{{ model.url }}">{{ model.url }}</a></p>
+  </div>
+  <div class='form-group'>
+    <label for="title">Title</label>
+    {{input data-test-title id="title" classNames="form-control" value=buffer.title}}
+  </div>
+  <div class='form-group'>
+    <label for="source">Source</label>
+    {{input data-test-source id="source" autocapitalize="off" autocorrect="off" classNames="form-control" value=buffer.source}}
+  </div>
+  <div class='form-group'>
+    <label for="tag_string">Tags</label>
+    {{input data-test-tags id="tag_string" autocapitalize="off" autocorrect="off" classNames="form-control" value=buffer.tag_string}}
+  </div>
+  <div class='form-group'>
+    <label for="public">Public</label>
+    {{input data-test-public type="checkbox" id="public" checked=buffer.public}}
+  </div>
+  <div class='form-group'>
+    <label for="comment">Comment</label>
+    {{textarea data-test-comment id="comment" class="form-control" value=buffer.comment}}
+  </div>
+  <button data-test-save-button type="submit" class="btn btn-primary">Save</button>
+  <button data-test-cancel-button classNames="btn btn-default" onclick={{action 'handleCancel'}}>Cancel</button>
+</form>
