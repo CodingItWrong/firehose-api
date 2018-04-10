@@ -1,4 +1,4 @@
-<form onsubmit={{action 'handleSave'}}>
+<form>
   <div class='form-group'>
     <label>Url</label>
     <p class="form-control-static"><a href="{{ model.url }}">{{ model.url }}</a></p>
@@ -23,6 +23,6 @@
     <label for="comment">Comment</label>
     {{textarea data-test-comment id="comment" class="form-control" value=buffer.comment}}
   </div>
-  <button data-test-save-button type="submit" class="btn btn-primary">Save</button>
-  <button data-test-cancel-button classNames="btn btn-default" onclick={{action 'handleCancel'}}>Cancel</button>
+  <button data-test-save-button type="button" classNames="btn btn-default" onclick={{action 'handleSave'}}>Save</button>
+  <button data-test-cancel-button type="button" classNames="btn btn-default" onclick={{action 'handleCancel'}}>Cancel</button>
 </form>
