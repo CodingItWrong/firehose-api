@@ -11,7 +11,8 @@ export default class LinkFormComponent extends Component {
   }
 
   @action
-  handleSave() {
+  handleSave(event) {
+    event.preventDefault();
     this.get('onSave')();
   }
 
