@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { describe, it, beforeEach } from 'mocha';
 import { setupRenderingTest } from 'ember-mocha';
-import { render, click } from '@ember/test-helpers';
+import { render, fillIn, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import EmberObject from '@ember/object';
 import sinon from 'sinon';
@@ -12,6 +12,7 @@ describe('{{link-form}}', function() {
   describe('when save is clicked', () => {
     let link;
     let saveHandler;
+    let updatedTitle = 'Updated Title';
 
     beforeEach(async function() {
       link = EmberObject.create({
@@ -25,7 +26,12 @@ describe('{{link-form}}', function() {
 
       await render(hbs`{{link-form link=link onSave=saveHandler}}`);
 
+      await fillIn('[data-test-title]', updatedTitle);
       await click('[data-test-save-button]');
+    });
+
+    it('updates fields on the model', async function() {
+      expect(link.get('title')).to.equal(updatedTitle);
     });
 
     it('saves the model', async function() {
