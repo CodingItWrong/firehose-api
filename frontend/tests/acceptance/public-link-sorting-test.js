@@ -20,11 +20,11 @@ describe('public link sorting', function() {
     await fillIn('[data-test-url]', 'https://www.second.com');
     await click('[data-test-add-button]');
 
-    await click('[data-test-button-edit]');
+    await click('[data-test-button-edit-inline]');
     await click('[data-test-public]');
     await click('[data-test-save-button]');
 
-    let editButtons = findAll('[data-test-button-edit]');
+    let editButtons = findAll('[data-test-button-edit-inline]');
     await click(editButtons[1]);
     await click('[data-test-public]');
     await click('[data-test-save-button]');
