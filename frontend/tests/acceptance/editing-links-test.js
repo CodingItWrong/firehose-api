@@ -40,7 +40,7 @@ describe('editing links', function() {
     // edit
     const title = 'Updated Title';
 
-    await click('[data-test-button-edit-inline]');
+    await click('[data-test-button-edit]');
     await fillIn('[data-test-title]', title);
     await fillIn('[data-test-tags]', 'foo bar');
     await click('[data-test-save-button]');
@@ -49,7 +49,7 @@ describe('editing links', function() {
     expect(linkText).to.include(title);
 
     // cancelling edit
-    await click('[data-test-button-edit-inline]');
+    await click('[data-test-button-edit]');
     await fillIn('[data-test-title]', 'Title Update to Cancel');
     await click('[data-test-cancel-button]');
 

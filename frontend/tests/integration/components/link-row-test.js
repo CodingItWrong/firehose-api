@@ -60,7 +60,7 @@ describe('{{link-row}}', () => {
 
     await render(hbs`{{link-row link=link}}`);
 
-    await click('[data-test-button-edit-inline]');
+    await click('[data-test-button-edit]');
 
     expect(find('input[data-test-title]')).to.exist;
   });
@@ -77,7 +77,7 @@ describe('{{link-row}}', () => {
 
     await render(hbs`{{link-row link=link}}`);
 
-    await click('[data-test-button-edit-inline]');
+    await click('[data-test-button-edit]');
     await click('[data-test-cancel-button]');
 
     expect(find('[data-test-link-title]')).to.exist;
@@ -96,7 +96,7 @@ describe('{{link-row}}', () => {
 
     await render(hbs`{{link-row link=link}}`);
 
-    await click('[data-test-button-edit-inline]');
+    await click('[data-test-button-edit]');
     await click('[data-test-save-button]');
 
     expect(find('[data-test-link-title]')).to.exist;
