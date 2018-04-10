@@ -31,6 +31,7 @@
         {{else}}
           <li><a href="#" onclick={{action 'markRead'}}>Mark Read</a></li>
         {{/if}}
+        <button class="btn btn-default" onclick={{action 'edit'}}>Edit</button>
         <li>{{#link-to 'links.edit' link}}Edit{{/link-to}}</li>
         <li><a href="#" onclick={{action 'delete'}}>Delete</a></li>
       </ul>
