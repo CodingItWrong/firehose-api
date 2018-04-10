@@ -10,12 +10,14 @@ describe('{{link-form}}', function() {
   setupRenderingTest();
 
   describe('when save is clicked', () => {
+    let link;
     let saveHandler;
 
     beforeEach(async function() {
-      let link = EmberObject.create({
+      link = EmberObject.create({
         title: 'My Title',
         url: 'https://www.example.com/page',
+        save: sinon.spy(),
       });
       saveHandler = sinon.spy();
       this.set('link', link);
@@ -24,6 +26,10 @@ describe('{{link-form}}', function() {
       await render(hbs`{{link-form link=link onSave=saveHandler}}`);
 
       await click('[data-test-save-button]');
+    });
+
+    it('saves the model', async function() {
+      expect(link.save.called).to.be.true;
     });
 
     it('calls the onSave action', async function() {

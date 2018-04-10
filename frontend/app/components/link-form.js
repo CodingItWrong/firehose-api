@@ -13,6 +13,7 @@ export default class LinkFormComponent extends Component {
   @action
   handleSave(event) {
     event.preventDefault();
+    this.get('link').save();
     this.get('onSave')();
   }
 
