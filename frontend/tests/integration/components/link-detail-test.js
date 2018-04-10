@@ -77,6 +77,6 @@ describe('{{link-detail}}', function() {
 
     await click('[data-test-button-edit]');
 
-    expect(editHandler.called).to.be.true;
+    expect(editHandler).to.have.been.called;
   });
 });

@@ -25,7 +25,7 @@
     "ember-cli": "~3.0.0",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
-    "ember-cli-chai": "^0.4.0",
+    "ember-cli-chai": "^0.5.0",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.2.1",
     "ember-cli-htmlbars": "^2.0.1",
@@ -51,7 +51,8 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-import": "^2.9.0",
-    "loader.js": "^4.2.3"
+    "loader.js": "^4.2.3",
+    "sinon-chai": "^3.0.0"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"

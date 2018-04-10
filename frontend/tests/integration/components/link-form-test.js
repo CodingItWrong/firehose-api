@@ -35,11 +35,11 @@ describe('{{link-form}}', function() {
     });
 
     it('saves the model', async function() {
-      expect(link.save.called).to.be.true;
+      expect(link.save).to.have.been.called;
     });
 
     it('calls the onSave action', async function() {
-      expect(saveHandler.called).to.be.true;
+      expect(saveHandler).to.have.been.called;
     });
   });
 
@@ -56,6 +56,6 @@ describe('{{link-form}}', function() {
 
     await click('[data-test-cancel-button]');
 
-    expect(cancelHandler.called).to.be.true;
+    expect(cancelHandler).to.have.been.called;
   });
 });
