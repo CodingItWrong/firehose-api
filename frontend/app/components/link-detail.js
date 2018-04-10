@@ -21,7 +21,8 @@ export default Component.extend({
       await link.save();
     },
 
-    edit() {
+    edit(event) {
+      event.preventDefault();
       this.get('onEdit')();
     },
 
