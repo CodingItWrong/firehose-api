@@ -1,5 +1,5 @@
 export default function() {
-  this.urlPrefix = '/api';
+  this.namespace = 'api';
 
   this.post('/oauth/token', (_, request) => {
     let params = {};
