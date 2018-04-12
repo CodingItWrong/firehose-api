@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { sort } from '@ember/object/computed';
-import { action } from 'ember-decorators/object';
-import { service } from 'ember-decorators/service';
+import { action } from '@ember-decorators/object';
+import { service } from '@ember-decorators/service';
 
 export default class IndexController extends Controller {
   @service session;
