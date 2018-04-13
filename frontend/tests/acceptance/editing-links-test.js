@@ -9,7 +9,7 @@ describe('editing links', function() {
   let hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  it.only('allows adding links', async function() {
+  it('allows adding links', async function() {
     await authenticateSession({ access_token: 'ABC123' });
     await visit('/');
 
