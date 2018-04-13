@@ -13,36 +13,36 @@ export default class ReadLinksController extends Controller {
 
   @computed('sortedLinks', 'searchText')
   get filteredLinks() {
-    let searchText = this.get('searchText').toLowerCase();
+    let searchText = this.searchText.toLowerCase();
     return this
-      .get('sortedLinks')
-      .filter(link => link
-        .get('title')
+      .get('sortedLinks') // this.sortedLinks returns undefined. why? is it because of the sort computed helper? Should I be using the ember-decorators one?
+      .filter(link => link.title
         .toLowerCase()
         .includes(searchText));
   }
 
   @computed('page', 'perPage', 'filteredLinks')
   get totalPages() {
-    return Math.ceil(this.get('filteredLinks').get('length') / this.get('perPage'));
+    return Math.ceil(this.filteredLinks.length / this.perPage);
   }
 
   @computed('page')
   get isFirstPage() {
-    return this.get('page') === 1;
+    return this.page === 1;
   }
 
   @computed('page', 'totalPages')
   get isLastPage() {
-    return this.get('page') === this.get('totalPages');
+    return this.page === this.totalPages;
   }
 
   @computed('filteredLinks', 'page', 'perPage')
   get pagedLinks() {
-    let start = (this.get('page') - 1) * this.get('perPage');
-    let end = this.get('page') * this.get('perPage');
+    let { page, perPage } = this;
+    let start = (page - 1) * perPage;
+    let end = page * perPage;
 
-    return this.get('filteredLinks').slice(start, end);
+    return this.filteredLinks.slice(start, end);
   }
 
   scrollToTop() {

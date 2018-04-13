@@ -9,27 +9,24 @@ export default Component.extend({
   actions: {
     async markRead(event) {
       event.preventDefault();
-      let link = this.get('link');
-      link.set('read', true);
-      await link.save();
+      this.link.set('read', true);
+      await this.link.save();
     },
 
     async markUnread(event) {
       event.preventDefault();
-      let link = this.get('link');
-      link.set('read', false);
-      await link.save();
+      this.link.set('read', false);
+      await this.link.save();
     },
 
     edit(event) {
       event.preventDefault();
-      this.get('onEdit')();
+      this.onEdit();
     },
 
     async delete(event) {
       event.preventDefault();
-      let link = this.get('link');
-      await link.destroyRecord();
+      await this.link.destroyRecord();
     },
   },
 });
