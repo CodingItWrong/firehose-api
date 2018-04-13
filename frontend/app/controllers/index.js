@@ -18,7 +18,7 @@ export default class IndexController extends Controller {
   @action
   async handleAdd(event) {
     event.preventDefault();
-    let link = this.store.createRecord('bookmark', { url: this.get('url') });
+    let link = this.store.createRecord('bookmark', { url: this.url });
     this.resetForm();
     await link.save();
   }

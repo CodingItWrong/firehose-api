@@ -14,10 +14,10 @@ export default class LoginController extends Controller {
 
   @action
   async authenticate() {
-    let { email, password } = this.getProperties('email', 'password');
+    let { email, password } = this;
 
     try {
-      await this.get('session').authenticate('authenticator:oauth', email, password);
+      await this.session.authenticate('authenticator:oauth', email, password);
       await this.transitionToRoute('index');
     } catch (e) {
       this.set('errorMessage', e.error || e);

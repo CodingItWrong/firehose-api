@@ -13,7 +13,7 @@ export default Component.extend({
     if (typeof this.showIfRead === 'undefined') {
       return true;
     }
-    return this.showIfRead === this.get('link').get('read');
+    return this.showIfRead === this.link.read;
   }),
 
   actions: {

@@ -7,7 +7,7 @@ export default Route.extend({
   model() {
     let options = { include: 'tags' };
 
-    if (this.get('session').get('isAuthenticated')) {
+    if (this.session.get('isAuthenticated')) {
       options.filter = { read: false };
     }
 

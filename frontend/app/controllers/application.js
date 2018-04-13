@@ -7,7 +7,7 @@ export default class ApplicationController extends Controller {
 
   @action
   async signOut() {
-    this.get('session').invalidate();
+    this.session.invalidate();
 
     await this.store.unloadAll('bookmark');
     await this.store.findAll('bookmark');

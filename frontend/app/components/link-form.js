@@ -6,20 +6,20 @@ export default class LinkFormComponent extends Component {
   @computed('link')
   get buffer() {
     return BufferedProxy.create({
-      content: this.get('link'),
+      content: this.link,
     });
   }
 
   @action
   handleSave(event) {
     event.preventDefault();
-    this.get('buffer').applyBufferedChanges();
-    this.get('link').save();
-    this.get('onSave')();
+    this.buffer.applyBufferedChanges();
+    this.link.save();
+    this.onSave();
   }
 
   @action
   handleCancel() {
-    this.get('onCancel')();
+    this.onCancel();
   }
 }
