@@ -1,10 +1,12 @@
 import Controller from '@ember/controller';
-import { sort } from '@ember/object/computed';
+import { sort } from '@ember-decorators/object/computed';
 import { action, computed } from '@ember-decorators/object';
 
 export default class ReadLinksController extends Controller {
   linkSorting = Object.freeze(['moved_to_list_at:desc']);
-  sortedLinks = sort('model', 'linkSorting');
+
+  @sort('model', 'linkSorting')
+  sortedLinks;
 
   searchText = '';
 
@@ -14,8 +16,7 @@ export default class ReadLinksController extends Controller {
   @computed('sortedLinks', 'searchText')
   get filteredLinks() {
     let searchText = this.searchText.toLowerCase();
-    return this
-      .get('sortedLinks') // this.sortedLinks returns undefined. why? is it because of the sort computed helper? Should I be using the ember-decorators one?
+    return this.sortedLinks
       .filter(link => link.title
         .toLowerCase()
         .includes(searchText));
