@@ -18,7 +18,9 @@ Router.map(function() {
     });
   });
   this.route('tags', function() {
-    this.route('show', { path: '/:tag_id' });
+    this.route('show', { path: '/:tag_id' }, function() {
+      this.route('data', { path: '/' });
+    });
   });
 });
 
