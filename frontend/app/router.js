@@ -13,7 +13,9 @@ Router.map(function() {
   this.route('login');
 
   this.route('links', function() {
-    this.route('read');
+    this.route('read', function() {
+      this.route('data', { path: '/' });
+    });
   });
   this.route('tags', function() {
     this.route('show', { path: '/:tag_id' });
