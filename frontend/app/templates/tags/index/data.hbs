@@ -1,0 +1,5 @@
+<div data-test-tags>
+  {{#each sortedTags as |tag|}}
+    {{#link-to 'tags.show' tag data-test-tag=tag.name classNames="btn btn-primary btn-large"}}{{ tag.name }}{{/link-to}}
+  {{/each}}
+</div>

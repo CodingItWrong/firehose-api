@@ -7,13 +7,23 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('index', { path: '/' }, function() {
+    this.route('data', { path: '/' });
+  });
   this.route('login');
 
   this.route('links', function() {
-    this.route('read');
+    this.route('read', function() {
+      this.route('data', { path: '/' });
+    });
   });
   this.route('tags', function() {
-    this.route('show', { path: '/:tag_id' });
+    this.route('index', { path: '/' }, function() {
+      this.route('data', { path: '/' });
+    });
+    this.route('show', { path: '/:tag_id' }, function() {
+      this.route('data', { path: '/' });
+    });
   });
 });
 
