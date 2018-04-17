@@ -19,6 +19,7 @@ describe('{{link-form}}', function() {
         title: 'My Title',
         url: 'https://www.example.com/page',
         save: sinon.spy(),
+        tags: { reload: () => {} },
       });
       saveHandler = sinon.spy();
       this.set('link', link);

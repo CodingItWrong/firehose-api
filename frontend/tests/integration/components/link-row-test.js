@@ -91,6 +91,7 @@ describe('{{link-row}}', () => {
       title: 'My Title',
       url: 'https://www.example.com/page',
       save: () => {},
+      tags: { reload: () => {} },
     });
     this.set('link', link);
 
