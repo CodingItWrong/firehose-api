@@ -13,13 +13,16 @@ class Link < ApplicationRecord
   before_update :auto_update_values
 
   def tag_list
-    tags.map(&:name).join(' ')
+    tags.map(&:name)
   end
 
   def tag_list=(tag_list)
-    self.tags = tag_list.strip.split(/\s+/).map do |tag|
-      Tag.find_or_create_by(name: tag)
+    tag_array = if tag_list.respond_to?(:map)
+      tag_list
+    else
+      tag_list.strip.split(/\s+/)
     end
+    self.tags = tag_array.map { |tag| Tag.find_or_create_by(name: tag) }
   end
 
   def public?
