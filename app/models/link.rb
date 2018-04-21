@@ -10,6 +10,7 @@ class Link < ApplicationRecord
   scope :in_publish_order, -> { order(published_at: :desc) }
 
   before_create :set_default_values
+  before_save :populate_tags_from_tag_list
   before_update :auto_update_values
 
   def tag_list
@@ -17,14 +18,7 @@ class Link < ApplicationRecord
   end
 
   def tag_list=(tag_list)
-    tag_array = if tag_list.respond_to?(:map)
-      tag_list
-    elsif tag_list.respond_to?(:strip) && tag_list.respond_to?(:split)
-      tag_list.strip.split(/\s+/)
-    else
-      []
-    end
-    self.tags = tag_array.map { |tag| Tag.find_or_create_by(name: tag) }
+    @tag_list = tag_list
   end
 
   def public?
@@ -73,5 +67,17 @@ class Link < ApplicationRecord
 
   def auto_update_values
     self.moved_to_list_at = DateTime.now if read_changed?
+  end
+
+  def populate_tags_from_tag_list
+    return unless @tag_list.present?
+    tag_array = if @tag_list.respond_to?(:map)
+      @tag_list
+    elsif @tag_list.respond_to?(:strip) && @tag_list.respond_to?(:split)
+      @tag_list.strip.split(/\s+/)
+    else
+      []
+    end
+    self.tags = tag_array.map { |tag| Tag.find_or_create_by(name: tag) }
   end
 end
