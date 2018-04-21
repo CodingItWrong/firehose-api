@@ -6,7 +6,7 @@ module Api
 
     relationship :bookmarks, {
       to: :many,
-      relation_name: :taggables,
+      relation_name: :links,
     }
 
     def self.records(options = {})
