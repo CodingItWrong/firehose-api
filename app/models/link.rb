@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Link < ApplicationRecord
-  acts_as_taggable
+  has_and_belongs_to_many :tags
 
   scope :publicly_visible, -> { where('published_at IS NOT NULL') }
   scope :unread, -> { where(read: false) }
@@ -11,6 +11,16 @@ class Link < ApplicationRecord
 
   before_create :set_default_values
   before_update :auto_update_values
+
+  def tag_list
+    tags.map(&:name).join(' ')
+  end
+
+  def tag_list=(tag_list)
+    self.tags = tag_list.strip.split(/\s+/).map do |tag|
+      Tag.find_or_create_by(name: tag)
+    end
+  end
 
   def public?
     published_at.present?

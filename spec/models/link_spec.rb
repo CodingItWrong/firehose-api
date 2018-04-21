@@ -12,6 +12,10 @@ RSpec.describe Link do
         link.reload
       end
 
+      it 'allows reading the tag_list back' do
+        expect(link.tag_list).to eq('foo bar baz')
+      end
+
       it 'assigns tags to the tags relation' do
         tag_names = link.tags.map(&:name)
         expect(tag_names).to match_array(%w[foo bar baz])
