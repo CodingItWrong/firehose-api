@@ -19,8 +19,10 @@ class Link < ApplicationRecord
   def tag_list=(tag_list)
     tag_array = if tag_list.respond_to?(:map)
       tag_list
-    else
+    elsif tag_list.respond_to?(:strip) && tag_list.respond_to?(:split)
       tag_list.strip.split(/\s+/)
+    else
+      []
     end
     self.tags = tag_array.map { |tag| Tag.find_or_create_by(name: tag) }
   end
