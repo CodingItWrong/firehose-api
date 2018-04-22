@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20180421205913) do
   create_table "links_tags", id: false, force: :cascade do |t|
     t.bigint "link_id", null: false
     t.bigint "tag_id", null: false
+    t.index ["link_id"], name: "index_links_tags_on_link_id"
+    t.index ["tag_id"], name: "index_links_tags_on_tag_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
