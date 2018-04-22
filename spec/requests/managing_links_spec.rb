@@ -53,6 +53,11 @@ RSpec.describe 'managing links', type: :request do
           public: true,
           'tag-string' => 'foo bar',
         },
+        relationships: {
+          tags: {
+            data: [] # simulating relationships not yet up to date
+          }
+        },
       },
     }
     patch "/api/bookmarks/#{link_model.id}", headers: headers, params: params.to_json
