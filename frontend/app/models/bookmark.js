@@ -1,14 +1,14 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  title: DS.attr('string'),
-  url: DS.attr('string'),
-  comment: DS.attr('string'),
-  source: DS.attr('string'),
-  tag_list: DS.attr('string'),
-  read: DS.attr('boolean'),
+  title: DS.attr(),
+  url: DS.attr(),
+  comment: DS.attr(),
+  source: DS.attr(),
+  tag_list: DS.attr(),
+  read: DS.attr(),
+  public: DS.attr(),
   moved_to_list_at: DS.attr('date'),
-  public: DS.attr('boolean'),
   published_at: DS.attr('date'),
 
   tags: DS.hasMany('tag'),
