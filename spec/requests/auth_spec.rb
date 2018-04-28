@@ -32,7 +32,7 @@ RSpec.describe 'auth', type: :request do
     let(:entered_password) { user_password }
 
     it 'returns a token' do
-      expect(response).to be_success
+      expect(response).to be_successful
 
       jsonapi_response = JSON.parse(response.body)
 

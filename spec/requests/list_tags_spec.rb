@@ -12,7 +12,7 @@ RSpec.describe 'list tags', type: :request do
     it 'returns all tags for public links' do
       get '/api/tags'
 
-      expect(response).to be_success
+      expect(response).to be_successful
 
       jsonapi_response = JSON.parse(response.body)
       tags = jsonapi_response['data']
@@ -24,7 +24,7 @@ RSpec.describe 'list tags', type: :request do
     it 'allows accessing an individual tag' do
       get "/api/tags/#{foo_tag.id}?include=bookmarks"
 
-      expect(response).to be_success
+      expect(response).to be_successful
 
       jsonapi_response = JSON.parse(response.body)
       tag = jsonapi_response['data']
@@ -39,7 +39,7 @@ RSpec.describe 'list tags', type: :request do
     it "allows accessing a tag's links" do
       get "/api/tags/#{foo_tag.id}/bookmarks"
 
-      expect(response).to be_success
+      expect(response).to be_successful
 
       jsonapi_response = JSON.parse(response.body)
       links = jsonapi_response['data']
@@ -59,7 +59,7 @@ RSpec.describe 'list tags', type: :request do
 
       get '/api/tags', headers: headers
 
-      expect(response).to be_success
+      expect(response).to be_successful
 
       jsonapi_response = JSON.parse(response.body)
       tags = jsonapi_response['data']
