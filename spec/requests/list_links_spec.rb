@@ -12,7 +12,7 @@ RSpec.describe 'list links', type: :request do
     it 'returns all public links' do
       get '/api/bookmarks?include=tags'
 
-      expect(response).to be_success
+      expect(response).to be_successful
 
       jsonapi_response = JSON.parse(response.body)
       links = jsonapi_response['data']
@@ -35,7 +35,7 @@ RSpec.describe 'list links', type: :request do
 
       get '/api/bookmarks', headers: headers
 
-      expect(response).to be_success
+      expect(response).to be_successful
 
       jsonapi_response = JSON.parse(response.body)
       links = jsonapi_response['data']
@@ -56,7 +56,7 @@ RSpec.describe 'list links', type: :request do
 
       get "/api/bookmarks/#{private_link.id}", headers: headers
 
-      expect(response).to be_success
+      expect(response).to be_successful
 
       jsonapi_response = JSON.parse(response.body)
       link = jsonapi_response['data']
