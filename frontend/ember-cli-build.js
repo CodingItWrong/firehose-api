@@ -14,6 +14,11 @@ module.exports = function(defaults) {
         '@orbit/jsonapi',
       ],
     },
+    babel: {
+      plugins: [
+        'transform-object-rest-spread',
+      ],
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
