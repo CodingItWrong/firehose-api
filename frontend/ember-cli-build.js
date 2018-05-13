@@ -9,6 +9,11 @@ module.exports = function(defaults) {
         'node_modules/bootstrap-sass/assets/stylesheets',
       ],
     },
+    orbit: {
+      packages: [
+        '@orbit/jsonapi',
+      ],
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
