@@ -6,6 +6,7 @@ export default {
       ...injections,
       name: 'remote',
       host: 'http://localhost:3000',
+      namespace: 'api',
     });
   },
 };

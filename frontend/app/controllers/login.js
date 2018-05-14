@@ -4,6 +4,7 @@ import { service } from '@ember-decorators/service';
 
 export default class LoginController extends Controller {
   @service session;
+  @service dataCoordinator;
 
   resetLoginForm() {
     this.setProperties({
@@ -18,6 +19,10 @@ export default class LoginController extends Controller {
 
     try {
       await this.session.authenticate('authenticator:oauth', email, password);
+
+      let { access_token } = this.get('session.data.authenticated');
+      this.dataCoordinator.getSource('remote').defaultFetchHeaders.Authorization = `Bearer ${access_token}`;
+
       await this.transitionToRoute('index');
     } catch (e) {
       this.set('errorMessage', e.error || e);
