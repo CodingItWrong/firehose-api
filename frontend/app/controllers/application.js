@@ -9,7 +9,7 @@ export default class ApplicationController extends Controller {
   async signOut() {
     this.session.invalidate();
 
-    await this.store.unloadAll('bookmark');
+    // await this.store.unloadAll('bookmark');
     await this.store.findAll('bookmark');
 
     this.transitionToRoute('index');
