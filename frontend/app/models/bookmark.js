@@ -1,15 +1,19 @@
-import DS from 'ember-data';
+import {
+  Model,
+  attr,
+  hasMany,
+} from 'ember-orbit';
 
-export default DS.Model.extend({
-  title: DS.attr(),
-  url: DS.attr(),
-  comment: DS.attr(),
-  source: DS.attr(),
-  tag_list: DS.attr(),
-  read: DS.attr(),
-  public: DS.attr(),
-  moved_to_list_at: DS.attr('date'),
-  published_at: DS.attr('date'),
+export default Model.extend({
+  title: attr('string'),
+  url: attr('string'),
+  comment: attr('string'),
+  source: attr('string'),
+  tag_list: attr('string'),
+  read: attr('string'),
+  public: attr('string'),
+  moved_to_list_at: attr('date'),
+  published_at: attr('date'),
 
-  tags: DS.hasMany('tag'),
+  tags: hasMany('tag', { inverse: 'bookmarks' }),
 });

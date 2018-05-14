@@ -1,6 +1,10 @@
-import DS from 'ember-data';
+import {
+  Model,
+  attr,
+  hasMany,
+} from 'ember-orbit';
 
-export default DS.Model.extend({
-  name: DS.attr(),
-  bookmarks: DS.hasMany('bookmark'),
+export default Model.extend({
+  name: attr('string'),
+  bookmarks: hasMany('bookmark', { inverse: 'tags' }),
 });
