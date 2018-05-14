@@ -11,6 +11,8 @@ export default Route.extend({
       options.filter = { read: false };
     }
 
-    return this.store.findAll('bookmark', options);
+    return this.store.liveQuery(q => (
+      q.findRecords('bookmark')
+    ));
   },
 });
