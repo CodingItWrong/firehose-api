@@ -32,9 +32,7 @@ ActiveRecord::Schema.define(version: 2018_05_14_002729) do
     t.uuid "link_id", null: false
     t.uuid "tag_id", null: false
     t.index ["link_id"], name: "links_tags_link_id_idx"
-    t.index ["link_id"], name: "links_tags_link_id_idx1"
     t.index ["tag_id"], name: "links_tags_tag_id_idx"
-    t.index ["tag_id"], name: "links_tags_tag_id_idx1"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
