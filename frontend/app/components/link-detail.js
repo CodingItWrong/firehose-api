@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
   session: service(),
+  store: service(),
 
   tagName: '',
 
@@ -26,7 +27,7 @@ export default Component.extend({
 
     async delete(event) {
       event.preventDefault();
-      await this.link.destroyRecord();
+      await this.store.update(t => t.removeRecord({ type: 'bookmark', id: this.link.id }));
     },
   },
 });
