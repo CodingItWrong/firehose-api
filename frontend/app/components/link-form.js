@@ -6,6 +6,11 @@ import BufferedProxy from 'ember-buffered-proxy/proxy';
 export default class LinkFormComponent extends Component {
   @service store;
 
+  didInsertElement() {
+    console.log('didInsertElement');
+    console.log(this.link);
+  }
+
   @computed('link')
   get buffer() {
     return BufferedProxy.create({
@@ -17,8 +22,7 @@ export default class LinkFormComponent extends Component {
   async handleSave(event) {
     event.preventDefault();
     this.buffer.applyBufferedChanges();
-    await this.link.save();
-    await this.link.get('tags').reload();
+    // await this.link.get('tags').reload();
     this.onSave();
   }
 

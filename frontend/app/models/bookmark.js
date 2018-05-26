@@ -9,7 +9,7 @@ export default Model.extend({
   url: attr('string'),
   comment: attr('string'),
   source: attr('string'),
-  tag_list: attr('string'),
+  tagList: attr('string'),
   read: attr('string'),
   public: attr('string'),
   moved_to_list_at: attr('date'),
