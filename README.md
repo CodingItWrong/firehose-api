@@ -10,6 +10,7 @@ An [iOS share extension app](https://github.com/CodingItWrong/Hydrant) is also a
 
 1. Ruby
 1. PostgreSQL (e.g. [Postgres.app][postgres-app])
+1. Redis
 1. Ember-CLI
 1. [Foreman][foreman] (optional, for running both Rails and Ember with one command)
 
