@@ -38,7 +38,7 @@ module Api
     end
 
     def populate_title
-      return if @model.id.present?
+      return if @model.title.present?
       link = link_parser.process(url: url)
       @model.title = link.title
     end
