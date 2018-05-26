@@ -11,8 +11,9 @@ export default Route.extend({
       options.filter = { read: false };
     }
 
-    return this.store.liveQuery(q => (
-      q.findRecords('bookmark')
-    ));
+    return this.store.liveQuery(
+      q => q.findRecords('bookmark'),
+      { sources: { remote: { include: ['tags'] } } },
+    );
   },
 });
