@@ -30,7 +30,7 @@ RSpec.describe 'receive webhook', type: :request do
     let(:token) { '23456' }
     let(:title) { 'custom title' }
 
-    it 'creates a link' do
+    it 'does not create a link' do
       expect { send! }.not_to change { Link.count }
     end
 
