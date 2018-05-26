@@ -11,13 +11,11 @@ export default Component.extend({
     async markRead(event) {
       event.preventDefault();
       this.link.set('read', true);
-      await this.link.save();
     },
 
     async markUnread(event) {
       event.preventDefault();
       this.link.set('read', false);
-      await this.link.save();
     },
 
     edit(event) {
