@@ -3,6 +3,10 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  if Rails.env.development?
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   scope '/webhooks', module: :webhooks do
     post :hydrant, to: 'hydrant#post'
   end
