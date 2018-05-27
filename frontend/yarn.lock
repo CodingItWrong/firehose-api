@@ -2353,6 +2353,10 @@ dot-prop@^4.1.0:
   dependencies:
     is-obj "^1.0.0"
 
+dotenv@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
+
 ecc-jsbn@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
@@ -2471,6 +2475,14 @@ ember-cli-dependency-checker@^2.0.0:
     is-git-url "^1.0.0"
     resolve "^1.5.0"
     semver "^5.3.0"
+
+ember-cli-dotenv@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-dotenv/-/ember-cli-dotenv-2.1.0.tgz#ac9d14884cbcefb7588e06e77e40ee06445975ee"
+  dependencies:
+    dotenv "^4.0.0"
+    ember-cli-babel "^6.6.0"
+    minimist "^1.2.0"
 
 ember-cli-eslint@^4.2.1:
   version "4.2.3"
