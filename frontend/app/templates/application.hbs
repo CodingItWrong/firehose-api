@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
   <div class="container">
-    {{#link-to 'index' classNames='navbar-brand' }}Firehose{{/link-to}}
+    {{#link-to 'index' classNames='navbar-brand'}}{{siteName}}{{/link-to}}
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#prayerapp-navbar" aria-controls="prayerapp-navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,6 +12,8 @@
           <li class="nav-item">{{#link-to 'tags' data-test-tags-link classNames="nav-link"}}Tags{{/link-to}}</li>
           <li class="nav-item"><a href="#" {{action "signOut"}} data-test-logout-button class="nav-link">Sign out</a></li>
         {{else}}
+          <li class="nav-item"><a href="{{authorUrl}}" rel="author" class="nav-link">Home</a></li>
+          <li class="nav-item">{{#link-to 'index' classNames="nav-link"}}Links{{/link-to}}</li>
           <li class="nav-item">{{#link-to 'tags' data-test-tags-link classNames="nav-link"}}Tags{{/link-to}}</li>
           <li class="nav-item">{{#link-to 'login' data-test-login-link classNames="nav-link"}}Sign in{{/link-to}}</li>
         {{/if}}
