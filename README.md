@@ -1,6 +1,6 @@
 # Firehose
 
-An open-source web app for link saving and sharing. Allows you to own your content and share it on the [IndieWeb](https://indieweb.org).
+An open-source web app for link saving and sharing. Allows you to own and share your own content.
 
 An [iOS share extension app](https://github.com/CodingItWrong/Hydrant) is also available.
 
