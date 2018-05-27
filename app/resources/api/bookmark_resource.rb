@@ -13,6 +13,8 @@ module Api
     filter :read
 
     before_save :populate_title
+    before_save :check_for_publish
+    after_save :send_web_mention
 
     def self.creatable_fields(context)
       super - %i[moved_to_list_at published_at]
@@ -41,6 +43,24 @@ module Api
       return if @model.id.present?
       link = link_parser.process(url: url)
       @model.title = link.title
+    end
+
+    def check_for_publish
+      @publishing = @model.published_at_was.nil? &&
+                    @model.published_at.present?
+    end
+
+    def send_web_mention
+      @publishing && web_mentioner.send_mention(link_url)
+    end
+
+    def web_mentioner
+      WebMentioner
+    end
+
+    def link_url
+      # need to create frontend page for individual link first
+      'http://example.com/placeholder/link'
     end
   end
 end
