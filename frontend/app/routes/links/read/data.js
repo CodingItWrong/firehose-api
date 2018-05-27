@@ -7,4 +7,11 @@ export default Route.extend({
       filter: { read: true },
     });
   },
+
+  actions: {
+    willTransition() {
+      this.controller.reset();
+      return true;
+    },
+  },
 });
