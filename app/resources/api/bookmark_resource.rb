@@ -13,6 +13,8 @@ module Api
     filter :read
 
     before_save :populate_title
+    before_save :check_for_publish
+    after_save :send_tweet
 
     def self.creatable_fields(context)
       super - %i[moved_to_list_at published_at]
@@ -41,6 +43,15 @@ module Api
       return if @model.id.present?
       link = link_parser.process(url: url)
       @model.title = link.title
+    end
+
+    def check_for_publish
+      @publishing = @model.published_at_was.nil? &&
+                    @model.published_at.present?
+    end
+
+    def send_tweet
+      @publishing && SendTweetJob.send(@model)
     end
   end
 end
