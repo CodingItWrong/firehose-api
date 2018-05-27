@@ -46,6 +46,10 @@ export default class ReadLinksController extends Controller {
     return this.filteredLinks.slice(start, end);
   }
 
+  reset() {
+    this.set('page', 1);
+  }
+
   scrollToTop() {
     window.scrollTo(0, 0);
   }
