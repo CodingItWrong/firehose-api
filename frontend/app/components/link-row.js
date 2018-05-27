@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 
+// errors with tagless as a class component
 export default Component.extend({
   session: service(),
 
