@@ -9,7 +9,7 @@ import EmberObject from '@ember/object';
 describe('{{link-row}}', () => {
   setupRenderingTest();
 
-  it('shows itself if the model read status matches showIfRead', async function() {
+  it('shows if the read status matches showIfRead', async function() {
     let link = EmberObject.create({
       title: 'My Title',
       url: 'https://www.example.com/page',
@@ -22,7 +22,7 @@ describe('{{link-row}}', () => {
     expect(find('[data-test-link-title]')).to.exist;
   });
 
-  it('hides itself if the model read status does not match showIfRead', async function() {
+  it('hides if the read status does not match showIfRead', async function() {
     let link = EmberObject.create({
       title: 'My Title',
       url: 'https://www.example.com/page',

@@ -9,7 +9,7 @@ describe('link sorting', function() {
   let hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  it('sorts read and unread lists in the order added to that list', async function() {
+  it('sorts lists in the order added to that list', async function() {
     await authenticateSession({ access_token: 'ABC123' });
     await visit('/');
 

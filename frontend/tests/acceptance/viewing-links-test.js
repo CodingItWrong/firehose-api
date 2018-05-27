@@ -11,8 +11,15 @@ describe('viewing links', function() {
 
   it('displays read and unread links', async function() {
     let tag = server.create('tag', { name: 'foo' });
-    let unreadLink = server.create('bookmark', { title: 'My Unread Link', read: false, tags: [tag] });
-    let readLink = server.create('bookmark', { title: 'My Read Link', read: true });
+    let unreadLink = server.create('bookmark', {
+      title: 'My Unread Link',
+      read: false,
+      tags: [tag],
+    });
+    let readLink = server.create('bookmark', {
+      title: 'My Read Link',
+      read: true,
+    });
 
     await authenticateSession({ access_token: 'ABC123' });
     await visit('/');

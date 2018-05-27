@@ -3,7 +3,10 @@ import { expect } from 'chai';
 import { visit, find, findAll, click, fillIn } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-mocha';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
-import { authenticateSession, invalidateSession } from 'ember-simple-auth/test-support';
+import {
+  authenticateSession,
+  invalidateSession,
+} from 'ember-simple-auth/test-support';
 
 describe('public link sorting', function() {
   let hooks = setupApplicationTest();
