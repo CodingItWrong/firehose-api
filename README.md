@@ -95,7 +95,7 @@ On any server, you can run `bin/production` upon each deployment to:
 
 ## License
 
-MIT
+Apache
 
 [postgres-app]: http://postgresapp.com
 [foreman]: https://github.com/ddollar/foreman
