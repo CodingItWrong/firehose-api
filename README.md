@@ -16,7 +16,12 @@ An [iOS share extension app](https://github.com/CodingItWrong/Hydrant) is also a
 
 ### Setup
 
-Duplicate `.env` and fill in your configuration values.
+The project has two different `.env` files:
+
+- The `.env` file at the root of the project is used by the Rails backend and includes connectivity info.
+- The `frontend/.env` file is used by the Ember frontend and includes site branding.
+
+Duplicate the `.env.sample` file at each location, rename it to `.env`, and fill in the values.
 
 ### Testing
 
