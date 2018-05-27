@@ -14,7 +14,7 @@ module Api
 
     before_save :populate_title
     before_save :check_for_publish
-    after_save :send_web_mention
+    after_save :send_tweet
 
     def self.creatable_fields(context)
       super - %i[moved_to_list_at published_at]
@@ -50,17 +50,8 @@ module Api
                     @model.published_at.present?
     end
 
-    def send_web_mention
-      @publishing && web_mentioner.send_mention(link_url)
-    end
-
-    def web_mentioner
-      WebMentioner
-    end
-
-    def link_url
-      # need to create frontend page for individual link first
-      'http://example.com/placeholder/link'
+    def send_tweet
+      @publishing && SendTweetJob.send(@model)
     end
   end
 end

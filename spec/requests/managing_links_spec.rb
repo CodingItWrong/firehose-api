@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 require 'link_parser'
-require 'web_mentioner'
+require 'twitter_client'
 
 RSpec.describe 'managing links', type: :request do
   let!(:public_link) { FactoryBot.create(:link, :public) }
@@ -44,6 +44,7 @@ RSpec.describe 'managing links', type: :request do
     old_moved_to_list_at = link_model.moved_to_list_at
 
     title = 'Updated Title'
+    comment = 'This link is so cool'
     params = {
       data: {
         type: 'bookmarks',
@@ -62,8 +63,7 @@ RSpec.describe 'managing links', type: :request do
       },
     }
 
-    expect(WebMentioner).to receive(:send_mention)
-      .with('http://example.com/placeholder/link')
+    expect(TwitterClient).to receive(:post).with(link_model)
 
     patch "/api/bookmarks/#{link_model.id}", headers: headers, params: params.to_json
 
