@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
   <div class="container">
     {{#link-to 'index' classNames='navbar-brand'}}{{siteName}}{{/link-to}}
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#prayerapp-navbar" aria-controls="prayerapp-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#app-navbar" aria-controls="app-navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="prayerapp-navbar">
+    <div class="collapse navbar-collapse" id="app-navbar">
       <ul class="navbar-nav ml-auto">
         {{#if session.isAuthenticated}}
           <li class="nav-item">{{#link-to 'index' data-test-unread-link classNames="nav-link"}}Unread{{/link-to}}</li>
