@@ -49,7 +49,7 @@
     "ember-service-worker": "^0.6.12",
     "ember-service-worker-asset-cache": "^0.6.2",
     "ember-service-worker-index": "^0.6.6",
-    "ember-simple-auth": "^1.5.1",
+    "ember-simple-auth": "^1.7.0",
     "ember-sinon": "^2.2.0",
     "ember-source": "~3.1.0",
     "ember-test-selectors": "^0.3.8",
