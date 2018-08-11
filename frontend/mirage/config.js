@@ -1,21 +1,6 @@
 export default function() {
   this.namespace = 'api';
 
-  this.post('/oauth/token', (_, request) => {
-    let params = {};
-    request.requestBody.split('&').forEach((pair) => {
-      let [key, value] = pair.split('=');
-      params[decodeURIComponent(key)] = decodeURIComponent(value);
-    });
-
-    if (params.username === 'example@example.com'
-        && params.password === 'password') {
-      return { access_token: 'abc123' };
-    }
-
-    return new Response(401);
-  });
-
   this.get('/bookmarks', ({ bookmarks }, request) => {
     let read = request.queryParams['filter[read]'];
     if (typeof read !== 'undefined') {
