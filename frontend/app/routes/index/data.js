@@ -1,8 +1,8 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
+import { service } from '@ember-decorators/service';
 
-export default Route.extend({
-  session: service(),
+export default class IndexDataRoute extends Route {
+  @service session;
 
   model() {
     let options = { include: 'tags' };
@@ -12,5 +12,5 @@ export default Route.extend({
     }
 
     return this.store.findAll('bookmark', options);
-  },
-});
+  }
+}

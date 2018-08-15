@@ -1,6 +1,8 @@
 import DS from 'ember-data';
+const { Model } = DS;
+import { attr, hasMany } from '@ember-decorators/data';
 
-export default DS.Model.extend({
-  name: DS.attr(),
-  bookmarks: DS.hasMany('bookmark'),
-});
+export default class Tag extends Model {
+  @attr name;
+  @hasMany('bookmark') bookmarks;
+}

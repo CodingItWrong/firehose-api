@@ -1,15 +1,15 @@
 import Route from '@ember/routing/route';
+import { action } from '@ember-decorators/object';
 import $ from 'jquery';
 
-export default Route.extend({
+export default class ApplicationRoute extends Route {
   scrollToTop() {
     window.scrollTo(0, 0);
-  },
+  }
 
-  actions: {
-    willTransition() {
-      $('.navbar-collapse').collapse('hide');
-      this.scrollToTop();
-    },
-  },
-});
+  @action
+  willTransition() {
+    $('.navbar-collapse').collapse('hide');
+    this.scrollToTop();
+  }
+}

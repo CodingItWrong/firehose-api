@@ -12,17 +12,17 @@
   "repository": "",
   "scripts": {
     "build": "ember build",
-    "lint:js": "eslint ./*.js app config lib mirage server tests",
+    "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test"
   },
   "devDependencies": {
     "@ember-decorators/babel-transforms": "^2.0.1",
     "babel-eslint": "^8.2.2",
-    "broccoli-asset-rev": "^2.4.5",
+    "broccoli-asset-rev": "^2.7.0",
     "ember-ajax": "^3.0.0",
     "ember-buffered-proxy": "^1.0.0-beta.0",
-    "ember-cli": "~3.1.1",
+    "ember-cli": "~3.3.0",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
     "ember-cli-build-notifications": "^0.3.0",
@@ -39,19 +39,19 @@
     "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.0.0",
-    "ember-data": "~3.1.0",
+    "ember-data": "~3.3.0",
     "ember-decorators": "^2.3.1",
     "ember-export-application-global": "^2.0.0",
-    "ember-load-initializers": "^1.0.0",
+    "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-mocha": "^0.14.0",
     "ember-resolver": "^4.0.0",
     "ember-service-worker": "^0.6.12",
     "ember-service-worker-asset-cache": "^0.6.2",
     "ember-service-worker-index": "^0.6.6",
-    "ember-simple-auth": "^1.5.1",
+    "ember-simple-auth": "^1.7.0",
     "ember-sinon": "^2.2.0",
-    "ember-source": "~3.1.0",
+    "ember-source": "~3.3.0",
     "ember-test-selectors": "^0.3.8",
     "eslint-config-codingitwrong": "^0.1.1",
     "eslint-plugin-ember": "^5.0.0",
@@ -60,7 +60,7 @@
     "sinon-chai": "^3.2.0"
   },
   "engines": {
-    "node": "^4.5 || 6.* || >= 7.*"
+    "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
     "bootstrap": "^4.1.1",
