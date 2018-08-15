@@ -1,15 +1,17 @@
 import DS from 'ember-data';
+const { Model } = DS;
+import { attr, hasMany } from '@ember-decorators/data';
 
-export default DS.Model.extend({
-  title: DS.attr(),
-  url: DS.attr(),
-  comment: DS.attr(),
-  source: DS.attr(),
-  tag_list: DS.attr(),
-  read: DS.attr(),
-  public: DS.attr(),
-  moved_to_list_at: DS.attr('date'),
-  published_at: DS.attr('date'),
+export default class Bookmark extends Model {
+  @attr title;
+  @attr url;
+  @attr comment;
+  @attr source;
+  @attr tag_list;
+  @attr read;
+  @attr public;
+  @attr('date') moved_to_list_at;
+  @attr('date') published_at;
 
-  tags: DS.hasMany('tag'),
-});
+  @hasMany('tag') tags;
+}
