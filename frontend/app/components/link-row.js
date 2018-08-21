@@ -1,29 +1,29 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
+import { tagName } from '@ember-decorators/component';
+import { service } from '@ember-decorators/service';
+import { action, computed } from '@ember-decorators/object';
 
-// errors with tagless as a class component
-export default Component.extend({
-  session: service(),
+@tagName('')
+export default class LinkRow extends Component {
+  @service session;
 
-  tagName: '',
+  editing = false;
 
-  editing: false,
-
-  showLink: computed('link.read', function() {
+  @computed('link.read')
+  get showLink() {
     if (typeof this.showIfRead === 'undefined') {
       return true;
     }
     return this.showIfRead === this.link.read;
-  }),
+  }
 
-  actions: {
-    edit() {
-      this.set('editing', true);
-    },
+  @action
+  edit() {
+    this.set('editing', true);
+  }
 
-    finishEditing() {
-      this.set('editing', false);
-    },
-  },
-});
+  @action
+  finishEditing() {
+    this.set('editing', false);
+  }
+}
