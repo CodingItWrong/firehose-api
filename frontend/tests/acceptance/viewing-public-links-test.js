@@ -21,10 +21,10 @@ describe('viewing public links', function() {
 
     await visit('/');
 
-    let linkText = find('[data-test-links]').textContent;
+    let linkElement = find('[data-test-links]');
 
     for (let link of linkModels) {
-      expect(linkText).to.include(link.title);
+      expect(linkElement).to.contain.text(link.title);
     }
   });
 });

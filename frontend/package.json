@@ -20,6 +20,7 @@
     "@ember-decorators/babel-transforms": "^2.0.1",
     "babel-eslint": "^8.2.2",
     "broccoli-asset-rev": "^2.7.0",
+    "chai-dom": "^1.8.0",
     "ember-ajax": "^3.0.0",
     "ember-buffered-proxy": "^1.0.0-beta.0",
     "ember-cli": "~3.3.0",
