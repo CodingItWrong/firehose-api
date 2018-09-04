@@ -24,24 +24,24 @@ describe('viewing links', function() {
     await authenticateSession({ access_token: 'ABC123' });
     await visit('/');
 
-    let linkText = find('[data-test-links]').textContent;
+    let link = find('[data-test-links]');
 
-    expect(linkText).to.include(unreadLink.title);
-    expect(linkText).not.to.include(readLink.title);
+    expect(link).to.contain.text(unreadLink.title);
+    expect(link).not.to.contain.text(readLink.title);
 
     await click('[data-test-read-link]');
 
-    linkText = find('[data-test-links]').textContent;
+    link = find('[data-test-links]');
 
-    expect(linkText).to.include(readLink.title);
-    expect(linkText).not.to.include(unreadLink.title);
+    expect(link).to.contain.text(readLink.title);
+    expect(link).not.to.contain.text(unreadLink.title);
 
     await click('[data-test-unread-link]');
 
-    linkText = find('[data-test-links]').textContent;
+    link = find('[data-test-links]');
 
-    expect(linkText).to.include(unreadLink.title);
-    expect(linkText).to.include('foo');
-    expect(linkText).not.to.include(readLink.title);
+    expect(link).to.contain.text(unreadLink.title);
+    expect(link).to.contain.text('foo');
+    expect(link).not.to.contain.text(readLink.title);
   });
 });

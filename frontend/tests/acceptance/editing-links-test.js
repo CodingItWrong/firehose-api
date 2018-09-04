@@ -17,25 +17,25 @@ describe('editing links', function() {
     await fillIn('[data-test-url]', 'https://www.example.com');
     await click('[data-test-add-button]');
 
-    let linkText = find('[data-test-links]').textContent;
+    let link = find('[data-test-links]');
 
-    expect(linkText).to.include('My Link Title');
+    expect(link).to.contain.text('My Link Title');
 
     // mark read
     await click('[data-test-button-mark-read]');
-    linkText = find('[data-test-links]').textContent;
-    expect(linkText).not.to.include('My Link Title');
+    link = find('[data-test-links]');
+    expect(link).not.to.contain.text('My Link Title');
 
     await click('[data-test-read-link]');
-    linkText = find('[data-test-links]').textContent;
-    expect(linkText).to.include('My Link Title');
+    link = find('[data-test-links]');
+    expect(link).to.contain.text('My Link Title');
 
     // mark unread
     await click('[data-test-button-mark-unread]');
 
     await click('[data-test-unread-link]');
-    linkText = find('[data-test-links]').textContent;
-    expect(linkText).to.include('My Link Title');
+    link = find('[data-test-links]');
+    expect(link).to.contain.text('My Link Title');
 
     // edit
     const title = 'Updated Title';
@@ -45,20 +45,20 @@ describe('editing links', function() {
     await fillIn('[data-test-tags]', 'foo bar');
     await click('[data-test-save-button]');
 
-    linkText = find('[data-test-links]').textContent;
-    expect(linkText).to.include(title);
+    link = find('[data-test-links]');
+    expect(link).to.contain.text(title);
 
     // cancelling edit
     await click('[data-test-button-edit]');
     await fillIn('[data-test-title]', 'Title Update to Cancel');
     await click('[data-test-cancel-button]');
 
-    linkText = find('[data-test-links]').textContent;
-    expect(linkText).to.include(title);
+    link = find('[data-test-links]');
+    expect(link).to.contain.text(title);
 
     // delete
     await click('[data-test-button-delete]');
-    linkText = find('[data-test-links]').textContent;
-    expect(linkText).not.to.include(title);
+    link = find('[data-test-links]');
+    expect(link).not.to.contain.text(title);
   });
 });

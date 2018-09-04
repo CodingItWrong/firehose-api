@@ -21,8 +21,8 @@ describe('search', function() {
     await visit('/links/read');
     await fillIn('[data-test-search-input]', 'awesome');
 
-    let linkText = find('[data-test-links]').textContent;
-    expect(linkText).to.include(linkToShow.title);
-    expect(linkText).not.to.include(linkToHide.title);
+    let link = find('[data-test-links]');
+    expect(link).to.contain.text(linkToShow.title);
+    expect(link).not.to.contain.text(linkToHide.title);
   });
 });

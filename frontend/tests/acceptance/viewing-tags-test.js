@@ -28,16 +28,16 @@ describe('viewing tags', function() {
 
     await click('[data-test-tags-link]');
 
-    let tagText = find('[data-test-tags]').textContent;
+    let tag = find('[data-test-tags]');
 
-    expect(tagText).to.include('foo');
-    expect(tagText).to.include('bar');
+    expect(tag).to.contain.text('foo');
+    expect(tag).to.contain.text('bar');
 
     await click('[data-test-tag="foo"]');
 
-    let linkText = find('[data-test-links]').textContent;
+    let link = find('[data-test-links]');
 
-    expect(linkText).to.include('foo');
-    expect(linkText).not.to.include('bar');
+    expect(link).to.contain.text('foo');
+    expect(link).not.to.contain.text('bar');
   });
 });
