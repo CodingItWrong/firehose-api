@@ -15,3 +15,5 @@
 .env
 certbot
 /public
+
+jsconfig.json
