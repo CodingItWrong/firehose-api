@@ -1,6 +1,6 @@
 import { describe, it, beforeEach } from 'mocha';
 import { expect } from 'chai';
-import { visit, find, click } from '@ember/test-helpers';
+import { visit, find, click, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-mocha';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { authenticateSession } from 'ember-simple-auth/test-support';
@@ -34,6 +34,7 @@ describe('viewing tags', function() {
     expect(tag).to.contain.text('bar');
 
     await click('[data-test-tag="foo"]');
+    expect(currentURL()).to.equal('/tags/foo');
 
     let link = find('[data-test-links]');
 

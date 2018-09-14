@@ -14,7 +14,7 @@
   {{#if link.tags}}
     |
     {{#each link.tags as |tag|}}
-      {{#link-to 'tags.show' tag classNames="p-category"}}{{ tag.name }}{{/link-to}}
+      {{#link-to 'tags.show' tag.name classNames="p-category"}}{{ tag.name }}{{/link-to}}
     {{/each}}
   {{/if}}
   {{#if link.source}}

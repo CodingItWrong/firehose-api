@@ -21,7 +21,7 @@ Router.map(function() {
     this.route('index', { path: '/' }, function() {
       this.route('data', { path: '/' });
     });
-    this.route('show', { path: '/:tag_id' }, function() {
+    this.route('show', { path: '/:tag_name' }, function() {
       this.route('data', { path: '/' });
     });
   });

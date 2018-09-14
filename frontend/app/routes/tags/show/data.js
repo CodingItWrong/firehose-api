@@ -1,8 +1,13 @@
 import Route from '@ember/routing/route';
 
 export default class ShowTagDataRoute extends Route {
-  model() {
-    let { tag_id } = this.paramsFor('tags/show');
-    return this.store.findRecord('tag', tag_id, { include: 'bookmarks' });
+  async model() {
+    let { tag_name } = this.paramsFor('tags/show');
+    console.log('finding', tag_name);
+    const tags = await this.store.query('tag', {
+      filter: { name: tag_name },
+      include: 'bookmarks',
+    });
+    return tags.firstObject;
   }
 }
