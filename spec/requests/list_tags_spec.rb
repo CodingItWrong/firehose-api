@@ -21,13 +21,14 @@ RSpec.describe 'list tags', type: :request do
       expect(tags.first['attributes']['name']).to eq('foo')
     end
 
-    it 'allows accessing an individual tag' do
-      get "/api/tags/#{foo_tag.id}?include=bookmarks"
+    it 'allows accessing an individual tag by name' do
+      get "/api/tags/?filter[name]=foo&include=bookmarks"
 
       expect(response).to be_successful
 
       jsonapi_response = JSON.parse(response.body)
-      tag = jsonapi_response['data']
+      tags = jsonapi_response['data']
+      tag = tags[0]
       links = jsonapi_response['included']
 
       expect(tag['attributes']['name']).to eq('foo')
