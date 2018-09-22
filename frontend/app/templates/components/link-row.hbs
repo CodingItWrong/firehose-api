@@ -3,10 +3,14 @@
     {{#if editing}}
       {{link-form
         link=link
-        onSave=(action 'finishEditing')
-        onCancel=(action 'finishEditing')}}
+        onSave=(action "finishEditing")
+        onCancel=(action "finishEditing")
+      }}
     {{else}}
-      {{link-detail link=link onEdit=(action 'edit')}}
+      {{link-detail
+        link=link
+        onEdit=(action "edit")
+      }}
     {{/if}}
   </li>
 {{/if}}
