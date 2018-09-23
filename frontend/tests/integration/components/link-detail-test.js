@@ -57,7 +57,7 @@ describe('{{link-detail}}', function () {
 
     await render(hbs`{{link-detail link=link}}`);
 
-    expect(find('[data-test-button-mark-unread]')).to.exist;
+    expect(find('[data-test-button="mark-unread"]')).to.exist;
     expect(find('[data-test-button-mark-read]')).not.to.exist;
   });
 

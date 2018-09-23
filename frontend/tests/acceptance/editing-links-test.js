@@ -31,7 +31,7 @@ describe('editing links', function () {
     expect(link).to.contain.text('My Link Title');
 
     // mark unread
-    await click('[data-test-button-mark-unread]');
+    await click('[data-test-button="mark-unread"]');
 
     await click('[data-test-unread-link]');
     link = find('[data-test-links]');
