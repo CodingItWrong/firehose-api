@@ -4,11 +4,11 @@ import { visit, find, fillIn } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-mocha';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
-describe('search', function() {
+describe('search', function () {
   let hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  it('allows searching public links', async function() {
+  it('allows searching public links', async function () {
     let linkToShow = server.create('bookmark', {
       title: 'Awesome Link',
       read: true,

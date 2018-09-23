@@ -9,7 +9,7 @@ import EmberObject from '@ember/object';
 describe('{{link-row}}', () => {
   setupRenderingTest();
 
-  it('shows if the read status matches showIfRead', async function() {
+  it('shows if the read status matches showIfRead', async function () {
     let link = EmberObject.create({
       title: 'My Title',
       url: 'https://www.example.com/page',
@@ -22,7 +22,7 @@ describe('{{link-row}}', () => {
     expect(find('[data-test-link-title]')).to.exist;
   });
 
-  it('hides if the read status does not match showIfRead', async function() {
+  it('hides if the read status does not match showIfRead', async function () {
     let link = EmberObject.create({
       title: 'My Title',
       url: 'https://www.example.com/page',
@@ -35,7 +35,7 @@ describe('{{link-row}}', () => {
     expect(find('[data-test-link-title]')).to.not.exist;
   });
 
-  it('shows itself if showIfRead is not set', async function() {
+  it('shows itself if showIfRead is not set', async function () {
     let link = EmberObject.create({
       title: 'My Title',
       url: 'https://www.example.com/page',
@@ -48,7 +48,7 @@ describe('{{link-row}}', () => {
     expect(find('[data-test-link-title]')).to.exist;
   });
 
-  it('renders the form when edit is clicked', async function() {
+  it('renders the form when edit is clicked', async function () {
     let session = Service.extend({ isAuthenticated: () => false });
     this.owner.register('service:session', session);
 
@@ -65,7 +65,7 @@ describe('{{link-row}}', () => {
     expect(find('input[data-test-title]')).to.exist;
   });
 
-  it('renders the detail when cancel is clicked', async function() {
+  it('renders the detail when cancel is clicked', async function () {
     let session = Service.extend({ isAuthenticated: () => false });
     this.owner.register('service:session', session);
 
@@ -83,7 +83,7 @@ describe('{{link-row}}', () => {
     expect(find('[data-test-link-title]')).to.exist;
   });
 
-  it('renders the detail when save is clicked', async function() {
+  it('renders the detail when save is clicked', async function () {
     let session = Service.extend({ isAuthenticated: () => false });
     this.owner.register('service:session', session);
 

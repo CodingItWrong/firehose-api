@@ -3463,8 +3463,8 @@ escodegen@^1.9.1:
     source-map "~0.6.1"
 
 eslint-config-codingitwrong@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-codingitwrong/-/eslint-config-codingitwrong-0.1.1.tgz#263b7b17d56b1c54f232566d15a0a0d7f16bbe94"
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-codingitwrong/-/eslint-config-codingitwrong-0.1.2.tgz#a5f5ff5ca50bbd37bdbf8bcaa9c56d9124afbf98"
 
 eslint-import-resolver-node@^0.3.1:
   version "0.3.2"

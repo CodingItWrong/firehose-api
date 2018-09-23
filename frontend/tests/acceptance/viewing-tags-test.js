@@ -5,11 +5,11 @@ import { setupApplicationTest } from 'ember-mocha';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { authenticateSession } from 'ember-simple-auth/test-support';
 
-describe('viewing tags', function() {
+describe('viewing tags', function () {
   let hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  beforeEach(function() {
+  beforeEach(function () {
     let fooTag = server.create('tag', { name: 'foo' });
     let barTag = server.create('tag', { name: 'bar' });
     server.create('bookmark', {
@@ -22,7 +22,7 @@ describe('viewing tags', function() {
     });
   });
 
-  it('displays all tags returned by the backend', async function() {
+  it('displays all tags returned by the backend', async function () {
     await authenticateSession({ access_token: 'ABC123' });
     await visit('/');
 
