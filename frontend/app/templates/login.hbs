@@ -1,7 +1,9 @@
 <h2>Log in</h2>
 
 {{#if errorMessage}}
-  <p>{{errorMessage}}</p>
+  <BsAlert @type="danger">
+    {{errorMessage}}
+  </BsAlert>
 {{/if}}
 
 <BsForm
