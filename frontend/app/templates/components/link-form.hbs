@@ -55,20 +55,20 @@
     }}
   </div>
   <div class="float-right">
-    <button
-      data-test-save-button
+    <BsButton
       type="submit"
-      class="btn btn-primary"
+      @data-test-save-button
+      @type="primary"
     >
       Save
-    </button>
-    <button
-      data-test-cancel-button
+    </BsButton>
+    <BsButton
       type="button"
-      class="btn btn-light"
-      onclick={{action "handleCancel"}}
+      @data-test-cancel-button
+      @type="light"
+      @onClick={{action "handleCancel"}}
     >
       Cancel
-    </button>
+    </BsButton>
   </div>
 </form>

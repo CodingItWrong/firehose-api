@@ -31,82 +31,85 @@
 </div>
 {{#if session.isAuthenticated}}
   <div class="float-right">
-    <div class="dropdown d-block d-md-none">
-      <button
-        type="button"
-        class="btn btn-light dropdown-toggle"
-        id="linkActionMenu"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-      </button>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="linkActionMenu">
+    <BsDropdown @tagName="span" as |Dd|>
+      <Dd.button
+        @type="light"
+        class="d-block d-md-none"
+      />
+      <Dd.menu @align="right" as |Menu|>
         {{#if link.read}}
-          <a
-            class="dropdown-item"
-            href="#"
-            onclick={{action "markUnread"}}
-          >
-            Mark Unread
-          </a>
+          <Menu.item>
+            <a
+              class="dropdown-item"
+              href="#"
+              onclick={{action "markUnread"}}
+            >
+              Mark Unread
+            </a>
+          </Menu.item>
         {{else}}
+          <Menu.item>
+            <a
+              class="dropdown-item"
+              href="#"
+              onclick={{action "markRead"}}
+            >
+              Mark Read
+            </a>
+          </Menu.item>
+        {{/if}}
+        <Menu.item>
           <a
             class="dropdown-item"
             href="#"
-            onclick={{action "markRead"}}
+            onclick={{action "edit"}}
           >
-            Mark Read
+            Edit
           </a>
-        {{/if}}
-        <a
-          class="dropdown-item"
-          href="#"
-          onclick={{action "edit"}}
-        >
-          Edit
-        </a>
-        <a
-          class="dropdown-item"
-          href="#"
-          onclick={{action "delete"}}
-        >
-          Delete
-        </a>
-      </div>
-    </div>
+        </Menu.item>
+        <Menu.item>
+          <a
+            class="dropdown-item"
+            href="#"
+            onclick={{action "delete"}}
+          >
+            Delete
+          </a>
+        </Menu.item>
+      </Dd.menu>
+    </BsDropdown>
     <div class="d-none d-md-block">
       {{#if link.read}}
-        <button
-          data-test-button="mark-unread"
-          class="btn btn-light"
-          onclick={{action "markUnread"}}
+        <BsButton
+          @data-test-button-mark-unread
+          @type="light"
+          @onClick={{action "markUnread"}}
         >
           Mark Unread
-        </button>
+        </BsButton>
       {{else}}
-        <button
-          data-test-button-mark-read
-          class="btn btn-light"
-          onclick={{action "markRead"}}
+        <BsButton
+          @data-test-button-mark-read
+          @type="light"
+          onClick={{action "markRead"}}
         >
           Mark Read
-        </button>
+        </BsButton>
       {{/if}}
-      <button
-        data-test-button-edit
-        class="btn btn-light"
-        onclick={{action "edit"}}
+      <BsButton
+        @data-test-button-edit
+        @type="light"
+        onClick={{action "edit"}}
       >
         Edit
-      </button>
-      <button
-        data-test-button-delete
-        class="btn btn-danger"
-        onclick={{action "delete"}}
+      </BsButton>
+      <BsButton
+        @data-test-button-delete
+        @type="danger"
+        @onClick={{action "delete"}}
       >
         Delete
-      </button>
+      </BsButton>
     </div>
   </div>
 {{/if}}

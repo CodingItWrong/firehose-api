@@ -38,7 +38,7 @@ describe('link sorting', function () {
     expect(linkText).to.match(/second[\s\S]+first[\s\S]+third/);
 
     // links marked unread again go in the order of most recently marked unread
-    let markUnreadButtons = findAll('[data-test-button="mark-unread"]');
+    let markUnreadButtons = findAll('[data-test-button-mark-unread]');
     await click(markUnreadButtons[2]);
     await click(markUnreadButtons[0]);
     await click(markUnreadButtons[1]);
