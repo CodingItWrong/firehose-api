@@ -1,11 +1,11 @@
 <ul class="list-group" data-test-links>
   {{#if session.isAuthenticated}}
     {{#each loggedInSortedLinks as |link|}}
-      {{link-row link=link showIfRead=false}}
+      <LinkRow @link={{link}} @showIfRead={{false}} />
     {{/each}}
   {{else}}
     {{#each loggedOutSortedLinks as |link|}}
-      {{link-row link=link}}
+      <LinkRow @link={{link}} />
     {{/each}}
   {{/if}}
 </ul>
