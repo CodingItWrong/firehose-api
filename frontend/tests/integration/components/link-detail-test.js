@@ -7,10 +7,10 @@ import EmberObject from '@ember/object';
 import hbs from 'htmlbars-inline-precompile';
 import sinon from 'sinon';
 
-describe('{{link-detail}}', function() {
+describe('{{link-detail}}', function () {
   setupRenderingTest();
 
-  it('does not display action buttons when signed out', async function() {
+  it('does not display action buttons when signed out', async function () {
     let session = Service.extend({ isAuthenticated: () => false });
     this.owner.register('service:session', session);
 
@@ -27,7 +27,7 @@ describe('{{link-detail}}', function() {
     expect(find('[data-test-button-delete]')).not.to.exist;
   });
 
-  it('it displays action buttons when signed in', async function() {
+  it('it displays action buttons when signed in', async function () {
     let session = Service.extend({ isAuthenticated: () => true });
     this.owner.register('service:session', session);
 
@@ -44,7 +44,7 @@ describe('{{link-detail}}', function() {
     expect(find('[data-test-button-delete]')).to.exist;
   });
 
-  it('it displays Mark Unread when read', async function() {
+  it('it displays Mark Unread when read', async function () {
     let session = Service.extend({ isAuthenticated: () => true });
     this.owner.register('service:session', session);
 
@@ -61,7 +61,7 @@ describe('{{link-detail}}', function() {
     expect(find('[data-test-button-mark-read]')).not.to.exist;
   });
 
-  it('calls the onEdit handler when edit is clicked', async function() {
+  it('calls the onEdit handler when edit is clicked', async function () {
     let session = Service.extend({ isAuthenticated: () => true });
     this.owner.register('service:session', session);
 

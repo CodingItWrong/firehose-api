@@ -5,11 +5,11 @@ import { setupApplicationTest } from 'ember-mocha';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { authenticateSession } from 'ember-simple-auth/test-support';
 
-describe('link sorting', function() {
+describe('link sorting', function () {
   let hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  it('sorts lists in the order added to that list', async function() {
+  it('sorts lists in the order added to that list', async function () {
     await authenticateSession({ access_token: 'ABC123' });
     await visit('/');
 

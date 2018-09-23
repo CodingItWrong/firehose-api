@@ -6,7 +6,7 @@ import hbs from 'htmlbars-inline-precompile';
 import EmberObject from '@ember/object';
 import sinon from 'sinon';
 
-describe('{{link-form}}', function() {
+describe('{{link-form}}', function () {
   setupRenderingTest();
 
   describe('when save is clicked', () => {
@@ -14,7 +14,7 @@ describe('{{link-form}}', function() {
     let saveHandler;
     let updatedTitle = 'Updated Title';
 
-    beforeEach(async function() {
+    beforeEach(async function () {
       link = EmberObject.create({
         title: 'My Title',
         url: 'https://www.example.com/page',
@@ -31,20 +31,20 @@ describe('{{link-form}}', function() {
       await click('[data-test-save-button]');
     });
 
-    it('updates fields on the model', async function() {
+    it('updates fields on the model', async function () {
       expect(link.get('title')).to.equal(updatedTitle);
     });
 
-    it('saves the model', async function() {
+    it('saves the model', async function () {
       expect(link.save).to.have.been.called;
     });
 
-    it('calls the onSave action', async function() {
+    it('calls the onSave action', async function () {
       expect(saveHandler).to.have.been.called;
     });
   });
 
-  it('calls the onCancel action when cancel is clicked', async function() {
+  it('calls the onCancel action when cancel is clicked', async function () {
     let link = EmberObject.create({
       title: 'My Title',
       url: 'https://www.example.com/page',

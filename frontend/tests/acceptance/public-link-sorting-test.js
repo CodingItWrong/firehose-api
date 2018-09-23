@@ -8,11 +8,11 @@ import {
   invalidateSession,
 } from 'ember-simple-auth/test-support';
 
-describe('public link sorting', function() {
+describe('public link sorting', function () {
   let hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  it('sorts public lists in the order published', async function() {
+  it('sorts public lists in the order published', async function () {
     await authenticateSession({ access_token: 'ABC123' });
     await visit('/');
 

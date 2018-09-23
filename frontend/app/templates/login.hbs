@@ -4,16 +4,37 @@
   <p>{{errorMessage}}</p>
 {{/if}}
 
-<form {{action 'authenticate' on='submit'}}>
+<form {{action "authenticate" on="submit"}}>
   <div class="form-group">
-    <label for="email">Email</label><br />
-    {{input data-test-email-field id='email' type='email' placeholder='Enter Email' value=email class='form-control' autocapitalize='off'}}
+    <label for="email">Email</label><br>
+    {{input
+      data-test-email-field
+      value=email
+      id="email"
+      type="email"
+      placeholder="Enter Email"
+      class="form-control"
+      autocapitalize="off"
+    }}
   </div>
   <div class="form-group">
-    <label for="password">Password</label><br />
-    {{input data-test-password-field id='password' placeholder='Enter Password' type='password' value=password class='form-control'}}
+    <label for="password">Password</label><br>
+    {{input
+      data-test-password-field
+      value=password
+      id="password"
+      placeholder="Enter Password"
+      type="password"
+      class="form-control"
+    }}
   </div>
   <div class="actions">
-    <button data-test-login-button type="submit" class="btn btn-primary">Login</button>
+    <button
+      data-test-login-button
+      type="submit"
+      class="btn btn-primary"
+    >
+      Login
+    </button>
   </div>
 </form>
