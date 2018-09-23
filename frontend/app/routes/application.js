@@ -9,7 +9,8 @@ export default class ApplicationRoute extends Route {
 
   @action
   willTransition() {
-    $('.navbar-collapse').collapse('hide');
+    // TODO see if hiding by route change happens automatically
+    // $('.navbar-collapse').collapse('hide');
     this.scrollToTop();
   }
 }

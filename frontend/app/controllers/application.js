@@ -8,6 +8,7 @@ export default class ApplicationController extends Controller {
 
   siteName = ENV.SITE_NAME;
   authorUrl = ENV.AUTHOR_URL;
+  collapsed = true;
 
   @action
   async signOut() {

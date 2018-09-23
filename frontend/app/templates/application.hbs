@@ -1,52 +1,47 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+<BsNavbar
+  @type="light"
+  @collapsed={{this.collapsed}}
+  @onCollapse={{action (mut this.collapsed) true}}
+  @onExpand={{action (mut this.collapsed) false}} as |Navbar|
+>
   <div class="container">
     {{#link-to "index" classNames="navbar-brand"}}
       {{siteName}}
     {{/link-to}}
-    <button
-      type="button"
-      class="navbar-toggler"
-      data-toggle="collapse"
-      data-target="#app-navbar"
-      aria-controls="app-navbar"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="app-navbar">
-      <ul class="navbar-nav ml-auto">
+    <Navbar.toggle />
+    <Navbar.content>
+      <Navbar.nav class="ml-auto" as |Nav|>
         {{#if session.isAuthenticated}}
-          <li class="nav-item">
+          <Nav.item>
             {{#link-to "index" data-test-unread-link classNames="nav-link"}}Unread{{/link-to}}
-          </li>
-          <li class="nav-item">
+          </Nav.item>
+          <Nav.item>
             {{#link-to "links.read" data-test-read-link classNames="nav-link"}}Read{{/link-to}}
-          </li>
-          <li class="nav-item">
+          </Nav.item>
+          <Nav.item>
             {{#link-to "tags" data-test-tags-link classNames="nav-link"}}Tags{{/link-to}}
-          </li>
-          <li class="nav-item">
+          </Nav.item>
+          <Nav.item>
             <a href="#" {{action "signOut"}} data-test-logout-button class="nav-link">Sign out</a>
-          </li>
+          </Nav.item>
         {{else}}
-          <li class="nav-item">
+          <Nav.item>
             <a href={{authorUrl}} rel="author" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
+          </Nav.item>
+          <Nav.item>
             {{#link-to "index" classNames="nav-link"}}Links{{/link-to}}
-          </li>
-          <li class="nav-item">
+          </Nav.item>
+          <Nav.item>
             {{#link-to "tags" data-test-tags-link classNames="nav-link"}}Tags{{/link-to}}
-          </li>
-          <li class="nav-item">
+          </Nav.item>
+          <Nav.item>
             {{#link-to "login" data-test-login-link classNames="nav-link"}}Sign in{{/link-to}}
-          </li>
+          </Nav.item>
         {{/if}}
-      </ul>
-    </div>
+      </Navbar.nav>
+    </Navbar.content>
   </div>
-</nav>
+</BsNavbar>
 
 <div class="container">
   <div class="row">
