@@ -62,7 +62,7 @@ describe('{{link-row}}', () => {
 
     await click('[data-test-button-edit]');
 
-    expect(find('input[data-test-title]')).to.exist;
+    expect(find('[data-test-title]')).to.exist;
   });
 
   it('renders the detail when cancel is clicked', async function () {

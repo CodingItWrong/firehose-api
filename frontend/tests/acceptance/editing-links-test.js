@@ -41,8 +41,8 @@ describe('editing links', function () {
     const title = 'Updated Title';
 
     await click('[data-test-button-edit]');
-    await fillIn('[data-test-title]', title);
-    await fillIn('[data-test-tags]', 'foo bar');
+    await fillIn('[data-test-title] input', title);
+    await fillIn('[data-test-tags] input', 'foo bar');
     await click('[data-test-save-button]');
 
     link = find('[data-test-links]');
@@ -50,7 +50,7 @@ describe('editing links', function () {
 
     // cancelling edit
     await click('[data-test-button-edit]');
-    await fillIn('[data-test-title]', 'Title Update to Cancel');
+    await fillIn('[data-test-title] input', 'Title Update to Cancel');
     await click('[data-test-cancel-button]');
 
     link = find('[data-test-links]');

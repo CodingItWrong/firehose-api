@@ -27,7 +27,7 @@ describe('{{link-form}}', function () {
 
       await render(hbs`{{link-form link=link onSave=saveHandler}}`);
 
-      await fillIn('[data-test-title]', updatedTitle);
+      await fillIn('[data-test-title] input', updatedTitle);
       await click('[data-test-save-button]');
     });
 
