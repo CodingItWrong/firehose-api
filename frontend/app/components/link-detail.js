@@ -6,24 +6,36 @@ export default class LinkDetail extends Component {
   @service session;
 
   @action
-  async markRead() {
+  async markRead(event) {
+    if (event) {
+      event.preventDefault();
+    }
     this.link.set('read', true);
     await this.link.save();
   }
 
   @action
-  async markUnread() {
+  async markUnread(event) {
+    if (event) {
+      event.preventDefault();
+    }
     this.link.set('read', false);
     await this.link.save();
   }
 
   @action
-  edit() {
+  edit(event) {
+    if (event) {
+      event.preventDefault();
+    }
     this.onEdit();
   }
 
   @action
-  async delete() {
+  async delete(event) {
+    if (event) {
+      event.preventDefault();
+    }
     await this.link.destroyRecord();
   }
 }
