@@ -1,74 +1,63 @@
-<form onsubmit={{action "handleSave"}}>
+<BsForm
+  @formLayout="vertical"
+  @model={{buffer}}
+  @onSubmit={{action "handleSave"}} as |Form|
+>
   <div class="form-group">
     <label>URL</label>
     <p class="form-control-static">
       <a href={{ link.url }}>{{ link.url }}</a>
     </p>
   </div>
-  <div class="form-group">
-    <label for="title">Title</label>
-    {{input
-      data-test-title
-      id="title"
-      classNames="form-control"
-      value=buffer.title
-    }}
-  </div>
-  <div class="form-group">
-    <label for="source">Source</label>
-    {{input
-      data-test-source
-      id="source"
-      autocapitalize="off"
-      autocorrect="off"
-      classNames="form-control"
-      value=buffer.source
-    }}
-  </div>
-  <div class="form-group">
-    <label for="tag_list">Tags</label>
-    {{input
-      data-test-tags
-      id="tag_list"
-      autocapitalize="off"
-      autocorrect="off"
-      classNames="form-control"
-      value=buffer.tag_list
-    }}
-  </div>
-  <div class="form-group">
-    <label for="public">Public</label>
-    {{input
-      data-test-public
-      type="checkbox"
-      id="public"
-      checked=buffer.public
-    }}
-  </div>
-  <div class="form-group">
-    <label for="comment">Comment</label>
-    {{textarea
-      data-test-comment
-      id="comment"
-      class="form-control"
-      value=buffer.comment
-    }}
-  </div>
+  <Form.element
+    @data-test-title
+    @controlType="text"
+    @label="Title"
+    @property="title"
+  />
+  <Form.element
+    @data-test-source
+    @controlType="text"
+    @label="Source"
+    @property="source"
+    autocapitalize="off"
+    autocorrect="off"
+  />
+  <Form.element
+    @data-test-tags
+    @controlType="text"
+    @label="Tags"
+    @property="tag_list"
+    autocapitalize="off"
+    autocorrect="off"
+  />
+  <Form.element
+    @data-test-public
+    @controlType="checkbox"
+    @label="Public"
+    @property="public"
+  />
+  <Form.element
+    @data-test-comment
+    @controlType="textarea"
+    @label="Comment"
+    @property="comment"
+  />
   <div class="float-right">
-    <button
-      data-test-save-button
+    <BsButton
       type="submit"
-      class="btn btn-primary"
+      @data-test-save-button
+      @type="primary"
     >
       Save
-    </button>
-    <button
-      data-test-cancel-button
+    </BsButton>
+    <BsButton
       type="button"
-      class="btn btn-light"
-      onclick={{action "handleCancel"}}
+      @data-test-cancel-button
+      @type="light"
+      @onClick={{action "handleCancel"}}
     >
       Cancel
-    </button>
+    </BsButton>
   </div>
-</form>
+</BsForm>

@@ -13,26 +13,26 @@
   <div class="col-sm-12 col-md-6">
     <div class="form-group">
       <div class="btn-group" role="group">
-        <button
-          class="btn btn-light"
-          onclick={{action "prevPage"}}
-          disabled={{ isFirstPage }}
+        <BsButton
+          @type="light"
+          @onClick={{action "prevPage"}}
+          @disabled={{ isFirstPage }}
         >
           Previous
-        </button>
-        <button
-          class="btn btn-light"
-          disabled
+        </BsButton>
+        <BsButton
+          @type="light"
+          @disabled={{ true }}
         >
           Page {{page}} of {{totalPages}}
-        </button>
-        <button
-          class="btn btn-light"
-          onclick={{action "nextPage"}}
-          disabled={{ isLastPage }}
+        </BsButton>
+        <BsButton
+          @type="light"
+          @onClick={{action "nextPage"}}
+          @disabled={{ isLastPage }}
         >
           Next
-        </button>
+        </BsButton>
       </div>
     </div>
   </div>
@@ -40,6 +40,6 @@
 
 <ul class="list-group" data-test-links>
   {{#each pagedLinks as |link|}}
-    {{link-row link=link showIfRead=true}}
+    <LinkRow @link={{link}} @showIfRead={{true}} />
   {{/each}}
 </ul>

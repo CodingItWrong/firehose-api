@@ -22,9 +22,11 @@
     "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.6.3",
     "babel-eslint": "^8.0.0",
+    "bootstrap": "^4.0.0",
     "broccoli-asset-rev": "^2.7.0",
     "chai-dom": "^1.8.0",
     "ember-ajax": "^3.1.0",
+    "ember-bootstrap": "^2.1.1",
     "ember-buffered-proxy": "^1.0.0-beta.0",
     "ember-cli": "~3.4.3",
     "ember-cli-app-version": "^3.2.0",
@@ -39,7 +41,6 @@
     "ember-cli-inject-live-reload": "^1.8.2",
     "ember-cli-mirage": "^0.4.9",
     "ember-cli-mocha": "^0.15.0",
-    "ember-cli-sass": "^7.1.7",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-template-lint": "^1.0.0-beta.1",
     "ember-cli-uglify": "^2.1.0",
@@ -62,9 +63,5 @@
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
-  },
-  "dependencies": {
-    "bootstrap": "^4.1.1",
-    "popper.js": "^1.14.3"
   }
 }

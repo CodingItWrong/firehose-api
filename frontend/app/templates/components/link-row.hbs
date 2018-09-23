@@ -1,16 +1,16 @@
 {{#if showLink}}
   <li class="list-group-item clearfix h-entry">
     {{#if editing}}
-      {{link-form
-        link=link
-        onSave=(action "finishEditing")
-        onCancel=(action "finishEditing")
-      }}
+      <LinkForm
+        @link={{link}}
+        @onSave={{action "finishEditing"}}
+        @onCancel={{action "finishEditing"}}
+      />
     {{else}}
-      {{link-detail
-        link=link
-        onEdit=(action "edit")
-      }}
+      <LinkDetail
+        @link={{link}}
+        @onEdit={{action "edit"}}
+      />
     {{/if}}
   </li>
 {{/if}}

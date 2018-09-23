@@ -14,8 +14,7 @@ export default class LinkFormComponent extends Component {
   }
 
   @action
-  async handleSave(event) {
-    event.preventDefault();
+  async handleSave() {
     this.buffer.applyBufferedChanges();
     await this.link.save();
     await this.link.get('tags').reload();
