@@ -15,22 +15,24 @@
     @label="Title"
     @property="title"
   />
-  <Form.element
-    @data-test-source
-    @controlType="text"
-    @label="Source"
-    @property="source"
-    autocapitalize="off"
-    autocorrect="off"
-  />
-  <Form.element
-    @data-test-tags
-    @controlType="text"
-    @label="Tags"
-    @property="tag_list"
-    autocapitalize="off"
-    autocorrect="off"
-  />
+  <div class="form-group" data-test-source>
+    <label for="source">Source</label>
+    {{input
+      value=buffer.source
+      classNames="form-control"
+      autocapitalize="off"
+      autocorrect="off"
+    }}
+  </div>
+  <div class="form-group" data-test-tags>
+    <label for="tag_list">Tags</label>
+    {{input
+      value=buffer.tag_list
+      classNames="form-control"
+      autocapitalize="off"
+      autocorrect="off"
+    }}
+  </div>
   <Form.element
     @data-test-public
     @controlType="checkbox"
