@@ -3,14 +3,14 @@
 FactoryBot.define do
   factory :link do
     sequence(:title) { |n| "Link #{n}" }
-    url 'https://example.com'
+    url { 'https://example.com' }
 
     trait :public do
-      published_at Time.now
+      published_at { Time.now }
     end
 
     trait :private do
-      published_at nil
+      published_at { nil }
     end
   end
 end
