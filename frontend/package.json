@@ -26,7 +26,7 @@
     "broccoli-asset-rev": "^2.7.0",
     "chai-dom": "^1.8.0",
     "ember-ajax": "^3.1.0",
-    "ember-bootstrap": "github:kaliber5/ember-bootstrap#21bae2918a663bd23d02a7d563c7b682f9cc89a8",
+    "ember-bootstrap": "^2.2.0",
     "ember-buffered-proxy": "^1.0.0-beta.0",
     "ember-cli": "~3.4.3",
     "ember-cli-app-version": "^3.2.0",
