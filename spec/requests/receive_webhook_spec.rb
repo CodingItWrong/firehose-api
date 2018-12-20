@@ -31,7 +31,7 @@ RSpec.describe 'receive webhook', type: :request do
     let(:title) { 'custom title' }
 
     it 'does not create a link' do
-      expect { send! }.not_to change { Link.count }
+      expect { send! }.not_to(change { Link.count })
     end
 
     it 'returns unauthorized' do

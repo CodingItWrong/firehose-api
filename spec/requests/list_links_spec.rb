@@ -44,9 +44,9 @@ RSpec.describe 'list links', type: :request do
 
       link_titles = links.map { |link| link['attributes']['title'] }
       expect(link_titles).to match_array([
-        public_link.title,
-        private_link.title,
-      ])
+                                           public_link.title,
+                                           private_link.title,
+                                         ])
     end
 
     it 'allows accessing an individual link' do

@@ -22,7 +22,7 @@ RSpec.describe 'list tags', type: :request do
     end
 
     it 'allows accessing an individual tag by name' do
-      get "/api/tags/?filter[name]=foo&include=bookmarks"
+      get '/api/tags/?filter[name]=foo&include=bookmarks'
 
       expect(response).to be_successful
 
