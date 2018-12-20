@@ -31,7 +31,7 @@ Style/Documentation:
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: comma
 
-# Require trailing commas for multiline arrays
+# Require trailing commas for multiline hashes
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
 
@@ -39,9 +39,11 @@ Style/TrailingCommaInHashLiteral:
 Style/IfUnlessModifier:
   Enabled: false
 
+# Default Rails files have comment lines this long
 Metrics/LineLength:
   Max: 120
 
+# This is the style I saw in the Ruby world
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
@@ -49,14 +51,20 @@ Layout/SpaceInsideHashLiteralBraces:
 Style/DateTime:
   Enabled: false
 
+# Allow *%i[…]
 Lint/UnneededSplatExpansion:
   Enabled: false
-
 Lint/AmbiguousOperator:
   Enabled: false
 
+# Be more flexible
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
 
+# The examples I see always use stabby lambdas
 Style/Lambda:
+  Enabled: false
+
+# casecmp().zero? is less readable, so I don't want to enforce it unless performance requires it
+Performance/Casecmp:
   Enabled: false
