@@ -4,10 +4,12 @@ module Api
   class ApplicationResource < JSONAPI::Resource
     abstract
 
-    private
+    class << self
+      private
 
-    def self.current_user(options)
-      options.fetch(:context).fetch(:current_user)
+      def current_user(options)
+        options.fetch(:context).fetch(:current_user)
+      end
     end
   end
 end

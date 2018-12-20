@@ -71,7 +71,7 @@ class LinkParser
 
     # if uri is only a non-relative path, you need to prepend
     # the path from the location of the document
-    if uri.path && ! uri.path.start_with?('/')
+    if uri.path && !uri.path.start_with?('/')
       uri.path = File.join current_page.path, uri.path
     end
 

@@ -44,7 +44,6 @@ RSpec.describe 'managing links', type: :request do
     old_moved_to_list_at = link_model.moved_to_list_at
 
     title = 'Updated Title'
-    comment = 'This link is so cool'
     params = {
       data: {
         type: 'bookmarks',
@@ -57,8 +56,8 @@ RSpec.describe 'managing links', type: :request do
         },
         relationships: {
           tags: {
-            data: [] # simulating relationships not yet up to date
-          }
+            data: [], # simulating relationships not yet up to date
+          },
         },
       },
     }

@@ -6,10 +6,9 @@ module Api
 
     filter :name
 
-    relationship :bookmarks, {
-      to: :many,
-      relation_name: :links,
-    }
+    relationship :bookmarks,
+                 to: :many,
+                 relation_name: :links
 
     def self.records(options = {})
       user = current_user(options)
