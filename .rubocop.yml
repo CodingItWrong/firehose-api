@@ -56,3 +56,6 @@ Lint/AmbiguousOperator:
 
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
+
+Style/Lambda:
+  Enabled: false
