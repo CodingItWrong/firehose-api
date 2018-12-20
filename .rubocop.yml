@@ -1,14 +1,20 @@
 # https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.5
 
   # Don't check binstubs or gemfile
   Exclude:
     - 'bin/**/*'
+    - 'config/**/*'
+    - 'config.ru'
+    - 'db/migrate/*'
+    - 'db/schema.rb'
     - 'Gemfile'
+    - 'Rakefile'
+    - 'spec/*_helper.rb'
+    - 'frontend/**/*'
 
-# Don't restrict length of modules/files
-Metrics/ModuleLength:
+Layout/EmptyLineAfterMagicComment:
   Enabled: false
 
 # Allow braces for blocks that mainly return a value, including RSpec lets and
@@ -20,14 +26,33 @@ Style/BlockDelimiters:
 Style/Documentation:
   Enabled: false
 
-# Don't require thousand separators
-Style/NumericLiterals:
-  Enabled: false
+# Require trailing commas for multiline arrays
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
 
-# Require trailing commas for multiline arrays/hashes
-Style/TrailingCommaInLiteral:
+# Require trailing commas for multiline arrays
+Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
 
 # Allow but do not require modifier usage of if/unless
 Style/IfUnlessModifier:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+# Disable this for this project for legacy reasons; test when changing
+Style/DateTime:
+  Enabled: false
+
+Lint/UnneededSplatExpansion:
+  Enabled: false
+
+Lint/AmbiguousOperator:
+  Enabled: false
+
+Layout/EmptyLineAfterGuardClause:
   Enabled: false
