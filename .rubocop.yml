@@ -13,6 +13,7 @@ AllCops:
     - 'Rakefile'
     - 'spec/*_helper.rb'
     - 'frontend/**/*'
+    - 'vendor/**/*'
 
 Layout/EmptyLineAfterMagicComment:
   Enabled: false
