@@ -40,6 +40,10 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `yarn lint:js`
 * `yarn lint:js --fix`
 
+### Bundle Analysis
+
+Run `ember serve` then visit `http://localhost:4200/_analyze
+
 ### Building
 
 * `ember build` (development)
