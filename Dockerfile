@@ -1,4 +1,4 @@
-FROM ruby:2.5.3
+FROM ruby:2.6.0
 
 # install OS dependencies
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
