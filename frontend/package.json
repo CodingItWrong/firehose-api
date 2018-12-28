@@ -57,7 +57,7 @@
     "ember-source": "~3.6.1",
     "ember-test-selectors": "^2.0.0",
     "eslint-config-codingitwrong": "^0.1.4",
-    "eslint-plugin-ember": "^6.0.1",
+    "eslint-plugin-ember": "^6.1.0",
     "eslint-plugin-import": "^2.14.0",
     "loader.js": "^4.7.0",
     "sinon-chai": "^3.2.0"
