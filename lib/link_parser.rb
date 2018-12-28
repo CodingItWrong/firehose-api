@@ -75,8 +75,8 @@ class LinkParser
       uri.path = File.join current_page.path, uri.path
     end
 
-    uri.scheme = current_page.scheme if uri.scheme.nil?
-    uri.host = current_page.host if uri.host.nil?
+    uri.scheme ||= current_page.scheme
+    uri.host ||= current_page.host
     uri.to_s #=> "http://www.example.org/example/foo"
   end
 
