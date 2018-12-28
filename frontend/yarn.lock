@@ -2792,7 +2792,7 @@ broccoli-stew@^2.0.0:
     symlink-or-copy "^1.2.0"
     walk-sync "^0.3.3"
 
-broccoli-string-replace@^0.1.1, broccoli-string-replace@^0.1.2:
+broccoli-string-replace@^0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/broccoli-string-replace/-/broccoli-string-replace-0.1.2.tgz#1ed92f85680af8d503023925e754e4e33676b91f"
   integrity sha1-HtkvhWgK+NUDAjkl51Tk4zZ2uR8=
@@ -2828,13 +2828,6 @@ broccoli-uglify-sourcemap@^2.1.1:
     uglify-es "^3.1.3"
     walk-sync "^0.3.2"
     workerpool "^2.3.0"
-
-broccoli-unwatched-tree@^0.1.1:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/broccoli-unwatched-tree/-/broccoli-unwatched-tree-0.1.3.tgz#ab0fb820f613845bf67a803baad820f68b1e3aae"
-  integrity sha1-qw+4IPYThFv2eoA7qtgg9oseOq4=
-  dependencies:
-    broccoli-source "^1.1.0"
 
 broccoli@^2.0.0:
   version "2.0.1"
@@ -3922,7 +3915,7 @@ ember-cli-babel-plugin-helpers@^1.0.0:
   resolved "https://registry.yarnpkg.com/ember-cli-babel-plugin-helpers/-/ember-cli-babel-plugin-helpers-1.0.2.tgz#d4bec0f32febc530e621ea8d66d3365727cb5e6c"
   integrity sha512-tTWmHiIvadgtu0i+Zlb5Jnue69qO6dtACcddkRhhV+m9NfAr+2XNoTKRSeGL8QyRDhfWeo4rsK9dqPrU4PQ+8g==
 
-ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.2, ember-cli-babel@^6.9.0:
+ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.2, ember-cli-babel@^6.9.0:
   version "6.17.2"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.17.2.tgz#f0d53d2fb95e70c15d8db84760d045f88f458f69"
   integrity sha512-9KcCvF1PcelEFTSiJ/Ld20tfuW9acMkwHC/xINLsmwqJVDbm3oEqWtiFDZ5ebaC278O5I0GqNJWJLYNoWMNZ8g==
@@ -4191,26 +4184,27 @@ ember-cli-lodash-subset@^2.0.1:
   resolved "https://registry.yarnpkg.com/ember-cli-lodash-subset/-/ember-cli-lodash-subset-2.0.1.tgz#20cb68a790fe0fde2488ddfd8efbb7df6fe766f2"
   integrity sha1-IMtop5D+D94kiN39jvu332/nZvI=
 
-ember-cli-mirage@^0.4.9:
-  version "0.4.9"
-  resolved "https://registry.yarnpkg.com/ember-cli-mirage/-/ember-cli-mirage-0.4.9.tgz#c49bfe875d0cdf88c85a6ee55103d1980175b914"
-  integrity sha512-uBZwRrnLmIWXkiMNxrtwkzg+rA+J/lojfb4JWLARfp8LqB+eBK/K+uPyb6sYO8TS6FXrCdumqFHnDlfVy+4azQ==
+ember-cli-mirage@^0.4.10:
+  version "0.4.10"
+  resolved "https://registry.yarnpkg.com/ember-cli-mirage/-/ember-cli-mirage-0.4.10.tgz#48d71c3941ba038b3d20b24d84f1b8f8237bce9d"
+  integrity sha512-J98oUHIZHU0DGzn1q2ryb08nn6u+/g2n9xOph/v1cNrYkfdjFh1F6yPGZi4Ee4POxJkM++44uG7kO+QkxN6i6A==
   dependencies:
+    "@xg-wang/whatwg-fetch" "^3.0.0"
+    broccoli-file-creator "^2.1.1"
     broccoli-funnel "^1.0.2"
     broccoli-merge-trees "^1.1.0"
     broccoli-stew "^1.5.0"
-    broccoli-string-replace "^0.1.2"
     chalk "^1.1.1"
     ember-cli-babel "^6.8.2"
-    ember-cli-node-assets "^0.1.4"
+    ember-cli-node-assets "^0.2.2"
     ember-get-config "^0.2.2"
-    ember-inflector "^2.0.0"
+    ember-inflector "^2.0.0 || ^3.0.0"
     ember-lodash "^4.17.3"
-    fake-xml-http-request "^1.4.0"
+    fake-xml-http-request "^2.0.0"
     faker "^3.0.0"
     jsdom "^11.12.0"
-    pretender "^1.6.1"
-    route-recognizer "^0.2.3"
+    pretender "2.1.0"
+    route-recognizer "^0.3.4"
 
 ember-cli-mocha@^0.15.0:
   version "0.15.0"
@@ -4218,18 +4212,6 @@ ember-cli-mocha@^0.15.0:
   integrity sha1-SDslosYxsrGRM0Rob0l6gc7WabY=
   dependencies:
     ember-mocha "^0.13.0"
-
-ember-cli-node-assets@^0.1.4:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/ember-cli-node-assets/-/ember-cli-node-assets-0.1.6.tgz#6488a2949048c801ad6d9e33753c7bce32fc1146"
-  integrity sha1-ZIiilJBIyAGtbZ4zdTx7zjL8EUY=
-  dependencies:
-    broccoli-funnel "^1.0.1"
-    broccoli-merge-trees "^1.1.1"
-    broccoli-unwatched-tree "^0.1.1"
-    debug "^2.2.0"
-    lodash "^4.5.1"
-    resolve "^1.1.7"
 
 ember-cli-node-assets@^0.2.2:
   version "0.2.2"
@@ -4546,14 +4528,7 @@ ember-in-element-polyfill@^0.1.2:
     ember-cli-version-checker "^2.1.0"
     ember-wormhole "^0.5.4"
 
-ember-inflector@^2.0.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/ember-inflector/-/ember-inflector-2.2.0.tgz#edd273dfd1a29be27f14b195e2f0ed70e812d9e0"
-  integrity sha512-B3hPPtXvNDGz6RDeJiiPCx8GJVP9JQ7fnOme5PE6K57eScfIHdIF4kt3IgR/Ga2vys3nAnU+icMovQ0ysWj5CA==
-  dependencies:
-    ember-cli-babel "^6.0.0"
-
-ember-inflector@^3.0.0:
+"ember-inflector@^2.0.0 || ^3.0.0", ember-inflector@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ember-inflector/-/ember-inflector-3.0.0.tgz#7e1ee8aaa0fa773ba0905d8b7c0786354d890ee1"
   integrity sha512-tLWfYolZAkLnkTvvBkjizy4Wmj8yI8wqHZFK+leh0iScHiC3r1Yh5C4qO+OMGiBTMLwfTy+YqVoE/Nu3hGNkcA==
@@ -5357,10 +5332,10 @@ extsprintf@^1.2.0:
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
 
-fake-xml-http-request@^1.4.0, fake-xml-http-request@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/fake-xml-http-request/-/fake-xml-http-request-1.6.0.tgz#bd0ac79ae3e2660098282048a12c730a6f64d550"
-  integrity sha512-99XPwwSg89BfzPuv4XCpZxn3EbauMCgAQCxq9MzrvS6DFD73OON6AnUTicL4A0HZtYMBwCZBWVnRqGjZDgQkTg==
+fake-xml-http-request@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/fake-xml-http-request/-/fake-xml-http-request-2.0.0.tgz#41a92f0ca539477700cb1dafd2df251d55dac8ff"
+  integrity sha512-UjNnynb6eLAB0lyh2PlTEkjRJORnNsVF1hbzU+PQv89/cyBV9GDRCy7JAcLQgeCLYT+3kaumWWZKEJvbaK74eQ==
 
 faker@^3.0.0:
   version "3.1.0"
@@ -8881,12 +8856,13 @@ preserve@^0.2.0:
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
   integrity sha1-gV7R9uvGWSb4ZbMQwHE7yzMVzks=
 
-pretender@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/pretender/-/pretender-1.6.1.tgz#77d1e42ac8c6b298f5cd43534a87645df035db8c"
-  integrity sha1-d9HkKsjGspj1zUNTSodkXfA124w=
+pretender@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/pretender/-/pretender-2.1.0.tgz#cd75bff9624e996bcfadbd7dbd023ca1f4f3033a"
+  integrity sha512-GG1ZtA2yjorrSf9x3DR4Pv5228s/H92itSnIAxRx2wsmz549BsuIuJN+jPJgj0p+tCJBfBlmVgJLFG6t64M+EA==
   dependencies:
-    fake-xml-http-request "^1.6.0"
+    "@xg-wang/whatwg-fetch" "^3.0.0"
+    fake-xml-http-request "^2.0.0"
     route-recognizer "^0.3.3"
 
 pretty-ms@^3.1.0:
@@ -9540,15 +9516,15 @@ rollup@^0.57.1:
     signal-exit "^3.0.2"
     sourcemap-codec "^1.4.1"
 
-route-recognizer@^0.2.3:
-  version "0.2.10"
-  resolved "https://registry.yarnpkg.com/route-recognizer/-/route-recognizer-0.2.10.tgz#024b2283c2e68d13a7c7f5173a5924645e8902df"
-  integrity sha1-Aksig8LmjROnx/UXOlkkZF6JAt8=
-
 route-recognizer@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/route-recognizer/-/route-recognizer-0.3.3.tgz#1d365e27fa6995e091675f7dc940a8c00353bd29"
   integrity sha1-HTZeJ/ppleCRZ199yUCowANTvSk=
+
+route-recognizer@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/route-recognizer/-/route-recognizer-0.3.4.tgz#39ab1ffbce1c59e6d2bdca416f0932611e4f3ca3"
+  integrity sha512-2+MhsfPhvauN1O8KaXpXAOfR/fwe8dnUXVM+xw7yt40lJRfPVQxV6yryZm0cgRvAj5fMF/mdRZbL2ptwbs5i2g==
 
 rsvp@^3.0.14, rsvp@^3.0.16, rsvp@^3.0.17, rsvp@^3.0.18, rsvp@^3.0.21, rsvp@^3.0.6, rsvp@^3.1.0, rsvp@^3.3.3:
   version "3.6.2"
