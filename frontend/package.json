@@ -14,6 +14,7 @@
     "build": "ember build",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
+    "format": "prettier --write *.js **/*.js",
     "start": "ember serve",
     "test": "ember test"
   },
@@ -60,6 +61,7 @@
     "eslint-plugin-ember": "^6.1.0",
     "eslint-plugin-import": "^2.14.0",
     "loader.js": "^4.7.0",
+    "prettier": "^1.15.3",
     "sinon-chai": "^3.3.0"
   },
   "engines": {
