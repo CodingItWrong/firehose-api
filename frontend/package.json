@@ -13,8 +13,8 @@
   "scripts": {
     "build": "ember build",
     "lint:hbs": "ember-template-lint .",
-    "lint:js": "eslint .",
-    "format": "prettier --write *.js **/*.js",
+    "lint:js": "eslint \"{app,config,mirage,tests}/**/*.js\"",
+    "format": "prettier --write \"{app,config,mirage,tests}/**/*.js\"",
     "start": "ember serve",
     "test": "ember test"
   },
