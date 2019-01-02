@@ -10,7 +10,7 @@ export function domain(url) {
   return host;
 }
 
-function domainForEmber([url]/*, hash*/) {
+function domainForEmber([url] /*, hash*/) {
   return domain(url);
 }
 

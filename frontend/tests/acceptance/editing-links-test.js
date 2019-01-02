@@ -5,11 +5,11 @@ import { setupApplicationTest } from 'ember-mocha';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { authenticateSession } from 'ember-simple-auth/test-support';
 
-describe('editing links', function () {
+describe('editing links', function() {
   let hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  it('allows adding links', async function () {
+  it('allows adding links', async function() {
     await authenticateSession({ access_token: 'ABC123' });
     await visit('/');
 

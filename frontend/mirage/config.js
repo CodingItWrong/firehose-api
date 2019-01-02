@@ -1,4 +1,4 @@
-export default function () {
+export default function() {
   this.namespace = 'api';
 
   this.get('/bookmarks', ({ bookmarks }, request) => {

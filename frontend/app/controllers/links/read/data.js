@@ -16,10 +16,9 @@ export default class ReadLinksController extends Controller {
   @computed('sortedLinks', 'searchText')
   get filteredLinks() {
     let searchText = this.searchText.toLowerCase();
-    return this.sortedLinks
-      .filter(link => link.title
-        .toLowerCase()
-        .includes(searchText));
+    return this.sortedLinks.filter(link =>
+      link.title.toLowerCase().includes(searchText),
+    );
   }
 
   @computed('page', 'perPage', 'filteredLinks')
