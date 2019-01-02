@@ -14,7 +14,7 @@ export function formatSource(source) {
   return `<a href="${sourceURL}">${sourceDomain}</a>`;
 }
 
-function formatSourceForEmber([source]/*, hash*/) {
+function formatSourceForEmber([source] /*, hash*/) {
   return htmlSafe(formatSource(source));
 }
 

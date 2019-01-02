@@ -13,7 +13,8 @@ module.exports = {
   ],
   extends: [
     'plugin:ember/recommended',
-    'codingitwrong'
+    'codingitwrong',
+    'plugin:prettier/recommended',
   ],
   env: {
     browser: true

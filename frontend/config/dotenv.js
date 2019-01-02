@@ -1,11 +1,8 @@
 'use strict';
 
-module.exports = function () {
+module.exports = function() {
   return {
-    clientAllowedKeys: [
-      'SITE_NAME',
-      'AUTHOR_URL',
-    ],
+    clientAllowedKeys: ['SITE_NAME', 'AUTHOR_URL'],
     failOnMissingKey: false,
   };
 };
