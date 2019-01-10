@@ -111,7 +111,7 @@ GEM
     i18n (1.5.1)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.1)
-    jsonapi-resources (0.9.4)
+    jsonapi-resources (0.9.5)
       activerecord (>= 4.1)
       concurrent-ruby
       railties (>= 4.1)
