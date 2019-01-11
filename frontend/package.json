@@ -19,7 +19,7 @@
     "test": "ember test"
   },
   "devDependencies": {
-    "@ember-decorators/babel-transforms": "^4.0.0",
+    "@ember-decorators/babel-transforms": "^4.0.1",
     "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.7.0",
     "babel-eslint": "^8.0.0",
