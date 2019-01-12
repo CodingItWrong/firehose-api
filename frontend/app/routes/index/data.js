@@ -1,16 +1,16 @@
-import Route from '@ember/routing/route';
-import { service } from '@ember-decorators/service';
+import Route from '@ember/routing/route'
+import { service } from '@ember-decorators/service'
 
 export default class IndexDataRoute extends Route {
-  @service session;
+  @service session
 
   model() {
-    let options = { include: 'tags' };
+    let options = { include: 'tags' }
 
     if (this.session.get('isAuthenticated')) {
-      options.filter = { read: false };
+      options.filter = { read: false }
     }
 
-    return this.store.findAll('bookmark', options);
+    return this.store.findAll('bookmark', options)
   }
 }

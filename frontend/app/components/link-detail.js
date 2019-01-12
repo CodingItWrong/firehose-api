@@ -1,41 +1,41 @@
-import Component from '@ember/component';
-import { action } from '@ember-decorators/object';
-import { service } from '@ember-decorators/service';
+import Component from '@ember/component'
+import { action } from '@ember-decorators/object'
+import { service } from '@ember-decorators/service'
 
 export default class LinkDetail extends Component {
-  @service session;
+  @service session
 
   @action
   async markRead(event) {
     if (event) {
-      event.preventDefault();
+      event.preventDefault()
     }
-    this.link.set('read', true);
-    await this.link.save();
+    this.link.set('read', true)
+    await this.link.save()
   }
 
   @action
   async markUnread(event) {
     if (event) {
-      event.preventDefault();
+      event.preventDefault()
     }
-    this.link.set('read', false);
-    await this.link.save();
+    this.link.set('read', false)
+    await this.link.save()
   }
 
   @action
   edit(event) {
     if (event) {
-      event.preventDefault();
+      event.preventDefault()
     }
-    this.onEdit();
+    this.onEdit()
   }
 
   @action
   async delete(event) {
     if (event) {
-      event.preventDefault();
+      event.preventDefault()
     }
-    await this.link.destroyRecord();
+    await this.link.destroyRecord()
   }
 }

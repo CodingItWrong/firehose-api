@@ -1,17 +1,17 @@
 export default function() {
-  this.namespace = 'api';
+  this.namespace = 'api'
 
   this.get('/bookmarks', ({ bookmarks }, request) => {
-    let read = request.queryParams['filter[read]'];
+    let read = request.queryParams['filter[read]']
     if (typeof read !== 'undefined') {
-      return bookmarks.where({ read });
+      return bookmarks.where({ read })
     }
 
-    return bookmarks.all();
-  });
-  this.get('/bookmarks/:id');
+    return bookmarks.all()
+  })
+  this.get('/bookmarks/:id')
   this.post('/bookmarks', ({ bookmarks }, request) => {
-    let params = JSON.parse(request.requestBody);
+    let params = JSON.parse(request.requestBody)
     let link = bookmarks.new({
       url: params.data.attributes.url,
       title: 'My Link Title',
@@ -19,46 +19,46 @@ export default function() {
       'moved-to-list-at': new Date(),
       public: false,
       'published-at': null,
-    });
-    link.save();
-    return link;
-  });
+    })
+    link.save()
+    return link
+  })
   this.patch('/bookmarks/:id', ({ bookmarks }, request) => {
-    let params = JSON.parse(request.requestBody);
-    let updatedValues = params.data.attributes;
-    let link = bookmarks.find(request.params.id);
+    let params = JSON.parse(request.requestBody)
+    let updatedValues = params.data.attributes
+    let link = bookmarks.find(request.params.id)
 
     if (updatedValues['moved-to-list-at'] || updatedValues['published-at']) {
-      return new Response(400);
+      return new Response(400)
     }
 
     if (link.read !== updatedValues.read) {
-      updatedValues['moved-to-list-at'] = new Date();
+      updatedValues['moved-to-list-at'] = new Date()
     }
 
     if (!link.public && updatedValues.public) {
-      updatedValues['published-at'] = new Date();
+      updatedValues['published-at'] = new Date()
     } else if (link.public && !updatedValues.public) {
-      updatedValues['published-at'] = null;
+      updatedValues['published-at'] = null
     }
 
-    link.update(updatedValues);
-    link.save();
-    return link;
-  });
-  this.delete('/bookmarks/:id');
+    link.update(updatedValues)
+    link.save()
+    return link
+  })
+  this.delete('/bookmarks/:id')
 
   this.get('/tags', ({ tags }, { params }) => {
-    console.log('getting tags');
-    const name = params['filter[name]'];
+    console.log('getting tags')
+    const name = params['filter[name]']
     if (name) {
-      console.log('finding by name');
-      return tags.where({ name });
+      console.log('finding by name')
+      return tags.where({ name })
     } else {
-      console.log('no name; returning all');
-      return tags.all();
+      console.log('no name; returning all')
+      return tags.all()
     }
-  });
+  })
 
   // These comments are here to help you get started. Feel free to delete them.
 

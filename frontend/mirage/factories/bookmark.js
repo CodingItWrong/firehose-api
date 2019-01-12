@@ -1,13 +1,13 @@
-import { Factory } from 'ember-cli-mirage';
+import { Factory } from 'ember-cli-mirage'
 
 export default Factory.extend({
   title(i) {
-    return `Link ${i}`;
+    return `Link ${i}`
   },
 
   url(i) {
-    return `https://example.com/my-awesome-post-${i}`;
+    return `https://example.com/my-awesome-post-${i}`
   },
 
   read: false,
-});
+})
