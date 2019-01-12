@@ -1,30 +1,30 @@
-import { describe, it } from 'mocha';
-import { expect } from 'chai';
-import { visit, find } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-mocha';
-import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+import { visit, find } from '@ember/test-helpers'
+import { setupApplicationTest } from 'ember-mocha'
+import setupMirage from 'ember-cli-mirage/test-support/setup-mirage'
 
 describe('viewing public links', function() {
-  let hooks = setupApplicationTest();
-  setupMirage(hooks);
+  let hooks = setupApplicationTest()
+  setupMirage(hooks)
 
   it('displays all public links', async function() {
     let unreadLink = server.create('bookmark', {
       title: 'My Unread Link',
       read: false,
-    });
+    })
     let readLink = server.create('bookmark', {
       title: 'My Read Link',
       read: true,
-    });
-    let linkModels = [unreadLink, readLink];
+    })
+    let linkModels = [unreadLink, readLink]
 
-    await visit('/');
+    await visit('/')
 
-    let linkElement = find('[data-test-links]');
+    let linkElement = find('[data-test-links]')
 
     for (let link of linkModels) {
-      expect(linkElement).to.contain.text(link.title);
+      expect(linkElement).to.contain.text(link.title)
     }
-  });
-});
+  })
+})
