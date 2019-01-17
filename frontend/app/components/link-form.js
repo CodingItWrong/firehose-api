@@ -1,6 +1,6 @@
 import Component from '@ember/component'
 import { action, computed } from '@ember-decorators/object'
-import { service } from '@ember-decorators/service'
+import { inject as service } from '@ember-decorators/service'
 import BufferedProxy from 'ember-buffered-proxy/proxy'
 
 export default class LinkFormComponent extends Component {

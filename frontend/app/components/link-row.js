@@ -1,6 +1,6 @@
 import Component from '@ember/component'
 import { tagName } from '@ember-decorators/component'
-import { service } from '@ember-decorators/service'
+import { inject as service } from '@ember-decorators/service'
 import { action, computed } from '@ember-decorators/object'
 
 @tagName('')
