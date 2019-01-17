@@ -1,6 +1,6 @@
 import Component from '@ember/component'
 import { action } from '@ember-decorators/object'
-import { service } from '@ember-decorators/service'
+import { inject as service } from '@ember-decorators/service'
 
 export default class LinkDetail extends Component {
   @service session
