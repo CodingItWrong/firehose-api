@@ -63,7 +63,7 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-prettier": "2.6.0",
     "loader.js": "^4.7.0",
-    "prettier": "1.16.1",
+    "prettier": "1.16.2",
     "sinon-chai": "^3.3.0"
   },
   "engines": {
