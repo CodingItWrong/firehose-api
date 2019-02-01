@@ -3565,10 +3565,10 @@ ember-assign-polyfill@^2.0.1:
     ember-cli-babel "^6.6.0"
     ember-cli-version-checker "^2.0.0"
 
-ember-bootstrap@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/ember-bootstrap/-/ember-bootstrap-2.4.0.tgz#007e92fc234e61bc3004e8b1e67f3fb427722891"
-  integrity sha512-fpH69uUnE4i44zqmL6fIv2PuwxHfC/rmuIAKyeJCNlI80Xzxkaz8EADNOlTgPbBy3Us8Mh0Yhz+hEGzk7xy0kA==
+ember-bootstrap@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/ember-bootstrap/-/ember-bootstrap-2.5.0.tgz#afd9e1a6814a195c644ccd691c413c9d45dba928"
+  integrity sha512-ahCycWUBknaIt9UzsZz94UvVxwzuKdc1JdhhIuYyGQToRlmzbzSqxWDWiwC2ETrA9FLJBIeaznr9Tvy6Sid+xQ==
   dependencies:
     broccoli-debug "^0.6.3"
     broccoli-funnel "^2.0.0"
@@ -3579,13 +3579,13 @@ ember-bootstrap@^2.4.0:
     ember-cli-babel "^6.16.0"
     ember-cli-build-config-editor "0.5.0"
     ember-cli-htmlbars "^3.0.0"
-    ember-cli-version-checker "^2.1.0"
-    ember-concurrency "^0.8.7"
+    ember-cli-version-checker "^3.0.0"
+    ember-concurrency "^0.8.26"
     ember-in-element-polyfill "^0.1.2"
     ember-maybe-in-element "^0.1.3"
     ember-popper "^0.9.0"
     ember-runtime-enumerable-includes-polyfill "^2.0.0"
-    findup-sync "^2.0.0"
+    findup-sync "^3.0.0"
     fs-extra "^7.0.1"
     resolve "^1.5.0"
     rsvp "^4.0.1"
@@ -4051,10 +4051,10 @@ ember-compatibility-helpers@^1.1.1, ember-compatibility-helpers@^1.1.2:
     ember-cli-version-checker "^2.1.1"
     semver "^5.4.1"
 
-ember-concurrency@^0.8.7:
-  version "0.8.22"
-  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-0.8.22.tgz#900e870aae486e1f5fcb168bbb4efba02561a5ad"
-  integrity sha512-njLqyjMxBf8fapIV8WPyG2gFbSCIQgMpk33uSs5Ih7HsfFAz60KwVo9sMVPBYAJwQmF8jFPm7Ph+mjkiQXHmmA==
+ember-concurrency@^0.8.26:
+  version "0.8.27"
+  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-0.8.27.tgz#6dd1b9928cf5d13d5ae9c8cd3d5869f6ff81a9a9"
+  integrity sha512-2IujJ0Y79a+sHvEOPhUtZ7Ga8HDrwjbQqO7aZ88b0KCsXPro7birQFB508njQSQ0mxrsR9qzDv/KS5V67Cy5dA==
   dependencies:
     babel-core "^6.24.1"
     ember-cli-babel "^6.8.2"
@@ -5157,6 +5157,16 @@ findup-sync@^2.0.0:
   dependencies:
     detect-file "^1.0.0"
     is-glob "^3.1.0"
+    micromatch "^3.0.4"
+    resolve-dir "^1.0.1"
+
+findup-sync@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/findup-sync/-/findup-sync-3.0.0.tgz#17b108f9ee512dfb7a5c7f3c8b27ea9e1a9c08d1"
+  integrity sha512-YbffarhcicEhOrm4CtrwdKBdCuz576RLdhJDsIfvNtxUuhdRet1qZcsMjqbePtAseKdAnDyM/IyXbu7PRPRLYg==
+  dependencies:
+    detect-file "^1.0.0"
+    is-glob "^4.0.0"
     micromatch "^3.0.4"
     resolve-dir "^1.0.1"
 
