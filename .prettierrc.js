@@ -1,0 +1,3 @@
+module.exports = {
+  addTrailingCommas: true,
+};

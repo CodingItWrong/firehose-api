@@ -1,0 +1,15 @@
+{
+  "name": "firehose",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:CodingItWrong/firehose.git",
+  "author": "Josh Justice <me@codingitwrong.com>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "format": "prettier --write '{app,config,lib,spec}/**/*.rb'"
+  },
+  "devDependencies": {
+    "@prettier/plugin-ruby": "^0.7.0",
+    "prettier": "^1.16.4"
+  }
+}
