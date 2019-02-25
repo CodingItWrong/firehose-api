@@ -8,6 +8,6 @@ class FrontendController < ApplicationController
   end
 
   def missing
-    render json: {error: 'Not found'}, status: :not_found
+    render json: { error: 'Not found' }, status: :not_found
   end
 end

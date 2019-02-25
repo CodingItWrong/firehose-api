@@ -54,9 +54,7 @@ RSpec.describe 'list tags', type: :request do
     let(:token) { FactoryBot.create(:access_token).token }
 
     it 'returns all tags' do
-      headers = {
-        'Authorization' => "Bearer #{token}",
-      }
+      headers = { 'Authorization' => "Bearer #{token}" }
 
       get '/api/tags', headers: headers
 

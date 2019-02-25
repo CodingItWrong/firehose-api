@@ -29,9 +29,7 @@ RSpec.describe 'list links', type: :request do
 
   context 'when authenticated' do
     it 'returns all links' do
-      headers = {
-        'Authorization' => "Bearer #{token}",
-      }
+      headers = { 'Authorization' => "Bearer #{token}" }
 
       get '/api/bookmarks', headers: headers
 
@@ -43,16 +41,13 @@ RSpec.describe 'list links', type: :request do
       expect(links.length).to eq(2)
 
       link_titles = links.map { |link| link['attributes']['title'] }
-      expect(link_titles).to match_array([
-                                           public_link.title,
-                                           private_link.title,
-                                         ])
+      expect(link_titles).to match_array(
+        [public_link.title, private_link.title],
+      )
     end
 
     it 'allows accessing an individual link' do
-      headers = {
-        'Authorization' => "Bearer #{token}",
-      }
+      headers = { 'Authorization' => "Bearer #{token}" }
 
       get "/api/bookmarks/#{private_link.id}", headers: headers
 

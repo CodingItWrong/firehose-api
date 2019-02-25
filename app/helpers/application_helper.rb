@@ -2,5 +2,4 @@
 
 require 'firehose_config'
 
-module ApplicationHelper
-end
+module ApplicationHelper; end
