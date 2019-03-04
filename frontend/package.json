@@ -63,6 +63,7 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-prettier": "2.6.0",
     "growl": "^1.10.5",
+    "just-extend": "^4.0.2",
     "loader.js": "^4.7.0",
     "prettier": "1.16.4",
     "sinon-chai": "^3.3.0"
