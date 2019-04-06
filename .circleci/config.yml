@@ -23,7 +23,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "frontend/package.json" }}
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "frontend/yarn.lock" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
@@ -38,8 +38,8 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-            - v1-dependencies-{{ checksum "frontend/package.json" }}
-          key: v1-dependencies-{{ checksum "frontend/package.json" }}
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "frontend/yarn.lock" }}
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "frontend/yarn.lock" }}
 
       # run tests!
       - run:
