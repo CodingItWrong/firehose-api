@@ -30,7 +30,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
   gem 'factory_bot_rails'
   gem 'vcr'
   gem 'webmock'
