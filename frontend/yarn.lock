@@ -4065,10 +4065,10 @@ ember-bootstrap@^2.6.0:
     rsvp "^4.0.1"
     silent-error "^1.0.1"
 
-ember-buffered-proxy@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-buffered-proxy/-/ember-buffered-proxy-1.0.0.tgz#e8ce2f32231036f2391648dd273d5b7242e68a5a"
-  integrity sha1-6M4vMiMQNvI5FkjdJz1bckLmilo=
+ember-buffered-proxy@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ember-buffered-proxy/-/ember-buffered-proxy-1.0.1.tgz#887064814fccee77cf4edd5902243d1c45cb7577"
+  integrity sha512-rWmFq6OjFEAo3CRSSKRENApxz24prqQDj8ET8QhU8Yw2kttqR+Y1edyWcI9iLJi+01s/jv7DRj7kkOXzQbIGUQ==
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-notify-property-change-polyfill "^0.0.1"
