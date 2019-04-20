@@ -6,6 +6,7 @@
   "author": "Josh Justice <me@codingitwrong.com>",
   "license": "Apache-2.0",
   "scripts": {
+    "lint": "prettier --check '{app,lib,spec}/**/*.rb'",
     "format": "prettier --write '{app,lib,spec}/**/*.rb'"
   },
   "devDependencies": {
