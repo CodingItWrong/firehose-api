@@ -9,25 +9,18 @@ RSpec.describe 'managing links', type: :request do
   let!(:private_link) { FactoryBot.create(:link, :private) }
 
   let(:token) { FactoryBot.create(:access_token).token }
-  let(:headers) {
+  let(:headers) do
     {
       'Authorization' => "Bearer #{token}",
       'Content-Type' => 'application/vnd.api+json',
     }
-  }
-
-  before(:each) do
-    LinkParser.fake!
   end
+
+  before(:each) { LinkParser.fake! }
 
   it 'creates a new link record' do
     params = {
-      data: {
-        type: 'bookmarks',
-        attributes: {
-          url: 'https://example.com',
-        },
-      },
+      data: { type: 'bookmarks', attributes: { url: 'https://example.com' } }
     }
     post '/api/bookmarks', headers: headers, params: params.to_json
 
@@ -49,14 +42,12 @@ RSpec.describe 'managing links', type: :request do
         type: 'bookmarks',
         id: link_model.id,
         attributes: {
-          title: title,
-          read: true,
-          public: true,
-          'tag-list' => 'foo bar',
+          title: title, read: true, public: true, 'tag-list' => 'foo bar'
         },
         relationships: {
           tags: {
-            data: [], # simulating relationships not yet up to date
+            # simulating relationships not yet up to date
+            data: []
           },
         },
       },
@@ -64,7 +55,8 @@ RSpec.describe 'managing links', type: :request do
 
     expect(TwitterClient).to receive(:post).with(link_model)
 
-    patch "/api/bookmarks/#{link_model.id}", headers: headers, params: params.to_json
+    patch "/api/bookmarks/#{link_model.id}",
+          headers: headers, params: params.to_json
 
     jsonapi_response = JSON.parse(response.body)
     link = jsonapi_response['data']['attributes']
@@ -82,13 +74,7 @@ RSpec.describe 'managing links', type: :request do
     link = FactoryBot.create(:link, :public)
 
     params = {
-      data: {
-        type: 'bookmarks',
-        id: link.id,
-        attributes: {
-          public: false,
-        },
-      },
+      data: { type: 'bookmarks', id: link.id, attributes: { public: false } }
     }
     patch "/api/bookmarks/#{link.id}", headers: headers, params: params.to_json
 
@@ -103,9 +89,9 @@ RSpec.describe 'managing links', type: :request do
   it 'can delete a link' do
     link = FactoryBot.create(:link)
 
-    expect {
-      delete "/api/bookmarks/#{link.id}", headers: headers
-    }.to change { Link.count }.by(-1)
+    expect { delete "/api/bookmarks/#{link.id}", headers: headers }.to change {
+      Link.count
+    }.by(-1)
 
     expect(response.status).to eq(204)
   end

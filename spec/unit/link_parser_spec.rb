@@ -16,14 +16,18 @@ RSpec.describe LinkParser, :vcr do
     context 'when there are redirects' do
       let(:url) { 'http://bit.ly/jay-is-great' }
       it 'follows redirects' do
-        expect(link.canonical).to eq('https://www.bignerdranch.com/blog/testing-external-dependencies-with-fakes/')
+        expect(link.canonical).to eq(
+          'https://www.bignerdranch.com/blog/testing-external-dependencies-with-fakes/',
+        )
       end
     end
   end
 
   describe '#title' do
     context 'when there are no redirects' do
-      let(:url) { 'http://codingitwrong.com/2017/07/24/letting-people-learn.html' }
+      let(:url) do
+        'http://codingitwrong.com/2017/07/24/letting-people-learn.html'
+      end
       it 'loads the URL and returns the title tag text' do
         expect(link.title).to eq('Letting People Learn - CodingItWrong')
       end
@@ -44,21 +48,29 @@ RSpec.describe LinkParser, :vcr do
     end
 
     context 'when there are entities in the title' do
-      let(:url) { 'http://confreaks.tv/videos/rubyconf2017-keynote-you-re-insufficiently-persuasive' }
+      let(:url) do
+        'http://confreaks.tv/videos/rubyconf2017-keynote-you-re-insufficiently-persuasive'
+      end
       it 'decodes entities' do
-        expect(link.title).to eq("Confreaks TV | Keynote: You're Insufficiently Persuasive - Ruby Conference 2017")
+        expect(link.title).to eq(
+          "Confreaks TV | Keynote: You're Insufficiently Persuasive - Ruby Conference 2017",
+        )
       end
     end
 
     context 'when the title is somehow not detected in the head' do
       let(:url) { 'https://leanpub.com/mobprogramming' }
       it 'detects the title' do
-        expect(link.title).to eq('Mob Programming  by Woody Zuill et al. [Leanpub PDF/iPad/Kindle]')
+        expect(link.title).to eq(
+          'Mob Programming  by Woody Zuill et al. [Leanpub PDF/iPad/Kindle]',
+        )
       end
     end
 
     context 'when there is a meta refresh' do
-      let(:url) { 'http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/' }
+      let(:url) do
+        'http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/'
+      end
       it 'follows the refresh' do
         expect(link.title).to eq('JavaScript Scoping and Hoisting')
       end

@@ -6,17 +6,11 @@ RSpec.describe 'auth', type: :request do
   let(:user_password) { 'password' }
   let(:user) { FactoryBot.create(:user, password: user_password) }
 
-  let(:params) {
-    {
-      grant_type: :password,
-      username: username,
-      password: entered_password,
-    }
-  }
-
-  before(:each) do
-    post '/api/oauth/token', params: params
+  let(:params) do
+    { grant_type: :password, username: username, password: entered_password }
   end
+
+  before(:each) { post '/api/oauth/token', params: params }
 
   context 'with invalid account info' do
     let(:username) { user.email }

@@ -33,6 +33,7 @@ jobs:
             bundle install --jobs=4 --retry=3 --path vendor/bundle
             sudo npm install -g yarn ember-cli
             sudo chmod +x /usr/local/bin/yarn
+            sudo yarn install
             cd frontend
             sudo yarn install
 
@@ -54,6 +55,7 @@ jobs:
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
 
             echo "testing rails"
+            yarn lint
             bundle exec rubocop
             bundle exec rspec --format progress \
                             --format RspecJunitFormatter \
