@@ -54,11 +54,12 @@ class LinkParser
   end
 
   def refresh_url(response)
-    refresh_tag = parse(response.body).xpath('//meta').find do |meta_tag|
-      attribute = attribute_case_insensitive(meta_tag, 'http-equiv')
-      return false if attribute.nil?
-      attribute.value.downcase == 'refresh'
-    end
+    refresh_tag =
+      parse(response.body).xpath('//meta').find do |meta_tag|
+        attribute = attribute_case_insensitive(meta_tag, 'http-equiv')
+        return false if attribute.nil?
+        attribute.value.downcase == 'refresh'
+      end
     return if refresh_tag.nil?
 
     refresh_content = attribute_case_insensitive(refresh_tag, 'content')
@@ -82,14 +83,13 @@ class LinkParser
 
   def attribute_case_insensitive(tag, attribute_name)
     attributes = tag.attributes
-    http_equiv_key = attributes.keys.find do |key|
-      key.downcase == attribute_name.downcase
-    end
+    http_equiv_key =
+      attributes.keys.find { |key| key.downcase == attribute_name.downcase }
     attributes[http_equiv_key]
   end
 
   def parse(html)
-    Nokogiri::HTML(html)
+    Nokogiri.HTML(html)
   end
 
   def unescape(string)

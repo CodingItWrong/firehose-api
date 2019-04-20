@@ -6,18 +6,9 @@ require 'link_parser'
 RSpec.describe 'receive webhook', type: :request do
   let(:url) { 'https://example.com/blog/sample-post-title' }
 
-  let(:headers) {
-    {
-      'Authorization' => "Bearer #{token}",
-    }
-  }
+  let(:headers) { { 'Authorization' => "Bearer #{token}" } }
 
-  let(:body) {
-    {
-      title: title,
-      url: url,
-    }
-  }
+  let(:body) { { title: title, url: url } }
 
   let(:send!) { post hydrant_path, params: body, headers: headers }
 

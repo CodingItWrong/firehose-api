@@ -6,7 +6,17 @@ module Api
   class BookmarkResource < ApplicationResource
     model_name 'Link'
 
-    attributes *%i[title url comment source read moved_to_list_at public published_at tag_list]
+    attributes *%i[
+                 title
+                 url
+                 comment
+                 source
+                 read
+                 moved_to_list_at
+                 public
+                 published_at
+                 tag_list
+               ]
 
     relationship :tags, to: :many, class_name: 'Tag'
 
@@ -26,11 +36,7 @@ module Api
 
     def self.records(options = {})
       user = current_user(options)
-      if user.present?
-        Link.all
-      else
-        Link.publicly_visible
-      end
+      user.present? ? Link.all : Link.publicly_visible
     end
 
     private
@@ -46,8 +52,7 @@ module Api
     end
 
     def check_for_publish
-      @publishing = @model.published_at_was.nil? &&
-                    @model.published_at.present?
+      @publishing = @model.published_at_was.nil? && @model.published_at.present?
     end
 
     def send_tweet

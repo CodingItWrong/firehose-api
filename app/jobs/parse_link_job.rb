@@ -12,10 +12,8 @@ class ParseLinkJob < ApplicationJob
 
     parsed_link = link_parser.process(url: link.url)
 
-    attributes = {url: parsed_link.canonical}
-    if default_title?(link)
-      attributes[:title] = parsed_link.title
-    end
+    attributes = { url: parsed_link.canonical }
+    attributes[:title] = parsed_link.title if default_title?(link)
 
     link.update!(attributes)
   end
