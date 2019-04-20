@@ -23,7 +23,7 @@ RSpec.describe 'auth', type: :request do
     let(:entered_password) { 'bad_password' }
 
     it 'returns unauthorized' do
-      expect(response.status).to eq(401)
+      expect(response.status).to eq(400)
     end
   end
 
