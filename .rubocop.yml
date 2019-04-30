@@ -19,7 +19,7 @@ AllCops:
 Layout/EmptyLineAfterMagicComment:
   Enabled: false
 
-Layout/IndentArray:
+Layout/IndentFirstArrayElement:
   Enabled: false
 
 Style/BlockDelimiters:
@@ -68,8 +68,4 @@ Layout/EmptyLineAfterGuardClause:
 
 # The examples I see always use stabby lambdas
 Style/Lambda:
-  Enabled: false
-
-# casecmp().zero? is less readable, so I don't want to enforce it unless performance requires it
-Performance/Casecmp:
   Enabled: false
