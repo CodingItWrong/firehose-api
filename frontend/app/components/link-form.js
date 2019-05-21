@@ -1,5 +1,6 @@
 import Component from '@ember/component'
-import { action, computed } from '@ember-decorators/object'
+import { action } from '@ember/object'
+import { computed } from '@ember-decorators/object'
 import { inject as service } from '@ember-decorators/service'
 import BufferedProxy from 'ember-buffered-proxy/proxy'
 
