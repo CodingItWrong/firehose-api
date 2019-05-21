@@ -1,5 +1,5 @@
 import Controller from '@ember/controller'
-import { sort } from '@ember-decorators/object/computed'
+import { sort } from '@ember/object/computed'
 
 export default class ShowTagsController extends Controller {
   linkSorting = Object.freeze(['moved_to_list_at:desc'])

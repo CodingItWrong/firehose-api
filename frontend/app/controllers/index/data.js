@@ -1,6 +1,6 @@
 import Controller from '@ember/controller'
-import { sort } from '@ember-decorators/object/computed'
-import { inject as service } from '@ember-decorators/service'
+import { inject as service } from '@ember/service'
+import { sort } from '@ember/object/computed'
 
 export default class IndexDataController extends Controller {
   @service session

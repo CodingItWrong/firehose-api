@@ -1,8 +1,9 @@
 import DS from 'ember-data'
 const { Model } = DS
-import { attr, hasMany } from '@ember-decorators/data'
+
+const { attr, hasMany } = DS
 
 export default class Tag extends Model {
-  @attr name
+  @attr() name
   @hasMany('bookmark') bookmarks
 }

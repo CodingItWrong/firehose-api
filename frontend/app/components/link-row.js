@@ -1,7 +1,7 @@
 import Component from '@ember/component'
+import { action, computed } from '@ember/object'
+import { inject as service } from '@ember/service'
 import { tagName } from '@ember-decorators/component'
-import { inject as service } from '@ember-decorators/service'
-import { action, computed } from '@ember-decorators/object'
 
 @tagName('')
 export default class LinkRow extends Component {
