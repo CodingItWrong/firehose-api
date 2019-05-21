@@ -1,6 +1,6 @@
 import Controller from '@ember/controller'
 import { action, computed } from '@ember/object'
-import { sort } from '@ember-decorators/object/computed'
+import { sort } from '@ember/object/computed'
 
 export default class ReadLinksController extends Controller {
   linkSorting = Object.freeze(['moved_to_list_at:desc'])
