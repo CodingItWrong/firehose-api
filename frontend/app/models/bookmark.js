@@ -1,6 +1,8 @@
 import DS from 'ember-data'
 const { Model } = DS
-import { attr, hasMany } from '@ember-decorators/data'
+import { attr } from '@ember-decorators/data'
+
+const { hasMany } = DS
 
 export default class Bookmark extends Model {
   @attr title
