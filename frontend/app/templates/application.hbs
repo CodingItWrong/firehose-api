@@ -5,21 +5,21 @@
   @onExpand={{action (mut this.collapsed) false}} as |Navbar|
 >
   <div class="container">
-    {{#link-to "index" classNames="navbar-brand"}}
+    <LinkTo @route="index" @classNames="navbar-brand">
       {{siteName}}
-    {{/link-to}}
+    </LinkTo>
     <Navbar.toggle />
     <Navbar.content>
       <Navbar.nav class="ml-auto" as |Nav|>
         {{#if session.isAuthenticated}}
           <Nav.item>
-            {{#link-to "index" data-test-unread-link classNames="nav-link"}}Unread{{/link-to}}
+            <LinkTo @route="index" data-test-unread-link @classNames="nav-link">Unread</LinkTo>
           </Nav.item>
           <Nav.item>
-            {{#link-to "links.read" data-test-read-link classNames="nav-link"}}Read{{/link-to}}
+            <LinkTo @route="links.read" data-test-read-link @classNames="nav-link">Read</LinkTo>
           </Nav.item>
           <Nav.item>
-            {{#link-to "tags" data-test-tags-link classNames="nav-link"}}Tags{{/link-to}}
+            <LinkTo @route="tags" data-test-tags-link @classNames="nav-link">Tags</LinkTo>
           </Nav.item>
           <Nav.item>
             <a href="#" {{action "signOut"}} data-test-logout-button class="nav-link">Sign out</a>
@@ -29,13 +29,13 @@
             <a href={{authorUrl}} rel="author" class="nav-link">Home</a>
           </Nav.item>
           <Nav.item>
-            {{#link-to "index" classNames="nav-link"}}Links{{/link-to}}
+            <LinkTo @route="index" @classNames="nav-link">Links</LinkTo>
           </Nav.item>
           <Nav.item>
-            {{#link-to "tags" data-test-tags-link classNames="nav-link"}}Tags{{/link-to}}
+            <LinkTo @route="tags" data-test-tags-link @classNames="nav-link">Tags</LinkTo>
           </Nav.item>
           <Nav.item>
-            {{#link-to "login" data-test-login-link classNames="nav-link"}}Sign in{{/link-to}}
+            <LinkTo @route="login" data-test-login-link @classNames="nav-link">Sign in</LinkTo>
           </Nav.item>
         {{/if}}
       </Navbar.nav>

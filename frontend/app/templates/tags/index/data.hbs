@@ -1,12 +1,12 @@
 <div data-test-tags>
   {{#each sortedTags as |tag|}}
-    {{#link-to
-      "tags.show"
-      tag.name
-      data-test-tag=tag.name
-      classNames="btn btn-primary btn-large mr-1 mb-3"
-    }}
+    <LinkTo
+      @route="tags.show"
+      @model={{tag.name}}
+      data-test-tag={{tag.name}}
+      @classNames="btn btn-primary btn-large mr-1 mb-3"
+    >
       {{ tag.name }}
-    {{/link-to}}
+    </LinkTo>
   {{/each}}
 </div>

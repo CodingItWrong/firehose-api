@@ -16,7 +16,7 @@
   {{#if link.tags}}
     |
     {{#each link.tags as |tag|}}
-      {{#link-to "tags.show" tag.name classNames="p-category"}}{{ tag.name }}{{/link-to}}
+      <LinkTo @route="tags.show" @model={{tag.name}} @classNames="p-category">{{ tag.name }}</LinkTo>
     {{/each}}
   {{/if}}
   {{#if link.source}}
