@@ -4227,14 +4227,14 @@ ember-cli-build-notifications@^0.4.0:
     ember-cli-babel "^6.12.0"
     node-notifier "^4.1.1"
 
-ember-cli-bundle-analyzer@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/ember-cli-bundle-analyzer/-/ember-cli-bundle-analyzer-0.0.5.tgz#3903f30ae6d3074c5ea480c877b51e79fb670e8e"
-  integrity sha512-yQTRAjJyFpemKyMMGrrS4eXDZMo1HnfTIeU850RY8RXLXypEnQuf93VEX7Gt29BZGu0bO40wMJuG5wa9pwKPJg==
+ember-cli-bundle-analyzer@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-bundle-analyzer/-/ember-cli-bundle-analyzer-0.1.0.tgz#2cdefd596b0e7b2dccf5d1039ab4636d00a23373"
+  integrity sha512-YGbrbAbCdb9lI1RfK9YRQ9Ehok/XNWa6XqGrdUrbF4EIn/LIRrv/gmRysOvnxk4DoNRo0n8LnMF2FZHAvhphHA==
   dependencies:
     broccoli-concat-analyser "^4.3.4"
     debug "^3.1.0"
-    ember-cli-babel "^6.16.0"
+    ember-cli-babel "^7.7.3"
     ember-cli-version-checker "^2.1.2"
     hash-files "^1.1.1"
     intercept-stdout "^0.1.2"
