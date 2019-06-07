@@ -19,7 +19,7 @@
     "test": "ember test"
   },
   "devDependencies": {
-    "@ember/jquery": "^0.6.0",
+    "@ember/jquery": "^0.6.1",
     "@ember/optional-features": "^0.7.0",
     "babel-eslint": "^8.0.0",
     "bootstrap": "^4.3.1",
