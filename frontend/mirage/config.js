@@ -49,13 +49,10 @@ export default function() {
   this.delete('/bookmarks/:id')
 
   this.get('/tags', ({ tags }, { params }) => {
-    console.log('getting tags')
     const name = params['filter[name]']
     if (name) {
-      console.log('finding by name')
       return tags.where({ name })
     } else {
-      console.log('no name; returning all')
       return tags.all()
     }
   })
