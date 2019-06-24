@@ -48,6 +48,10 @@ describe('editing links', function() {
     link = find('[data-test-links]')
     expect(link).to.contain.text(title)
 
+    // would require mirage wizardry to test
+    // expect(link).to.contain.text('foo')
+    // expect(link).to.contain.text('bar')
+
     // cancelling edit
     await click('[data-test-button-edit]')
     await fillIn('[data-test-title] input', 'Title Update to Cancel')

@@ -17,7 +17,7 @@ export default class LinkFormComponent extends Component {
   async handleSave() {
     this.buffer.applyBufferedChanges()
     await this.link.save()
-    await this.link.get('tags').reload()
+    await this.store.findRecord('bookmark', this.link.id, { include: 'tags' })
     this.onSave()
   }
 
