@@ -1,6 +1,7 @@
 import Controller from '@ember/controller'
 import { action, computed } from '@ember/object'
 import { sort } from '@ember/object/computed'
+import { observes } from '@ember-decorators/object'
 
 export default class ReadLinksController extends Controller {
   linkSorting = Object.freeze(['moved_to_list_at:desc'])
@@ -37,6 +38,11 @@ export default class ReadLinksController extends Controller {
 
   scrollToTop() {
     window.scrollTo(0, 0)
+  }
+
+  @observes('searchText')
+  searchChanged() {
+    this.set('page', 1)
   }
 
   @action
