@@ -33,7 +33,7 @@ export default class ReadLinksController extends Controller {
 
   @computed('page', 'totalPages')
   get isLastPage() {
-    return this.page === this.totalPages
+    return this.page >= this.totalPages
   }
 
   @computed('filteredLinks', 'page', 'perPage')
