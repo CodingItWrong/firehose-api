@@ -11,30 +11,32 @@
     </div>
   </div>
   <div class="col-sm-12 col-md-6">
-    <div class="form-group">
-      <div class="btn-group" role="group">
-        <BsButton
-          @type="light"
-          @onClick={{action "prevPage"}}
-          @disabled={{ isFirstPage }}
-        >
-          Previous
-        </BsButton>
-        <BsButton
-          @type="light"
-          @disabled={{ true }}
-        >
-          Page {{page}} of {{totalPages}}
-        </BsButton>
-        <BsButton
-          @type="light"
-          @onClick={{action "nextPage"}}
-          @disabled={{ isLastPage }}
-        >
-          Next
-        </BsButton>
+    {{#if anyPages}}
+      <div class="form-group">
+        <div class="btn-group" role="group">
+          <BsButton
+            @type="light"
+            @onClick={{action "prevPage"}}
+            @disabled={{ isFirstPage }}
+          >
+            Previous
+          </BsButton>
+          <BsButton
+            @type="light"
+            @disabled={{ true }}
+          >
+            Page {{page}} of {{totalPages}}
+          </BsButton>
+          <BsButton
+            @type="light"
+            @onClick={{action "nextPage"}}
+            @disabled={{ isLastPage }}
+          >
+            Next
+          </BsButton>
+        </div>
       </div>
-    </div>
+    {{/if}}
   </div>
 </div>
 

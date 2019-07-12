@@ -26,6 +26,11 @@ export default class ReadLinksController extends Controller {
     return Math.ceil(this.filteredLinks.length / this.perPage)
   }
 
+  @computed('totalPages')
+  get anyPages() {
+    return this.totalPages > 0
+  }
+
   @computed('page')
   get isFirstPage() {
     return this.page === 1
