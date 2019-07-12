@@ -11,32 +11,13 @@
     </div>
   </div>
   <div class="col-sm-12 col-md-6">
-    {{#if anyPages}}
-      <div class="form-group">
-        <div class="btn-group" role="group">
-          <BsButton
-            @type="light"
-            @onClick={{action "prevPage"}}
-            @disabled={{ isFirstPage }}
-          >
-            Previous
-          </BsButton>
-          <BsButton
-            @type="light"
-            @disabled={{ true }}
-          >
-            Page {{page}} of {{totalPages}}
-          </BsButton>
-          <BsButton
-            @type="light"
-            @onClick={{action "nextPage"}}
-            @disabled={{ isLastPage }}
-          >
-            Next
-          </BsButton>
-        </div>
-      </div>
-    {{/if}}
+    <PaginationControls
+      @records={{this.filteredLinks}}
+      @page={{this.page}}
+      @perPage={{this.perPage}}
+      @prevPage={{action this.prevPage}}
+      @nextPage={{action this.nextPage}}
+    />
   </div>
 </div>
 
