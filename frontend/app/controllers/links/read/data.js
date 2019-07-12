@@ -1,6 +1,7 @@
 import Controller from '@ember/controller'
 import { action, computed } from '@ember/object'
 import { sort } from '@ember/object/computed'
+import { observes } from '@ember-decorators/object'
 
 export default class ReadLinksController extends Controller {
   linkSorting = Object.freeze(['moved_to_list_at:desc'])
@@ -21,21 +22,6 @@ export default class ReadLinksController extends Controller {
     )
   }
 
-  @computed('page', 'perPage', 'filteredLinks')
-  get totalPages() {
-    return Math.ceil(this.filteredLinks.length / this.perPage)
-  }
-
-  @computed('page')
-  get isFirstPage() {
-    return this.page === 1
-  }
-
-  @computed('page', 'totalPages')
-  get isLastPage() {
-    return this.page === this.totalPages
-  }
-
   @computed('filteredLinks', 'page', 'perPage')
   get pagedLinks() {
     let { page, perPage } = this
@@ -52,6 +38,11 @@ export default class ReadLinksController extends Controller {
 
   scrollToTop() {
     window.scrollTo(0, 0)
+  }
+
+  @observes('searchText')
+  searchChanged() {
+    this.set('page', 1)
   }
 
   @action

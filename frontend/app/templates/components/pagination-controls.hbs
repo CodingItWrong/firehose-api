@@ -1,0 +1,26 @@
+{{#if anyPages}}
+  <div class="form-group">
+    <div class="btn-group" role="group">
+      <BsButton
+        @type="light"
+        @onClick={{action this.prevPage}}
+        @disabled={{ isFirstPage }}
+      >
+        Previous
+      </BsButton>
+      <BsButton
+        @type="light"
+        @disabled={{ true }}
+      >
+        Page {{page}} of {{totalPages}}
+      </BsButton>
+      <BsButton
+        @type="light"
+        @onClick={{action this.nextPage}}
+        @disabled={{ isLastPage }}
+      >
+        Next
+      </BsButton>
+    </div>
+  </div>
+{{/if}}
