@@ -51,8 +51,7 @@ module.exports = {
         'lib/*/index.js'
       ],
       parserOptions: {
-        sourceType: 'script',
-        ecmaVersion: 2015
+        sourceType: 'script'
       },
       env: {
         browser: false,
