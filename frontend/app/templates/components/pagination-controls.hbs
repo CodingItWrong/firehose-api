@@ -3,7 +3,7 @@
     <div class="btn-group" role="group">
       <BsButton
         @type="light"
-        @onClick={{action this.prevPage}}
+        @onClick={{fn this.prevPage}}
         @disabled={{ isFirstPage }}
       >
         Previous
@@ -16,7 +16,7 @@
       </BsButton>
       <BsButton
         @type="light"
-        @onClick={{action this.nextPage}}
+        @onClick={{fn this.nextPage}}
         @disabled={{ isLastPage }}
       >
         Next

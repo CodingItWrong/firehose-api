@@ -9,7 +9,7 @@
 <BsForm
   @formLayout="vertical"
   @model={{this}}
-  @onSubmit={{action "authenticate"}} as |Form|
+  @onSubmit={{fn this.authenticate}} as |Form|
 >
   <Form.element
     @data-test-email-field
