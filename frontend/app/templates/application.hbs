@@ -1,8 +1,8 @@
 <BsNavbar
   @type="light"
   @collapsed={{this.collapsed}}
-  @onCollapse={{action (mut this.collapsed) true}}
-  @onExpand={{action (mut this.collapsed) false}} as |Navbar|
+  @onCollapse={{fn (mut this.collapsed) true}}
+  @onExpand={{fn (mut this.collapsed) false}} as |Navbar|
 >
   <div class="container">
     <LinkTo @route="index" @classNames="navbar-brand">
@@ -22,7 +22,7 @@
             <LinkTo @route="tags" data-test-tags-link @classNames="nav-link">Tags</LinkTo>
           </Nav.item>
           <Nav.item>
-            <a href="#" {{action "signOut"}} data-test-logout-button class="nav-link">Sign out</a>
+            <a href="#" {{on "click" this.signOut}} data-test-logout-button class="nav-link">Sign out</a>
           </Nav.item>
         {{else}}
           <Nav.item>

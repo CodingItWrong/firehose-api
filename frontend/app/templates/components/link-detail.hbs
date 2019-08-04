@@ -36,7 +36,7 @@
             <a
               class="dropdown-item"
               href="#"
-              onclick={{action "markUnread"}}
+              {{on "click" this.markUnread}}
             >
               Mark Unread
             </a>
@@ -46,7 +46,7 @@
             <a
               class="dropdown-item"
               href="#"
-              onclick={{action "markRead"}}
+              {{on "click" this.markRead}}
             >
               Mark Read
             </a>
@@ -56,7 +56,7 @@
           <a
             class="dropdown-item"
             href="#"
-            onclick={{action "edit"}}
+            {{on "click" this.edit}}
           >
             Edit
           </a>
@@ -65,7 +65,7 @@
           <a
             class="dropdown-item"
             href="#"
-            onclick={{action "delete"}}
+            {{on "click" this.delete}}
           >
             Delete
           </a>
@@ -77,7 +77,7 @@
         <BsButton
           @data-test-button-mark-unread
           @type="light"
-          @onClick={{action "markUnread"}}
+          @onClick={{fn this.markUnread}}
         >
           Mark Unread
         </BsButton>
@@ -85,7 +85,7 @@
         <BsButton
           @data-test-button-mark-read
           @type="light"
-          @onClick={{action "markRead"}}
+          @onClick={{fn this.markRead}}
         >
           Mark Read
         </BsButton>
@@ -93,14 +93,14 @@
       <BsButton
         @data-test-button-edit
         @type="light"
-        @onClick={{action "edit"}}
+        @onClick={{fn this.edit}}
       >
         Edit
       </BsButton>
       <BsButton
         @data-test-button-delete
         @type="danger"
-        @onClick={{action "delete"}}
+        @onClick={{fn this.delete}}
       >
         Delete
       </BsButton>
