@@ -4,7 +4,7 @@ ruby '2.6.2'
 
 gem 'rails', '~> 5.2.3'
 gem 'pg', '~> 1.1'
-gem 'puma', '~> 4.0'
+gem 'puma', '~> 4.1'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'httparty'
