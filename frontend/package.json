@@ -58,7 +58,7 @@
     "ember-test-selectors": "^2.1.0",
     "eslint-config-codingitwrong": "^0.1.4",
     "eslint-config-prettier": "^6.1.0",
-    "eslint-plugin-ember": "^6.9.1",
+    "eslint-plugin-ember": "^6.10.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-prettier": "2.6.0",
