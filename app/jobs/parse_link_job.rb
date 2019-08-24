@@ -4,12 +4,10 @@ require 'link_parser'
 
 class ParseLinkJob < ApplicationJob
   def self.parse(link)
-    perform_later(link.id)
+    perform_later(link)
   end
 
-  def perform(link_id)
-    link = Link.find(link_id)
-
+  def perform(link)
     parsed_link = link_parser.process(url: link.url)
 
     attributes = { url: parsed_link.canonical }
