@@ -8,7 +8,7 @@ RSpec.describe Link do
 
     context 'when nil is assigned' do
       before(:each) do
-        link.update_attributes!(tag_list: nil)
+        link.update!(tag_list: nil)
         link.reload
       end
 
@@ -23,7 +23,7 @@ RSpec.describe Link do
 
     context 'when a string is assigned' do
       before(:each) do
-        link.update_attributes!(tag_list: 'foo bar baz')
+        link.update!(tag_list: 'foo bar baz')
         link.reload
       end
 
