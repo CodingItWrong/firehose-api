@@ -6,11 +6,10 @@ class SendTweetJob < ApplicationJob
   queue_as :default
 
   def self.send(link)
-    perform_later(link.id)
+    perform_later(link)
   end
 
-  def perform(link_id)
-    link = Link.find(link_id)
+  def perform(link)
     twitter_client.post(link)
   end
 

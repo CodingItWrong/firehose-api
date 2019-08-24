@@ -55,8 +55,10 @@ RSpec.describe 'managing links', type: :request do
 
     expect(TwitterClient).to receive(:post).with(link_model)
 
-    patch "/api/bookmarks/#{link_model.id}",
-          headers: headers, params: params.to_json
+    perform_enqueued_jobs do
+      patch "/api/bookmarks/#{link_model.id}",
+            headers: headers, params: params.to_json
+    end
 
     jsonapi_response = JSON.parse(response.body)
     link = jsonapi_response['data']['attributes']
