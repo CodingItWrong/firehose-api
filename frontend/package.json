@@ -48,7 +48,7 @@
     "ember-data": "~3.12.0",
     "ember-decorators": "^6.1.0",
     "ember-export-application-global": "^2.0.0",
-    "ember-load-initializers": "^2.0.0",
+    "ember-load-initializers": "^2.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-mocha": "^0.16.0",
     "ember-resolver": "^5.2.1",
