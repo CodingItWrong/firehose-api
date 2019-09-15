@@ -7,24 +7,24 @@ export default class ReadLinksDataRoute extends Route {
       as: 'page',
       refreshModel: true,
     },
-    searchTerm: {
+    searchTextQP: {
       as: 's',
       refreshModel: true,
     },
   }
 
-  model({ page, searchTerm }) {
+  model({ page, searchTextQP }) {
     return this.store.query('bookmark', {
       include: 'tags',
       filter: { read: true },
       page,
-      searchTerm,
+      searchText: searchTextQP,
     })
   }
 
   setupController(controller) {
     super.setupController(...arguments)
-    controller.set('searchText', controller.searchTerm)
+    controller.set('searchText', controller.searchTextQP)
   }
 
   @action

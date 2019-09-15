@@ -4,8 +4,6 @@ import { sort } from '@ember/object/computed'
 import { observes } from '@ember-decorators/object'
 
 export default class ReadLinksController extends Controller {
-  searchText = this.searchTerm
-
   page = 1
   perPage = 10
 
@@ -31,7 +29,7 @@ export default class ReadLinksController extends Controller {
   @action
   updateSearch(e) {
     e.preventDefault()
-    this.set('searchTerm', this.searchText)
+    this.set('searchTextQP', this.searchText)
   }
 
   @action
