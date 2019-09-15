@@ -4,7 +4,7 @@ import { action } from '@ember/object'
 export default class ReadLinksDataRoute extends Route {
   queryParams = {
     page: {
-      as: 'page',
+      as: 'p',
       refreshModel: true,
     },
     searchTextQP: {
