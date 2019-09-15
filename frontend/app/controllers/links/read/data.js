@@ -5,6 +5,7 @@ import { observes } from '@ember-decorators/object'
 
 export default class ReadLinksController extends Controller {
   page = 1
+  searchTextQP = ''
 
   @computed('model')
   get totalPages() {
