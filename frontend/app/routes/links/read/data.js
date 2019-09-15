@@ -2,10 +2,11 @@ import Route from '@ember/routing/route'
 import { action } from '@ember/object'
 
 export default class ReadLinksDataRoute extends Route {
-  model() {
+  model({ page }) {
     return this.store.query('bookmark', {
       include: 'tags',
       filter: { read: true },
+      page,
     })
   }
 

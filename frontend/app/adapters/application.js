@@ -12,6 +12,15 @@ let options = {
     let { access_token } = this.get('session.data.authenticated')
     xhr.setRequestHeader('Authorization', `Bearer ${access_token}`)
   },
+
+  sortQueryParams(query) {
+    const { filter, include, page } = query
+    return {
+      include,
+      'filter[read]': filter.read,
+      'page[number]': page,
+    }
+  },
 }
 
 if (ENV.apiHost) {
