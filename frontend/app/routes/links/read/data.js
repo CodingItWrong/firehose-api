@@ -24,7 +24,7 @@ export default class ReadLinksDataRoute extends Route {
 
   setupController(controller) {
     super.setupController(...arguments)
-    controller.set('searchText', controller.searchTextQP)
+    controller.setSearchTextFromQP()
   }
 
   @action

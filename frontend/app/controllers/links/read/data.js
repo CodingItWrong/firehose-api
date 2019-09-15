@@ -20,9 +20,8 @@ export default class ReadLinksController extends Controller {
     window.scrollTo(0, 0)
   }
 
-  @observes('searchText')
-  searchChanged() {
-    this.set('page', 1)
+  setSearchTextFromQP() {
+    this.set('searchText', this.searchTextQP)
   }
 
   @action
