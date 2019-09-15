@@ -7,13 +7,13 @@ export default class PaginationControls extends Component {
     return this.totalPages > 0
   }
 
-  @computed('page')
+  @computed('pageNumber')
   get isFirstPage() {
-    return this.page === 1
+    return this.pageNumber === 1
   }
 
-  @computed('page', 'totalPages')
+  @computed('pageNumber', 'totalPages')
   get isLastPage() {
-    return this.page >= this.totalPages
+    return this.pageNumber >= this.totalPages
   }
 }
