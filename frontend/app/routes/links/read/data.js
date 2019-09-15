@@ -7,13 +7,18 @@ export default class ReadLinksDataRoute extends Route {
       as: 'page',
       refreshModel: true,
     },
+    searchTerm: {
+      as: 's',
+      refreshModel: true,
+    },
   }
 
-  model({ page }) {
+  model({ page, searchTerm }) {
     return this.store.query('bookmark', {
       include: 'tags',
       filter: { read: true },
       page,
+      searchTerm,
     })
   }
 

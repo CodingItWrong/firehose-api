@@ -14,12 +14,16 @@ let options = {
   },
 
   sortQueryParams(query) {
-    const { filter, include, page } = query
-    return {
+    const { filter, include, page, searchTerm } = query
+    const newQuery = {
       include,
       'filter[read]': filter.read,
       'page[number]': page,
     }
+    if (searchTerm) {
+      newQuery['filter[title]'] = searchTerm
+    }
+    return newQuery
   },
 }
 

@@ -1,18 +1,20 @@
 <div class="row">
   <div class="col-sm-12 col-md-6">
     <div class="form-group">
-      <Input
-        data-test-search-input
-        @value={{searchText}}
-        @type="search"
-        @placeholder="Search"
-        @classNames="form-control"
-      />
+      <form {{on 'submit' this.updateSearch}}>
+        <Input
+          data-test-search-input
+          @value={{this.searchText}}
+          @type="search"
+          @placeholder="Search"
+          @classNames="form-control"
+        />
+      </form>
     </div>
   </div>
   <div class="col-sm-12 col-md-6">
     <PaginationControls
-      @records={{this.filteredLinks}}
+      @records={{this.model}}
       @totalPages={{this.totalPages}}
       @page={{this.page}}
       @prevPage={{fn this.prevPage}}
@@ -22,7 +24,7 @@
 </div>
 
 <ul class="list-group" data-test-links>
-  {{#each this.filteredLinks as |link|}}
+  {{#each this.model as |link|}}
     <LinkRow @link={{link}} @showIfRead={{true}} />
   {{/each}}
 </ul>
@@ -31,7 +33,7 @@
   <div class="col-sm-12 col-md-6"></div>
   <div class="col-sm-12 col-md-6">
     <PaginationControls
-      @records={{this.filteredLinks}}
+      @records={{this.model}}
       @totalPages={{this.totalPages}}
       @page={{this.page}}
       @prevPage={{fn this.prevPage}}

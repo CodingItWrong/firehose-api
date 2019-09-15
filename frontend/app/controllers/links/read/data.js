@@ -9,18 +9,10 @@ export default class ReadLinksController extends Controller {
   @sort('model', 'linkSorting')
   sortedLinks
 
-  searchText = ''
+  searchText = this.searchTerm
 
   page = 1
   perPage = 10
-
-  @computed('sortedLinks', 'searchText')
-  get filteredLinks() {
-    let searchText = this.searchText.toLowerCase()
-    return this.sortedLinks.filter(link =>
-      link.title.toLowerCase().includes(searchText),
-    )
-  }
 
   @computed('model')
   get totalPages() {
@@ -39,6 +31,12 @@ export default class ReadLinksController extends Controller {
   @observes('searchText')
   searchChanged() {
     this.set('page', 1)
+  }
+
+  @action
+  updateSearch(e) {
+    e.preventDefault()
+    this.set('searchTerm', this.searchText)
   }
 
   @action
