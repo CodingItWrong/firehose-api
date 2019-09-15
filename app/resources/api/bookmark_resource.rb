@@ -21,6 +21,9 @@ module Api
     relationship :tags, to: :many, class_name: 'Tag'
 
     filter :read
+    filter :title, apply: ->(records, value, _options) {
+      records.where('title LIKE ?', "%#{value[0]}%")
+    }
 
     before_save :populate_title
     before_save :check_for_publish
