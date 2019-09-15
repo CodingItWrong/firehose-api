@@ -22,6 +22,11 @@ export default class ReadLinksDataRoute extends Route {
     })
   }
 
+  setupController(controller) {
+    super.setupController(...arguments)
+    controller.set('searchText', controller.searchTerm)
+  }
+
   @action
   willTransition() {
     this.controller.reset()
