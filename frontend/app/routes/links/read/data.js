@@ -3,22 +3,26 @@ import { action } from '@ember/object'
 
 export default class ReadLinksDataRoute extends Route {
   queryParams = {
-    page: {
-      as: 'page',
+    pageNumber: {
+      as: 'p',
       refreshModel: true,
     },
-    searchTextQP: {
+    searchText: {
       as: 's',
       refreshModel: true,
     },
   }
 
-  model({ page, searchTextQP }) {
+  model({ pageNumber, searchText }) {
     return this.store.query('bookmark', {
       include: 'tags',
-      filter: { read: true },
-      page,
-      searchText: searchTextQP,
+      filter: {
+        read: true,
+        title: searchText,
+      },
+      page: {
+        number: pageNumber,
+      },
     })
   }
 
