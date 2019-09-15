@@ -26,7 +26,7 @@ export default class ReadLinksController extends Controller {
   }
 
   @action
-  updateSearch(e) {
+  performSearch(e) {
     e.preventDefault()
     this.set('searchTextQP', this.searchText)
     this.set('page', 1)
