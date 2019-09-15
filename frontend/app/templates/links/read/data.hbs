@@ -4,7 +4,7 @@
       <form {{on "submit" this.performSearch}}>
         <Input
           data-test-search-input
-          @value={{this.searchText}}
+          @value={{this.editedSearchText}}
           @type="search"
           @placeholder="Search"
           @classNames="form-control"

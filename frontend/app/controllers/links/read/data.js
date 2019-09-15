@@ -14,7 +14,7 @@ export default class ReadLinksController extends Controller {
 
   reset() {
     this.set('pageNumber', 1)
-    this.set('searchText', '')
+    this.set('editedSearchText', '')
   }
 
   scrollToTop() {
@@ -22,13 +22,13 @@ export default class ReadLinksController extends Controller {
   }
 
   setSearchTextFromQP() {
-    this.set('searchText', this.searchTextQP)
+    this.set('editedSearchText', this.searchTextQP)
   }
 
   @action
   performSearch(e) {
     e.preventDefault()
-    this.set('searchTextQP', this.searchText)
+    this.set('searchTextQP', this.editedSearchText)
     this.set('pageNumber', 1)
   }
 
