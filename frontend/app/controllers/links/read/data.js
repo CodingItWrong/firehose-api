@@ -4,11 +4,6 @@ import { sort } from '@ember/object/computed'
 import { observes } from '@ember-decorators/object'
 
 export default class ReadLinksController extends Controller {
-  linkSorting = Object.freeze(['moved_to_list_at:desc'])
-
-  @sort('model', 'linkSorting')
-  sortedLinks
-
   searchText = this.searchTerm
 
   page = 1

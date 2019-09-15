@@ -39,7 +39,8 @@ module Api
 
     def self.records(options = {})
       user = current_user(options)
-      user.present? ? Link.all : Link.publicly_visible
+      scope = user.present? ? Link.all : Link.publicly_visible
+      scope.in_move_order
     end
 
     private
