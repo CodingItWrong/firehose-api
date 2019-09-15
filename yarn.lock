@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@prettier/plugin-ruby@^0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@prettier/plugin-ruby/-/plugin-ruby-0.12.0.tgz#ab731c98e1051825686d937dabc599b04ecf8ea0"
-  integrity sha512-KaH/fosoQbPsNMdYlu7o7zBt8a1RqGXofl8KTsDNysKnHuQo4UaPoR1q1H1SoBQt0djz+hwQnUD/fxYa20GGVQ==
+"@prettier/plugin-ruby@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@prettier/plugin-ruby/-/plugin-ruby-0.15.0.tgz#493f8e79edad05afcd9ef8caf1deca82b9a2f3cc"
+  integrity sha512-INL6bBNF1Xg/2v4bdmjGxIvlAronrkkzGrI8JwUjda87hP2SOQbltXLC19Uo6+1mufaS6Kj2dlGSmTIlfxZwcw==
   dependencies:
     prettier "^1.16.4"
 

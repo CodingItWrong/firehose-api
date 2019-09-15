@@ -21,6 +21,10 @@ module Api
     relationship :tags, to: :many, class_name: 'Tag'
 
     filter :read
+    filter :title,
+           apply: lambda { |records, value, _options|
+             records.where('title LIKE ?', "%#{value[0]}%")
+           }
 
     before_save :populate_title
     before_save :check_for_publish
@@ -36,7 +40,8 @@ module Api
 
     def self.records(options = {})
       user = current_user(options)
-      user.present? ? Link.all : Link.publicly_visible
+      scope = user.present? ? Link.all : Link.publicly_visible
+      scope.in_move_order
     end
 
     private

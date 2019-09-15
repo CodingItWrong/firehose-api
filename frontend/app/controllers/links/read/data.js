@@ -4,31 +4,11 @@ import { sort } from '@ember/object/computed'
 import { observes } from '@ember-decorators/object'
 
 export default class ReadLinksController extends Controller {
-  linkSorting = Object.freeze(['moved_to_list_at:desc'])
-
-  @sort('model', 'linkSorting')
-  sortedLinks
-
-  searchText = ''
-
   page = 1
-  perPage = 10
 
-  @computed('sortedLinks', 'searchText')
-  get filteredLinks() {
-    let searchText = this.searchText.toLowerCase()
-    return this.sortedLinks.filter(link =>
-      link.title.toLowerCase().includes(searchText),
-    )
-  }
-
-  @computed('filteredLinks', 'page', 'perPage')
-  get pagedLinks() {
-    let { page, perPage } = this
-    let start = (page - 1) * perPage
-    let end = page * perPage
-
-    return this.filteredLinks.slice(start, end)
+  @computed('model')
+  get totalPages() {
+    return this.model.meta['page-count']
   }
 
   reset() {
@@ -40,8 +20,14 @@ export default class ReadLinksController extends Controller {
     window.scrollTo(0, 0)
   }
 
-  @observes('searchText')
-  searchChanged() {
+  setSearchTextFromQP() {
+    this.set('searchText', this.searchTextQP)
+  }
+
+  @action
+  performSearch(e) {
+    e.preventDefault()
+    this.set('searchTextQP', this.searchText)
     this.set('page', 1)
   }
 
