@@ -24,13 +24,9 @@ export default class ReadLinksController extends Controller {
     )
   }
 
-  @computed('filteredLinks', 'page', 'perPage')
-  get pagedLinks() {
-    let { page, perPage } = this
-    let start = (page - 1) * perPage
-    let end = page * perPage
-
-    return this.filteredLinks.slice(start, end)
+  @computed('model')
+  get totalPages() {
+    return this.model.meta['page-count']
   }
 
   reset() {
