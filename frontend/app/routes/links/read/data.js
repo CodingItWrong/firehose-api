@@ -3,7 +3,7 @@ import { action } from '@ember/object'
 
 export default class ReadLinksDataRoute extends Route {
   queryParams = {
-    page: {
+    pageNumber: {
       as: 'p',
       refreshModel: true,
     },
@@ -13,7 +13,7 @@ export default class ReadLinksDataRoute extends Route {
     },
   }
 
-  model({ page, searchTextQP }) {
+  model({ pageNumber, searchTextQP }) {
     return this.store.query('bookmark', {
       include: 'tags',
       filter: {
@@ -21,7 +21,7 @@ export default class ReadLinksDataRoute extends Route {
         title: searchTextQP,
       },
       page: {
-        number: page,
+        number: pageNumber,
       },
     })
   }

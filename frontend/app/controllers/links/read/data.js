@@ -4,7 +4,7 @@ import { sort } from '@ember/object/computed'
 import { observes } from '@ember-decorators/object'
 
 export default class ReadLinksController extends Controller {
-  page = 1
+  pageNumber = 1
   searchTextQP = ''
 
   @computed('model')
@@ -13,7 +13,7 @@ export default class ReadLinksController extends Controller {
   }
 
   reset() {
-    this.set('page', 1)
+    this.set('pageNumber', 1)
     this.set('searchText', '')
   }
 
@@ -29,18 +29,18 @@ export default class ReadLinksController extends Controller {
   performSearch(e) {
     e.preventDefault()
     this.set('searchTextQP', this.searchText)
-    this.set('page', 1)
+    this.set('pageNumber', 1)
   }
 
   @action
   nextPage() {
-    this.incrementProperty('page')
+    this.incrementProperty('pageNumber')
     this.scrollToTop()
   }
 
   @action
   prevPage() {
-    this.decrementProperty('page')
+    this.decrementProperty('pageNumber')
     this.scrollToTop()
   }
 }
