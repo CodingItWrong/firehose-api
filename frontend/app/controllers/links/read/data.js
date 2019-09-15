@@ -5,7 +5,7 @@ import { observes } from '@ember-decorators/object'
 
 export default class ReadLinksController extends Controller {
   pageNumber = 1
-  searchTextQP = ''
+  searchText = ''
 
   @computed('model')
   get totalPages() {
@@ -22,13 +22,13 @@ export default class ReadLinksController extends Controller {
   }
 
   setSearchTextFromQP() {
-    this.set('editedSearchText', this.searchTextQP)
+    this.set('editedSearchText', this.searchText)
   }
 
   @action
   performSearch(e) {
     e.preventDefault()
-    this.set('searchTextQP', this.editedSearchText)
+    this.set('searchText', this.editedSearchText)
     this.set('pageNumber', 1)
   }
 
