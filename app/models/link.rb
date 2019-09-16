@@ -15,8 +15,6 @@ class Link < ApplicationRecord
 
   attr_writer :tag_list
 
-  paginator :paged
-
   def tag_list
     tags.map(&:name).join(' ')
   end
