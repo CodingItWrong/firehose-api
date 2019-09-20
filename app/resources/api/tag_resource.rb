@@ -10,7 +10,7 @@ module Api
 
     def self.records(options = {})
       user = current_user(options)
-      user.present? ? Tag.all : Tag.publicly_visible
+      user.present? ? Tag.used : Tag.used.publicly_visible
     end
   end
 end
