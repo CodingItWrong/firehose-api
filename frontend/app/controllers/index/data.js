@@ -19,7 +19,6 @@ export default class IndexDataController extends Controller {
 
   @computed('model')
   get totalPages() {
-    console.log(this.model)
     return this.model.meta['page-count']
   }
 
