@@ -11,6 +11,7 @@ export default class IndexController extends Controller {
     let link = this.store.createRecord('bookmark', { url: this.url })
     this.resetForm()
     await link.save()
+    this.send('refreshRoute')
   }
 
   resetForm() {
