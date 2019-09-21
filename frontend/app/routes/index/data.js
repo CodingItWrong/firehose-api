@@ -4,16 +4,25 @@ import { inject as service } from '@ember/service'
 export default class IndexDataRoute extends Route {
   @service session
 
-  model() {
-    let options = { include: 'tags' }
+  queryParams = {
+    pageNumber: {
+      as: 'p',
+      refreshModel: true,
+    },
+  }
+
+  model({ pageNumber }) {
+    let options = {
+      include: 'tags',
+      page: {
+        number: pageNumber,
+      },
+    }
 
     if (this.session.get('isAuthenticated')) {
       options.filter = { read: false }
-      return this.store
-        .query('bookmark', options)
-        .then(() => this.store.peekAll('bookmark', options))
-    } else {
-      return this.store.findAll('bookmark', options)
     }
+
+    return this.store.query('bookmark', options)
   }
 }

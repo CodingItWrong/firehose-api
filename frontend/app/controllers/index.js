@@ -11,6 +11,9 @@ export default class IndexController extends Controller {
     let link = this.store.createRecord('bookmark', { url: this.url })
     this.resetForm()
     await link.save()
+
+    this.send('refreshRoute') // in case already on page 1
+    this.transitionToRoute('index', { queryParams: { pageNumber: 1 } }) // in case not on page 1
   }
 
   resetForm() {
