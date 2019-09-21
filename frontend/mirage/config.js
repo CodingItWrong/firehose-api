@@ -13,8 +13,6 @@ export default function() {
 
     const response = this.serialize(records)
     response.meta = { 'page-count': 1 }
-    // response.meta['page-count'] = 1
-    console.log(JSON.stringify(response))
     return response
   })
   this.get('/bookmarks/:id')
