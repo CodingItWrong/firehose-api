@@ -3,11 +3,15 @@ export default function() {
 
   this.get('/bookmarks', function({ bookmarks }, request) {
     let read = request.queryParams['filter[read]']
-    if (typeof read !== 'undefined') {
-      return bookmarks.where({ read })
+    let records
+
+    if (typeof read === 'undefined') {
+      records = bookmarks.all()
+    } else {
+      records = bookmarks.where({ read })
     }
 
-    const response = this.serialize(bookmarks.all())
+    const response = this.serialize(records)
     response.meta = { 'page-count': 1 }
     // response.meta['page-count'] = 1
     console.log(JSON.stringify(response))
