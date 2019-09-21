@@ -1,13 +1,17 @@
 export default function() {
   this.namespace = 'api'
 
-  this.get('/bookmarks', ({ bookmarks }, request) => {
+  this.get('/bookmarks', function({ bookmarks }, request) {
     let read = request.queryParams['filter[read]']
     if (typeof read !== 'undefined') {
       return bookmarks.where({ read })
     }
 
-    return bookmarks.all()
+    const response = this.serialize(bookmarks.all())
+    response.meta = { 'page-count': 1 }
+    // response.meta['page-count'] = 1
+    console.log(JSON.stringify(response))
+    return response
   })
   this.get('/bookmarks/:id')
   this.post('/bookmarks', ({ bookmarks }, request) => {
