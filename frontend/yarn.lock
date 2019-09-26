@@ -4434,10 +4434,10 @@ ember-auto-import@^1.2.19:
     walk-sync "^0.3.3"
     webpack "~4.28"
 
-ember-bootstrap@3.0.0-rc.5:
-  version "3.0.0-rc.5"
-  resolved "https://registry.yarnpkg.com/ember-bootstrap/-/ember-bootstrap-3.0.0-rc.5.tgz#a88f6102f615dc2903098558493b3c8cfefe8fbe"
-  integrity sha512-Om+i1ugqn8Dst5HJXF3MVyXdALFRtDbmDYZrvMKsrz9A6isuhGzah9kXwPIsQ8zD9VEUCMVOOYaiZaVxUprinA==
+ember-bootstrap@3.0.0-rc.6:
+  version "3.0.0-rc.6"
+  resolved "https://registry.yarnpkg.com/ember-bootstrap/-/ember-bootstrap-3.0.0-rc.6.tgz#0a46af6a4d043d76e0cc0721d6ba7edc656d9de8"
+  integrity sha512-jOE47ntSAaf1WyaWRhVvCVawdIQnR+fQxEURsrESOlrfSNES5/RsBEw3TvmJSeYqc4Y4wd3TZKTDZtmVD2ijvA==
   dependencies:
     broccoli-debug "^0.6.3"
     broccoli-funnel "^2.0.0"
