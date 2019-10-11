@@ -4461,10 +4461,10 @@ ember-auto-import@^1.2.19:
     walk-sync "^0.3.3"
     webpack "~4.28"
 
-ember-bootstrap@3.0.0-rc.6:
-  version "3.0.0-rc.6"
-  resolved "https://registry.yarnpkg.com/ember-bootstrap/-/ember-bootstrap-3.0.0-rc.6.tgz#0a46af6a4d043d76e0cc0721d6ba7edc656d9de8"
-  integrity sha512-jOE47ntSAaf1WyaWRhVvCVawdIQnR+fQxEURsrESOlrfSNES5/RsBEw3TvmJSeYqc4Y4wd3TZKTDZtmVD2ijvA==
+ember-bootstrap@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/ember-bootstrap/-/ember-bootstrap-3.0.0.tgz#5d5b479c93ad495bba53ad0cef08b636f642a97b"
+  integrity sha512-pVANg3C1ogVpzzObctai+MgZOxhYQeMVXQ3aM1hVZIc6XfNs5iEXT9P45dZTeW0VLJ+1BzZXIYePVVTdqmhLzQ==
   dependencies:
     broccoli-debug "^0.6.3"
     broccoli-funnel "^2.0.0"
@@ -4480,9 +4480,9 @@ ember-bootstrap@3.0.0-rc.6:
     ember-decorators "^6.1.0"
     ember-decorators-polyfill "^1.0.6"
     ember-let-polyfill "^0.1.0"
-    ember-maybe-in-element "^0.2.0"
+    ember-maybe-in-element "^0.4.0"
     ember-named-arguments-polyfill "^1.0.0"
-    ember-popper "^0.10.1"
+    ember-popper "^0.10.3"
     findup-sync "^4.0.0"
     fs-extra "^7.0.1"
     resolve "^1.5.0"
@@ -5115,10 +5115,10 @@ ember-maybe-import-regenerator@^0.1.5, ember-maybe-import-regenerator@^0.1.6:
     ember-cli-babel "^6.0.0-beta.4"
     regenerator-runtime "^0.9.5"
 
-ember-maybe-in-element@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/ember-maybe-in-element/-/ember-maybe-in-element-0.2.0.tgz#9ac51cbbd9d83d6230ad996c11e33f0eca3032e0"
-  integrity sha512-R5e6N8yDbfNbA/3lMZsFs2KEzv/jt80TsATiKMCqdqKuSG82KrD25cRdU5VkaE8dTQbziyBeuJs90bBiqOnakQ==
+ember-maybe-in-element@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/ember-maybe-in-element/-/ember-maybe-in-element-0.4.0.tgz#fe1994c60ee64527d2b2f3b4479ebf8806928bd8"
+  integrity sha512-ADQ9jewz46Y2MWiTAKrheIukHiU6p0QHn3xqz1BBDDOmubW1WdAjSrvtkEWsJQ08DyxIn3RdMuNDzAUo6HN6qw==
   dependencies:
     ember-cli-babel "^7.1.0"
 
@@ -5173,17 +5173,17 @@ ember-notify-property-change-polyfill@^0.0.1:
     ember-cli-babel "^6.6.0"
     ember-cli-version-checker "^2.1.0"
 
-ember-popper@^0.10.1:
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/ember-popper/-/ember-popper-0.10.2.tgz#570bbe473d10db024e7a174c05086aebd9bfd0cf"
-  integrity sha512-FzQWhSdQGTy4KIs6euXLnfbB+hfLv40qSTKTdRhZ3smUw30+Csp7eHUqLMOVM+jICCDwIlp5ZHbRLgKR1kLBbg==
+ember-popper@^0.10.3:
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/ember-popper/-/ember-popper-0.10.3.tgz#222ecce35a6777364bec7ec293437f27a28713a1"
+  integrity sha512-mSSUHIVGFYr8yYDjPhnIlma/vxMptm7a3pySZWK29YSEDDgsEviL7sAhOiNxvV8/uaRmCbJj/2M68dYYGed1Dw==
   dependencies:
     babel6-plugin-strip-class-callcheck "^6.0.0"
     ember-angle-bracket-invocation-polyfill "^2.0.2"
     ember-cli-babel "^7.1.2"
     ember-cli-htmlbars "^3.0.0"
     ember-cli-node-assets "^0.2.2"
-    ember-maybe-in-element "^0.2.0"
+    ember-maybe-in-element "^0.4.0"
     ember-named-arguments-polyfill "^1.0.0"
     ember-raf-scheduler "^0.1.0"
     ember-ref-modifier "^0.1.2"
