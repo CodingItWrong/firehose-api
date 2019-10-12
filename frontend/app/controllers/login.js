@@ -20,7 +20,8 @@ export default class LoginController extends Controller {
       await this.session.authenticate('authenticator:oauth', email, password)
       await this.transitionToRoute('index')
     } catch (e) {
-      this.set('errorMessage', e.error || e)
+      const message = e ? e.error || e : 'unknown error'
+      this.set('errorMessage', message)
     }
   }
 }
