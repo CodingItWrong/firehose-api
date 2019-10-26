@@ -1,13 +1,12 @@
-FROM ruby:2.6.3
+FROM ruby:2.6.5
 
 # install OS dependencies
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get update && \
     apt-get install -y nodejs
 RUN npm install -g yarn ember-cli
 RUN gem install bundler
 RUN gem install foreman
-RUN gem install nokogiri -v 1.10.1
 
 # install app dependencies
 RUN mkdir /myapp
