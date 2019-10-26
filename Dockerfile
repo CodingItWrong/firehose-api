@@ -7,7 +7,6 @@ RUN apt-get update && \
 RUN npm install -g yarn ember-cli
 RUN gem install bundler
 RUN gem install foreman
-RUN gem install nokogiri -v 1.10.1
 
 # install app dependencies
 RUN mkdir /myapp
