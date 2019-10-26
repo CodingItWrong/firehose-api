@@ -21,9 +21,8 @@ export default class IndexDataRoute extends Route {
 
     if (this.session.get('isAuthenticated')) {
       options.filter = { read: false }
-      return this.store.query('bookmark', options)
-    } else {
-      return this.store.findAll('bookmark', options)
     }
+
+    return this.store.query('bookmark', options)
   }
 }
