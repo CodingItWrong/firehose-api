@@ -966,17 +966,17 @@
     ember-cli-babel "^6.12.0"
     ember-cli-htmlbars-inline-precompile "^1.0.0"
 
-"@ember/test-helpers@^1.5.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-1.6.0.tgz#e928c0190a19c312bf40dc8a6f4159735af48a7f"
-  integrity sha512-t6K15t4p/iW1D7rUAfGZZwIWqLV8HoVm9Dxn44L9PwMFjw3GAJf4bHdwCbdr3jpsgjG14HH+5XzF9IBIvmOZ4A==
+"@ember/test-helpers@^1.6.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-1.7.1.tgz#cc22a954b3b46856518f034bd492a74e0482389f"
+  integrity sha512-+ioumnanSRJzZ0ZH30FIkB0r41UhVyuWQ9R9Yp1phDWJQDLumxg+25WDr40relwcH6z0Cn6LIEzeTVujO/0Rww==
   dependencies:
     broccoli-debug "^0.6.5"
     broccoli-funnel "^2.0.2"
     ember-assign-polyfill "^2.6.0"
     ember-cli-babel "^7.7.3"
     ember-cli-htmlbars-inline-precompile "^2.1.0"
-    ember-test-waiters "^1.0.0"
+    ember-test-waiters "^1.1.1"
 
 "@embroider/core@0.4.3", "@embroider/core@^0.4.3":
   version "0.4.3"
@@ -5145,16 +5145,16 @@ ember-mocha@^0.13.0:
     ember-cli-test-loader "^2.2.0"
     mocha "^2.5.3"
 
-ember-mocha@^0.16.0:
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/ember-mocha/-/ember-mocha-0.16.0.tgz#0a8499f59e626a5af5ca47e3f1d19c2bd5cc7393"
-  integrity sha512-iYWrCOHdPQNwFsD1UNKa6RnA629wgN4zql9730hfiV0Ib4I4VwDueldGwWjXEF+3jGM/R993z6DPvYQKbNfTdg==
+ember-mocha@^0.16.1:
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/ember-mocha/-/ember-mocha-0.16.1.tgz#76fc8968e4c71d1992908047bad08b873fbbd578"
+  integrity sha512-TFxgn85ZjG5Oeez+4Muv853mFIDXCRZ0MHrVWvM9JwrnMPrQ+VbuvYdqu3AJx9TxyqDtq4Hn61g3E2q9oOH2cA==
   dependencies:
-    "@ember/test-helpers" "^1.5.0"
+    "@ember/test-helpers" "^1.6.1"
     broccoli-funnel "^2.0.2"
     broccoli-merge-trees "^3.0.2"
     common-tags "^1.8.0"
-    ember-cli-babel "^7.7.3"
+    ember-cli-babel "^7.11.1"
     ember-cli-test-loader "^2.2.0"
     mocha "^2.5.3"
 
@@ -5313,7 +5313,7 @@ ember-test-selectors@^2.1.0:
     ember-cli-babel "^6.8.2"
     ember-cli-version-checker "^3.1.2"
 
-ember-test-waiters@^1.0.0:
+ember-test-waiters@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ember-test-waiters/-/ember-test-waiters-1.1.1.tgz#7df6e7a47e0fdca814aa351f7f7f9a006e15fdcd"
   integrity sha512-ra71ZWTGBGLeDPa308aeAg9+/nYxv2fk4OEzmXdhvbSa5Dtbei94sr5pbLXx2IiK3Re2gDAvDzxg9PVhLy9fig==
