@@ -3,8 +3,9 @@ import { action, computed } from '@ember/object'
 import { inject as service } from '@ember/service'
 import { tagName } from '@ember-decorators/component'
 
+export default
 @tagName('')
-export default class LinkRow extends Component {
+class LinkRow extends Component {
   @service session
 
   editing = false
