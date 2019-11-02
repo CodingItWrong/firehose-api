@@ -14,7 +14,9 @@ export default class ReadLinksController extends Controller {
 
   reset() {
     this.set('pageNumber', 1)
-    this.set('editedSearchText', '')
+
+    // causes edited search text to flicker
+    // this.set('searchText', '')
   }
 
   scrollToTop() {
