@@ -55,7 +55,7 @@
     "ember-resolver": "^5.3.0",
     "ember-simple-auth": "^2.1.0",
     "ember-sinon": "^4.1.1",
-    "ember-source": "~3.13.0",
+    "ember-source": "~3.14.1",
     "ember-test-selectors": "^2.1.0",
     "eslint-config-codingitwrong": "^0.1.4",
     "eslint-config-prettier": "^6.5.0",
