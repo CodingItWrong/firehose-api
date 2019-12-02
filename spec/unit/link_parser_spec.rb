@@ -7,7 +7,7 @@ RSpec.describe LinkParser, :vcr do
 
   describe '#canonical' do
     context 'when there are no redirects' do
-      let(:url) { 'http://codingitwrong.com' }
+      let(:url) { 'http://codingitwrong.com/' }
       it 'returns the passed-in url' do
         expect(link.canonical).to eq(url)
       end
