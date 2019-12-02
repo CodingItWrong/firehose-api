@@ -9,7 +9,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 # require "action_cable/engine"
-require "sprockets/railtie"
+# require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -28,7 +28,7 @@ module Firehose
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    config.assets.enabled = false
+    # config.assets.enabled = false
 
     config.active_job.queue_adapter = :sidekiq
 
