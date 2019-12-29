@@ -68,6 +68,7 @@
     "just-extend": "^4.0.2",
     "loader.js": "^4.7.0",
     "prettier": "1.19.1",
+    "serialize-javascript": "^2.1.1",
     "sinon-chai": "^3.3.0"
   },
   "engines": {
