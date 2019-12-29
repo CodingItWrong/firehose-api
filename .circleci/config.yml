@@ -32,7 +32,7 @@ jobs:
           command: |
             gem update bundler
             bundle install --jobs=4 --retry=3 --path vendor/bundle
-            sudo npm install -g yarn ember-cli
+            sudo npm install -g ember-cli
             sudo chmod +x /usr/local/bin/yarn
             sudo yarn install
             cd frontend
