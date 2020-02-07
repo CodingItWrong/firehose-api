@@ -1,6 +1,6 @@
 <div>
   <span class="link-title p-name" data-test-link-title>
-    <a href={{ link.url }} target="_blank" rel="noopener">{{ link.title }}</a>
+    <a href={{ link.url }} target="_blank" rel="noopener noreferrer">{{ link.title }}</a>
   </span>
   {{#if session.isAuthenticated}}
     {{#if link.public}}
