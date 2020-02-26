@@ -4945,10 +4945,10 @@ ember-auto-import@^1.2.19, ember-auto-import@^1.4.1:
     walk-sync "^0.3.3"
     webpack "~4.28"
 
-ember-bootstrap@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/ember-bootstrap/-/ember-bootstrap-3.1.0.tgz#6152b029640f7eb9543049e0be6d1ba77e841a82"
-  integrity sha512-v9mUpdCdcFMJiKq0YdmI9IKyLmgM08ttQF5QXEFqHs6Dk4maEyZurhr/0zsWbrikzLft1d+Cky9EP0t/8X77Hg==
+ember-bootstrap@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/ember-bootstrap/-/ember-bootstrap-3.1.1.tgz#b069395b06f66790d835d278877d27fe9c00b5dd"
+  integrity sha512-tCLmwq9yKy51+sVeiW8dTiSkmHU936+v9JM9t7taCLjyVATcKb5wZLpK3Y35OYjkkclMDJp1jcaeuUt3S+qipA==
   dependencies:
     broccoli-debug "^0.6.3"
     broccoli-funnel "^2.0.0"
@@ -4956,9 +4956,9 @@ ember-bootstrap@3.1.0:
     broccoli-stew "^2.0.0"
     chalk "^2.1.0"
     ember-angle-bracket-invocation-polyfill "^2.0.1"
-    ember-cli-babel "^7.7.3"
+    ember-cli-babel "^7.11.1"
     ember-cli-build-config-editor "0.5.0"
-    ember-cli-htmlbars "^3.0.1"
+    ember-cli-htmlbars "^4.0.5"
     ember-cli-version-checker "^3.0.0"
     ember-concurrency "^1.0.0"
     ember-decorators "^6.1.0"
@@ -5157,7 +5157,7 @@ ember-cli-htmlbars-inline-precompile@^2.1.0:
     heimdalljs-logger "^0.1.9"
     silent-error "^1.1.0"
 
-ember-cli-htmlbars@^3.0.0, ember-cli-htmlbars@^3.0.1:
+ember-cli-htmlbars@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-3.1.0.tgz#87806c2a0bca2ab52d4fb8af8e2215c1ca718a99"
   integrity sha512-cgvRJM73IT0aePUG7oQ/afB7vSRBV3N0wu9BrWhHX2zkR7A7cUBI7KC9VPk6tbctCXoM7BRGsCC4aIjF7yrfXA==
@@ -5167,10 +5167,10 @@ ember-cli-htmlbars@^3.0.0, ember-cli-htmlbars@^3.0.1:
     json-stable-stringify "^1.0.1"
     strip-bom "^3.0.0"
 
-ember-cli-htmlbars@^4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-4.2.2.tgz#3db341a0c866b6e16919db071be9592b9702f014"
-  integrity sha512-xhVYhdbS2H+XNHzSYfOZKRFIpZ8zOrNGMuAc7vJd6oUE8Aad2r5xjncIVQDioPp8sQfUpXt0uvkUZaOll/thXw==
+ember-cli-htmlbars@^4.0.5, ember-cli-htmlbars@^4.2.2:
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-4.2.3.tgz#ca1a4ce3806594f0a69a1ada3eed749a125cc2bf"
+  integrity sha512-AA5N5a7T+9Bc3m+5X076WFYIN4EQL0o/g8acPBZnEolFJhc3TmnSlWay4JwEuvszA1MLFKmZET/VD9CfRw8+EQ==
   dependencies:
     "@ember/edition-utils" "^1.2.0"
     babel-plugin-htmlbars-inline-precompile "^3.0.1"
@@ -10821,14 +10821,7 @@ resolve-url@^0.2.1:
   resolved "https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
   integrity sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
 
-resolve@^1.1.6, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.1, resolve@^1.12.0, resolve@^1.14.0, resolve@^1.3.2, resolve@^1.3.3, resolve@^1.4.0, resolve@^1.5.0, resolve@^1.7.1, resolve@^1.8.1:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.14.1.tgz#9e018c540fcf0c427d678b9931cbf45e984bcaff"
-  integrity sha512-fn5Wobh4cxbLzuHaE+nphztHy43/b++4M6SsGFC2gB8uYwf0C8LcarfCz1un7UTW8OFQg9iNjZ4xpcFVGebDPg==
-  dependencies:
-    path-parse "^1.0.6"
-
-resolve@^1.14.2:
+resolve@^1.1.6, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.1, resolve@^1.12.0, resolve@^1.14.0, resolve@^1.14.2, resolve@^1.3.2, resolve@^1.3.3, resolve@^1.4.0, resolve@^1.5.0, resolve@^1.7.1, resolve@^1.8.1:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.15.0.tgz#1b7ca96073ebb52e741ffd799f6b39ea462c67f5"
   integrity sha512-+hTmAldEGE80U2wJJDC1lebb5jWqvTYAfm3YZ1ckk1gBr0MnCqUKlwK1e+anaFljIl+F5tR5IoZcm4ZDA1zMQw==
