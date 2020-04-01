@@ -4748,18 +4748,19 @@ ember-cli-build-notifications@^0.4.0:
     ember-cli-babel "^6.12.0"
     node-notifier "^4.1.1"
 
-ember-cli-bundle-analyzer@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-bundle-analyzer/-/ember-cli-bundle-analyzer-0.1.0.tgz#2cdefd596b0e7b2dccf5d1039ab4636d00a23373"
-  integrity sha512-YGbrbAbCdb9lI1RfK9YRQ9Ehok/XNWa6XqGrdUrbF4EIn/LIRrv/gmRysOvnxk4DoNRo0n8LnMF2FZHAvhphHA==
+ember-cli-bundle-analyzer@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-bundle-analyzer/-/ember-cli-bundle-analyzer-0.2.0.tgz#34eec727d820fe3373075eae6c3327112ce14e0a"
+  integrity sha512-1zot4DcUFk0xHY7Y2C7EVxFqKq1oz2NzQ/pgEF96kNRq3HiwbYNUCeNzbL943lhAsEYyEvVF1BoDRMPs4BnycQ==
   dependencies:
     broccoli-concat-analyser "^4.3.4"
     debug "^3.1.0"
-    ember-cli-babel "^7.7.3"
-    ember-cli-version-checker "^2.1.2"
+    ember-cli-babel "^7.18.0"
+    ember-cli-htmlbars "^4.2.3"
+    ember-cli-version-checker "^5.0.1"
     hash-files "^1.1.1"
     intercept-stdout "^0.1.2"
-    node-html-light "^1.0.0"
+    node-html-light "^1.1.0"
     sane "^3.0.0"
     tmp "^0.0.33"
     touch "^3.1.0"
@@ -4847,7 +4848,7 @@ ember-cli-htmlbars@^3.0.0:
     json-stable-stringify "^1.0.1"
     strip-bom "^3.0.0"
 
-ember-cli-htmlbars@^4.2.0, ember-cli-htmlbars@^4.2.2:
+ember-cli-htmlbars@^4.2.0, ember-cli-htmlbars@^4.2.2, ember-cli-htmlbars@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-4.2.3.tgz#ca1a4ce3806594f0a69a1ada3eed749a125cc2bf"
   integrity sha512-AA5N5a7T+9Bc3m+5X076WFYIN4EQL0o/g8acPBZnEolFJhc3TmnSlWay4JwEuvszA1MLFKmZET/VD9CfRw8+EQ==
@@ -7215,7 +7216,7 @@ html-encoding-sniffer@^1.0.2:
   dependencies:
     whatwg-encoding "^1.0.1"
 
-htmlparser2@^3.10.0:
+htmlparser2@^3.10.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.10.1.tgz#bd679dc3f59897b6a34bb10749c855bb53a9392f"
   integrity sha512-IgieNijUMbkDovyoKObU1DUhm1iwNYE/fuifEoEHfd1oZKZDaONBSkal7Y01shxsM49R4XaMdGez3WnF9UfiCQ==
@@ -9063,12 +9064,12 @@ node-fetch@^2.6.0:
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
   integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
 
-node-html-light@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/node-html-light/-/node-html-light-1.1.0.tgz#667f8cb4fac96cf13a7951af64e7dabbd7d56337"
-  integrity sha512-FF1szX5zPxDgL3MRC/VkfhbUdvgAV8d6HnfzdbrqvSp4GKhPUqdxbySzCeXLGgPttswZzG9j4/GFzSGuKhTI0Q==
+node-html-light@^1.1.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/node-html-light/-/node-html-light-1.2.0.tgz#5d663c2f7d7fb585b1b5b4460b058fc1b76830fd"
+  integrity sha512-4FsvVJrkDEAMy4mBwXy8Ixl4+w7C3KCSczZrkL5zo192KOfOU1WBsVdueQKd/MgFenskfJQwBRltHeKhYpkU1Q==
   dependencies:
-    htmlparser2 "^3.10.0"
+    htmlparser2 "^3.10.1"
 
 node-int64@^0.4.0:
   version "0.4.0"
