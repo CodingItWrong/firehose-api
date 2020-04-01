@@ -59,7 +59,7 @@
     "ember-source": "^3.14.2",
     "ember-test-selectors": "^4.0.0",
     "eslint-config-codingitwrong": "^0.1.4",
-    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-ember": "^7.8.1",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-node": "^11.0.0",
