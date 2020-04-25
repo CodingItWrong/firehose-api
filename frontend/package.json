@@ -63,7 +63,7 @@
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-ember": "^7.8.1",
     "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "2.6.0",
     "growl": "^1.10.5",
     "just-extend": "^4.0.2",
