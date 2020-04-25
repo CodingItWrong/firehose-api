@@ -6,22 +6,22 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL,
 })
 
-Router.map(function() {
-  this.route('index', { path: '/' }, function() {
+Router.map(function () {
+  this.route('index', { path: '/' }, function () {
     this.route('data', { path: '/' })
   })
   this.route('login')
 
-  this.route('links', function() {
-    this.route('read', function() {
+  this.route('links', function () {
+    this.route('read', function () {
       this.route('data', { path: '/' })
     })
   })
-  this.route('tags', function() {
-    this.route('index', { path: '/' }, function() {
+  this.route('tags', function () {
+    this.route('index', { path: '/' }, function () {
       this.route('data', { path: '/' })
     })
-    this.route('show', { path: '/:tag_name' }, function() {
+    this.route('show', { path: '/:tag_name' }, function () {
       this.route('data', { path: '/' })
     })
   })
