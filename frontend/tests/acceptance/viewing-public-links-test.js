@@ -4,11 +4,11 @@ import { visit, find } from '@ember/test-helpers'
 import { setupApplicationTest } from 'ember-mocha'
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage'
 
-describe('viewing public links', function() {
+describe('viewing public links', function () {
   let hooks = setupApplicationTest()
   setupMirage(hooks)
 
-  it('displays all public links', async function() {
+  it('displays all public links', async function () {
     let unreadLink = server.create('bookmark', {
       title: 'My Unread Link',
       read: false,
