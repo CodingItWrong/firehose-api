@@ -69,7 +69,7 @@
     "just-extend": "^4.0.2",
     "loader.js": "^4.7.0",
     "minimist": "^1.2.5",
-    "prettier": "2.0.2",
+    "prettier": "2.0.5",
     "serialize-javascript": "^3.0.0",
     "sinon-chai": "^3.5.0"
   },
