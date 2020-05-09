@@ -1,4 +1,4 @@
-FROM ruby:2.7.0
+FROM ruby:2.7.1
 
 # install OS dependencies
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
