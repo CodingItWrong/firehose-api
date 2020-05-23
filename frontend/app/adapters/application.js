@@ -1,6 +1,7 @@
-import DS from 'ember-data'
+import JSONAPIAdapter from '@ember-data/adapter/json-api'
 import { inject as service } from '@ember/service'
 import { computed } from '@ember/object'
+// eslint-disable-next-line ember/no-mixins
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin'
 import ENV from '../config/environment'
 
@@ -9,17 +10,20 @@ let options = {
 
   namespace: 'api',
 
-  headers: computed('session.data.authenticated.access_token', function () {
-    const headers = {}
-    if (this.session.isAuthenticated) {
-      headers.Authorization = `Bearer ${this.session.data.authenticated.access_token}`
-    }
-    return headers
-  }),
+  headers: computed(
+    'session.{isAuthenticated,data.authenticated.access_token}',
+    function () {
+      const headers = {}
+      if (this.session.isAuthenticated) {
+        headers.Authorization = `Bearer ${this.session.data.authenticated.access_token}`
+      }
+      return headers
+    },
+  ),
 }
 
 if (ENV.apiHost) {
   options.host = ENV.apiHost
 }
 
-export default DS.JSONAPIAdapter.extend(DataAdapterMixin, options)
+export default JSONAPIAdapter.extend(DataAdapterMixin, options)
