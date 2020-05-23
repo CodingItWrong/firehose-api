@@ -2,6 +2,7 @@ import Controller from '@ember/controller'
 import { inject as service } from '@ember/service'
 import { action } from '@ember/object'
 import { sort } from '@ember/object/computed'
+import { tracked } from '@glimmer/tracking'
 
 export default class IndexDataController extends Controller {
   @service session
@@ -9,7 +10,7 @@ export default class IndexDataController extends Controller {
   loggedInLinkSorting = Object.freeze(['moved_to_list_at:desc'])
   loggedOutLinkSorting = Object.freeze(['published_at:desc'])
 
-  pageNumber = 1
+  @tracked pageNumber = 1
 
   @sort('model', 'loggedInLinkSorting')
   loggedInSortedLinks
