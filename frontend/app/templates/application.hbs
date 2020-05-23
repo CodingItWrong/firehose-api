@@ -6,12 +6,12 @@
 >
   <div class="container">
     <LinkTo @route="index" @classNames="navbar-brand">
-      {{siteName}}
+      {{this.siteName}}
     </LinkTo>
     <Navbar.toggle />
     <Navbar.content>
       <Navbar.nav class="ml-auto" as |Nav|>
-        {{#if session.isAuthenticated}}
+        {{#if this.session.isAuthenticated}}
           <Nav.item>
             <LinkTo @route="index" data-test-unread-link @classNames="nav-link">Unread</LinkTo>
           </Nav.item>
@@ -26,7 +26,7 @@
           </Nav.item>
         {{else}}
           <Nav.item>
-            <a href={{authorUrl}} rel="author" class="nav-link">Home</a>
+            <a href={{this.authorUrl}} rel="author" class="nav-link">Home</a>
           </Nav.item>
           <Nav.item>
             <LinkTo @route="index" @classNames="nav-link">Links</LinkTo>

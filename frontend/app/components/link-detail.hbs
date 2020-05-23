@@ -1,29 +1,29 @@
 <div>
   <span class="link-title p-name" data-test-link-title>
-    <a href={{ link.url }} target="_blank" rel="noopener noreferrer">{{ link.title }}</a>
+    <a href={{ this.link.url }} target="_blank" rel="noopener noreferrer">{{ this.link.title }}</a>
   </span>
-  {{#if session.isAuthenticated}}
-    {{#if link.public}}
+  {{#if this.session.isAuthenticated}}
+    {{#if this.link.public}}
       <span>Public</span>
     {{/if}}
   {{/if}}
 </div>
-{{#if link.comment}}
-  <p class="e-content">{{ link.comment }}</p>
+{{#if this.link.comment}}
+  <p class="e-content">{{ this.link.comment }}</p>
 {{/if}}
 <div class="float-left text-muted">
-  {{domain link.url}}
-  {{#if link.tags}}
+  {{domain this.link.url}}
+  {{#if this.link.tags}}
     |
-    {{#each link.tags as |tag|}}
+    {{#each this.link.tags as |tag|}}
       <LinkTo @route="tags.show" @model={{tag.name}} @classNames="p-category">{{ tag.name }}</LinkTo>
     {{/each}}
   {{/if}}
-  {{#if link.source}}
-    | {{format-source link.source}}
+  {{#if this.link.source}}
+    | {{format-source this.link.source}}
   {{/if}}
 </div>
-{{#if session.isAuthenticated}}
+{{#if this.session.isAuthenticated}}
   <div class="float-right">
     <BsDropdown @tagName="span" as |Dd|>
       <Dd.button
@@ -31,7 +31,7 @@
         class="d-block d-md-none"
       />
       <Dd.menu @align="right" as |Menu|>
-        {{#if link.read}}
+        {{#if this.link.read}}
           <Menu.item>
             <a
               class="dropdown-item"
@@ -73,7 +73,7 @@
       </Dd.menu>
     </BsDropdown>
     <div class="d-none d-md-block">
-      {{#if link.read}}
+      {{#if this.link.read}}
         <BsButton
           @data-test-button-mark-unread
           @type="light"
