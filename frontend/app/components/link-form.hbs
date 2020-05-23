@@ -1,12 +1,12 @@
 <BsForm
   @formLayout="vertical"
-  @model={{buffer}}
+  @model={{this.buffer}}
   @onSubmit={{fn this.handleSave}} as |Form|
 >
   <div class="form-group">
     <label>URL</label>
     <p class="form-control-static">
-      <a href={{ link.url }}>{{ link.url }}</a>
+      <a href={{ this.link.url }}>{{ this.link.url }}</a>
     </p>
   </div>
   <Form.element

@@ -11,12 +11,12 @@
 </div>
 
 <ul class="list-group" data-test-links>
-  {{#if session.isAuthenticated}}
-    {{#each loggedInSortedLinks as |link|}}
+  {{#if this.session.isAuthenticated}}
+    {{#each this.loggedInSortedLinks as |link|}}
       <LinkRow @link={{link}} @showIfRead={{false}} />
     {{/each}}
   {{else}}
-    {{#each loggedOutSortedLinks as |link|}}
+    {{#each this.loggedOutSortedLinks as |link|}}
       <LinkRow @link={{link}} />
     {{/each}}
   {{/if}}

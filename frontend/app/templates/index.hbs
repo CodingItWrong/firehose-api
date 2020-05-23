@@ -1,4 +1,4 @@
-{{#if session.isAuthenticated}}
+{{#if this.session.isAuthenticated}}
   <h1>Unread Links</h1>
 
   <form {{on "submit" this.handleAdd}}>
@@ -7,7 +7,7 @@
         <div class="form-group">
           <Input
             data-test-url
-            @value={{url}}
+            @value={{this.url}}
             @id="url"
             @type="url"
             @placeholder="URL to Add"

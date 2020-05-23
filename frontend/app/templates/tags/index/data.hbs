@@ -1,5 +1,5 @@
 <div data-test-tags>
-  {{#each sortedTags as |tag|}}
+  {{#each this.sortedTags as |tag|}}
     <LinkTo
       @route="tags.show"
       @model={{tag.name}}
