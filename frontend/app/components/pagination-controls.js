@@ -1,19 +1,15 @@
-import Component from '@ember/component'
-import { computed } from '@ember/object'
+import Component from '@glimmer/component'
 
 export default class PaginationControls extends Component {
-  @computed('totalPages')
   get anyPages() {
-    return this.totalPages > 0
+    return this.args.totalPages > 0
   }
 
-  @computed('pageNumber')
   get isFirstPage() {
-    return this.pageNumber === 1
+    return this.args.pageNumber === 1
   }
 
-  @computed('pageNumber', 'totalPages')
   get isLastPage() {
-    return this.pageNumber >= this.totalPages
+    return this.args.pageNumber >= this.args.totalPages
   }
 }
