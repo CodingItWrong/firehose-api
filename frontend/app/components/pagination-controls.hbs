@@ -4,20 +4,20 @@
       <BsButton
         @type="light"
         @onClick={{@prevPage}}
-        @disabled={{this.isFirstPage}}
+        disabled={{this.isFirstPage}}
       >
         Previous
       </BsButton>
       <BsButton
         @type="light"
-        @disabled={{true}}
+        disabled={{true}}
       >
         Page {{@pageNumber}} of {{@totalPages}}
       </BsButton>
       <BsButton
         @type="light"
         @onClick={{@nextPage}}
-        @disabled={{this.isLastPage}}
+        disabled={{this.isLastPage}}
       >
         Next
       </BsButton>
