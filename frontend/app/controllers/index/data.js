@@ -1,6 +1,6 @@
 import Controller from '@ember/controller'
 import { inject as service } from '@ember/service'
-import { action, computed } from '@ember/object'
+import { action } from '@ember/object'
 import { sort } from '@ember/object/computed'
 
 export default class IndexDataController extends Controller {
@@ -17,7 +17,6 @@ export default class IndexDataController extends Controller {
   @sort('model', 'loggedOutLinkSorting')
   loggedOutSortedLinks
 
-  @computed('model')
   get totalPages() {
     return this.model.meta['page-count']
   }
