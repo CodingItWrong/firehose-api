@@ -1,5 +1,4 @@
 import Route from '@ember/routing/route'
-import { action } from '@ember/object'
 
 export default class ReadLinksDataRoute extends Route {
   queryParams = {
@@ -29,11 +28,5 @@ export default class ReadLinksDataRoute extends Route {
   setupController(controller) {
     super.setupController(...arguments)
     controller.setSearchTextFromQP()
-  }
-
-  @action
-  willTransition() {
-    this.controller.reset()
-    return true
   }
 }
