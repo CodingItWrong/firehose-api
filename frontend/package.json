@@ -61,7 +61,7 @@
     "ember-source": "^3.18.0",
     "ember-template-lint": "^2.8.0",
     "ember-test-selectors": "^4.1.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.3.0",
     "eslint-config-codingitwrong": "^0.1.4",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-ember": "^8.7.0",
