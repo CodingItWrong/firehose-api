@@ -65,7 +65,7 @@
     "eslint-config-codingitwrong": "^0.1.4",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-ember": "^8.7.0",
-    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "2.6.0",
     "growl": "^1.10.5",
