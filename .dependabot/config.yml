@@ -1,0 +1,15 @@
+version: 1
+update_configs:
+  - package_manager: "javascript"
+    directory: "/frontend"
+    update_schedule: "monthly"
+    ignored_updates:
+      - match:
+          dependency_name: "ember-cli"
+          version_requirement: "*"
+      - match:
+          dependency_name: "ember-data"
+          version_requirement: "*"
+      - match:
+          dependency_name: "ember-source"
+          version_requirement: "*"
