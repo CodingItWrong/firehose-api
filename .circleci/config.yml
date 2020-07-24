@@ -51,11 +51,11 @@ jobs:
 
       # lint
       - run:
-        name: lint
-        command: |
-          cd frontend
-          yarn lint:js
-          yarn lint:hbs
+          name: lint
+          command: |
+            cd frontend
+            yarn lint:js
+            yarn lint:hbs
 
       # run tests!
       - run:
