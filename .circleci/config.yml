@@ -49,6 +49,14 @@ jobs:
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
 
+      # lint
+      - run:
+        name: lint
+        command: |
+          cd frontend
+          yarn lint:js
+          yarn lint:hbs
+
       # run tests!
       - run:
           name: run tests
