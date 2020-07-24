@@ -1,5 +1,8 @@
-'use strict';
+'use strict'
 
 module.exports = {
-  extends: 'octane'
-};
+  extends: ['octane', 'stylistic'],
+  rules: {
+    'eol-last': 'always',
+  },
+}
