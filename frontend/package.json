@@ -83,5 +83,10 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint:hbs && yarn lint:js"
+    }
   }
 }
