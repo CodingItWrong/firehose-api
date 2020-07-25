@@ -69,6 +69,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "2.6.0",
     "growl": "^1.10.5",
+    "husky": "^4.2.5",
     "just-extend": "^4.0.2",
     "loader.js": "^4.7.0",
     "minimist": "^1.2.5",
