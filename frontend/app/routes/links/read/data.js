@@ -1,4 +1,4 @@
-import Route from '@ember/routing/route'
+import Route from '@ember/routing/route';
 
 export default class ReadLinksDataRoute extends Route {
   queryParams = {
@@ -10,7 +10,7 @@ export default class ReadLinksDataRoute extends Route {
       as: 's',
       refreshModel: true,
     },
-  }
+  };
 
   model({ pageNumber, searchText }) {
     return this.store.query('bookmark', {
@@ -22,11 +22,11 @@ export default class ReadLinksDataRoute extends Route {
       page: {
         number: pageNumber,
       },
-    })
+    });
   }
 
   setupController(controller) {
-    super.setupController(...arguments)
-    controller.setSearchTextFromQP()
+    super.setupController(...arguments);
+    controller.setSearchTextFromQP();
   }
 }
