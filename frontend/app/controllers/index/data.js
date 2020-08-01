@@ -1,40 +1,40 @@
-import Controller from '@ember/controller'
-import { inject as service } from '@ember/service'
-import { action } from '@ember/object'
-import { sort } from '@ember/object/computed'
-import { tracked } from '@glimmer/tracking'
+import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
+import { sort } from '@ember/object/computed';
+import { tracked } from '@glimmer/tracking';
 
 export default class IndexDataController extends Controller {
-  @service session
+  @service session;
 
-  loggedInLinkSorting = Object.freeze(['moved_to_list_at:desc'])
-  loggedOutLinkSorting = Object.freeze(['published_at:desc'])
+  loggedInLinkSorting = Object.freeze(['moved_to_list_at:desc']);
+  loggedOutLinkSorting = Object.freeze(['published_at:desc']);
 
-  @tracked pageNumber = 1
+  @tracked pageNumber = 1;
 
   @sort('model', 'loggedInLinkSorting')
-  loggedInSortedLinks
+  loggedInSortedLinks;
 
   @sort('model', 'loggedOutLinkSorting')
-  loggedOutSortedLinks
+  loggedOutSortedLinks;
 
   get totalPages() {
-    return this.model.meta['page-count']
+    return this.model.meta['page-count'];
   }
 
   scrollToTop() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
 
   @action
   nextPage() {
-    this.incrementProperty('pageNumber')
-    this.scrollToTop()
+    this.incrementProperty('pageNumber');
+    this.scrollToTop();
   }
 
   @action
   prevPage() {
-    this.decrementProperty('pageNumber')
-    this.scrollToTop()
+    this.decrementProperty('pageNumber');
+    this.scrollToTop();
   }
 }
