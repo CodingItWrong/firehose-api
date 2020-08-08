@@ -118,7 +118,7 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
-    jsonapi-resources (0.9.10)
+    jsonapi-resources (0.10.2)
       activerecord (>= 4.1)
       concurrent-ruby
       railties (>= 4.1)
