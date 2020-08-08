@@ -28,7 +28,7 @@
     "@glimmer/tracking": "^1.0.1",
     "acorn": "^7.3.1",
     "babel-eslint": "^10.1.0",
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.5.2",
     "broccoli-asset-rev": "^3.0.0",
     "chai-dom": "^1.8.2",
     "clean-css": "^4.2.3",
