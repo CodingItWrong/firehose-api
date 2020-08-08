@@ -59,7 +59,7 @@
     "ember-simple-auth": "^3.0.0",
     "ember-sinon": "^5.0.0",
     "ember-source": "^3.20.2",
-    "ember-template-lint": "^2.9.1",
+    "ember-template-lint": "^2.10.0",
     "ember-test-selectors": "^4.1.0",
     "eslint": "^7.6.0",
     "eslint-config-codingitwrong": "^0.1.4",
