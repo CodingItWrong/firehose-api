@@ -60,7 +60,6 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
     bcrypt (3.1.13)
-    bindex (0.8.1)
     buftok (0.2.0)
     builder (3.2.4)
     bullet (6.1.0)
@@ -275,11 +274,6 @@ GEM
     vcr (6.0.0)
     warden (1.2.8)
       rack (>= 2.0.6)
-    web-console (4.0.3)
-      actionview (>= 6.0.0)
-      activemodel (>= 6.0.0)
-      bindex (>= 0.4.0)
-      railties (>= 6.0.0)
     webmock (3.8.3)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -315,7 +309,6 @@ DEPENDENCIES
   sidekiq
   twitter
   vcr
-  web-console (>= 3.3.0)
   webmock
 
 RUBY VERSION
