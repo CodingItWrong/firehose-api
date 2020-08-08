@@ -15,7 +15,6 @@ gem 'doorkeeper'
 gem 'rack-cors'
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.3'
   gem 'bullet'
   gem 'rubocop'
