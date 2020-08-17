@@ -10,52 +10,52 @@
     </p>
   </div>
   <Form.element
-    @data-test-title
     @controlType="text"
     @label="Title"
     @property="title"
+    data-test-title
   />
   <Form.element
-    @data-test-source
     @controlType="text"
     @label="Source"
     @property="source"
     @autocapitalize="off"
     @autocorrect="off"
+    data-test-source
   />
   <Form.element
-    @data-test-tags
     @controlType="text"
     @label="Tags"
     @property="tag_list"
     @autocapitalize="off"
     @autocorrect="off"
+    data-test-tags
   />
   <Form.element
-    @data-test-public
     @controlType="checkbox"
     @label="Public"
     @property="public"
+    data-test-public
   />
   <Form.element
-    @data-test-comment
     @controlType="textarea"
     @label="Comment"
     @property="comment"
+    data-test-comment
   />
   <div class="float-right">
     <BsButton
       type="submit"
-      @data-test-save-button
+      data-test-save-button
       @type="primary"
     >
       Save
     </BsButton>
     <BsButton
       type="button"
-      @data-test-cancel-button
       @type="light"
       @onClick={{fn this.handleCancel}}
+      data-test-cancel-button
     >
       Cancel
     </BsButton>
