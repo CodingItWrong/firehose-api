@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 module.exports = {
   globals: {
@@ -52,4 +52,4 @@ module.exports = {
       },
     },
   ],
-}
+};
