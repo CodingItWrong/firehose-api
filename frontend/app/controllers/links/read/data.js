@@ -1,7 +1,5 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { sort } from '@ember/object/computed';
-import { observes } from '@ember-decorators/object';
 
 export default class ReadLinksController extends Controller {
   pageNumber = 1;
