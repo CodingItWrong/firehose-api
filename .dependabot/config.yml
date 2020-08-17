@@ -6,7 +6,6 @@ update_configs:
     ignored_updates:
       - match:
           dependency_name: "jsonapi-resources"
-          version_requirement: "*"
   - package_manager: "javascript"
     directory: "/frontend"
     update_schedule: "monthly"
