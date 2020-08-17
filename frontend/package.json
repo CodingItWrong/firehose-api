@@ -32,7 +32,7 @@
     "broccoli-asset-rev": "^3.0.0",
     "chai-dom": "^1.8.2",
     "clean-css": "^4.2.3",
-    "ember-bootstrap": "3.1.4",
+    "ember-bootstrap": "4.0.0",
     "ember-buffered-proxy": "^1.0.1",
     "ember-cli": "~3.20.0",
     "ember-cli-app-version": "^3.2.0",
