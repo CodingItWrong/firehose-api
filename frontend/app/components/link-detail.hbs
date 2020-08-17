@@ -75,32 +75,32 @@
     <div class="d-none d-md-block">
       {{#if this.link.read}}
         <BsButton
-          @data-test-button-mark-unread
           @type="light"
           @onClick={{fn this.markUnread}}
+          data-test-button-mark-unread
         >
           Mark Unread
         </BsButton>
       {{else}}
         <BsButton
-          @data-test-button-mark-read
           @type="light"
           @onClick={{fn this.markRead}}
+          data-test-button-mark-read
         >
           Mark Read
         </BsButton>
       {{/if}}
       <BsButton
-        @data-test-button-edit
         @type="light"
         @onClick={{fn this.edit}}
+        data-test-button-edit
       >
         Edit
       </BsButton>
       <BsButton
-        @data-test-button-delete
         @type="danger"
         @onClick={{fn this.delete}}
+        data-test-button-delete
       >
         Delete
       </BsButton>
