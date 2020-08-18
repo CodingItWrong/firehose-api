@@ -3,11 +3,12 @@
 require 'link_parser'
 
 class ParseLinkJob < ApplicationJob
-  def self.parse(link)
-    perform_later(link)
+  def self.parse(link_params)
+    perform_later(link_params)
   end
 
-  def perform(link)
+  def perform(link_params)
+    link = Link.create!(link_params)
     parsed_link = link_parser.process(url: link.url)
 
     attributes = { url: parsed_link.canonical }

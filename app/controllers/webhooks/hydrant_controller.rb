@@ -6,9 +6,8 @@ module Webhooks
     before_action :verify_api_key
 
     def post
-      link = Link.create!(link_params)
-      ParseLinkJob.parse(link)
-      head :created
+      ParseLinkJob.parse(link_params)
+      head :accepted
     end
 
     private
