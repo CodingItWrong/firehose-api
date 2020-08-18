@@ -38,30 +38,13 @@ RSpec.describe 'receive webhook', type: :request do
       context 'with a title' do
         let(:title) { 'custom title' }
 
-        it 'creates a link' do
-          expect { send! }.to change { Link.count }.by(1)
+        it 'does not create a link' do
+          expect { send! }.not_to change { Link.count }
         end
 
-        it 'returns created' do
+        it 'returns accepted' do
           response = send!
-          expect(response).to eq(201)
-        end
-
-        it 'sets fields to passed-in values' do
-          send!
-          link = Link.last
-          expect(link.url).to eq(url)
-          expect(link.title).to eq(title)
-        end
-      end
-
-      context 'without a title' do
-        let(:title) { '' }
-
-        it 'sets the title to empty' do
-          send!
-          link = Link.last
-          expect(link.title).to eq('')
+          expect(response).to eq(202)
         end
       end
     end
@@ -73,6 +56,12 @@ RSpec.describe 'receive webhook', type: :request do
 
       context 'with a title' do
         let(:title) { 'custom title' }
+
+        it 'creates a link' do
+          expect {
+            perform_enqueued_jobs { send! }
+          }.to change { Link.count }.by(1)
+        end
 
         it 'keeps the passed-in title' do
           perform_enqueued_jobs { send! }
