@@ -34,47 +34,74 @@ RSpec.describe 'receive webhook', type: :request do
   context 'with correct API token' do
     let(:token) { '12345' }
 
-    context 'with a title' do
-      let(:title) { 'custom title' }
+    context 'immediately' do
+      context 'with a title' do
+        let(:title) { 'custom title' }
 
-      it 'creates a link' do
-        expect { send! }.to change { Link.count }.by(1)
+        it 'creates a link' do
+          expect { send! }.to change { Link.count }.by(1)
+        end
+
+        it 'returns created' do
+          response = send!
+          expect(response).to eq(201)
+        end
+
+        it 'sets fields to passed-in values' do
+          send!
+          link = Link.last
+          expect(link.url).to eq(url)
+          expect(link.title).to eq(title)
+        end
       end
 
-      it 'returns created' do
-        response = send!
-        expect(response).to eq(201)
-      end
+      context 'without a title' do
+        let(:title) { '' }
 
-      it 'sets fields to passed-in values' do
-        send!
-        link = Link.last
-        expect(link.url).to eq(url)
-        expect(link.title).to eq(title)
+        it 'sets the title to empty' do
+          send!
+          link = Link.last
+          expect(link.title).to eq('')
+        end
       end
     end
 
-    context 'without a title' do
-      let(:title) { '' }
-
-      it 'sets the title from the retrieved URL' do
+    context 'after job completes' do
+      before(:each) do
         LinkParser.fake!
-        perform_enqueued_jobs { send! }
-        link = Link.last
-        expect(link.url).to eq(url)
-        expect(link.title).to eq('Sample Post Title')
       end
-    end
 
-    context 'with title equal to url' do
-      let(:title) { url }
+      context 'with a title' do
+        let(:title) { 'custom title' }
 
-      it 'assumes that was a default title and sets the title from the URL' do
-        LinkParser.fake!
-        perform_enqueued_jobs { send! }
-        link = Link.last
-        expect(link.url).to eq(url)
-        expect(link.title).to eq('Sample Post Title')
+        it 'keeps the passed-in title' do
+          perform_enqueued_jobs { send! }
+          link = Link.last
+          expect(link.url).to eq(url)
+          expect(link.title).to eq(title)
+        end
+      end
+
+      context 'without a title' do
+        let(:title) { '' }
+
+        it 'sets the title from the retrieved URL' do
+          perform_enqueued_jobs { send! }
+          link = Link.last
+          expect(link.url).to eq(url)
+          expect(link.title).to eq('Sample Post Title')
+        end
+      end
+
+      context 'with title equal to url' do
+        let(:title) { url }
+
+        it 'assumes that was a default title and sets the title from the URL' do
+          perform_enqueued_jobs { send! }
+          link = Link.last
+          expect(link.url).to eq(url)
+          expect(link.title).to eq('Sample Post Title')
+        end
       end
     end
   end
