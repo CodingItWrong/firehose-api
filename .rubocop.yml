@@ -69,3 +69,7 @@ Layout/EmptyLineAfterGuardClause:
 # The examples I see always use stabby lambdas
 Style/Lambda:
   Enabled: false
+
+# makes commenting out strings harder
+Style/AsciiComments:
+  Enabled: false
