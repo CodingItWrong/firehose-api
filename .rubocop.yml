@@ -69,3 +69,6 @@ Layout/EmptyLineAfterGuardClause:
 # The examples I see always use stabby lambdas
 Style/Lambda:
   Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
