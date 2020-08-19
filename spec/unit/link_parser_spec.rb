@@ -7,7 +7,7 @@ RSpec.describe LinkParser, :vcr do
 
   describe '#canonical' do
     context 'when there are no redirects' do
-      let(:url) { 'http://codingitwrong.com/' }
+      let(:url) { 'https://codingitwrong.com/' }
       it 'returns the passed-in url' do
         expect(link.canonical).to eq(url)
       end
@@ -29,7 +29,7 @@ RSpec.describe LinkParser, :vcr do
         'http://codingitwrong.com/2017/07/24/letting-people-learn.html'
       end
       it 'loads the URL and returns the title tag text' do
-        expect(link.title).to eq('Letting People Learn - CodingItWrong')
+        expect(link.title).to eq('Letting People Learn | CodingItWrong.com')
       end
     end
 
@@ -83,11 +83,12 @@ RSpec.describe LinkParser, :vcr do
       end
     end
 
-    context 'when there are multiple title tags foolishly' do
-      let(:url) { 'https://babeljs.io/docs/usage/polyfill/' }
-      it 'uses only the first as the title' do
-        expect(link.title).to eq('Polyfill · Babel')
-      end
-    end
+    # original has been fixed
+    #context 'when there are multiple title tags foolishly' do
+    #  let(:url) { 'https://babeljs.io/docs/usage/polyfill/' }
+    #  it 'uses only the first as the title' do
+    #    expect(link.title).to eq('Polyfill · Babel')
+    #  end
+    #end
   end
 end
