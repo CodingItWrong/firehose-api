@@ -76,12 +76,20 @@ RSpec.describe LinkParser, :vcr do
       end
     end
 
-    context "when there just isn't a title tag at all" do
+    context 'when the title tag is absent until JS runs' do
       let(:url) { 'https://google.github.io/styleguide/javascriptguide.xml' }
-      it 'uses the last path segment as the title' do
-        expect(link.title).to eq('javascriptguide.xml')
+      it 'uses the title tag added by JS' do
+        expect(link.title).to eq('Google JavaScript Style Guide')
       end
     end
+
+    # no longer have a test case, as we now execute JS
+    # context "when there just isn't a title tag at all" do
+    #   let(:url) { 'https://google.github.io/styleguide/javascriptguide.xml' }
+    #   it 'uses the last path segment as the title' do
+    #     expect(link.title).to eq('javascriptguide.xml')
+    #   end
+    # end
 
     # original has been fixed
     # context 'when there are multiple title tags foolishly' do
