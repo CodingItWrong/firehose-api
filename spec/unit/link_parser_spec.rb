@@ -76,7 +76,7 @@ RSpec.describe LinkParser, :vcr do
       end
     end
 
-    context "when the title tag is absent until JS runs" do
+    context 'when the title tag is absent until JS runs' do
       let(:url) { 'https://google.github.io/styleguide/javascriptguide.xml' }
       it 'uses the title tag added by JS' do
         expect(link.title).to eq('Google JavaScript Style Guide')
