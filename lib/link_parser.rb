@@ -4,6 +4,7 @@ require 'httparty'
 require 'nokogiri'
 require 'pry'
 require 'fake_link_parser'
+require 'ferrum'
 
 class LinkParser
   def self.class_to_instantiate
@@ -31,8 +32,11 @@ class LinkParser
   end
 
   def title
-    nokogiri = parse(get(url).body)
-    title = unescape(nokogiri.xpath('(//title)[1]').text.strip)
+    browser = Ferrum::Browser.new
+    browser.goto(url)
+    browser.evaluate('0') # wait for JS to settle
+    bare_title = browser.at_xpath('(//title)[1]').text
+    title = unescape(bare_title.strip)
     return title if title != ''
     last_path_segment(url)
   end
