@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://www.destroyallsoftware.com/talks/ideology
+    uri: http://127.0.0.1:53447/json/version
     body:
       encoding: US-ASCII
       string: ''
@@ -13,119 +13,27 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
+      Host:
+      - 127.0.0.1:53447
   response:
     status:
       code: 200
       message: OK
     headers:
-      Server:
-      - Cowboy
-      Date:
-      - Wed, 19 Aug 2020 12:29:38 GMT
-      Connection:
-      - keep-alive
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
+      Content-Length:
+      - '440'
       Content-Type:
-      - text/html; charset=utf-8
-      Etag:
-      - W/"d78b9f7145fb7fe50d2729c22da2498a"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Set-Cookie:
-      - _destroyallsoftware_session=M3dTV0d5TnJraWdEOVZnNHJjWjdCd3BHeThDQWlPQjBLaDBxVVhvcExQbUJCalNWL1BpV09rYjg1bkpmNi82VzBuN202T3VpVW0xLy9BRUFVdVFqUWdLL0JtYVBvVUY1YlhDZzVVNUJGWkc3NS80aEw1MC9HSjYwRk5CZU9Qa3BaVzdFb3M3UUUrUi95UXo2SE9JZExqODVJWmxHMlJ4Mld2b3RHOWFJMjB4Ym4wMVZBUkV6ZU51a3MvU0RSSm5JLS1ISDR0YzIwK2dYNElxZDEwVkR6d29RPT0%3D--df10c6c5146f6c0a5b69ec8b8dff3e346909d6f6;
-        path=/; secure; HttpOnly
-      X-Request-Id:
-      - 24bc5e00-c025-4a24-936f-7c4de4c714b0
-      X-Runtime:
-      - '0.022408'
-      Vary:
-      - Accept-Encoding
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      Via:
-      - 1.1 vegur
+      - application/json; charset=UTF-8
     body:
-      encoding: ASCII-8BIT
-      string: "\n\n\n<!DOCTYPE html>\n<html>\n<head>\n\n  <!-- mobile viewport setup
-        -->\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n
-        \ <title>\n    Ideology\n  </title>\n  <link rel=\"icon\" type=\"image/png\"
-        href=\"/favicon.png\" />\n  <link rel=\"apple-touch-icon\" href=\"/favicon.png\"
-        />\n  <link rel=\"stylesheet\" media=\"all\" href=\"/assets/application-b2923c061c68765176521421c12221479e7eab882d040849630b781b0cf0577e.css\"
-        />\n  <script src=\"/assets/application-eb11f4c989ff6df813126736c3a896a653474073adda64abfa666515fdaf1e77.js\"></script>\n
-        \ \n  <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\"
-        content=\"rTgjoAD5ES7RDfbwnpcORkokUOCFo3DkeQlgD6FBFex77jvi1fnOUsaubwQYtcl/Eu0iPh0AKyd1R5lB7Fa2Cw==\"
-        />\n</head>\n<body>\n  \n\n  <div class=\"top_navigation\">\n    <div class=\"primary_navigation\">\n
-        \     <div class=\"container\">\n        <div class=\"hamburger_button\"><img
-        src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAoCAYAAAB0HkOaAAABG2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8%2BCiA8L3JkZjpSREY%2BCjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8%2BGkqr6gAAAYJpQ0NQc1JHQiBJRUM2MTk2Ni0yLjEAACiRdZHPK0RRFMc%2FM0PECKEsLCYNKyNGTWyUkVCTpjHKYDPz5peaH6%2F3ZpJsle0UJTZ%2BLfgL2CprpYiULKysiQ3Tc96Mmknm3M49n%2Fu995zuPReswZSS1uuGIJ3JaYFpr2MxtORoeMFKD114aA8rujrh9%2FuoaZ%2F3WMx46zJr1T73rzVHY7oClkbhcUXVcsIzwr61nGryjnCnkgxHhc%2BEBzS5oPCdqUfK%2FGpyoszfJmvBwCRY24QdiSqOVLGS1NLC8nKc6VRe%2Bb2P%2BRJ7LLMwL7FXvAedANN4cTDLFJPSk2HGZPbgws2grKiRP1TKnyMruYrMKutorJIgSY4BUfNSPSYxLnpMRop1s%2F9%2F%2B6rHR9zl6nYv1D8bxnsfNGxDsWAYX0eGUTwG2xNcZir52UMY%2FRC9UNGcB9C6CedXFS2yCxdb0P2ohrVwSbKJW%2BNxeDuFlhB03EDTcrlnv%2FucPEBwQ77qGvb2oV%2FOt678AHuMZ%2B%2FPgSnPAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAkElEQVRYhe3XsQ3CMBCF4f%2BiVEjMwggsQ8FOsAwb4GFwhfTSxBIFKaC5U%2FS%2BBe4vbNkHZr8JSUfgDMyJHW%2FgEZKewCkxZGghSdkVw5Qd8KlcTMuOWLVStylxvtnOhKQrcCH%2Fat9D0gs4JIYM3Q%2Fllgno2RGrXukA3xLnm%2B1MqW%2Bnl7gt5d6mMrzEfeElzv6yAMvSPr7b38OWAAAAAElFTkSuQmCC\"
-        /></div>\n        <h1>\n          <a href=\"/\">Destroy All Software</a>\n
-        \       </h1>\n      </div>\n    </div>\n    <div class=\"secondary_links\">\n
-        \     <div class=\"container\">\n        <div class=\"links\">\n  <div class=\"section
-        screencasts_section\">\n    <div class=\"section_title\">Content</div>\n    <a
-        href=\"/screencasts/catalog\">\n      Screencasts\n</a>    <a href=\"/executeprogram\">\n
-        \     Execute Program\n</a>    <a href=\"/compendium\">\n      Programmer's
-        Compendium\n</a>    <a href=\"/talks\">\n      Conference Talks\n</a>  </div>\n\n
-        \ <div class=\"section account_section\">\n    <div class=\"section_title\">Account</div>\n
-        \     <a href=\"/screencasts/users/sign_in\">\n        Sign In\n</a>      <a
-        href=\"/screencasts/users/sign_up\">\n        Sign Up\n</a>  </div>\n\n  <div
-        class=\"section company_section\">\n    <div class=\"section_title\">Company</div>\n
-        \   <a href=\"/blog\">\n      Blog\n</a>    <a href=\"/screencasts/contact\">\n
-        \     Contact\n</a>    <a href=\"/screencasts/privacy_policy\">\n      Privacy
-        Policy\n</a>    <a href=\"/screencasts/faq\">\n      FAQ\n</a>    <a href=\"/screencasts/eula\">\n
-        \     EULA\n</a>  </div>\n\n  <div class=\"stretch\"></div></div>\n\n      </div>\n
-        \   </div>\n  </div>\n\n    <div class=\"contrast_section\">\n      <div class=\"container
-        notice\">\n      </div>\n    </div>\n  </div>\n\n  <div class=\"main_content\">\n
-        \     \n<div class=\"container talks_show_page\">\n  <div class=\"row\">\n
-        \   <h1 class=\"twelve columns\">Ideology</h1>\n  </div>\n\n  <div class=\"row\">\n
-        \   <p class=\"twelve columns byline\">\n      A  talk by Gary Bernhardt from
-        Strange Loop 2015\n    </p>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"twelve
-        columns\">\n      <video class=\"u-full-width\" poster=\"/assets/posters/talks/ideology.poster-675eb3c930f49c7f01b34b1bf61db5f1132e587b2ad01ab3fcefe67c49e90d71.png\"
-        preload=\"none\" controls>\n        <source src=\"https://destroyallsoftware-talks.s3.amazonaws.com/ideology.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIKRVCECXBC4ZGHIQ%2F20200819%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20200819T122939Z&amp;X-Amz-Expires=14400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=63b17dad6b6b60a16e29bbc629ee0fcdaad9b96b61ef695d48dc9d70fddfea51\"
-        />\n      </video>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div
-        class=\"twelve columns\">\n      <p class=\"description\">\n        Some people
-        claim that unit tests make type systems unnecessary: \"types are just simple
-        unit tests written for you, and simple unit tests aren't the important ones\".
-        Other people claim that type systems make unit tests unnecessary: \"dynamic
-        languages only need unit tests because they don't have type systems.\" What's
-        going on here? These can't both be right. We'll use this example and a couple
-        others to explore the unknown beliefs that structure our understanding of
-        the world.\n      </p>\n\n      <p>\n        If you liked this, you might
-        also like <a href=\"https://www.executeprogram.com\">Execute Program</a>:
-        interactive courses on TypeScript, Modern JavaScript, SQL, regular expressions,
-        and more.\n        Each course is made up of hundreds of interactive code
-        examples running live in your browser.\n      </p>\n    </div>\n  </div>\n</div>\n\n\n\n
-        \   \n  </div>\n\n  <div class=\"footer_section\">\n    <div class=\"container\">\n
-        \     <div class=\"row\">\n        <div class=\"twelve columns\">\n          <div
-        class=\"links\">\n  <div class=\"section screencasts_section\">\n    <div
-        class=\"section_title\">Content</div>\n    <a href=\"/screencasts/catalog\">\n
-        \     Screencasts\n</a>    <a href=\"/executeprogram\">\n      Execute Program\n</a>
-        \   <a href=\"/compendium\">\n      Programmer's Compendium\n</a>    <a href=\"/talks\">\n
-        \     Conference Talks\n</a>  </div>\n\n  <div class=\"section account_section\">\n
-        \   <div class=\"section_title\">Account</div>\n      <a href=\"/screencasts/users/sign_in\">\n
-        \       Sign In\n</a>      <a href=\"/screencasts/users/sign_up\">\n        Sign
-        Up\n</a>  </div>\n\n  <div class=\"section company_section\">\n    <div class=\"section_title\">Company</div>\n
-        \   <a href=\"/blog\">\n      Blog\n</a>    <a href=\"/screencasts/contact\">\n
-        \     Contact\n</a>    <a href=\"/screencasts/privacy_policy\">\n      Privacy
-        Policy\n</a>    <a href=\"/screencasts/faq\">\n      FAQ\n</a>    <a href=\"/screencasts/eula\">\n
-        \     EULA\n</a>  </div>\n\n  <div class=\"stretch\"></div></div>\n\n        </div>\n
-        \     </div>\n    </div>\n  </div>\n\n\n    <script type=\"text/javascript\">\n\n
-        \   var _gaq = _gaq || [];\n    _gaq.push(['_setAccount', 'UA-22199596-1']);\n
-        \   _gaq.push(['_trackPageview']);\n\n    (function() {\n      var ga = document.createElement('script');
-        ga.type = 'text/javascript'; ga.async = true;\n      ga.src = ('https:' ==
-        document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';\n
-        \     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga,
-        s);\n    })();\n\n  </script>\n\n\n\n  \n</body>\n</html>\n\n\n\n"
-  recorded_at: Wed, 19 Aug 2020 12:29:39 GMT
+      encoding: UTF-8
+      string: |
+        {
+           "Browser": "HeadlessChrome/84.0.4147.125",
+           "Protocol-Version": "1.3",
+           "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/84.0.4147.125 Safari/537.36",
+           "V8-Version": "8.4.371.23",
+           "WebKit-Version": "537.36 (@d0784639447f2e10d32ebaf9861092b20cfde286)",
+           "webSocketDebuggerUrl": "ws://127.0.0.1:53447/devtools/browser/d32c9e2f-72bb-42d4-bd2d-9637309fb072"
+        }
+  recorded_at: Wed, 19 Aug 2020 12:32:10 GMT
 recorded_with: VCR 6.0.0
