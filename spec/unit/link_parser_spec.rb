@@ -84,11 +84,11 @@ RSpec.describe LinkParser, :vcr do
     end
 
     # original has been fixed
-    #context 'when there are multiple title tags foolishly' do
-    #  let(:url) { 'https://babeljs.io/docs/usage/polyfill/' }
-    #  it 'uses only the first as the title' do
-    #    expect(link.title).to eq('Polyfill · Babel')
-    #  end
-    #end
+    # context 'when there are multiple title tags foolishly' do
+    #   let(:url) { 'https://babeljs.io/docs/usage/polyfill/' }
+    #   it 'uses only the first as the title' do
+    #     expect(link.title).to eq('Polyfill · Babel')
+    #   end
+    # end
   end
 end
