@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
 bundle install
-cd frontend
-yarn install
-ember build --prod
-cd ..
 bundle exec rails db:migrate
 bundle exec rails server
