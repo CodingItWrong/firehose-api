@@ -24,7 +24,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "frontend/yarn.lock" }}
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
@@ -33,29 +33,16 @@ jobs:
           command: |
             gem update bundler
             bundle install --jobs=4 --retry=3 --path vendor/bundle
-            sudo npm install -g ember-cli
-            sudo chmod +x /usr/local/bin/yarn
-            sudo yarn install
-            cd frontend
-            sudo yarn install
 
       - save_cache:
           paths:
             - node_modules
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "frontend/yarn.lock" }}
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "frontend/yarn.lock" }}
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
-
-      # lint
-      - run:
-          name: lint
-          command: |
-            cd frontend
-            yarn lint:js
-            yarn lint:hbs
 
       # run tests!
       - run:
@@ -71,10 +58,6 @@ jobs:
                             --out /tmp/test-results/rspec.xml \
                             --format progress \
                             $TEST_FILES
-            cd frontend
-
-            echo "testing ember"
-            ember test
 
       # collect reports
       - store_test_results:
