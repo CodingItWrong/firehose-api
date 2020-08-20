@@ -105,6 +105,9 @@ RSpec.configure do |config|
     vcr.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
     vcr.hook_into :webmock
     vcr.configure_rspec_metadata!
+    vcr.default_cassette_options = {
+      match_requests_on: [:host, :method, :path],
+    }
   end
 
   config.after(:each) { LinkParser.reset! }
