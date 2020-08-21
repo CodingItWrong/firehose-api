@@ -4,8 +4,7 @@ require 'link_parser'
 
 RSpec.describe LinkParser, :vcr do
   class NullLogger
-    def error(*args)
-    end
+    def error(*args); end
   end
 
   subject(:link) { described_class.process(url: url, logger: NullLogger.new) }
@@ -89,9 +88,13 @@ RSpec.describe LinkParser, :vcr do
     end
 
     context 'when the page load fails' do
-      let(:url) { 'https://www.washingtonpost.com/sports/2020/08/20/if-colleges-prioritize-football-during-this-pandemic-their-true-sickness-will-be-revealed/?utm_source=rss&utm_medium=referral&utm_campaign=wp_homepage' }
+      let(:url) {
+        'https://www.washingtonpost.com/sports/2020/08/20/if-colleges-prioritize-football-during-this-pandemic-their-true-sickness-will-be-revealed/?utm_source=rss&utm_medium=referral&utm_campaign=wp_homepage'
+      }
       it 'uses the last URL segment, titleized' do
-        expect(link.title).to eq('If Colleges Prioritize Football During This Pandemic Their True Sickness Will Be Revealed')
+        expect(link.title).to eq(
+          'If Colleges Prioritize Football During This Pandemic Their True Sickness Will Be Revealed',
+        )
       end
     end
 

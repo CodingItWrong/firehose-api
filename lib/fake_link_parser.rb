@@ -9,6 +9,7 @@ class FakeLinkParser
 
   def initialize(url:, logger:)
     @url = url
+    @logger = logger
   end
 
   def title
@@ -21,5 +22,5 @@ class FakeLinkParser
 
   private
 
-  attr_reader :url
+  attr_reader :url, :logger
 end
