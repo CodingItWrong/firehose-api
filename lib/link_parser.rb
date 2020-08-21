@@ -33,11 +33,7 @@ class LinkParser
 
   def title
     begin
-      browser = Ferrum::Browser.new
-      browser.goto(url)
-      browser.evaluate('0') # wait for JS to settle
-      bare_title = browser.at_xpath('(//title)[1]').text
-      title = unescape(bare_title.strip)
+      title = title_from_browser(url)
       return title if title != ''
     rescue Ferrum::StatusError => e
       logger.error e.message
@@ -50,6 +46,15 @@ class LinkParser
   private
 
   attr_reader :url, :logger
+
+  def title_from_browser(url)
+    browser = Ferrum::Browser.new
+    browser.goto(url)
+    browser.evaluate('0') # wait for JS to settle
+    bare_title = browser.at_xpath('(//title)[1]').text
+    title = unescape(bare_title.strip)
+    title
+  end
 
   def get(url)
     response = HTTParty.get(url)
