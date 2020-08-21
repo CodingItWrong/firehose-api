@@ -18,12 +18,13 @@ class LinkParser
     @class_to_instantiate = nil
   end
 
-  def self.process(url:)
-    class_to_instantiate.new(url: url)
+  def self.process(url:, logger: Rails.logger)
+    class_to_instantiate.new(url: url, logger: logger)
   end
 
-  def initialize(url:)
+  def initialize(url:, logger:)
     @url = url
+    @logger = logger
   end
 
   def canonical
@@ -39,8 +40,8 @@ class LinkParser
       title = unescape(bare_title.strip)
       return title if title != ''
     rescue Ferrum::StatusError => e
-      Rails.logger.error e.message
-      e.backtrace.each { |line| Rails.logger.error line }
+      logger.error e.message
+      e.backtrace.each { |line| logger.error line }
       # but continue on with default values
     end
     last_path_segment(url)
@@ -48,7 +49,7 @@ class LinkParser
 
   private
 
-  attr_reader :url
+  attr_reader :url, :logger
 
   def get(url)
     response = HTTParty.get(url)

@@ -3,11 +3,11 @@
 require 'active_support/core_ext/string/inflections'
 
 class FakeLinkParser
-  def self.process(url:)
-    new(url: url)
+  def self.process(url:, logger:)
+    new(url: url, logger: logger)
   end
 
-  def initialize(url:)
+  def initialize(url:, logger:)
     @url = url
   end
 
