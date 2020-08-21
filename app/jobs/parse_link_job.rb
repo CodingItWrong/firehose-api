@@ -9,7 +9,7 @@ class ParseLinkJob < ApplicationJob
 
   def perform(link_params)
     link = Link.create!(link_params)
-    parsed_link = link_parser.process(url: link.url)
+    parsed_link = link_parser.process(url: link_params[:url])
 
     attributes = { url: parsed_link.canonical }
     attributes[:title] = parsed_link.title if default_title?(link_params)
