@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://127.0.0.1:60983/json/version
+    uri: http://127.0.0.1:61882/json/version
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Host:
-      - 127.0.0.1:60983
+      - 127.0.0.1:61882
   response:
     status:
       code: 200
@@ -33,7 +33,7 @@ http_interactions:
            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/84.0.4147.135 Safari/537.36",
            "V8-Version": "8.4.371.23",
            "WebKit-Version": "537.36 (@c42bd09b3f24da1698d71d3b4f57402137163566)",
-           "webSocketDebuggerUrl": "ws://127.0.0.1:60983/devtools/browser/027acfc0-ed41-44af-9766-270b9ec5296f"
+           "webSocketDebuggerUrl": "ws://127.0.0.1:61882/devtools/browser/5e382d95-ca4f-45f3-b8dc-3bc1c9dcbc51"
         }
-  recorded_at: Fri, 21 Aug 2020 11:09:24 GMT
+  recorded_at: Fri, 21 Aug 2020 11:19:40 GMT
 recorded_with: VCR 6.0.0
