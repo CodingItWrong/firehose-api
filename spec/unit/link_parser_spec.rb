@@ -3,7 +3,12 @@
 require 'link_parser'
 
 RSpec.describe LinkParser, :vcr do
-  subject(:link) { described_class.process(url: url) }
+  class NullLogger
+    def error(*args)
+    end
+  end
+
+  subject(:link) { described_class.process(url: url, logger: NullLogger.new) }
 
   describe '#canonical' do
     context 'when there are no redirects' do
