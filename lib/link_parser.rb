@@ -31,12 +31,18 @@ class LinkParser
   end
 
   def title
-    browser = Ferrum::Browser.new
-    browser.goto(url)
-    browser.evaluate('0') # wait for JS to settle
-    bare_title = browser.at_xpath('(//title)[1]').text
-    title = unescape(bare_title.strip)
-    return title if title != ''
+    begin
+      browser = Ferrum::Browser.new
+      browser.goto(url)
+      browser.evaluate('0') # wait for JS to settle
+      bare_title = browser.at_xpath('(//title)[1]').text
+      title = unescape(bare_title.strip)
+      return title if title != ''
+    rescue Ferrum::StatusError => e
+      Rails.logger.error e.message
+      e.backtrace.each { |line| Rails.logger.error line }
+      # but continue on with default values
+    end
     last_path_segment(url)
   end
 
