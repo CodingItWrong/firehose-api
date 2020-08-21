@@ -107,6 +107,6 @@ class LinkParser
   end
 
   def last_path_segment(url)
-    url.split('/').last
+    url.split('?').first.split('/').last
   end
 end
