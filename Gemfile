@@ -13,7 +13,6 @@ gem 'sidekiq'
 gem 'jsonapi-resources'
 gem 'doorkeeper'
 gem 'rack-cors'
-gem 'ferrum'
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.3'
