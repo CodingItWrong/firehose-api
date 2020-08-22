@@ -3,12 +3,17 @@
 require 'active_support/core_ext/string/inflections'
 
 class FakeLinkParser
-  def self.process(url:, logger:)
-    new(url: url, logger: logger)
+  def self.process(url:, timeout_seconds:, logger:)
+    new(
+      url: url,
+      timeout_seconds: timeout_seconds,
+      logger: logger,
+    )
   end
 
-  def initialize(url:, logger:)
+  def initialize(url:, timeout_seconds:, logger:)
     @url = url
+    @timeout_seconds = timeout_seconds
     @logger = logger
   end
 

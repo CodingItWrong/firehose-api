@@ -18,12 +18,17 @@ class LinkParser
     @class_to_instantiate = nil
   end
 
-  def self.process(url:, logger: Rails.logger)
-    class_to_instantiate.new(url: url, logger: logger)
+  def self.process(url:, timeout_seconds: 5, logger: Rails.logger)
+    class_to_instantiate.new(
+      url: url,
+      timeout_seconds: timeout_seconds,
+      logger: logger,
+    )
   end
 
-  def initialize(url:, logger:)
+  def initialize(url:, timeout_seconds:, logger:)
     @url = url
+    @timeout_seconds = timeout_seconds
     @logger = logger
   end
 
@@ -45,10 +50,10 @@ class LinkParser
 
   private
 
-  attr_reader :url, :logger
+  attr_reader :url, :timeout_seconds, :logger
 
   def title_from_browser(url)
-    browser = Ferrum::Browser.new
+    browser = Ferrum::Browser.new(timeout: timeout_seconds)
     browser.goto(url)
     browser.evaluate('0') # wait for JS to settle
     bare_title = browser.at_xpath('(//title)[1]').text
