@@ -8,7 +8,10 @@ class ParseLinkJob < ApplicationJob
   end
 
   def perform(link_params)
-    parsed_link = link_parser.process(url: link_params[:url])
+    parsed_link = link_parser.process(
+      url: link_params[:url],
+      timeout_seconds: 30,
+    )
 
     attributes = {
       url: parsed_link.canonical,
