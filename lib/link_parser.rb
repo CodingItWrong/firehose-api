@@ -3,7 +3,6 @@
 require 'httparty'
 require 'nokogiri'
 require 'fake_link_parser'
-require 'ferrum'
 
 class LinkParser
   def self.class_to_instantiate
@@ -37,14 +36,8 @@ class LinkParser
   end
 
   def title
-    begin
-      title = title_from_page(url)
-      return title if title != ''
-    rescue Ferrum::StatusError => e
-      logger.error e.message
-      e.backtrace.each { |line| logger.error line }
-      # but continue on with default values
-    end
+    title = title_from_page(url)
+    return title if title != ''
     last_path_segment(url)
   end
 
@@ -53,11 +46,8 @@ class LinkParser
   attr_reader :url, :timeout_seconds, :logger
 
   def title_from_page(url)
-    browser = Ferrum::Browser.new(timeout: timeout_seconds)
-    browser.goto(url)
-    browser.evaluate('0') # wait for JS to settle
-    bare_title = browser.at_xpath('(//title)[1]').text
-    title = unescape(bare_title.strip)
+    nokogiri = parse(get(url).body)
+    title = unescape(nokogiri.xpath('(//title)[1]').text.strip)
     title
   end
 
