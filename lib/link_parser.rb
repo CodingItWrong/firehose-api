@@ -47,8 +47,7 @@ class LinkParser
 
   def title_from_page(url)
     nokogiri = parse(get(url).body)
-    title = unescape(nokogiri.xpath('(//title)[1]').text.strip)
-    title
+    unescape(nokogiri.xpath('(//title)[1]').text.strip)
   end
 
   def get(url)

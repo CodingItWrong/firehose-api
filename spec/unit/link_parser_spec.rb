@@ -4,7 +4,8 @@ require 'link_parser'
 
 RSpec.describe LinkParser, :vcr do
   class NullLogger
-    def error(*args); end
+    def error(*args)
+    end
   end
 
   subject(:link) { described_class.process(url: url, logger: NullLogger.new) }
