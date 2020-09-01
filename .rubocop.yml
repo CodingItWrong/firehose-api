@@ -1,8 +1,6 @@
 # https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 AllCops:
-  TargetRubyVersion: 2.5
-
-  # Don't check binstubs or gemfile
+  TargetRubyVersion: 2.7
   Exclude:
     - 'bin/**/*'
     - 'config/**/*'
@@ -13,63 +11,40 @@ AllCops:
     - 'Gemfile'
     - 'Rakefile'
     - 'spec/*_helper.rb'
-    - 'frontend/**/*'
     - 'vendor/**/*'
+  NewCops: enable
 
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
 Layout/EmptyLineAfterMagicComment:
   Enabled: false
-
 Layout/FirstArrayElementIndentation:
   Enabled: false
+Layout/LineLength:
+  Enabled: false # Default Rails files have comment lines this long
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+Lint/AmbiguousOperator:
+  Enabled: false
+Lint/RedundantSplatExpansion:
+  Enabled: false # Allow *%i[…]
 
 Style/BlockDelimiters:
   Enabled: false
-
-# Don't require a class comment
 Style/Documentation:
-  Enabled: false
-
+  Enabled: false # Don't require a class comment
+Style/EmptyMethod:
+  EnforcedStyle: expanded
 Style/GuardClause:
   Enabled: false
-
-# Require trailing commas for aguments
-Style/TrailingCommaInArguments:
-  EnforcedStyleForMultiline: comma
-
-# Require trailing commas for multiline arrays
+Style/IfUnlessModifier:
+  Enabled: false # Allow but do not require
+Style/Lambda:
+  Enabled: false # The examples I see always use stabby lambdas
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: comma
-
-# Require trailing commas for multiline hashes
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
 Style/TrailingCommaInHashLiteral:
-  Enabled: false
-
-# Allow but do not require modifier usage of if/unless
-Style/IfUnlessModifier:
-  Enabled: false
-
-# Default Rails files have comment lines this long
-Metrics/LineLength:
-  Max: 120
-
-# Disable this for this project for legacy reasons; test when changing
-Style/DateTime:
-  Enabled: false
-
-# Allow *%i[…]
-Lint/RedundantSplatExpansion:
-  Enabled: false
-Lint/AmbiguousOperator:
-  Enabled: false
-
-# Be more flexible
-Layout/EmptyLineAfterGuardClause:
-  Enabled: false
-
-# The examples I see always use stabby lambdas
-Style/Lambda:
-  Enabled: false
-
-# makes commenting out strings harder
-Style/AsciiComments:
   Enabled: false
