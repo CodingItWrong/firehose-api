@@ -2,12 +2,12 @@
 
 require 'link_parser'
 
-RSpec.describe LinkParser, :vcr do
-  class NullLogger
-    def error(*args)
-    end
+class NullLogger
+  def error(*args)
   end
+end
 
+RSpec.describe LinkParser, :vcr do
   subject(:link) { described_class.process(url: url, logger: NullLogger.new) }
 
   describe '#canonical' do
