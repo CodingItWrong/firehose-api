@@ -68,7 +68,7 @@ class Link < ApplicationRecord
   end
 
   def populate_tags_from_tag_list
-    return unless @tag_list.present?
+    return if @tag_list.nil?
     tag_array =
       if @tag_list.respond_to?(:strip) && @tag_list.respond_to?(:split)
         @tag_list.strip.split(/\s+/)
