@@ -15,7 +15,7 @@ gem 'doorkeeper'
 gem 'rack-cors'
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.3'
+  gem 'listen', '>= 3.0.5', '< 3.4'
   gem 'bullet'
   gem 'rubocop'
 end
