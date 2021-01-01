@@ -94,7 +94,7 @@ GEM
     factory_bot_rails (6.1.0)
       factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
-    ffi (1.13.1)
+    ffi (1.14.2)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -121,7 +121,7 @@ GEM
       activerecord (>= 4.1)
       concurrent-ruby
       railties (>= 4.1)
-    listen (3.3.3)
+    listen (3.4.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.8.0)
@@ -296,7 +296,7 @@ DEPENDENCIES
   factory_bot_rails
   httparty
   jsonapi-resources
-  listen (>= 3.0.5, < 3.4)
+  listen (>= 3.0.5, < 3.5)
   nokogiri (>= 1.11.0.rc4)
   pg (~> 1.2)
   pry-byebug
