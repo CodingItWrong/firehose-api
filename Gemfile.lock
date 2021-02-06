@@ -115,16 +115,16 @@ GEM
     httparty (0.18.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
-    i18n (1.8.7)
+    i18n (1.8.8)
       concurrent-ruby (~> 1.0)
-    jsonapi-resources (0.9.10)
+    jsonapi-resources (0.9.12)
       activerecord (>= 4.1)
       concurrent-ruby
       railties (>= 4.1)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.8.0)
+    loofah (2.9.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -252,7 +252,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    thor (1.0.1)
+    thor (1.1.0)
     thread_safe (0.3.6)
     twitter (7.0.0)
       addressable (~> 2.3)
@@ -295,7 +295,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   httparty
-  jsonapi-resources
+  jsonapi-resources (< 0.10)
   listen (>= 3.0.5, < 3.5)
   nokogiri (>= 1.11.0.rc4)
   pg (~> 1.2)
