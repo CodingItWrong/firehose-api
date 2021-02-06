@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '3.0.0'
 
-gem 'rails', '~> 6.0.3'
+gem 'rails'
 gem 'pg', '~> 1.2'
 gem 'puma', '~> 5.2'
 gem 'devise'
