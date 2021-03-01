@@ -85,7 +85,7 @@ GEM
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    doorkeeper (5.4.0)
+    doorkeeper (5.5.0)
       railties (>= 5)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
