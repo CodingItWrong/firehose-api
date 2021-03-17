@@ -2,6 +2,9 @@ Doorkeeper.configure do
   # Change the ORM that doorkeeper will use (needs plugins)
   orm :active_record
 
+  # see https://github.com/doorkeeper-gem/doorkeeper/issues/561#issuecomment-612857163
+  skip_client_authentication_for_password_grant true
+
   resource_owner_from_credentials do
     user = User.find_for_database_authentication(:email => params[:username])
     if user && user.valid_for_authentication? { user.valid_password?(params[:password]) }
