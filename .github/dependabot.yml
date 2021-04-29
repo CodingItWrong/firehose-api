@@ -1,0 +1,18 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "10:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: jsonapi-resources
+    versions:
+    - ">= 0"
+  - dependency-name: webmock
+    versions:
+    - 3.12.2
+  - dependency-name: rails
+    versions:
+    - 6.1.1
