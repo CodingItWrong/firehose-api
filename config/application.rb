@@ -30,7 +30,8 @@ module Firehose
 
     # config.assets.enabled = false
 
-    config.active_job.queue_adapter = :sidekiq
+    # sidekiq was giving issues, so let's not queue
+    config.active_job.queue_adapter = :inline
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
