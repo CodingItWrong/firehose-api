@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Tag do
   describe '#used' do
     it 'does not return unused tags' do
-      unused_tag = FactoryBot.create(:tag)
+      FactoryBot.create(:tag) # unused
       used_tag = FactoryBot.create(:tag)
       FactoryBot.create(:link, tags: [used_tag])
 
@@ -26,7 +26,7 @@ RSpec.describe Tag do
 
   describe '#publicly_visible' do
     it 'does not return unused tags' do
-      unused_tag = FactoryBot.create(:tag)
+      FactoryBot.create(:tag) # unused
       used_tag = FactoryBot.create(:tag)
       FactoryBot.create(:link, :public, tags: [used_tag])
 
