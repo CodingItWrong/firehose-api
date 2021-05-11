@@ -23,4 +23,27 @@ RSpec.describe Tag do
       expect(results).to eql([tag])
     end
   end
+
+  describe '#publicly_visible' do
+    it 'does not return unused tags' do
+      unused_tag = FactoryBot.create(:tag)
+      used_tag = FactoryBot.create(:tag)
+      FactoryBot.create(:link, :public, tags: [used_tag])
+
+      results = Tag.publicly_visible.to_a
+
+      expect(results).to eql([used_tag])
+    end
+
+    it 'does not return tags for private links' do
+      private_tag = FactoryBot.create(:tag)
+      FactoryBot.create(:link, tags: [private_tag])
+      public_tag = FactoryBot.create(:tag)
+      FactoryBot.create(:link, :public, tags: [public_tag])
+
+      results = Tag.publicly_visible.to_a
+
+      expect(results).to eql([public_tag])
+    end
+  end
 end
