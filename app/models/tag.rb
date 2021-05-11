@@ -5,5 +5,5 @@ class Tag < ApplicationRecord
 
   scope :publicly_visible,
         -> { joins(:links).where('links.published_at IS NOT NULL') }
-  scope :used, -> { joins(:links) }
+  scope :used, -> { joins(:links).distinct }
 end

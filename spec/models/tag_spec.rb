@@ -13,5 +13,14 @@ RSpec.describe Tag do
 
       expect(results).to eql([used_tag])
     end
+
+    it 'removes duplicates' do
+      tag = FactoryBot.create(:tag)
+      FactoryBot.create_list(:link, 2, tags: [tag])
+
+      results = Tag.used.to_a
+
+      expect(results).to eql([tag])
+    end
   end
 end
