@@ -45,5 +45,14 @@ RSpec.describe Tag do
 
       expect(results).to eql([public_tag])
     end
+
+    it 'removes duplicates' do
+      tag = FactoryBot.create(:tag)
+      FactoryBot.create_list(:link, 2, :public, tags: [tag])
+
+      results = Tag.publicly_visible.to_a
+
+      expect(results).to eql([tag])
+    end
   end
 end
