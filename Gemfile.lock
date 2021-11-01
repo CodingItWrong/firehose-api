@@ -85,7 +85,7 @@ GEM
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    doorkeeper (5.5.3)
+    doorkeeper (5.5.4)
       railties (>= 5)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
@@ -166,7 +166,7 @@ GEM
     public_suffix (4.0.6)
     puma (5.5.1)
       nio4r (~> 2.0)
-    racc (1.5.2)
+    racc (1.6.0)
     rack (2.2.3)
     rack-attack (6.5.0)
       rack (>= 1.0, < 3)
@@ -284,7 +284,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.4.2)
+    zeitwerk (2.5.1)
 
 PLATFORMS
   ruby
