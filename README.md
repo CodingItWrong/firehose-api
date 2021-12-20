@@ -1,4 +1,4 @@
-# Firehose
+# firehose-api
 
 An open-source web service API for link saving and sharing. Allows you to own and share your own content. See an example at [links.codingitwrong.com](https://links.codingitwrong.com)!
 
