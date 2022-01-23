@@ -33,6 +33,8 @@ class LinkParser
 
   def canonical
     get(url).request.last_uri.to_s
+  rescue IOError
+    url
   end
 
   def title
