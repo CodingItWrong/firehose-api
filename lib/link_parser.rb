@@ -39,6 +39,8 @@ class LinkParser
     title = title_from_page(url)
     return title if title != ''
     last_path_segment(url)
+  rescue
+    last_path_segment(url)
   end
 
   private

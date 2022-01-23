@@ -88,6 +88,13 @@ RSpec.describe LinkParser, :vcr do
       end
     end
 
+    context 'when the request for the title errors' do
+      let(:url) { 'https://www.thegamer.com/skyrim-stealth-archer-build-guide/' }
+      it 'uses the last path segment as the title' do
+        expect(link.title).to eq('Skyrim Stealth Archer Build Guide')
+      end
+    end
+
     # original has been fixed
     # context 'when there are multiple title tags foolishly' do
     #   let(:url) { 'https://babeljs.io/docs/usage/polyfill/' }
