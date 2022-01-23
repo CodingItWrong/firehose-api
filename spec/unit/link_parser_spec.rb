@@ -26,6 +26,13 @@ RSpec.describe LinkParser, :vcr do
         )
       end
     end
+
+    context 'when the request errors' do
+      let(:url) { 'https://www.thegamer.com/skyrim-stealth-archer-build-guide/' }
+      it 'uses the url unchanged' do
+        expect(link.canonical).to eq(url)
+      end
+    end
   end
 
   describe '#title' do
