@@ -262,7 +262,7 @@ GEM
     rubocop-ast (1.16.0)
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
-    sidekiq (6.4.1)
+    sidekiq (6.4.2)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
