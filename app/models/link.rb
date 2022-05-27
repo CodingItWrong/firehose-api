@@ -3,14 +3,14 @@
 class Link < ApplicationRecord
   has_and_belongs_to_many :tags
 
-  scope :publicly_visible, -> { where('published_at IS NOT NULL') }
+  scope :publicly_visible, -> { where.not(published_at: nil) }
   scope :unread, -> { where(read: false) }
   scope :read, -> { where(read: true) }
   scope :in_move_order, -> { order(moved_to_list_at: :desc) }
   scope :in_publish_order, -> { order(published_at: :desc) }
 
-  before_create :set_default_values
   before_save :populate_tags_from_tag_list
+  before_create :set_default_values
   before_update :auto_update_values
 
   attr_writer :tag_list
