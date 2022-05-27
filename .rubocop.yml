@@ -32,6 +32,9 @@ Lint/AmbiguousOperator:
 Lint/RedundantSplatExpansion:
   Enabled: false # Allow *%i[…]
 
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
 Style/BlockDelimiters:
   Enabled: false
 Style/Documentation:

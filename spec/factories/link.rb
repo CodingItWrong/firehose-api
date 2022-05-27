@@ -6,7 +6,7 @@ FactoryBot.define do
     url { 'https://example.com' }
 
     trait :public do
-      published_at { Time.now }
+      published_at { Time.zone.now }
     end
 
     trait :private do
