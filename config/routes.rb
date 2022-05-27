@@ -18,9 +18,5 @@ Rails.application.routes.draw do
       jsonapi_resources :bookmarks, only: %i[index show create update destroy]
       jsonapi_resources :tags, only: %i[index show]
     end
-
-    get '*_', to: 'frontend#missing'
   end
-
-  get '*_', to: 'frontend#index'
 end
