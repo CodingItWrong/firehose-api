@@ -26,7 +26,7 @@ module Api
              records.where('title ILIKE ?', "%#{value[0]}%")
            }
 
-    paginator :paged
+    paginator :optional_paged
 
     before_save :populate_title
     before_save :check_for_publish
