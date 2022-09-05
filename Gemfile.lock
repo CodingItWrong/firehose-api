@@ -130,6 +130,8 @@ GEM
       activerecord (>= 4.1)
       concurrent-ruby
       railties (>= 4.1)
+    jsonapi-resources-optional_paginators (0.1.0)
+      jsonapi-resources
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -315,6 +317,7 @@ DEPENDENCIES
   factory_bot_rails
   httparty
   jsonapi-resources (< 0.10)
+  jsonapi-resources-optional_paginators
   listen (>= 3.0.5, < 3.8)
   nokogiri (>= 1.11.0.rc4)
   pg (~> 1.4)
