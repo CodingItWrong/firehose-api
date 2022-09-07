@@ -117,7 +117,7 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http-form_data (2.2.0)
-    http-parser (1.2.1)
+    http-parser (1.2.3)
       ffi-compiler (>= 1.0, < 2.0)
     http_parser.rb (0.6.0)
     httparty (0.20.0)
@@ -315,6 +315,7 @@ DEPENDENCIES
   doorkeeper
   dotenv-rails
   factory_bot_rails
+  http-parser (~> 1.2.3)
   httparty
   jsonapi-resources (< 0.10)
   jsonapi-resources-optional_paginators
