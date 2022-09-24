@@ -4,9 +4,13 @@ require 'rails_helper'
 
 RSpec.describe Link do
   describe '.search' do
-    it 'returns records with a matching title' do
+    it 'returns records with a matching title, comment, or url' do
       FactoryBot.create(:link, title: 'Alpaca Bags')
-      matches = [FactoryBot.create(:link, title: 'A Llama Observed')]
+      matches = [
+        FactoryBot.create(:link, title: 'A Llama Observed'),
+        FactoryBot.create(:link, url: 'https://llamas.example.com'),
+        FactoryBot.create(:link, title: 'My Camel', comment: 'Actually a llama'),
+      ]
 
       expect(Link.search('llama')).to eq(matches)
     end
