@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Link do
-  describe 'tag_list' do
+  describe '#tag_list' do
     let(:link) { FactoryBot.create(:link) }
 
     context 'when nil is assigned' do
