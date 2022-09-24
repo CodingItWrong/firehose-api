@@ -23,7 +23,7 @@ module Api
     filter :read
     filter :title,
            apply: lambda { |records, value, _options|
-             records.where('title ILIKE ?', "%#{value[0]}%")
+             records.search(value[0])
            }
 
     paginator :optional_paged

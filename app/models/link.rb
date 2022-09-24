@@ -8,6 +8,7 @@ class Link < ApplicationRecord
   scope :read, -> { where(read: true) }
   scope :in_move_order, -> { order(moved_to_list_at: :desc) }
   scope :in_publish_order, -> { order(published_at: :desc) }
+  scope :search, ->(query) { where('title ILIKE ?', "%#{query}%") }
 
   before_save :populate_tags_from_tag_list
   before_create :set_default_values

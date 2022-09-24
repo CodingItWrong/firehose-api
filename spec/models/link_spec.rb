@@ -3,6 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe Link do
+  describe '.search' do
+    it 'returns records with a matching title' do
+      FactoryBot.create(:link, title: 'Alpaca Bags')
+      matches = [FactoryBot.create(:link, title: 'A Llama Observed')]
+
+      expect(Link.search('llama')).to eq(matches)
+    end
+  end
+
   describe '#tag_list' do
     let(:link) { FactoryBot.create(:link) }
 
