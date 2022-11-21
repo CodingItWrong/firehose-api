@@ -2,7 +2,7 @@
 
 An open-source web service API for link saving and sharing. Allows you to own and share your own content. See an example at [links.codingitwrong.com](https://links.codingitwrong.com)!
 
-To make use of this API, you'll need a frontend. There is currently an [Ember.js web frontend](https://github.com/CodingItWrong/firehose-ember) available.
+To make use of this API, you'll need a frontend. There is currently a [React web frontend](https://github.com/CodingItWrong/firehose-web) available.
 
 An [iOS share extension app](https://github.com/CodingItWrong/Hydrant) is also available.
 
