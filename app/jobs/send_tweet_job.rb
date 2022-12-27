@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'twitter_client'
+require "twitter_client"
 
 class SendTweetJob < ApplicationJob
   queue_as :default

@@ -9,9 +9,9 @@ class Link < ApplicationRecord
   scope :in_move_order, -> { order(moved_to_list_at: :desc) }
   scope :in_publish_order, -> { order(published_at: :desc) }
   scope :search, ->(query) {
-    where('title ILIKE ?', "%#{query}%")
-      .or(where('url ILIKE ?', "%#{query}%"))
-      .or(where('comment ILIKE ?', "%#{query}%"))
+    where("title ILIKE ?", "%#{query}%")
+      .or(where("url ILIKE ?", "%#{query}%"))
+      .or(where("comment ILIKE ?", "%#{query}%"))
   }
 
   before_save :populate_tags_from_tag_list
@@ -21,7 +21,7 @@ class Link < ApplicationRecord
   attr_writer :tag_list
 
   def tag_list
-    tags.map(&:name).join(' ')
+    tags.map(&:name).join(" ")
   end
 
   def public?
@@ -61,7 +61,7 @@ class Link < ApplicationRecord
   private
 
   def js_truthy(set_public)
-    set_public != false && set_public != '0'
+    set_public != false && set_public != "0"
   end
 
   def set_default_values

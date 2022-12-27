@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'httparty'
-require 'nokogiri'
-require 'fake_link_parser'
+require "httparty"
+require "nokogiri"
+require "fake_link_parser"
 
 class LinkParser
   def self.class_to_instantiate
@@ -21,7 +21,7 @@ class LinkParser
     class_to_instantiate.new(
       url: url,
       timeout_seconds: timeout_seconds,
-      logger: logger,
+      logger: logger
     )
   end
 
@@ -40,7 +40,7 @@ class LinkParser
 
   def title
     title = title_from_page(url)
-    return title if title != ''
+    return title if title != ""
     last_path_segment(url)
   # Have not been able to find a set of parent classes that capture all exceptions, especially from sites specifically trying to prevent scraping
   rescue # rubocop:disable Style/RescueStandardError
@@ -53,7 +53,7 @@ class LinkParser
 
   def title_from_page(url)
     nokogiri = parse(get(url).body)
-    unescape(nokogiri.xpath('(//title)[1]').text.strip)
+    unescape(nokogiri.xpath("(//title)[1]").text.strip)
   end
 
   def get(url)
@@ -70,15 +70,15 @@ class LinkParser
 
   def refresh_url(response)
     refresh_tag =
-      parse(response.body).xpath('//meta').find do |meta_tag|
-        attribute = attribute_case_insensitive(meta_tag, 'http-equiv')
+      parse(response.body).xpath("//meta").find do |meta_tag|
+        attribute = attribute_case_insensitive(meta_tag, "http-equiv")
         return false if attribute.nil?
-        attribute.value.downcase == 'refresh'
+        attribute.value.downcase == "refresh"
       end
     return if refresh_tag.nil?
 
-    refresh_content = attribute_case_insensitive(refresh_tag, 'content')
-    refresh_content.value.split('url=')[1]
+    refresh_content = attribute_case_insensitive(refresh_tag, "content")
+    refresh_content.value.split("url=")[1]
   end
 
   def absolute_url(original_url, url)
@@ -87,7 +87,7 @@ class LinkParser
 
     # if uri is only a non-relative path, you need to prepend
     # the path from the location of the document
-    unless uri.path.start_with?('/')
+    unless uri.path.start_with?("/")
       uri.path = File.join current_page.path, uri.path
     end
 
@@ -112,6 +112,6 @@ class LinkParser
   end
 
   def last_path_segment(url)
-    url.split('?').first.split('/').last.titleize
+    url.split("?").first.split("/").last.titleize
   end
 end

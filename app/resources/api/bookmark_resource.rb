@@ -1,30 +1,30 @@
 # frozen_string_literal: true
 
-require 'link_parser'
+require "link_parser"
 
 module Api
   class BookmarkResource < ApplicationResource
-    model_name 'Link'
+    model_name "Link"
 
-    attributes *%i[
-                 title
-                 url
-                 comment
-                 source
-                 read
-                 moved_to_list_at
-                 public
-                 published_at
-                 tag_list
-               ]
+    attributes(*%i[
+      title
+      url
+      comment
+      source
+      read
+      moved_to_list_at
+      public
+      published_at
+      tag_list
+    ])
 
-    relationship :tags, to: :many, class_name: 'Tag'
+    relationship :tags, to: :many, class_name: "Tag"
 
     filter :read
     filter :title,
-           apply: lambda { |records, value, _options|
-             records.search(value[0])
-           }
+      apply: lambda { |records, value, _options|
+        records.search(value[0])
+      }
 
     paginator :optional_paged
 
