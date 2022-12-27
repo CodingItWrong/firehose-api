@@ -33,6 +33,7 @@ class LinkParser
 
   def canonical
     get(url).request.last_uri.to_s
+  # Have not been able to find a set of parent classes that capture all exceptions, especially from sites specifically trying to prevent scraping
   rescue # rubocop:disable Style/RescueStandardError
     url
   end
@@ -41,6 +42,7 @@ class LinkParser
     title = title_from_page(url)
     return title if title != ''
     last_path_segment(url)
+  # Have not been able to find a set of parent classes that capture all exceptions, especially from sites specifically trying to prevent scraping
   rescue # rubocop:disable Style/RescueStandardError
     last_path_segment(url)
   end
