@@ -33,7 +33,7 @@ class LinkParser
 
   def canonical
     get(url).request.last_uri.to_s
-  rescue IOError, OpenSSL::SSL::SSLError, Net::ReadTimeout
+  rescue IOError, OpenSSL::SSL::SSLError, Net::ReadTimeout, Net::HTTPInternalServerError
     url
   end
 
@@ -41,7 +41,7 @@ class LinkParser
     title = title_from_page(url)
     return title if title != ''
     last_path_segment(url)
-  rescue IOError, OpenSSL::SSL::SSLError, Net::ReadTimeout
+  rescue IOError, OpenSSL::SSL::SSLError, Net::ReadTimeout, Net::HTTPInternalServerError
     last_path_segment(url)
   end
 
