@@ -6,8 +6,8 @@ Doorkeeper.configure do
   skip_client_authentication_for_password_grant true
 
   resource_owner_from_credentials do
-    user = User.find_for_database_authentication(:email => params[:username])
-    if user && user.valid_for_authentication? { user.valid_password?(params[:password]) }
+    user = User.find_for_database_authentication(email: params[:username])
+    if user&.valid_for_authentication? { user.valid_password?(params[:password]) }
       user
     end
   end

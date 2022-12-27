@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Tag do
-  describe '#used' do
-    it 'does not return unused tags' do
+  describe "#used" do
+    it "does not return unused tags" do
       FactoryBot.create(:tag) # unused
       used_tag = FactoryBot.create(:tag)
       FactoryBot.create(:link, tags: [used_tag])
@@ -14,7 +14,7 @@ RSpec.describe Tag do
       expect(results).to eql([used_tag])
     end
 
-    it 'removes duplicates' do
+    it "removes duplicates" do
       tag = FactoryBot.create(:tag)
       FactoryBot.create_list(:link, 2, tags: [tag])
 
@@ -24,8 +24,8 @@ RSpec.describe Tag do
     end
   end
 
-  describe '#publicly_visible' do
-    it 'does not return unused tags' do
+  describe "#publicly_visible" do
+    it "does not return unused tags" do
       FactoryBot.create(:tag) # unused
       used_tag = FactoryBot.create(:tag)
       FactoryBot.create(:link, :public, tags: [used_tag])
@@ -35,7 +35,7 @@ RSpec.describe Tag do
       expect(results).to eql([used_tag])
     end
 
-    it 'does not return tags for private links' do
+    it "does not return tags for private links" do
       private_tag = FactoryBot.create(:tag)
       FactoryBot.create(:link, tags: [private_tag])
       public_tag = FactoryBot.create(:tag)
@@ -46,7 +46,7 @@ RSpec.describe Tag do
       expect(results).to eql([public_tag])
     end
 
-    it 'removes duplicates' do
+    it "removes duplicates" do
       tag = FactoryBot.create(:tag)
       FactoryBot.create_list(:link, 2, :public, tags: [tag])
 

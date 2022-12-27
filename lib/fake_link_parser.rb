@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require 'active_support/core_ext/string/inflections'
+require "active_support/core_ext/string/inflections"
 
 class FakeLinkParser
   def self.process(url:, timeout_seconds:, logger:)
     new(
       url: url,
       timeout_seconds: timeout_seconds,
-      logger: logger,
+      logger: logger
     )
   end
 
@@ -18,7 +18,7 @@ class FakeLinkParser
   end
 
   def title
-    url.split('/').last.titleize
+    url.split("/").last.titleize
   end
 
   def canonical

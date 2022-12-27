@@ -13,7 +13,7 @@ module Webhooks
     private
 
     def verify_api_key
-      provided_header = request.headers['HTTP_AUTHORIZATION']
+      provided_header = request.headers["HTTP_AUTHORIZATION"]
       required_header = "Bearer #{FirehoseConfig.api_key}"
       head :unauthorized unless provided_header == required_header
     end

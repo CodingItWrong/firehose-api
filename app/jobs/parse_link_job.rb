@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'link_parser'
+require "link_parser"
 
 class ParseLinkJob < ApplicationJob
   def self.parse(link_params)
@@ -10,12 +10,12 @@ class ParseLinkJob < ApplicationJob
   def perform(link_params)
     parsed_link = link_parser.process(
       url: link_params[:url],
-      timeout_seconds: 30,
+      timeout_seconds: 30
     )
 
     attributes = {
       url: parsed_link.canonical,
-      title: link_params[:title],
+      title: link_params[:title]
     }
     attributes[:title] = parsed_link.title if default_title?(link_params)
 

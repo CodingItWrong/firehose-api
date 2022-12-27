@@ -10,7 +10,7 @@ class ChangePublicToPublishedAtInLinks < ActiveRecord::Migration[5.1]
 
   def down
     add_column :links, :public, :boolean
-    Link.where('published_at IS NOT NULL').update_all(public: true)
+    Link.where("published_at IS NOT NULL").update_all(public: true)
     remove_column :links, :published_at, :datetime
   end
 end
