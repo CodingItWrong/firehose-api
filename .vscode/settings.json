@@ -1,0 +1,7 @@
+{
+  "ruby.lint": {
+    "rubocop": false,
+    "standard": true
+  },
+  "ruby.format": "standard"
+}
