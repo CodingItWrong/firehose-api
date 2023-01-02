@@ -321,7 +321,7 @@ DEPENDENCIES
   jsonapi-resources (< 0.10)
   jsonapi-resources-optional_paginators
   listen (>= 3.0.5, < 3.8)
-  nokogiri (>= 1.11.0.rc4)
+  nokogiri
   pg (~> 1.4)
   pry-byebug
   pry-rails
