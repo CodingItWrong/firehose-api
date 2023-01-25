@@ -18,7 +18,7 @@ gem "rack-cors"
 gem "nokogiri"
 
 group :development do
-  gem "listen", ">= 3.0.5", "< 3.8"
+  gem "listen", ">= 3.0.5", "< 3.9"
 end
 
 group :development, :test do
