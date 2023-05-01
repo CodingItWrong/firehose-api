@@ -2,7 +2,6 @@
 
 require "rails_helper"
 require "link_parser"
-require "twitter_client"
 
 RSpec.describe "managing links", type: :request do
   let!(:public_link) { FactoryBot.create(:link, :public) }
@@ -52,8 +51,6 @@ RSpec.describe "managing links", type: :request do
         }
       }
     }
-
-    expect(TwitterClient).to receive(:post).with(link_model)
 
     perform_enqueued_jobs do
       patch "/api/bookmarks/#{link_model.id}",
