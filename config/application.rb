@@ -39,7 +39,5 @@ module Firehose
         resource "*", headers: :any, methods: :any
       end
     end
-
-    config.active_record.legacy_connection_handling = false
   end
 end
