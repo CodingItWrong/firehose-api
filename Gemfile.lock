@@ -187,7 +187,7 @@ GEM
     psych (5.2.0)
       stringio
     public_suffix (6.0.1)
-    puma (6.4.3)
+    puma (6.5.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.8)
@@ -341,7 +341,7 @@ DEPENDENCIES
   pg (~> 1.5)
   pry-byebug
   pry-rails
-  puma (~> 6.4)
+  puma (~> 6.5)
   rack-attack
   rack-cors
   rails (~> 8.0.0)
