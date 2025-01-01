@@ -238,7 +238,7 @@ GEM
       ffi (~> 1.0)
     rdoc (6.10.0)
       psych (>= 4.0.0)
-    redis-client (0.22.2)
+    redis-client (0.23.0)
       connection_pool
     regexp_parser (2.10.0)
     reline (0.6.0)
@@ -283,7 +283,7 @@ GEM
       rubocop-ast (>= 1.31.1, < 2.0)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
-    sidekiq (7.3.6)
+    sidekiq (7.3.7)
       connection_pool (>= 2.3.0)
       logger
       rack (>= 2.2.4)
