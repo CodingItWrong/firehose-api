@@ -4,7 +4,7 @@ ruby file: ".ruby-version"
 
 gem "rails", "~> 8.0.1"
 gem "pg", "~> 1.5"
-gem "puma", "~> 6.5"
+gem "puma", "~> 6.6"
 gem "devise"
 gem "dotenv-rails"
 gem "httparty"
