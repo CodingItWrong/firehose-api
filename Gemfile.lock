@@ -156,7 +156,7 @@ GEM
     minitest (5.25.4)
     multi_xml (0.7.0)
       bigdecimal (~> 3.1)
-    net-imap (0.5.4)
+    net-imap (0.5.6)
       date
       net-protocol
     net-pop (0.1.2)
