@@ -116,7 +116,7 @@ GEM
       rake
     globalid (1.2.1)
       activesupport (>= 6.1)
-    hashdiff (1.1.1)
+    hashdiff (1.1.2)
     http-parser (1.2.3)
       ffi-compiler (>= 1.0, < 2.0)
     httparty (0.22.0)
@@ -247,7 +247,7 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.3.9)
+    rexml (3.4.1)
     rspec-core (3.13.2)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.3)
@@ -319,7 +319,7 @@ GEM
       base64
     warden (1.2.9)
       rack (>= 2.0.9)
-    webmock (3.24.0)
+    webmock (3.25.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
